@@ -1,0 +1,9 @@
+{
+  "purpose": "User-authorized Web invocation of existing fault_injection switch",
+  "baseline_sha256": "f2a1e56db6a5a2b0f0cd6380c2f2a7a02692e4df4b9110469bad874d049da56a",
+  "instrumented_sha256": "eb2629e71e3995cc541acec89ac17c9594a155f6ed4246eb1337508cd8194899",
+  "scope": "isolated server checkout only; port 18504 process enables flag; port 18503 keeps existing module",
+  "injection_implementation": "existing orchestration/candidate.py and execution_ops.FAULT unchanged",
+  "real_model": true,
+  "authorization": "user explicitly allowed fault injection on 2026-11-02"
+}

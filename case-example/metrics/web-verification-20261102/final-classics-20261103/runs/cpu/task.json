@@ -1,0 +1,114 @@
+{
+  "acceptance_criteria": {
+    "max_false_alarms_per_hour": null,
+    "min_event_f1": null,
+    "min_event_recall": null
+  },
+  "allowed_methods": [
+    "fixed_threshold"
+  ],
+  "anomaly_target": "upper",
+  "budgets": {
+    "candidates": 1,
+    "model_calls": 16,
+    "repair_rounds": 2,
+    "wall_seconds": 900
+  },
+  "dataset_id": "sim-cpu_spike-v1",
+  "evaluation_objective": "event_detection",
+  "explicit_constraints": {
+    "direction": "upper",
+    "persistence_points": 3.0,
+    "threshold": 90.0
+  },
+  "knowledge_snapshot": "sha256:9bb94b5e6a37ddc26f472653b398cce33b9f5c175c49cee6bb9706938581dcca",
+  "metric": "cpu_utilization",
+  "model_mode": "api",
+  "model_profile_id": "metrics-c9a0036e73b91ba3",
+  "ranking_preferences": [],
+  "requirement": "用模拟数据生成单主机 CPU 异常检测程序。超过 90% 且连续 3 个采样点才报警，只使用固定阈值，输出代码和验证报告。",
+  "requirement_draft": {
+    "binding": "sha256:b44aa5f27ab7fbb8441ce46aa7337a3cc6b06d994a6c99e2127013aff2fc84cc",
+    "defaults": [
+      "选优偏好：balanced",
+      "模拟数据：每 60 秒一点，独立四段；允许最多前向填补 3 点。",
+      "未明确变化形态：CPU默认突增、内存默认阶跃模拟场景；模拟结果不代表生产效果。"
+    ],
+    "evidence": {
+      "data_source": {
+        "origin": "user_explicit",
+        "quote": "模拟",
+        "turn": 1
+      },
+      "direction": {
+        "origin": "user_explicit",
+        "quote": "用模拟数据生成单主机 CPU 异常检测程序。超过 90% 且连续 3 个采样点才报警，只使用固定阈值，输出代码和验证报告。",
+        "turn": 1
+      },
+      "evaluation_objective": {
+        "origin": "user_explicit",
+        "quote": "超过 90% 且连续 3 个采样点才报警",
+        "turn": 1
+      },
+      "methods": {
+        "origin": "user_explicit",
+        "quote": "用模拟数据生成单主机 CPU 异常检测程序。超过 90% 且连续 3 个采样点才报警，只使用固定阈值，输出代码和验证报告。",
+        "turn": 1
+      },
+      "persistence_points": {
+        "origin": "user_explicit",
+        "quote": "连续 3 个采样点",
+        "turn": 1
+      },
+      "scenario": {
+        "origin": "user_explicit",
+        "quote": "用模拟数据生成单主机 CPU 异常检测程序。超过 90% 且连续 3 个采样点才报警，只使用固定阈值，输出代码和验证报告。",
+        "turn": 1
+      },
+      "selection_policy": {
+        "origin": "protocol_default",
+        "quote": "协议默认值",
+        "turn": 0
+      },
+      "threshold": {
+        "origin": "user_explicit",
+        "quote": "超过 90%",
+        "turn": 1
+      }
+    },
+    "issues": [],
+    "model_mode": "api",
+    "model_usage": {
+      "input_tokens": 2194,
+      "kind": "api",
+      "missing_usage_requests": 0,
+      "notice": "Counts include retries and repairs; tokens are provider-reported only; missing usage is not zero.",
+      "output_tokens": 398,
+      "requests": 2,
+      "reservations": 2,
+      "total_tokens": 2592
+    },
+    "parse_task_id": "understand-6e91d958fb314898",
+    "revision": 1,
+    "schema_version": "metrics-requirement-draft/1",
+    "turns": [
+      "用模拟数据生成单主机 CPU 异常检测程序。超过 90% 且连续 3 个采样点才报警，只使用固定阈值，输出代码和验证报告。"
+    ],
+    "values": {
+      "data_source": "simulation",
+      "direction": "upper",
+      "evaluation_objective": "event_detection",
+      "methods": [
+        "fixed_threshold"
+      ],
+      "persistence_points": 3,
+      "scenario": "cpu_spike",
+      "selection_policy": "balanced",
+      "threshold": 90.0
+    }
+  },
+  "schema_version": "metrics-task/1",
+  "selection_policy": "balanced",
+  "task_id": "ui-3dea5cbfa50d4154",
+  "validation_protocol": "metrics-evaluation/1"
+}

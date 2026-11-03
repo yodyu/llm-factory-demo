@@ -1,0 +1,26 @@
+[
+  {
+    "task_id": "ingest-bugfix-20261103-1",
+    "status": "SUCCEEDED",
+    "phase": "CREATED",
+    "spec_hash": "sha256:398640b0597a1864e9727096fff1af06d460a1ee00c15ab5d36ae495bd173713"
+  },
+  {
+    "task_id": "understand-c63e8a497e3d48f3",
+    "status": "SUCCEEDED",
+    "phase": "CREATED",
+    "spec_hash": "sha256:f4279edfb9dc59a7b7770585eef2cc1740a40839e11c0e17515940e900bb1cdb"
+  },
+  {
+    "task_id": "understand-f08c36f47ec5497c",
+    "status": "SUCCEEDED",
+    "phase": "CREATED",
+    "spec_hash": "sha256:30fbafa5d4a9eb5822145b948de5babb54ee4166cae0d20d1e3236133cebe1a4"
+  },
+  {
+    "task_id": "ui-176b9b949a214571",
+    "status": "SUCCEEDED",
+    "phase": "COMPLETED",
+    "spec_hash": "sha256:69084d0e7ca13bab63979f7ce7e477eb207676b5c6ccb658d4199bd5c54cde07"
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "schema_version": "metrics-task/1",
+  "task_id": "upload-unlabelled",
+  "requirement": "检测内存持续升高，明确业务阈值85，连续两点告警",
+  "dataset_id": "upload-987caa2d0659ec6fb3543301",
+  "metric": "memory_utilization",
+  "anomaly_target": "upper",
+  "explicit_constraints": {
+    "threshold": 85.0,
+    "direction": "upper",
+    "persistence_points": 2.0
+  },
+  "ranking_preferences": [],
+  "allowed_methods": [
+    "fixed_threshold",
+    "rolling_mad"
+  ],
+  "knowledge_snapshot": "sha256:07d023872844c723de8c4a0f86c8828c11648b4300b67126118f775414cf44da",
+  "validation_protocol": "metrics-evaluation/1",
+  "budgets": {
+    "model_calls": 16,
+    "repair_rounds": 2,
+    "candidates": 2,
+    "wall_seconds": 900
+  },
+  "model_mode": "mock",
+  "model_profile_id": "metrics-mock-v1"
+}

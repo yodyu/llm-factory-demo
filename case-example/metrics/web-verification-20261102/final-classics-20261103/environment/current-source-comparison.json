@@ -1,0 +1,6 @@
+{
+  "current_source_baseline": "delivered-source-files",
+  "execution_archive": "final-classic-source-archive",
+  "source_files_byte_equal": 116,
+  "comparison": "src/scripts/capabilities/materials; all match the executed archive"
+}

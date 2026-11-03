@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-11-03T11:11:53.033093+08:00",
+  "status": "PASSED",
+  "completed_real_web_tasks": 4,
+  "browser_report_downloads_verified": 4,
+  "screenshots_verified": 36,
+  "links_checked": 203,
+  "memory_experiences_provided_and_cited_by_disk": 2,
+  "source_files_verified_in_both_copies": 116,
+  "real_requests_added": 18,
+  "old_human_report_files_removed": 10,
+  "credential_content_matches": 0
+}

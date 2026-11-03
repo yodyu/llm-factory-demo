@@ -1,0 +1,19 @@
+{
+  "purpose": "Cross-checks of exported evidence; not additional model requests",
+  "checks": {
+    "two_new_tasks_completed": true,
+    "five_new_candidates_reference_verified": true,
+    "frozen_and_selection_objectives_match": true,
+    "memory_uses_recall_policy": true,
+    "disk_uses_precision_policy": true,
+    "H_experience_retrieved_by_C": true,
+    "H_experience_in_actual_C_prompt": true,
+    "H_experience_cited_by_generated_C_code": true,
+    "publication_complete": true,
+    "new_model_requests_ten": true,
+    "no_unprovided_knowledge_citations": true,
+    "experience_to_validation": true,
+    "implementation_to_validation": true,
+    "reused_H_experience_to_validation": true
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "source_baseline": "final-classic-source-archive",
+  "source_files_verified": 116,
+  "knowledge_seed_snapshot": "sha256:9bb94b5e6a37ddc26f472653b398cce33b9f5c175c49cee6bb9706938581dcca",
+  "seed_experiences": 0,
+  "seed_material_sources": 8,
+  "pids": {
+    "18503": 3840228,
+    "18504": 3840257
+  },
+  "namespace": "final-classic-web-20261103",
+  "image": "sha256:ec7e3f613d45080c580bed6c83b6404df77b17a7cb72be69bacc80cce954ed31",
+  "repair_scope": "separate repair-demo copy; existing fault_injection switch only; user approved",
+  "normal_creation_sha256": "f2a1e56db6a5a2b0f0cd6380c2f2a7a02692e4df4b9110469bad874d049da56a",
+  "instrumented_creation_sha256": "eb2629e71e3995cc541acec89ac17c9594a155f6ed4246eb1337508cd8194899"
+}

@@ -1,0 +1,220 @@
+{
+  "checked_at": "2026-11-03T10:44:45.829101+08:00",
+  "real_sources_checked": 8,
+  "real_source_total": 8,
+  "complete_algorithm_specs": 0,
+  "format_corrections": [
+    {
+      "call_id": "ingest-bugfix-20261103-1:extract-3:format-1",
+      "issues": [
+        {
+          "field": "capabilities",
+          "type": "model_type",
+          "path": "capabilities[0]"
+        },
+        {
+          "field": "capabilities",
+          "type": "model_type",
+          "path": "capabilities[1]"
+        },
+        {
+          "field": "capabilities",
+          "type": "model_type",
+          "path": "capabilities[2]"
+        },
+        {
+          "field": "capabilities",
+          "type": "model_type",
+          "path": "capabilities[3]"
+        }
+      ]
+    }
+  ],
+  "source_checked_is_not_implementation_verified": true,
+  "web_runs": [
+    {
+      "task_id": "ui-176b9b949a214571",
+      "status": "COMPLETED",
+      "origin": "llm_api",
+      "candidate_count": 4,
+      "methods": [
+        "ewma",
+        "fixed_threshold",
+        "rolling_mad",
+        "threshold_probe"
+      ],
+      "browser_download_matches_server": true,
+      "selected": "fixed_threshold_85_p2",
+      "final": {
+        "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+        "coverage": {
+          "denominator": 240,
+          "null_reason": null,
+          "numerator": 240,
+          "value": 1.0
+        },
+        "effect_status": "MEASURED",
+        "engineering_status": "PASSED",
+        "event": {
+          "f1": {
+            "denominator": 2,
+            "null_reason": null,
+            "numerator": 2,
+            "value": 1.0
+          },
+          "fn": 0,
+          "fp": 0,
+          "pairs": [
+            {
+              "delay_seconds": 60.0,
+              "prediction_id": "pred-0000",
+              "truth_id": "truth-0000"
+            }
+          ],
+          "precision": {
+            "denominator": 1,
+            "null_reason": null,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 1,
+            "null_reason": null,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "tp": 1,
+          "unmatched_prediction_ids": [],
+          "unmatched_truth_ids": []
+        },
+        "execution_status": "SUCCEEDED",
+        "matched_delay_seconds": {
+          "maximum": 60.0,
+          "median": 60.0,
+          "missed_events": 0,
+          "null_reason": null
+        },
+        "normal_false_alarms_per_host_hour": {
+          "denominator": 10800,
+          "null_reason": null,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "peak_memory_bytes": null,
+        "peak_memory_null_reason": "not_measured",
+        "phase": "test",
+        "point": {
+          "abstained_normal": 0,
+          "f1": {
+            "denominator": 119,
+            "null_reason": null,
+            "numerator": 118,
+            "value": 0.9915966386554622
+          },
+          "fn": 1,
+          "fp": 0,
+          "precision": {
+            "denominator": 59,
+            "null_reason": null,
+            "numerator": 59,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 60,
+            "null_reason": null,
+            "numerator": 59,
+            "value": 0.9833333333333333
+          },
+          "tn": 180,
+          "total": 240,
+          "tp": 59
+        },
+        "predicted_events": [
+          {
+            "end_at": "2026-01-04T03:40:00Z",
+            "event_id": "pred-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-04T02:41:00Z",
+            "trigger_at": "2026-01-04T02:41:00Z"
+          }
+        ],
+        "protocol": "metrics-evaluation/1",
+        "runtime_seconds": 0.08965741842985153,
+        "selected": "fixed_threshold_85_p2",
+        "selection_sha256": "sha256:68d00fb161fd7f43e31f251e4350fc63d1cd89feb40f7716a9808be17a826ae8",
+        "test_execution_started": true,
+        "truth_events": [
+          {
+            "end_at": "2026-01-04T03:40:00Z",
+            "event_id": "truth-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-04T02:40:00Z",
+            "trigger_at": "2026-01-04T02:40:00Z"
+          }
+        ]
+      },
+      "all_versions": [
+        [
+          {
+            "origin": "llm_api",
+            "passed": true,
+            "checks": 10
+          }
+        ],
+        [
+          {
+            "origin": "llm_api",
+            "passed": true,
+            "checks": 8
+          }
+        ],
+        [
+          {
+            "origin": "llm_api",
+            "passed": true,
+            "checks": 12
+          }
+        ],
+        [
+          {
+            "origin": "llm_api",
+            "passed": true,
+            "checks": 8
+          }
+        ]
+      ],
+      "model_usage": {
+        "kind": "api",
+        "requests": 5,
+        "reservations": 5,
+        "input_tokens": 212949,
+        "output_tokens": 9094,
+        "total_tokens": 222043,
+        "missing_usage_requests": 0,
+        "notice": "Counts include retries and repairs; tokens are provider-reported only; missing usage is not zero."
+      },
+      "publication": {
+        "publication_id": "publication-2f3a15d5f8999d8956aab9e1dd1c279a09f158bba89c98772be47a980bd67701",
+        "node_ids": [
+          "experience-0cbde211d322007dbb38f49e830fa93c5c725cf4f6bcfa1072ef6d6147fe3981",
+          "experience-2e2de95c1ebbd396cf7383ff5561cbd8a0dfa69dfa1a0bee28174a5013be53f0",
+          "experience-4d15c613d378b941e943b85757c9108b4605a4901506c6d0d11d1b7e5be101bb",
+          "experience-c2550d16f1463c8d056bf0c1174c32f3742a751d25d2ec9c83352f16fda53b1a",
+          "implementation-394f81339e6007c7657205fe8e42707ba98aa2457dcb0232055c10324d1fdf5d",
+          "implementation-bd2bae91dbbbdae6f3217bd2b18a4571ed06970381707b842e7b4cf356636282",
+          "implementation-cf10ccc1dc1c41ec6e32b507dbd5ccedf6ea9af64644ffcfecdbaca308732c6a",
+          "implementation-dbed84170ad50b2cacb8eb26cd4aed0af41b465d7ef32fb431f7b4dbbf5a6b81",
+          "validation-08552c2600297d29ffd9eae022513e60d35839f87194e6fab5d20075436a17e7",
+          "validation-13e6ff0110dcff725643e11424f3305f28d25bfb387360d09cb221da046e7188",
+          "validation-29c1e12f6b3fadde3921835f9910251f04ca87e6a5f12ee4fecf24a7ae557a67",
+          "validation-958b06d187b68be955e48690af7a9777c99147bf16921afd7980f4e8b54ebfb6"
+        ],
+        "status": "PUBLISHED"
+      }
+    }
+  ],
+  "credential_content_matches": 0,
+  "campaign_lifetime_reserved": 57
+}

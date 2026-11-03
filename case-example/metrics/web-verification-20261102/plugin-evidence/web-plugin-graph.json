@@ -1,0 +1,2115 @@
+{
+  "nodes": [
+    {
+      "id": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "kind": "Capability",
+      "payload": {
+        "algorithm_spec": "固定阈值：upper=x-T，lower=T-x，evidence包含threshold；缺失value时missing_input。等于阈值时分数为0，只有严格大于0才告警。fit仅确认存在有效训练值；reset无历史状态。",
+        "citations": [
+          {
+            "chunk_id": "chunk-3de83e077a588d3a978a16389a6039ac7d4de6614aa802681562991930b3ca3b",
+            "quote": "\"version\": \"1.0.0\"",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-fce04961c109107ffd611494c419849c4ee201b5874238d20f3d55d0dbc44ecc",
+            "quote": "\"task_type\": \"time_series_anomaly_detection\"",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-881013ea0b9d3af3b2e6b57a3fa19ca5b69c513e37c42cd8b734a7b10f96b0bf",
+            "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-95fb6c9ea67c44709e072b8f3c8517b5cd85aa20522d497dd7ad6adb09a38f39",
+            "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-00c94acd3b13aaa28d741227f81add8d4e9b3440aba472fb4310adab9a69c930",
+            "quote": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"threshold\",\n      \"direction\"\n    ],\n    \"properties\": {\n      \"threshold\": {\n        \"type\": \"number\",\n        \"minimum\": 0,\n        \"maximum\": 100\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-32e15938b2ec0b22b7ac784dfa0575317918574043cac80ee55aa4f5b064c580",
+            "quote": "\"defaults\": {\n    \"threshold\": 85.0,\n    \"direction\": \"upper\"\n  }",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-4ac273cc2f64f27c7cfbc14e3901c005949bd627a8069825115c94cf9cdb6022",
+            "quote": "\"algorithm_spec\": \"固定阈值：upper=x-T，lower=T-x，evidence包含threshold；缺失value时missing_input。等于阈值时分数为0，只有严格大于0才告警。fit仅确认存在有效训练值；reset无历史状态。\"",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-d5f856ae20f1a1f88cbb895271e018bcba528deb557c7f5ca0d7f48c0e30ae17",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-519cbaa53238232ad373995a7358be11aadddc5f319c591b19f1912d01be6139",
+            "quote": "\"supported_directions\": [\n    \"upper\",\n    \"lower\"\n  ]",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-8a980a6bed88ae6ac394e24cf35c16e7c8273c3640adb890e22a9818acaa22be",
+            "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-8447ab95fae263e25c8a305b3ba187b506d3331f0754e15cb760f589a2e56c87",
+            "quote": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-8b4479c1da56c83e95dcdd4ab6e8500a663bd2022c1823c9631076803b43646e",
+            "quote": "\"min_history\": 0",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+            "quote": "适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1，不需要历史基线。\nupper 分数为 x-T，lower 分数为 T-x。严格 score>0 才是异常候选；等号不触发。\n业务阈值必须来自用户明确值或有引用的业务材料；假设阈值要标为 candidate_assumption。\n本材料没有给定任何指标的业务阈值；禁止虚构业务达标保证。\ncalibration 不改变固定阈值 T；共享可信告警器处理连续点数和事件合并。",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+            "quote": "    def fit(self, train_points):\n        if not any(point[\"value\"] is not None for point in train_points):\n            raise ValueError(\"no valid training observations\")\n        self.reset()\n\n    def reset(self):\n        pass",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "constraints": [
+          "业务阈值须由用户确认；未指定值只是候选假设。"
+        ],
+        "defaults": {
+          "direction": "upper",
+          "threshold": 85.0
+        },
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "evaluation_metrics": [
+          "event_f1",
+          "point_f1",
+          "normal_false_alarms_per_host_hour",
+          "matched_delay_seconds"
+        ],
+        "field_evidence": {
+          "algorithm_spec": {
+            "chunk_id": "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+            "quote": "适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1，不需要历史基线。\nupper 分数为 x-T，lower 分数为 T-x。严格 score>0 才是异常候选；等号不触发。\n业务阈值必须来自用户明确值或有引用的业务材料；假设阈值要标为 candidate_assumption。\n本材料没有给定任何指标的业务阈值；禁止虚构业务达标保证。\ncalibration 不改变固定阈值 T；共享可信告警器处理连续点数和事件合并。",
+            "symbol": null
+          },
+          "defaults": {
+            "chunk_id": "chunk-32e15938b2ec0b22b7ac784dfa0575317918574043cac80ee55aa4f5b064c580",
+            "quote": "\"defaults\": {\n    \"threshold\": 85.0,\n    \"direction\": \"upper\"\n  }",
+            "symbol": null
+          },
+          "dependency_profile": {
+            "chunk_id": "chunk-8a980a6bed88ae6ac394e24cf35c16e7c8273c3640adb890e22a9818acaa22be",
+            "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+            "symbol": null
+          },
+          "evaluation_metrics": {
+            "chunk_id": "chunk-d5f856ae20f1a1f88cbb895271e018bcba528deb557c7f5ca0d7f48c0e30ae17",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          },
+          "inputs": {
+            "chunk_id": "chunk-881013ea0b9d3af3b2e6b57a3fa19ca5b69c513e37c42cd8b734a7b10f96b0bf",
+            "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          "metric_kinds": {
+            "chunk_id": "chunk-8447ab95fae263e25c8a305b3ba187b506d3331f0754e15cb760f589a2e56c87",
+            "quote": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]",
+            "symbol": null
+          },
+          "min_history": {
+            "chunk_id": "chunk-8b4479c1da56c83e95dcdd4ab6e8500a663bd2022c1823c9631076803b43646e",
+            "quote": "\"min_history\": 0",
+            "symbol": null
+          },
+          "outputs": {
+            "chunk_id": "chunk-95fb6c9ea67c44709e072b8f3c8517b5cd85aa20522d497dd7ad6adb09a38f39",
+            "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          "parameters": {
+            "chunk_id": "chunk-00c94acd3b13aaa28d741227f81add8d4e9b3440aba472fb4310adab9a69c930",
+            "quote": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"threshold\",\n      \"direction\"\n    ],\n    \"properties\": {\n      \"threshold\": {\n        \"type\": \"number\",\n        \"minimum\": 0,\n        \"maximum\": 100\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          "supported_directions": {
+            "chunk_id": "chunk-519cbaa53238232ad373995a7358be11aadddc5f319c591b19f1912d01be6139",
+            "quote": "\"supported_directions\": [\n    \"upper\",\n    \"lower\"\n  ]",
+            "symbol": null
+          },
+          "task_type": {
+            "chunk_id": "chunk-fce04961c109107ffd611494c419849c4ee201b5874238d20f3d55d0dbc44ecc",
+            "quote": "\"task_type\": \"time_series_anomaly_detection\"",
+            "symbol": null
+          },
+          "version": {
+            "chunk_id": "chunk-3de83e077a588d3a978a16389a6039ac7d4de6614aa802681562991930b3ca3b",
+            "quote": "\"version\": \"1.0.0\"",
+            "symbol": null
+          }
+        },
+        "implementation_verified": false,
+        "inputs": {
+          "properties": {
+            "host_id": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            },
+            "value": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "timestamp",
+            "host_id",
+            "value"
+          ],
+          "type": "object"
+        },
+        "knowledge_status": "source_checked",
+        "limitations": [
+          "expert authored plugin card; not model extraction"
+        ],
+        "local_id": "threshold_probe",
+        "manifest_field_evidence": {
+          "algorithm_spec": {
+            "chunk_id": "chunk-4ac273cc2f64f27c7cfbc14e3901c005949bd627a8069825115c94cf9cdb6022",
+            "quote": "\"algorithm_spec\": \"固定阈值：upper=x-T，lower=T-x，evidence包含threshold；缺失value时missing_input。等于阈值时分数为0，只有严格大于0才告警。fit仅确认存在有效训练值；reset无历史状态。\"",
+            "symbol": null
+          },
+          "defaults": {
+            "chunk_id": "chunk-32e15938b2ec0b22b7ac784dfa0575317918574043cac80ee55aa4f5b064c580",
+            "quote": "\"defaults\": {\n    \"threshold\": 85.0,\n    \"direction\": \"upper\"\n  }",
+            "symbol": null
+          },
+          "dependency_profile": {
+            "chunk_id": "chunk-8a980a6bed88ae6ac394e24cf35c16e7c8273c3640adb890e22a9818acaa22be",
+            "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+            "symbol": null
+          },
+          "evaluation_metrics": {
+            "chunk_id": "chunk-d5f856ae20f1a1f88cbb895271e018bcba528deb557c7f5ca0d7f48c0e30ae17",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          },
+          "inputs": {
+            "chunk_id": "chunk-881013ea0b9d3af3b2e6b57a3fa19ca5b69c513e37c42cd8b734a7b10f96b0bf",
+            "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          "metric_kinds": {
+            "chunk_id": "chunk-8447ab95fae263e25c8a305b3ba187b506d3331f0754e15cb760f589a2e56c87",
+            "quote": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]",
+            "symbol": null
+          },
+          "min_history": {
+            "chunk_id": "chunk-8b4479c1da56c83e95dcdd4ab6e8500a663bd2022c1823c9631076803b43646e",
+            "quote": "\"min_history\": 0",
+            "symbol": null
+          },
+          "outputs": {
+            "chunk_id": "chunk-95fb6c9ea67c44709e072b8f3c8517b5cd85aa20522d497dd7ad6adb09a38f39",
+            "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          "parameters": {
+            "chunk_id": "chunk-00c94acd3b13aaa28d741227f81add8d4e9b3440aba472fb4310adab9a69c930",
+            "quote": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"threshold\",\n      \"direction\"\n    ],\n    \"properties\": {\n      \"threshold\": {\n        \"type\": \"number\",\n        \"minimum\": 0,\n        \"maximum\": 100\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          "supported_directions": {
+            "chunk_id": "chunk-519cbaa53238232ad373995a7358be11aadddc5f319c591b19f1912d01be6139",
+            "quote": "\"supported_directions\": [\n    \"upper\",\n    \"lower\"\n  ]",
+            "symbol": null
+          },
+          "task_type": {
+            "chunk_id": "chunk-fce04961c109107ffd611494c419849c4ee201b5874238d20f3d55d0dbc44ecc",
+            "quote": "\"task_type\": \"time_series_anomaly_detection\"",
+            "symbol": null
+          },
+          "version": {
+            "chunk_id": "chunk-3de83e077a588d3a978a16389a6039ac7d4de6614aa802681562991930b3ca3b",
+            "quote": "\"version\": \"1.0.0\"",
+            "symbol": null
+          }
+        },
+        "method_id": "threshold_probe",
+        "metric_kinds": [
+          "gauge",
+          "rate"
+        ],
+        "min_history": 0,
+        "name": "阈值探针",
+        "origin": "reference",
+        "outputs": {
+          "properties": {
+            "evidence": {
+              "type": "object"
+            },
+            "score": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "status": {
+              "enum": [
+                "ok",
+                "insufficient_history",
+                "missing_input",
+                "invalid_input"
+              ]
+            }
+          },
+          "required": [
+            "timestamp",
+            "host_id",
+            "status",
+            "score",
+            "evidence"
+          ],
+          "type": "object"
+        },
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "direction": {
+              "enum": [
+                "upper",
+                "lower"
+              ]
+            },
+            "threshold": {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "threshold",
+            "direction"
+          ],
+          "type": "object"
+        },
+        "plugin_hashes": {
+          "capability.json": "sha256:be1f518eed062b83b27bd1790af70c7a38f576756cffe2f91e7eca4ba240160e",
+          "checks.py": "sha256:009933701326684689fb100d585f4bb44d596016fa7d9278147f6999566e9427",
+          "reference.py": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70"
+        },
+        "response_evidence": {
+          "origin": "reference",
+          "source_sha256": "sha256:be1f518eed062b83b27bd1790af70c7a38f576756cffe2f91e7eca4ba240160e"
+        },
+        "single_host": true,
+        "source_id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+        "source_status": "registered_card",
+        "spec_sources": [
+          {
+            "chunk_id": "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+            "end_line": 7,
+            "path": "materials/metrics/02-fixed-threshold.txt",
+            "quote": "适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1，不需要历史基线。\nupper 分数为 x-T，lower 分数为 T-x。严格 score>0 才是异常候选；等号不触发。\n业务阈值必须来自用户明确值或有引用的业务材料；假设阈值要标为 candidate_assumption。\n本材料没有给定任何指标的业务阈值；禁止虚构业务达标保证。\ncalibration 不改变固定阈值 T；共享可信告警器处理连续点数和事件合并。",
+            "sha256": "sha256:dc91558e86cf108f1796ad3f1ab2c5826c11517f8a443f9315d918f410ab5a3f",
+            "start_line": 3
+          },
+          {
+            "chunk_id": "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+            "end_line": 19,
+            "path": "materials/metrics/reference_fixed.py",
+            "quote": "    def fit(self, train_points):\n        if not any(point[\"value\"] is not None for point in train_points):\n            raise ValueError(\"no valid training observations\")\n        self.reset()\n\n    def reset(self):\n        pass",
+            "sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+            "start_line": 13
+          }
+        ],
+        "specification_sha256": "sha256:d78418b686499b015abb691e10e65fad63592d12ad25bcab36e2ced5af7a2060",
+        "summary": "阈值探针；业务阈值须由用户确认；未指定值只是候选假设。",
+        "supported_directions": [
+          "upper",
+          "lower"
+        ],
+        "task_type": "time_series_anomaly_detection",
+        "verification": "reference",
+        "verification_level": "contract_only",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "kind": "Capability",
+      "payload": {
+        "algorithm_spec": "固定阈值：upper=x-T，lower=T-x，evidence包含threshold；缺失value时missing_input。等于阈值时分数为0，只有严格大于0才告警。fit仅确认存在有效训练值；reset无历史状态。",
+        "citations": [
+          {
+            "chunk_id": "chunk-2d0ddc000c30e78b533d4f4dda1c0eb1c252a479521febd8fd65f31dbf399938",
+            "quote": "\"version\": \"1.1.0\"",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-cc6f404da734a520b42e2665491dfb48ef7799eaa117e5236e7b5370623beebd",
+            "quote": "\"task_type\": \"time_series_anomaly_detection\"",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-7ac5e3104c65ea345ed16051fd2dfa6aeb1588f1584dc99ac7a53dec3b632191",
+            "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-3478558ca578b2421a9eafa4318746e1999211f4102a9c0c15c0327f07b4cdc8",
+            "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-fd17f7c1a645f4eb1a20399451cdb9d8dc01b864ff340ff99fc0b9ad68a305d2",
+            "quote": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"threshold\",\n      \"direction\"\n    ],\n    \"properties\": {\n      \"threshold\": {\n        \"type\": \"number\"\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-c368425fa266f67e61189076a0e25498f42948e09176433c697656320480a4a3",
+            "quote": "\"defaults\": {\n    \"threshold\": 85.0,\n    \"direction\": \"upper\"\n  }",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-c82eeb44ca26bffd3d259c945e1d6431c2346b4551174279f20a14d4e057587a",
+            "quote": "\"algorithm_spec\": \"固定阈值：upper=x-T，lower=T-x，evidence包含threshold；缺失value时missing_input。等于阈值时分数为0，只有严格大于0才告警。fit仅确认存在有效训练值；reset无历史状态。\"",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-ac71e62268231732aa883f1bec7afeb0f00dc16b0ced749de1176cbc885982b1",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-de86850269dd11bf370e1c1b73882ab41a486ea5bb0847651f6a4485240ed518",
+            "quote": "\"supported_directions\": [\n    \"upper\",\n    \"lower\"\n  ]",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-9af70779fa9067ce866881f79627abbb80c583543a60fd5b80e4ca1ce4c43777",
+            "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-025529308b0292dbc0047c06fb0b9aa613e4ab2e7d1ade142dda950786a421c1",
+            "quote": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-4ff50858be0c75870d59c403a6089e5ee17346aed204d8fc5fba99c9b5cbdc92",
+            "quote": "\"min_history\": 0",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+            "quote": "适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1，不需要历史基线。\nupper 分数为 x-T，lower 分数为 T-x。严格 score>0 才是异常候选；等号不触发。\n业务阈值必须来自用户明确值或有引用的业务材料；假设阈值要标为 candidate_assumption。\n本材料没有给定任何指标的业务阈值；禁止虚构业务达标保证。\ncalibration 不改变固定阈值 T；共享可信告警器处理连续点数和事件合并。",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+            "quote": "    def fit(self, train_points):\n        if not any(point[\"value\"] is not None for point in train_points):\n            raise ValueError(\"no valid training observations\")\n        self.reset()\n\n    def reset(self):\n        pass",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "constraints": [
+          "业务阈值须由用户确认；未指定值只是候选假设。"
+        ],
+        "defaults": {
+          "direction": "upper",
+          "threshold": 85.0
+        },
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "evaluation_metrics": [
+          "event_f1",
+          "point_f1",
+          "normal_false_alarms_per_host_hour",
+          "matched_delay_seconds"
+        ],
+        "field_evidence": {
+          "algorithm_spec": {
+            "chunk_id": "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+            "quote": "适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1，不需要历史基线。\nupper 分数为 x-T，lower 分数为 T-x。严格 score>0 才是异常候选；等号不触发。\n业务阈值必须来自用户明确值或有引用的业务材料；假设阈值要标为 candidate_assumption。\n本材料没有给定任何指标的业务阈值；禁止虚构业务达标保证。\ncalibration 不改变固定阈值 T；共享可信告警器处理连续点数和事件合并。",
+            "symbol": null
+          },
+          "defaults": {
+            "chunk_id": "chunk-c368425fa266f67e61189076a0e25498f42948e09176433c697656320480a4a3",
+            "quote": "\"defaults\": {\n    \"threshold\": 85.0,\n    \"direction\": \"upper\"\n  }",
+            "symbol": null
+          },
+          "dependency_profile": {
+            "chunk_id": "chunk-9af70779fa9067ce866881f79627abbb80c583543a60fd5b80e4ca1ce4c43777",
+            "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+            "symbol": null
+          },
+          "evaluation_metrics": {
+            "chunk_id": "chunk-ac71e62268231732aa883f1bec7afeb0f00dc16b0ced749de1176cbc885982b1",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          },
+          "inputs": {
+            "chunk_id": "chunk-7ac5e3104c65ea345ed16051fd2dfa6aeb1588f1584dc99ac7a53dec3b632191",
+            "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          "metric_kinds": {
+            "chunk_id": "chunk-025529308b0292dbc0047c06fb0b9aa613e4ab2e7d1ade142dda950786a421c1",
+            "quote": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]",
+            "symbol": null
+          },
+          "min_history": {
+            "chunk_id": "chunk-4ff50858be0c75870d59c403a6089e5ee17346aed204d8fc5fba99c9b5cbdc92",
+            "quote": "\"min_history\": 0",
+            "symbol": null
+          },
+          "outputs": {
+            "chunk_id": "chunk-3478558ca578b2421a9eafa4318746e1999211f4102a9c0c15c0327f07b4cdc8",
+            "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          "parameters": {
+            "chunk_id": "chunk-fd17f7c1a645f4eb1a20399451cdb9d8dc01b864ff340ff99fc0b9ad68a305d2",
+            "quote": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"threshold\",\n      \"direction\"\n    ],\n    \"properties\": {\n      \"threshold\": {\n        \"type\": \"number\"\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          "supported_directions": {
+            "chunk_id": "chunk-de86850269dd11bf370e1c1b73882ab41a486ea5bb0847651f6a4485240ed518",
+            "quote": "\"supported_directions\": [\n    \"upper\",\n    \"lower\"\n  ]",
+            "symbol": null
+          },
+          "task_type": {
+            "chunk_id": "chunk-cc6f404da734a520b42e2665491dfb48ef7799eaa117e5236e7b5370623beebd",
+            "quote": "\"task_type\": \"time_series_anomaly_detection\"",
+            "symbol": null
+          },
+          "version": {
+            "chunk_id": "chunk-2d0ddc000c30e78b533d4f4dda1c0eb1c252a479521febd8fd65f31dbf399938",
+            "quote": "\"version\": \"1.1.0\"",
+            "symbol": null
+          }
+        },
+        "implementation_verified": false,
+        "inputs": {
+          "properties": {
+            "host_id": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            },
+            "value": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "timestamp",
+            "host_id",
+            "value"
+          ],
+          "type": "object"
+        },
+        "knowledge_status": "source_checked",
+        "limitations": [
+          "expert authored plugin card; not model extraction"
+        ],
+        "local_id": "fixed_threshold",
+        "manifest_field_evidence": {
+          "algorithm_spec": {
+            "chunk_id": "chunk-c82eeb44ca26bffd3d259c945e1d6431c2346b4551174279f20a14d4e057587a",
+            "quote": "\"algorithm_spec\": \"固定阈值：upper=x-T，lower=T-x，evidence包含threshold；缺失value时missing_input。等于阈值时分数为0，只有严格大于0才告警。fit仅确认存在有效训练值；reset无历史状态。\"",
+            "symbol": null
+          },
+          "defaults": {
+            "chunk_id": "chunk-c368425fa266f67e61189076a0e25498f42948e09176433c697656320480a4a3",
+            "quote": "\"defaults\": {\n    \"threshold\": 85.0,\n    \"direction\": \"upper\"\n  }",
+            "symbol": null
+          },
+          "dependency_profile": {
+            "chunk_id": "chunk-9af70779fa9067ce866881f79627abbb80c583543a60fd5b80e4ca1ce4c43777",
+            "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+            "symbol": null
+          },
+          "evaluation_metrics": {
+            "chunk_id": "chunk-ac71e62268231732aa883f1bec7afeb0f00dc16b0ced749de1176cbc885982b1",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          },
+          "inputs": {
+            "chunk_id": "chunk-7ac5e3104c65ea345ed16051fd2dfa6aeb1588f1584dc99ac7a53dec3b632191",
+            "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          "metric_kinds": {
+            "chunk_id": "chunk-025529308b0292dbc0047c06fb0b9aa613e4ab2e7d1ade142dda950786a421c1",
+            "quote": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]",
+            "symbol": null
+          },
+          "min_history": {
+            "chunk_id": "chunk-4ff50858be0c75870d59c403a6089e5ee17346aed204d8fc5fba99c9b5cbdc92",
+            "quote": "\"min_history\": 0",
+            "symbol": null
+          },
+          "outputs": {
+            "chunk_id": "chunk-3478558ca578b2421a9eafa4318746e1999211f4102a9c0c15c0327f07b4cdc8",
+            "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          "parameters": {
+            "chunk_id": "chunk-fd17f7c1a645f4eb1a20399451cdb9d8dc01b864ff340ff99fc0b9ad68a305d2",
+            "quote": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"threshold\",\n      \"direction\"\n    ],\n    \"properties\": {\n      \"threshold\": {\n        \"type\": \"number\"\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          "supported_directions": {
+            "chunk_id": "chunk-de86850269dd11bf370e1c1b73882ab41a486ea5bb0847651f6a4485240ed518",
+            "quote": "\"supported_directions\": [\n    \"upper\",\n    \"lower\"\n  ]",
+            "symbol": null
+          },
+          "task_type": {
+            "chunk_id": "chunk-cc6f404da734a520b42e2665491dfb48ef7799eaa117e5236e7b5370623beebd",
+            "quote": "\"task_type\": \"time_series_anomaly_detection\"",
+            "symbol": null
+          },
+          "version": {
+            "chunk_id": "chunk-2d0ddc000c30e78b533d4f4dda1c0eb1c252a479521febd8fd65f31dbf399938",
+            "quote": "\"version\": \"1.1.0\"",
+            "symbol": null
+          }
+        },
+        "method_id": "fixed_threshold",
+        "metric_kinds": [
+          "gauge",
+          "rate"
+        ],
+        "min_history": 0,
+        "name": "固定阈值",
+        "origin": "reference",
+        "outputs": {
+          "properties": {
+            "evidence": {
+              "type": "object"
+            },
+            "score": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "status": {
+              "enum": [
+                "ok",
+                "insufficient_history",
+                "missing_input",
+                "invalid_input"
+              ]
+            }
+          },
+          "required": [
+            "timestamp",
+            "host_id",
+            "status",
+            "score",
+            "evidence"
+          ],
+          "type": "object"
+        },
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "direction": {
+              "enum": [
+                "upper",
+                "lower"
+              ]
+            },
+            "threshold": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "threshold",
+            "direction"
+          ],
+          "type": "object"
+        },
+        "plugin_hashes": {
+          "capability.json": "sha256:a19217ef27bff5c0726e6be8d4dc123a509bfe2d34c6fe8b63b0f2cd6c5ef045",
+          "checks.py": "sha256:009933701326684689fb100d585f4bb44d596016fa7d9278147f6999566e9427",
+          "reference.py": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70"
+        },
+        "response_evidence": {
+          "origin": "reference",
+          "source_sha256": "sha256:a19217ef27bff5c0726e6be8d4dc123a509bfe2d34c6fe8b63b0f2cd6c5ef045"
+        },
+        "single_host": true,
+        "source_id": "source-ea7569716e76f114a375621f6091c81e14430c0eaface734e8642612e1eab8d3",
+        "source_status": "registered_card",
+        "spec_sources": [
+          {
+            "chunk_id": "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+            "end_line": 7,
+            "path": "materials/metrics/02-fixed-threshold.txt",
+            "quote": "适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1，不需要历史基线。\nupper 分数为 x-T，lower 分数为 T-x。严格 score>0 才是异常候选；等号不触发。\n业务阈值必须来自用户明确值或有引用的业务材料；假设阈值要标为 candidate_assumption。\n本材料没有给定任何指标的业务阈值；禁止虚构业务达标保证。\ncalibration 不改变固定阈值 T；共享可信告警器处理连续点数和事件合并。",
+            "sha256": "sha256:dc91558e86cf108f1796ad3f1ab2c5826c11517f8a443f9315d918f410ab5a3f",
+            "start_line": 3
+          },
+          {
+            "chunk_id": "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+            "end_line": 19,
+            "path": "materials/metrics/reference_fixed.py",
+            "quote": "    def fit(self, train_points):\n        if not any(point[\"value\"] is not None for point in train_points):\n            raise ValueError(\"no valid training observations\")\n        self.reset()\n\n    def reset(self):\n        pass",
+            "sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+            "start_line": 13
+          }
+        ],
+        "specification_sha256": "sha256:d78418b686499b015abb691e10e65fad63592d12ad25bcab36e2ced5af7a2060",
+        "summary": "固定阈值；业务阈值须由用户确认；未指定值只是候选假设。",
+        "supported_directions": [
+          "upper",
+          "lower"
+        ],
+        "task_type": "time_series_anomaly_detection",
+        "verification": "reference",
+        "verification_level": "contract_only",
+        "version": "1.1.0"
+      }
+    },
+    {
+      "id": "chunk-00c94acd3b13aaa28d741227f81add8d4e9b3440aba472fb4310adab9a69c930",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 107,
+        "sha256": "sha256:24a1480527440d91791157976f34be27423024b37d8adfec92ef9c9905e97206",
+        "source_id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+        "start_line": 87,
+        "text": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"threshold\",\n      \"direction\"\n    ],\n    \"properties\": {\n      \"threshold\": {\n        \"type\": \"number\",\n        \"minimum\": 0,\n        \"maximum\": 100\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\"\n        ]\n      }\n    }\n  }"
+      }
+    },
+    {
+      "id": "chunk-0f3f772d0d0a556835211afd4da0495953ffd3c9a4bc6af9ac539e64e282aa9a",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 86,
+        "sha256": "sha256:a5287f3d40cc0ca9e8ac7a36a68c54fff1519a6432df4448265fd74371725b25",
+        "source_id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+        "start_line": 84,
+        "text": "\"assumptions\": [\n    \"业务阈值须由用户确认；未指定值只是候选假设。\"\n  ]"
+      }
+    },
+    {
+      "id": "chunk-32e15938b2ec0b22b7ac784dfa0575317918574043cac80ee55aa4f5b064c580",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 79,
+        "sha256": "sha256:8178dab66d13f99814abfe92575066032175fd09da9ea4ac3abbc3a80433e248",
+        "source_id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+        "start_line": 76,
+        "text": "\"defaults\": {\n    \"threshold\": 85.0,\n    \"direction\": \"upper\"\n  }"
+      }
+    },
+    {
+      "id": "chunk-3de83e077a588d3a978a16389a6039ac7d4de6614aa802681562991930b3ca3b",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 2,
+        "sha256": "sha256:a5d89d8886c7752e87130d054c334f5b7d2093bf87d79b97fdae698f93b68572",
+        "source_id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+        "start_line": 2,
+        "text": "\"version\": \"1.0.0\""
+      }
+    },
+    {
+      "id": "chunk-4ac273cc2f64f27c7cfbc14e3901c005949bd627a8069825115c94cf9cdb6022",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 108,
+        "sha256": "sha256:67196e0b0bd6dd2d4e1b8b2af62a4fabf01e8ee437ddaf89140875700454b8a3",
+        "source_id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+        "start_line": 108,
+        "text": "\"algorithm_spec\": \"固定阈值：upper=x-T，lower=T-x，evidence包含threshold；缺失value时missing_input。等于阈值时分数为0，只有严格大于0才告警。fit仅确认存在有效训练值；reset无历史状态。\""
+      }
+    },
+    {
+      "id": "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 19,
+        "sha256": "sha256:dcdb3f0bc270d9ef3b5002191bb26e2777f76d23a9a3c4fce137b012df80f7c6",
+        "source_id": "source-77c556c6553d4192078e1bfdf985a4cd89e45754f491b6ee917b9dcc07769438",
+        "start_line": 13,
+        "text": "    def fit(self, train_points):\n        if not any(point[\"value\"] is not None for point in train_points):\n            raise ValueError(\"no valid training observations\")\n        self.reset()\n\n    def reset(self):\n        pass"
+      }
+    },
+    {
+      "id": "chunk-519cbaa53238232ad373995a7358be11aadddc5f319c591b19f1912d01be6139",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 73,
+        "sha256": "sha256:841785a6f9536cdeb39021ea70f0695e423a1ff4b694cd1dad6ed0b59b7b3196",
+        "source_id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+        "start_line": 70,
+        "text": "\"supported_directions\": [\n    \"upper\",\n    \"lower\"\n  ]"
+      }
+    },
+    {
+      "id": "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 7,
+        "sha256": "sha256:625932185c4e40cb0b5c38d216e868878e7900d0b17e6c5c81b6de4d9a317480",
+        "source_id": "source-c6d85ec31dbd8809fc844451579165bc762b556e94fd925222e0afb96d75a74c",
+        "start_line": 3,
+        "text": "适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1，不需要历史基线。\nupper 分数为 x-T，lower 分数为 T-x。严格 score>0 才是异常候选；等号不触发。\n业务阈值必须来自用户明确值或有引用的业务材料；假设阈值要标为 candidate_assumption。\n本材料没有给定任何指标的业务阈值；禁止虚构业务达标保证。\ncalibration 不改变固定阈值 T；共享可信告警器处理连续点数和事件合并。"
+      }
+    },
+    {
+      "id": "chunk-8447ab95fae263e25c8a305b3ba187b506d3331f0754e15cb760f589a2e56c87",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 58,
+        "sha256": "sha256:571227a0118c08ce4085c4d92d5c8b99136de202d9d41b8fcd80f946b4965e8d",
+        "source_id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+        "start_line": 55,
+        "text": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]"
+      }
+    },
+    {
+      "id": "chunk-881013ea0b9d3af3b2e6b57a3fa19ca5b69c513e37c42cd8b734a7b10f96b0bf",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 25,
+        "sha256": "sha256:26322978e7b7ba1109a5645a4cebda5a53a17a749135650c1dedbe6433cd305b",
+        "source_id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+        "start_line": 4,
+        "text": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }"
+      }
+    },
+    {
+      "id": "chunk-8a980a6bed88ae6ac394e24cf35c16e7c8273c3640adb890e22a9818acaa22be",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 65,
+        "sha256": "sha256:b6d0e1988d3012e08eba00aa6170180503893a51aaa51441cd31067662cd04c9",
+        "source_id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+        "start_line": 65,
+        "text": "\"dependency_profile\": \"metrics-py312-stdlib/1\""
+      }
+    },
+    {
+      "id": "chunk-8b4479c1da56c83e95dcdd4ab6e8500a663bd2022c1823c9631076803b43646e",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 74,
+        "sha256": "sha256:81382945e2c8b24d19cd4e619a091a9097837b0e687633b17ca1cfbdcb244855",
+        "source_id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+        "start_line": 74,
+        "text": "\"min_history\": 0"
+      }
+    },
+    {
+      "id": "chunk-95fb6c9ea67c44709e072b8f3c8517b5cd85aa20522d497dd7ad6adb09a38f39",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 54,
+        "sha256": "sha256:067211d58506363cc1bd45491834d76cd2d1c616f66e34a19adaef112994c8f8",
+        "source_id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+        "start_line": 26,
+        "text": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }"
+      }
+    },
+    {
+      "id": "chunk-d5f856ae20f1a1f88cbb895271e018bcba528deb557c7f5ca0d7f48c0e30ae17",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 64,
+        "sha256": "sha256:4194a33ccc0319d7b8d6a2cac421f3546120d6547fdf74b632b59996377a43ff",
+        "source_id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+        "start_line": 59,
+        "text": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]"
+      }
+    },
+    {
+      "id": "chunk-fce04961c109107ffd611494c419849c4ee201b5874238d20f3d55d0dbc44ecc",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 3,
+        "sha256": "sha256:a144d8d828e7fb97f5f6956262b45ad28185f5f70aaa90bfec23e32d64a1a579",
+        "source_id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+        "start_line": 3,
+        "text": "\"task_type\": \"time_series_anomaly_detection\""
+      }
+    },
+    {
+      "id": "constraint-3bbc06983c121cdc2721c4148f2cb03dbab257e2c786f4c4f57085a9bcd2d22c",
+      "kind": "Constraint",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-0f3f772d0d0a556835211afd4da0495953ffd3c9a4bc6af9ac539e64e282aa9a",
+            "quote": "\"assumptions\": [\n    \"业务阈值须由用户确认；未指定值只是候选假设。\"\n  ]",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "description": "业务阈值须由用户确认；未指定值只是候选假设。",
+        "knowledge_status": "source_checked"
+      }
+    },
+    {
+      "id": "datacontract-e8084e37ff15ac6ad884d2570447a81a0811bad8aa80a3066e6ebf33a4a122fb",
+      "kind": "DataContract",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-95fb6c9ea67c44709e072b8f3c8517b5cd85aa20522d497dd7ad6adb09a38f39",
+            "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "properties": {
+            "evidence": {
+              "type": "object"
+            },
+            "score": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "status": {
+              "enum": [
+                "ok",
+                "insufficient_history",
+                "missing_input",
+                "invalid_input"
+              ]
+            }
+          },
+          "required": [
+            "timestamp",
+            "host_id",
+            "status",
+            "score",
+            "evidence"
+          ],
+          "type": "object"
+        },
+        "name": "output",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "datacontract-ef14e89eb4f4977edbba04b7a6d0d16cc0d7734aac752c6836c2e6d053829a20",
+      "kind": "DataContract",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-881013ea0b9d3af3b2e6b57a3fa19ca5b69c513e37c42cd8b734a7b10f96b0bf",
+            "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "properties": {
+            "host_id": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            },
+            "value": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "timestamp",
+            "host_id",
+            "value"
+          ],
+          "type": "object"
+        },
+        "name": "input",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "environment-243d96a8a93926bd563409a98f0c630bc1d85748c946177beca9d07cb8790e52",
+      "kind": "Environment",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-8a980a6bed88ae6ac394e24cf35c16e7c8273c3640adb890e22a9818acaa22be",
+            "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "profile": "metrics-py312-stdlib/1"
+        },
+        "name": "metrics-py312-stdlib/1",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "experience-4e0ea0e6e4c7d13ad3b9143bd052c9681c100971a7661440d1e4e0ccf77d38b6",
+      "kind": "Experience",
+      "payload": {
+        "acceptance_status": "NOT_CLAIMED",
+        "action": "initial_generation",
+        "development_feedback": [],
+        "effect_status": "NOT_QUALIFIED_FOR_REUSE",
+        "final_feedback_policy": "final values, labels and metrics omitted from retrieval summary",
+        "implementation_id": "implementation-25830e4052ff4b7e32e62245c075cdb32f0c87e9109a6933f8e2df9182ec7187",
+        "implementation_verified": true,
+        "issue": "verified_method_requires_new_input_evaluation",
+        "method_id": "threshold_probe",
+        "method_validation_protocol": "metrics-method-check/3",
+        "metric_kind": "gauge",
+        "origin": "mock",
+        "reusable_implementation": false,
+        "reuse_scope": "single host and metric; revalidate code, calibration and effect on new data",
+        "task_id": "ui-b505fafc4eff48d3",
+        "validation_id": "validation-cdae8d6f99f055003c2f7b563141826833792bb86f8f1364a127348d062dde78"
+      }
+    },
+    {
+      "id": "implementation-25830e4052ff4b7e32e62245c075cdb32f0c87e9109a6933f8e2df9182ec7187",
+      "kind": "Implementation",
+      "payload": {
+        "candidate_id": "probe",
+        "capability_id": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+        "capability_version": "1.0.0",
+        "config": {
+          "direction": "upper",
+          "method_id": "threshold_probe",
+          "threshold": 85.0
+        },
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "origin": "mock",
+        "parent_source_sha256": null,
+        "source_ref": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+        "source_sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+        "specification_sha256": "sha256:d78418b686499b015abb691e10e65fad63592d12ad25bcab36e2ced5af7a2060",
+        "task_id": "ui-b505fafc4eff48d3",
+        "verification_level": "reference_verified",
+        "version": 0
+      }
+    },
+    {
+      "id": "implementation-9ec6e30249ff68dced775bd23597e3dc2dfa30d4712bb5a0b05a3ffc064456c6",
+      "kind": "Implementation",
+      "payload": {
+        "candidate_id": "probe",
+        "capability_id": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+        "capability_version": "1.0.0",
+        "config": {
+          "direction": "upper",
+          "method_id": "threshold_probe",
+          "threshold": 85.0
+        },
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "origin": "mock",
+        "parent_source_sha256": null,
+        "source_ref": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+        "source_sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+        "specification_sha256": "sha256:d78418b686499b015abb691e10e65fad63592d12ad25bcab36e2ced5af7a2060",
+        "task_id": "ui-99ff30ac3e4b45e4",
+        "verification_level": "reference_verified",
+        "version": 0
+      }
+    },
+    {
+      "id": "metric-6b200a570fd5d8034d7701f5b2344cce421f93dfd2e42b3506a4268d9b7069d7",
+      "kind": "Metric",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-d5f856ae20f1a1f88cbb895271e018bcba528deb557c7f5ca0d7f48c0e30ae17",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "name": "matched_delay_seconds"
+        },
+        "name": "matched_delay_seconds",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "metric-c24ee3f761b3fdf3fafb72c97cda36897cd35c1f1e1d2ae338f5f327d4fc008f",
+      "kind": "Metric",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-d5f856ae20f1a1f88cbb895271e018bcba528deb557c7f5ca0d7f48c0e30ae17",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "name": "event_f1"
+        },
+        "name": "event_f1",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "metric-d22b8897e20a339a3a537786b76175834eecae2207423d33b496cbdd49628ca0",
+      "kind": "Metric",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-d5f856ae20f1a1f88cbb895271e018bcba528deb557c7f5ca0d7f48c0e30ae17",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "name": "normal_false_alarms_per_host_hour"
+        },
+        "name": "normal_false_alarms_per_host_hour",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "metric-f60ec0b088689160b85a3afceea5efb5b5ab1738ef02eb9ab4c12c3e5ea82550",
+      "kind": "Metric",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-d5f856ae20f1a1f88cbb895271e018bcba528deb557c7f5ca0d7f48c0e30ae17",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "name": "point_f1"
+        },
+        "name": "point_f1",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "source-77c556c6553d4192078e1bfdf985a4cd89e45754f491b6ee917b9dcc07769438",
+      "kind": "Source",
+      "payload": {
+        "imports": [],
+        "material_type": "py",
+        "origin": "reference_material",
+        "path": "materials/metrics/reference_fixed.py",
+        "sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+        "symbols": []
+      }
+    },
+    {
+      "id": "source-c6d85ec31dbd8809fc844451579165bc762b556e94fd925222e0afb96d75a74c",
+      "kind": "Source",
+      "payload": {
+        "imports": [],
+        "material_type": "txt",
+        "origin": "reference_material",
+        "path": "materials/metrics/02-fixed-threshold.txt",
+        "sha256": "sha256:dc91558e86cf108f1796ad3f1ab2c5826c11517f8a443f9315d918f410ab5a3f",
+        "symbols": []
+      }
+    },
+    {
+      "id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+      "kind": "Source",
+      "payload": {
+        "imports": [],
+        "material_type": "json",
+        "origin": "reference_plugin",
+        "path": "capabilities/threshold_probe/capability.json",
+        "sha256": "sha256:be1f518eed062b83b27bd1790af70c7a38f576756cffe2f91e7eca4ba240160e",
+        "symbols": []
+      }
+    },
+    {
+      "id": "validation-bdcf55bd99c35949c9e7623d29bb0a18dedbc29c51fb1f868ebb4112dc140381",
+      "kind": "ValidationRun",
+      "payload": {
+        "bindings": {
+          "image_id": "sha256:ec7e3f613d45080c580bed6c83b6404df77b17a7cb72be69bacc80cce954ed31",
+          "knowledge_snapshot": "sha256:925c4782332e44191eb49242b908fd9822477f181456251e239cfd7c129bd101",
+          "labels_sha256": "sha256:8c8b78419d8c02fa3875660f384b2ca28279a5eeaf144b58e442dcf65d259c6b",
+          "manifest_sha256": "sha256:eca964389c93ff89cf3ee82d72485d40a75284508174f2a46e0eca2b4cfbc0ee"
+        },
+        "development": {
+          "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+          "coverage": {
+            "denominator": 240,
+            "null_reason": null,
+            "numerator": 240,
+            "value": 1.0
+          },
+          "effect_status": "MEASURED",
+          "engineering_status": "PASSED",
+          "event": {
+            "f1": {
+              "denominator": 5,
+              "null_reason": null,
+              "numerator": 4,
+              "value": 0.8
+            },
+            "fn": 1,
+            "fp": 0,
+            "pairs": [
+              {
+                "delay_seconds": 60.0,
+                "prediction_id": "pred-0000",
+                "truth_id": "truth-0000"
+              },
+              {
+                "delay_seconds": 60.0,
+                "prediction_id": "pred-0001",
+                "truth_id": "truth-0002"
+              }
+            ],
+            "precision": {
+              "denominator": 2,
+              "null_reason": null,
+              "numerator": 2,
+              "value": 1.0
+            },
+            "recall": {
+              "denominator": 3,
+              "null_reason": null,
+              "numerator": 2,
+              "value": 0.6666666666666666
+            },
+            "tp": 2,
+            "unmatched_prediction_ids": [],
+            "unmatched_truth_ids": [
+              "truth-0001"
+            ]
+          },
+          "execution_status": "SUCCEEDED",
+          "matched_delay_seconds": {
+            "maximum": 60.0,
+            "median": 60.0,
+            "missed_events": 1,
+            "null_reason": null
+          },
+          "normal_false_alarms_per_host_hour": {
+            "denominator": 13860,
+            "null_reason": null,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "peak_memory_bytes": null,
+          "peak_memory_null_reason": "not_measured",
+          "point": {
+            "abstained_normal": 0,
+            "f1": {
+              "denominator": 15,
+              "null_reason": null,
+              "numerator": 12,
+              "value": 0.8
+            },
+            "fn": 3,
+            "fp": 0,
+            "precision": {
+              "denominator": 6,
+              "null_reason": null,
+              "numerator": 6,
+              "value": 1.0
+            },
+            "recall": {
+              "denominator": 9,
+              "null_reason": null,
+              "numerator": 6,
+              "value": 0.6666666666666666
+            },
+            "tn": 231,
+            "total": 240,
+            "tp": 6
+          },
+          "predicted_events": [
+            {
+              "end_at": "2026-01-03T01:38:00Z",
+              "event_id": "pred-0000",
+              "host_id": "sim-host-a",
+              "metric": "cpu_utilization",
+              "start_at": "2026-01-03T01:36:00Z",
+              "trigger_at": "2026-01-03T01:36:00Z"
+            },
+            {
+              "end_at": "2026-01-03T04:05:00Z",
+              "event_id": "pred-0001",
+              "host_id": "sim-host-a",
+              "metric": "cpu_utilization",
+              "start_at": "2026-01-03T04:01:00Z",
+              "trigger_at": "2026-01-03T04:01:00Z"
+            }
+          ],
+          "protocol": "metrics-evaluation/1",
+          "runtime_seconds": 0.09447057917714119,
+          "truth_events": [
+            {
+              "end_at": "2026-01-03T01:38:00Z",
+              "event_id": "truth-0000",
+              "host_id": "sim-host-a",
+              "metric": "cpu_utilization",
+              "start_at": "2026-01-03T01:35:00Z",
+              "trigger_at": "2026-01-03T01:35:00Z"
+            },
+            {
+              "end_at": "2026-01-03T03:01:00Z",
+              "event_id": "truth-0001",
+              "host_id": "sim-host-a",
+              "metric": "cpu_utilization",
+              "start_at": "2026-01-03T03:00:00Z",
+              "trigger_at": "2026-01-03T03:00:00Z"
+            },
+            {
+              "end_at": "2026-01-03T04:05:00Z",
+              "event_id": "truth-0002",
+              "host_id": "sim-host-a",
+              "metric": "cpu_utilization",
+              "start_at": "2026-01-03T04:00:00Z",
+              "trigger_at": "2026-01-03T04:00:00Z"
+            }
+          ]
+        },
+        "final": {
+          "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+          "coverage": {
+            "denominator": 240,
+            "null_reason": null,
+            "numerator": 240,
+            "value": 1.0
+          },
+          "effect_status": "MEASURED",
+          "engineering_status": "PASSED",
+          "event": {
+            "f1": {
+              "denominator": 5,
+              "null_reason": null,
+              "numerator": 4,
+              "value": 0.8
+            },
+            "fn": 1,
+            "fp": 0,
+            "pairs": [
+              {
+                "delay_seconds": 60.0,
+                "prediction_id": "pred-0000",
+                "truth_id": "truth-0000"
+              },
+              {
+                "delay_seconds": 60.0,
+                "prediction_id": "pred-0001",
+                "truth_id": "truth-0002"
+              }
+            ],
+            "precision": {
+              "denominator": 2,
+              "null_reason": null,
+              "numerator": 2,
+              "value": 1.0
+            },
+            "recall": {
+              "denominator": 3,
+              "null_reason": null,
+              "numerator": 2,
+              "value": 0.6666666666666666
+            },
+            "tp": 2,
+            "unmatched_prediction_ids": [],
+            "unmatched_truth_ids": [
+              "truth-0001"
+            ]
+          },
+          "execution_status": "SUCCEEDED",
+          "matched_delay_seconds": {
+            "maximum": 60.0,
+            "median": 60.0,
+            "missed_events": 1,
+            "null_reason": null
+          },
+          "normal_false_alarms_per_host_hour": {
+            "denominator": 13860,
+            "null_reason": null,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "peak_memory_bytes": null,
+          "peak_memory_null_reason": "not_measured",
+          "phase": "test",
+          "point": {
+            "abstained_normal": 0,
+            "f1": {
+              "denominator": 15,
+              "null_reason": null,
+              "numerator": 12,
+              "value": 0.8
+            },
+            "fn": 3,
+            "fp": 0,
+            "precision": {
+              "denominator": 6,
+              "null_reason": null,
+              "numerator": 6,
+              "value": 1.0
+            },
+            "recall": {
+              "denominator": 9,
+              "null_reason": null,
+              "numerator": 6,
+              "value": 0.6666666666666666
+            },
+            "tn": 231,
+            "total": 240,
+            "tp": 6
+          },
+          "predicted_events": [
+            {
+              "end_at": "2026-01-04T01:38:00Z",
+              "event_id": "pred-0000",
+              "host_id": "sim-host-a",
+              "metric": "cpu_utilization",
+              "start_at": "2026-01-04T01:36:00Z",
+              "trigger_at": "2026-01-04T01:36:00Z"
+            },
+            {
+              "end_at": "2026-01-04T04:05:00Z",
+              "event_id": "pred-0001",
+              "host_id": "sim-host-a",
+              "metric": "cpu_utilization",
+              "start_at": "2026-01-04T04:01:00Z",
+              "trigger_at": "2026-01-04T04:01:00Z"
+            }
+          ],
+          "protocol": "metrics-evaluation/1",
+          "runtime_seconds": 0.08690603077411652,
+          "selected": "probe",
+          "selection_sha256": "sha256:3bbc85304003123a56262972af9bc17d3912c3ea5a3de5e3c2b46dfcc0759092",
+          "test_execution_started": true,
+          "truth_events": [
+            {
+              "end_at": "2026-01-04T01:38:00Z",
+              "event_id": "truth-0000",
+              "host_id": "sim-host-a",
+              "metric": "cpu_utilization",
+              "start_at": "2026-01-04T01:35:00Z",
+              "trigger_at": "2026-01-04T01:35:00Z"
+            },
+            {
+              "end_at": "2026-01-04T03:01:00Z",
+              "event_id": "truth-0001",
+              "host_id": "sim-host-a",
+              "metric": "cpu_utilization",
+              "start_at": "2026-01-04T03:00:00Z",
+              "trigger_at": "2026-01-04T03:00:00Z"
+            },
+            {
+              "end_at": "2026-01-04T04:05:00Z",
+              "event_id": "truth-0002",
+              "host_id": "sim-host-a",
+              "metric": "cpu_utilization",
+              "start_at": "2026-01-04T04:00:00Z",
+              "trigger_at": "2026-01-04T04:00:00Z"
+            }
+          ]
+        },
+        "implementation_id": "implementation-9ec6e30249ff68dced775bd23597e3dc2dfa30d4712bb5a0b05a3ffc064456c6",
+        "method_checks": {
+          "candidate_id": "probe",
+          "capability_version": "1.0.0",
+          "checks": [
+            {
+              "check": "static_profile",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "missing_input_contract",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "state_reload",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "reset_repeat_future_invariance",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "fixed_strict_boundary",
+              "layer": "property",
+              "passed": true,
+              "points": 3
+            },
+            {
+              "check": "fixed_missing",
+              "layer": "property",
+              "passed": true,
+              "points": 6
+            },
+            {
+              "check": "fixed_strict_boundary",
+              "layer": "reference",
+              "passed": true,
+              "points": 3
+            },
+            {
+              "check": "fixed_missing",
+              "layer": "reference",
+              "passed": true,
+              "points": 6
+            }
+          ],
+          "config": {
+            "direction": "upper",
+            "method_id": "threshold_probe",
+            "threshold": 85.0
+          },
+          "dependency_profile": "metrics-py312-stdlib/1",
+          "origin": "mock",
+          "passed": true,
+          "plugin_hashes": {
+            "capability.json": "sha256:be1f518eed062b83b27bd1790af70c7a38f576756cffe2f91e7eca4ba240160e",
+            "checks.py": "sha256:009933701326684689fb100d585f4bb44d596016fa7d9278147f6999566e9427",
+            "reference.py": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70"
+          },
+          "protocol": "metrics-method-check/3",
+          "repairable": true,
+          "source_sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+          "verification_level": "reference_verified",
+          "version": 0
+        },
+        "protocol": "metrics-evaluation/1"
+      }
+    },
+    {
+      "id": "validation-cdae8d6f99f055003c2f7b563141826833792bb86f8f1364a127348d062dde78",
+      "kind": "ValidationRun",
+      "payload": {
+        "bindings": {
+          "image_id": "sha256:ec7e3f613d45080c580bed6c83b6404df77b17a7cb72be69bacc80cce954ed31",
+          "knowledge_snapshot": "sha256:2455e82a08cfe06412b8d056552e5fd1a1a131c960c55ad3daa811b70659a5b4",
+          "labels_sha256": "sha256:6a517b2eb58c8139863a5c9439b37bde43e1e4a4b0486a6d1ae94bc395e24be5",
+          "manifest_sha256": "sha256:0aace753d4f7401ca6646c0ca355e4aad9bb83a390ad0046cdb2d77b8b7547ef"
+        },
+        "development": {
+          "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+          "coverage": {
+            "denominator": 240,
+            "null_reason": null,
+            "numerator": 240,
+            "value": 1.0
+          },
+          "effect_status": "MEASURED",
+          "engineering_status": "PASSED",
+          "event": {
+            "f1": {
+              "denominator": 2,
+              "null_reason": null,
+              "numerator": 2,
+              "value": 1.0
+            },
+            "fn": 0,
+            "fp": 0,
+            "pairs": [
+              {
+                "delay_seconds": 60.0,
+                "prediction_id": "pred-0000",
+                "truth_id": "truth-0000"
+              }
+            ],
+            "precision": {
+              "denominator": 1,
+              "null_reason": null,
+              "numerator": 1,
+              "value": 1.0
+            },
+            "recall": {
+              "denominator": 1,
+              "null_reason": null,
+              "numerator": 1,
+              "value": 1.0
+            },
+            "tp": 1,
+            "unmatched_prediction_ids": [],
+            "unmatched_truth_ids": []
+          },
+          "execution_status": "SUCCEEDED",
+          "matched_delay_seconds": {
+            "maximum": 60.0,
+            "median": 60.0,
+            "missed_events": 0,
+            "null_reason": null
+          },
+          "normal_false_alarms_per_host_hour": {
+            "denominator": 10800,
+            "null_reason": null,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "peak_memory_bytes": null,
+          "peak_memory_null_reason": "not_measured",
+          "point": {
+            "abstained_normal": 0,
+            "f1": {
+              "denominator": 119,
+              "null_reason": null,
+              "numerator": 118,
+              "value": 0.9915966386554622
+            },
+            "fn": 1,
+            "fp": 0,
+            "precision": {
+              "denominator": 59,
+              "null_reason": null,
+              "numerator": 59,
+              "value": 1.0
+            },
+            "recall": {
+              "denominator": 60,
+              "null_reason": null,
+              "numerator": 59,
+              "value": 0.9833333333333333
+            },
+            "tn": 180,
+            "total": 240,
+            "tp": 59
+          },
+          "predicted_events": [
+            {
+              "end_at": "2026-01-03T03:40:00Z",
+              "event_id": "pred-0000",
+              "host_id": "sim-host-a",
+              "metric": "memory_utilization",
+              "start_at": "2026-01-03T02:41:00Z",
+              "trigger_at": "2026-01-03T02:41:00Z"
+            }
+          ],
+          "protocol": "metrics-evaluation/1",
+          "runtime_seconds": 0.10908488929271698,
+          "truth_events": [
+            {
+              "end_at": "2026-01-03T03:40:00Z",
+              "event_id": "truth-0000",
+              "host_id": "sim-host-a",
+              "metric": "memory_utilization",
+              "start_at": "2026-01-03T02:40:00Z",
+              "trigger_at": "2026-01-03T02:40:00Z"
+            }
+          ]
+        },
+        "final": null,
+        "implementation_id": "implementation-25830e4052ff4b7e32e62245c075cdb32f0c87e9109a6933f8e2df9182ec7187",
+        "method_checks": {
+          "candidate_id": "probe",
+          "capability_version": "1.0.0",
+          "checks": [
+            {
+              "check": "static_profile",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "missing_input_contract",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "state_reload",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "reset_repeat_future_invariance",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "fixed_strict_boundary",
+              "layer": "property",
+              "passed": true,
+              "points": 3
+            },
+            {
+              "check": "fixed_missing",
+              "layer": "property",
+              "passed": true,
+              "points": 6
+            },
+            {
+              "check": "fixed_strict_boundary",
+              "layer": "reference",
+              "passed": true,
+              "points": 3
+            },
+            {
+              "check": "fixed_missing",
+              "layer": "reference",
+              "passed": true,
+              "points": 6
+            }
+          ],
+          "config": {
+            "direction": "upper",
+            "method_id": "threshold_probe",
+            "threshold": 85.0
+          },
+          "dependency_profile": "metrics-py312-stdlib/1",
+          "origin": "mock",
+          "passed": true,
+          "plugin_hashes": {
+            "capability.json": "sha256:be1f518eed062b83b27bd1790af70c7a38f576756cffe2f91e7eca4ba240160e",
+            "checks.py": "sha256:009933701326684689fb100d585f4bb44d596016fa7d9278147f6999566e9427",
+            "reference.py": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70"
+          },
+          "protocol": "metrics-method-check/3",
+          "repairable": true,
+          "source_sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+          "verification_level": "reference_verified",
+          "version": 0
+        },
+        "protocol": "metrics-evaluation/1"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "CONSUMES",
+      "target": "datacontract-ef14e89eb4f4977edbba04b7a6d0d16cc0d7734aac752c6836c2e6d053829a20",
+      "provenance": {
+        "field": "inputs",
+        "source_id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8"
+      },
+      "id": "relation-441b2aed3ab6e46242c69b51764d43f01411bd99107c6b4242d8c6c736acfb0a"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "DEPENDS_ON",
+      "target": "environment-243d96a8a93926bd563409a98f0c630bc1d85748c946177beca9d07cb8790e52",
+      "provenance": {
+        "field": "dependency_profile",
+        "source_id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8"
+      },
+      "id": "relation-f0d7324c830694ebcc500d8b590d30674fc68ec9cbccca4978afbe0f5ae8ac7e"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-00c94acd3b13aaa28d741227f81add8d4e9b3440aba472fb4310adab9a69c930",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-fa72ad96db3359a5bdb55e6cf740d1e024171b1f2bb1c5c05bbdd6235f0176ee"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-32e15938b2ec0b22b7ac784dfa0575317918574043cac80ee55aa4f5b064c580",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-9dc59ca1f0dc2ff8ffdad83064679e8066a94a33532e7b6e6871ac44b0e74e76"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-3de83e077a588d3a978a16389a6039ac7d4de6614aa802681562991930b3ca3b",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-d80cd96ca348460edd9d106c2f2ec1c8154213d8daa9e1d653e5ddf4c979af3d"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-4ac273cc2f64f27c7cfbc14e3901c005949bd627a8069825115c94cf9cdb6022",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-b35c633b3322f4f701a1bd34a6fbe24f2f6d203384c53c47eff42ee6a3152d00"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-32b20d1e5ae681cc3432511b29801c2eb3df6dfa6a8e8d8c1290af4f449c99f0"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-519cbaa53238232ad373995a7358be11aadddc5f319c591b19f1912d01be6139",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-642b71ea72e10c3329fc1364e7723e9c66335ac8f5e1a1506ad56040e8ce9dc0"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-2c23c2e8e086411f2e8f8cbcd3d3f019524c09b54d825cbb6e38ec9384261863"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-8447ab95fae263e25c8a305b3ba187b506d3331f0754e15cb760f589a2e56c87",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-a055ec21678952dba9c3a73940ec0fbc17787d9cd4ead8d9c0005a0f81a68ab9"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-881013ea0b9d3af3b2e6b57a3fa19ca5b69c513e37c42cd8b734a7b10f96b0bf",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-1e62aeff1a0c8f262c893c82c24d049ed46e5310636714516efe2aa844a897de"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-8a980a6bed88ae6ac394e24cf35c16e7c8273c3640adb890e22a9818acaa22be",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-9a9a632b047ec6823f451bbf5fd7edad4a9417f70c46edb82746dbff55d93648"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-8b4479c1da56c83e95dcdd4ab6e8500a663bd2022c1823c9631076803b43646e",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-df0fbccbc64d44639b898581fd1cf432657411084f819c167f48127e3c8079d5"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-95fb6c9ea67c44709e072b8f3c8517b5cd85aa20522d497dd7ad6adb09a38f39",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-1282c0a5fb4ab6db6af16c859a59a1a6b171001123c212368f9fe3035e12ede3"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-d5f856ae20f1a1f88cbb895271e018bcba528deb557c7f5ca0d7f48c0e30ae17",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-5b07e1414eb5f6be5f3afc3c87a2adcb44afc2a7f0beb107b937187c3e148cda"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-fce04961c109107ffd611494c419849c4ee201b5874238d20f3d55d0dbc44ecc",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-56e50a354c5a7e3c8b188d8476dfaf2d04f50239f6fee7775a0706dbc6a8b17a"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "EVALUATED_WITH",
+      "target": "metric-6b200a570fd5d8034d7701f5b2344cce421f93dfd2e42b3506a4268d9b7069d7",
+      "provenance": {
+        "field": "evaluation_metrics",
+        "source_id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8"
+      },
+      "id": "relation-20a54e16d9858f135a0d3a7ec599fc9d3bb2175b8cad7fa14573d5d936b884c5"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "EVALUATED_WITH",
+      "target": "metric-c24ee3f761b3fdf3fafb72c97cda36897cd35c1f1e1d2ae338f5f327d4fc008f",
+      "provenance": {
+        "field": "evaluation_metrics",
+        "source_id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8"
+      },
+      "id": "relation-5ea545f342021586b726a4050dc6146d8780a55cb0346d985cfd2c70148ed348"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "EVALUATED_WITH",
+      "target": "metric-d22b8897e20a339a3a537786b76175834eecae2207423d33b496cbdd49628ca0",
+      "provenance": {
+        "field": "evaluation_metrics",
+        "source_id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8"
+      },
+      "id": "relation-a6ecd799e05eac2029da695ce49a959da490eb18d8725da19bb4105a091c3c92"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "EVALUATED_WITH",
+      "target": "metric-f60ec0b088689160b85a3afceea5efb5b5ab1738ef02eb9ab4c12c3e5ea82550",
+      "provenance": {
+        "field": "evaluation_metrics",
+        "source_id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8"
+      },
+      "id": "relation-062f23271d9f938c617b2ea16a450e7657b74495735ef43bb01fa7f2cc0d0e91"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "IMPLEMENTED_BY",
+      "target": "implementation-25830e4052ff4b7e32e62245c075cdb32f0c87e9109a6933f8e2df9182ec7187",
+      "provenance": {
+        "publication": "publication-6e3dc212ce6f985fb0cc01e36eb86ae331bbb3c6493d95bf27a0a34750256322"
+      },
+      "id": "relation-ee7770be2f40fd9d2ee6350f31dd095e003c2eb8a66ab38dc4ae4faecc7f6640"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "IMPLEMENTED_BY",
+      "target": "implementation-9ec6e30249ff68dced775bd23597e3dc2dfa30d4712bb5a0b05a3ffc064456c6",
+      "provenance": {
+        "publication": "publication-e8586affc4d3461057427887c299fa45b00c6a163394c7250ed2db323f81868c"
+      },
+      "id": "relation-a4729601cdc37c695bea0604aa5b600e9539a0b87ad83fe1387244da43e6bdf2"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "PRODUCES",
+      "target": "datacontract-e8084e37ff15ac6ad884d2570447a81a0811bad8aa80a3066e6ebf33a4a122fb",
+      "provenance": {
+        "field": "outputs",
+        "source_id": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8"
+      },
+      "id": "relation-04d2f3328243b5fe43274572a60d79eb9f19efb16f7b13f5417f1e68d7740d51"
+    },
+    {
+      "source": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "relation": "REQUIRES",
+      "target": "constraint-3bbc06983c121cdc2721c4148f2cb03dbab257e2c786f4c4f57085a9bcd2d22c",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-6f9480d4fb65bf67b97071846b2e3c05a8cadafcbe62ff21e354831130e4422f"
+    },
+    {
+      "source": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-81a4ee5539a1cbe9da8f48a1551096e1d722247ef8bb1b41a8a82aa93539c39f"
+    },
+    {
+      "source": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-c346ea5b9f34052614e6f2dc856307490684c216653b0621586d13b10c5181f8"
+    },
+    {
+      "source": "chunk-00c94acd3b13aaa28d741227f81add8d4e9b3440aba472fb4310adab9a69c930",
+      "relation": "DERIVED_FROM",
+      "target": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-de2c66cd5ac3ec326ed82ce0eefb0612adb5706af7b666b7078c3d11d610a7ea"
+    },
+    {
+      "source": "chunk-0f3f772d0d0a556835211afd4da0495953ffd3c9a4bc6af9ac539e64e282aa9a",
+      "relation": "DERIVED_FROM",
+      "target": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-0c22bb35078bfaaf583789e1ec45f317992037c3ee8134995b34f655a83d7058"
+    },
+    {
+      "source": "chunk-32e15938b2ec0b22b7ac784dfa0575317918574043cac80ee55aa4f5b064c580",
+      "relation": "DERIVED_FROM",
+      "target": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-3b659ff3ab055087bbb258329c2e2d7a60534c9dc5c5c2b40a44341e13766453"
+    },
+    {
+      "source": "chunk-3de83e077a588d3a978a16389a6039ac7d4de6614aa802681562991930b3ca3b",
+      "relation": "DERIVED_FROM",
+      "target": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-f9d483a222904070d793e72fcd0ef9c65a242ddb324ffc8ca4dbef90a5d16b4b"
+    },
+    {
+      "source": "chunk-4ac273cc2f64f27c7cfbc14e3901c005949bd627a8069825115c94cf9cdb6022",
+      "relation": "DERIVED_FROM",
+      "target": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-69085c4d8cb1a701e80a765d8c0a978ba0c6ae0f5f3abbff522038b79208a4fb"
+    },
+    {
+      "source": "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+      "relation": "DERIVED_FROM",
+      "target": "source-77c556c6553d4192078e1bfdf985a4cd89e45754f491b6ee917b9dcc07769438",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-a588f96d14be427b708da291ab923be5fdb947fe045e6733898f22a22508f347"
+    },
+    {
+      "source": "chunk-519cbaa53238232ad373995a7358be11aadddc5f319c591b19f1912d01be6139",
+      "relation": "DERIVED_FROM",
+      "target": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-c944729482e5dce6329ac036d6618df3fbe4bacb58973a52f9a1bdcf54d8b823"
+    },
+    {
+      "source": "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+      "relation": "DERIVED_FROM",
+      "target": "source-c6d85ec31dbd8809fc844451579165bc762b556e94fd925222e0afb96d75a74c",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-af73debcd434755de2bad8e64f27aa446e39c0ce19c20b392c89c8e1f05e33d4"
+    },
+    {
+      "source": "chunk-8447ab95fae263e25c8a305b3ba187b506d3331f0754e15cb760f589a2e56c87",
+      "relation": "DERIVED_FROM",
+      "target": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-84abdec8a14fe6b73ce828363bb908ddb58cd281c246aa74293c2f7927d98a46"
+    },
+    {
+      "source": "chunk-881013ea0b9d3af3b2e6b57a3fa19ca5b69c513e37c42cd8b734a7b10f96b0bf",
+      "relation": "DERIVED_FROM",
+      "target": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-7cc0c8ad86ff5e8e4c9c7c1fc027e21e50eb579112127561c8a9086ccfd262e1"
+    },
+    {
+      "source": "chunk-8a980a6bed88ae6ac394e24cf35c16e7c8273c3640adb890e22a9818acaa22be",
+      "relation": "DERIVED_FROM",
+      "target": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-6a1d604b3b143c46bc717458ce23f3c616fa0521a1e786ddc448feca8873eee2"
+    },
+    {
+      "source": "chunk-8b4479c1da56c83e95dcdd4ab6e8500a663bd2022c1823c9631076803b43646e",
+      "relation": "DERIVED_FROM",
+      "target": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-2a79deaac415d9a24291ca1268bdd006a75f2dfa1935471d389ac4ab2f0400fb"
+    },
+    {
+      "source": "chunk-95fb6c9ea67c44709e072b8f3c8517b5cd85aa20522d497dd7ad6adb09a38f39",
+      "relation": "DERIVED_FROM",
+      "target": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-b3faa3293b58060e882a347f7c262f66cdc02802704392099edae81cfcbe6a8c"
+    },
+    {
+      "source": "chunk-d5f856ae20f1a1f88cbb895271e018bcba528deb557c7f5ca0d7f48c0e30ae17",
+      "relation": "DERIVED_FROM",
+      "target": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-fcb213901360a4fc680e8a6023974cf60f5eb3922fdf2725827b2ee1526bc997"
+    },
+    {
+      "source": "chunk-fce04961c109107ffd611494c419849c4ee201b5874238d20f3d55d0dbc44ecc",
+      "relation": "DERIVED_FROM",
+      "target": "source-f5ae1f92e0f8999039745dd7e84c1d4f8d690586c38db80fccd00f786a51cdf8",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-62b4f40136ef8d33e5caa958fa92ca23664c185891775a55626f1a0fdd733043"
+    },
+    {
+      "source": "constraint-3bbc06983c121cdc2721c4148f2cb03dbab257e2c786f4c4f57085a9bcd2d22c",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-0f3f772d0d0a556835211afd4da0495953ffd3c9a4bc6af9ac539e64e282aa9a",
+      "provenance": {
+        "origin": "reference"
+      },
+      "id": "relation-2275ba4f456c1daebbce3a4c266f14affb0a0589395940720405810a04eb0068"
+    },
+    {
+      "source": "experience-4e0ea0e6e4c7d13ad3b9143bd052c9681c100971a7661440d1e4e0ccf77d38b6",
+      "relation": "LEARNED_FROM",
+      "target": "validation-cdae8d6f99f055003c2f7b563141826833792bb86f8f1364a127348d062dde78",
+      "provenance": {
+        "publication": "publication-6e3dc212ce6f985fb0cc01e36eb86ae331bbb3c6493d95bf27a0a34750256322"
+      },
+      "id": "relation-a1f849cadc903e411699b8bd589969aa9745705fd2297c517d024df350fc6ff7"
+    },
+    {
+      "source": "implementation-25830e4052ff4b7e32e62245c075cdb32f0c87e9109a6933f8e2df9182ec7187",
+      "relation": "EVALUATED_BY",
+      "target": "validation-cdae8d6f99f055003c2f7b563141826833792bb86f8f1364a127348d062dde78",
+      "provenance": {
+        "publication": "publication-6e3dc212ce6f985fb0cc01e36eb86ae331bbb3c6493d95bf27a0a34750256322"
+      },
+      "id": "relation-1af7afc98e751983c5e9390cdb0bf1bbad241576f0cc91db8e936d53755c0af6"
+    },
+    {
+      "source": "implementation-9ec6e30249ff68dced775bd23597e3dc2dfa30d4712bb5a0b05a3ffc064456c6",
+      "relation": "EVALUATED_BY",
+      "target": "validation-bdcf55bd99c35949c9e7623d29bb0a18dedbc29c51fb1f868ebb4112dc140381",
+      "provenance": {
+        "publication": "publication-e8586affc4d3461057427887c299fa45b00c6a163394c7250ed2db323f81868c"
+      },
+      "id": "relation-449b7d01214fe3023521f1fc25cf0bbad26d5a69188b9127d38c3858ac16714c"
+    }
+  ],
+  "roots": [
+    "experience-4e0ea0e6e4c7d13ad3b9143bd052c9681c100971a7661440d1e4e0ccf77d38b6",
+    "implementation-25830e4052ff4b7e32e62245c075cdb32f0c87e9109a6933f8e2df9182ec7187"
+  ],
+  "limit": 100,
+  "scope": "live_local_graph"
+}

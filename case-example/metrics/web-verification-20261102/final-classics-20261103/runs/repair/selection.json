@@ -1,0 +1,67 @@
+{
+  "task_sha256": "sha256:31c7592c23317b39133b5aea0dde81d40c22d582f437b7a34a420e12915b55cb",
+  "bindings": {
+    "image_id": "sha256:ec7e3f613d45080c580bed6c83b6404df77b17a7cb72be69bacc80cce954ed31",
+    "knowledge_snapshot": "sha256:9bb94b5e6a37ddc26f472653b398cce33b9f5c175c49cee6bb9706938581dcca",
+    "labels_sha256": "sha256:6a517b2eb58c8139863a5c9439b37bde43e1e4a4b0486a6d1ae94bc395e24be5",
+    "manifest_sha256": "sha256:2a4f1633d712b04c92d89443e305f80ae722b0dacc0b61aa654a7c23c4063135"
+  },
+  "selected": "fixed_threshold_upper_85_p2",
+  "plan": {
+    "candidate_id": "fixed_threshold_upper_85_p2",
+    "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+    "config": {
+      "direction": "upper",
+      "method_id": "fixed_threshold",
+      "threshold": 85.0
+    },
+    "knowledge_ids": [
+      "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+      "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09"
+    ],
+    "limitations": [
+      "阈值85%来自用户明确输入，不是从训练分布推断；训练数据最高仅48.913008%，无法从训练数据验证阈值附近效果。",
+      "固定阈值不能识别“持续升高但仍低于85%”的趋势异常；本方案只检测超过85%后的连续上行越限事件。",
+      "演示纠正：已移除未提供的知识引用，相关参数不再标记为知识依据。"
+    ],
+    "parameter_sources": {
+      "direction": "user_explicit",
+      "persistence_points": "user_explicit",
+      "threshold": "user_explicit"
+    },
+    "persistence_points": 2,
+    "selection_reason": "该能力是唯一且用户限定允许的 fixed_threshold 方法，支持 upper 方向、gauge 指标、单主机单指标场景且 min_history=0。用户明确给出阈值85%和连续2点告警；因此配置 direction=upper、threshold=85.0，并在告警器层设置 persistence_points=2。假设输入点包含 timestamp、host_id、value；当 value 缺失时按 missing_input 处理，value=85 时 score=0 不触发，只有 value>85 才形成异常候选，连续2个候选才告警。"
+  },
+  "source_path": "candidate-7e28edc5e837ce161ffe7d64866aa375ca7913b2249e6f7f02ed1e4a7b302edb/v1.py",
+  "source_sha256": "sha256:f56a81ffa8338afd2b507701483a353caac6870dc67bd180c6e61ad5a36e90fb",
+  "threshold": 0.0,
+  "selection": {
+    "basis": "labelled_development",
+    "beta": 1.0,
+    "criteria": [
+      "point_f1_desc",
+      "event_f1_desc",
+      "false_alarm_rate_asc",
+      "matched_delay_asc",
+      "coverage_desc",
+      "candidate_id"
+    ],
+    "objective": "sustained_coverage",
+    "policy": "balanced",
+    "protocol": "metrics-selection/2",
+    "ranking": [
+      "fixed_threshold_upper_85_p2"
+    ],
+    "reason": "按开发集目标及次级 Fβ、正常误报频次、匹配延迟、覆盖率和候选ID排序；最终测试不参与选择。",
+    "requested_policy": "balanced",
+    "selected": "fixed_threshold_upper_85_p2",
+    "status": "SELECTED",
+    "tie_broken_by": "only_eligible_candidate",
+    "warnings": [
+      "LOW_EVENT_COUNT: 真实事件少于5个，事件F1不足以支持统计结论。"
+    ]
+  },
+  "protocol": "metrics-evaluation/1",
+  "selection_sha256": "sha256:e0defc1aae11d61c792619312c0d38f1e89ebc396db183c0bfcce18806671366"
+}

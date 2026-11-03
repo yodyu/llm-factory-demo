@@ -1,0 +1,12 @@
+.venv/bin/python scripts/metrics_bootstrap.py neo4j
+ Network demo_default  Creating
+ Network demo_default  Created
+ Volume "demo_neo4j-data"  Creating
+ Volume "demo_neo4j-data"  Created
+ Container demo-neo4j-1  Creating
+ Container demo-neo4j-1  Created
+ Container demo-neo4j-1  Starting
+ Container demo-neo4j-1  Started
+ Container demo-neo4j-1  Waiting
+ Container demo-neo4j-1  Healthy
+Initialize with: factory metrics-knowledge-init --knowledge /path/to/private-config/llm-factory-web-revalidation-20261102/knowledge.json

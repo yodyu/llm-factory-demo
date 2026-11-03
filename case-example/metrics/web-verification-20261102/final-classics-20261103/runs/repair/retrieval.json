@@ -1,0 +1,501 @@
+{
+  "snapshot_id": "sha256:9bb94b5e6a37ddc26f472653b398cce33b9f5c175c49cee6bb9706938581dcca",
+  "schema_version": "metrics-knowledge/2",
+  "status": "RETRIEVED",
+  "relevance_score": 3,
+  "capabilities": [
+    {
+      "id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "algorithm_spec": "固定阈值：upper=x-T，lower=T-x，evidence包含threshold；缺失value时missing_input。等于阈值时分数为0，只有严格大于0才告警。fit仅确认存在有效训练值；reset无历史状态。",
+      "citations": [
+        {
+          "chunk_id": "chunk-2d0ddc000c30e78b533d4f4dda1c0eb1c252a479521febd8fd65f31dbf399938",
+          "quote": "\"version\": \"1.1.0\"",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-cc6f404da734a520b42e2665491dfb48ef7799eaa117e5236e7b5370623beebd",
+          "quote": "\"task_type\": \"time_series_anomaly_detection\"",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-7ac5e3104c65ea345ed16051fd2dfa6aeb1588f1584dc99ac7a53dec3b632191",
+          "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-3478558ca578b2421a9eafa4318746e1999211f4102a9c0c15c0327f07b4cdc8",
+          "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-fd17f7c1a645f4eb1a20399451cdb9d8dc01b864ff340ff99fc0b9ad68a305d2",
+          "quote": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"threshold\",\n      \"direction\"\n    ],\n    \"properties\": {\n      \"threshold\": {\n        \"type\": \"number\"\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\"\n        ]\n      }\n    }\n  }",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-c368425fa266f67e61189076a0e25498f42948e09176433c697656320480a4a3",
+          "quote": "\"defaults\": {\n    \"threshold\": 85.0,\n    \"direction\": \"upper\"\n  }",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-c82eeb44ca26bffd3d259c945e1d6431c2346b4551174279f20a14d4e057587a",
+          "quote": "\"algorithm_spec\": \"固定阈值：upper=x-T，lower=T-x，evidence包含threshold；缺失value时missing_input。等于阈值时分数为0，只有严格大于0才告警。fit仅确认存在有效训练值；reset无历史状态。\"",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-ac71e62268231732aa883f1bec7afeb0f00dc16b0ced749de1176cbc885982b1",
+          "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-de86850269dd11bf370e1c1b73882ab41a486ea5bb0847651f6a4485240ed518",
+          "quote": "\"supported_directions\": [\n    \"upper\",\n    \"lower\"\n  ]",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-9af70779fa9067ce866881f79627abbb80c583543a60fd5b80e4ca1ce4c43777",
+          "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-025529308b0292dbc0047c06fb0b9aa613e4ab2e7d1ade142dda950786a421c1",
+          "quote": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-4ff50858be0c75870d59c403a6089e5ee17346aed204d8fc5fba99c9b5cbdc92",
+          "quote": "\"min_history\": 0",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+          "quote": "适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1，不需要历史基线。\nupper 分数为 x-T，lower 分数为 T-x。严格 score>0 才是异常候选；等号不触发。\n业务阈值必须来自用户明确值或有引用的业务材料；假设阈值要标为 candidate_assumption。\n本材料没有给定任何指标的业务阈值；禁止虚构业务达标保证。\ncalibration 不改变固定阈值 T；共享可信告警器处理连续点数和事件合并。",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+          "quote": "    def fit(self, train_points):\n        if not any(point[\"value\"] is not None for point in train_points):\n            raise ValueError(\"no valid training observations\")\n        self.reset()\n\n    def reset(self):\n        pass",
+          "symbol": null
+        }
+      ],
+      "conditions_status": "evidenced",
+      "constraints": [
+        "业务阈值须由用户确认；未指定值只是候选假设。"
+      ],
+      "defaults": {
+        "direction": "upper",
+        "threshold": 85.0
+      },
+      "dependency_profile": "metrics-py312-stdlib/1",
+      "evaluation_metrics": [
+        "event_f1",
+        "point_f1",
+        "normal_false_alarms_per_host_hour",
+        "matched_delay_seconds"
+      ],
+      "field_evidence": {
+        "algorithm_spec": {
+          "chunk_id": "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+          "quote": "适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1，不需要历史基线。\nupper 分数为 x-T，lower 分数为 T-x。严格 score>0 才是异常候选；等号不触发。\n业务阈值必须来自用户明确值或有引用的业务材料；假设阈值要标为 candidate_assumption。\n本材料没有给定任何指标的业务阈值；禁止虚构业务达标保证。\ncalibration 不改变固定阈值 T；共享可信告警器处理连续点数和事件合并。",
+          "symbol": null
+        },
+        "defaults": {
+          "chunk_id": "chunk-c368425fa266f67e61189076a0e25498f42948e09176433c697656320480a4a3",
+          "quote": "\"defaults\": {\n    \"threshold\": 85.0,\n    \"direction\": \"upper\"\n  }",
+          "symbol": null
+        },
+        "dependency_profile": {
+          "chunk_id": "chunk-9af70779fa9067ce866881f79627abbb80c583543a60fd5b80e4ca1ce4c43777",
+          "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+          "symbol": null
+        },
+        "evaluation_metrics": {
+          "chunk_id": "chunk-ac71e62268231732aa883f1bec7afeb0f00dc16b0ced749de1176cbc885982b1",
+          "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+          "symbol": null
+        },
+        "inputs": {
+          "chunk_id": "chunk-7ac5e3104c65ea345ed16051fd2dfa6aeb1588f1584dc99ac7a53dec3b632191",
+          "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+          "symbol": null
+        },
+        "metric_kinds": {
+          "chunk_id": "chunk-025529308b0292dbc0047c06fb0b9aa613e4ab2e7d1ade142dda950786a421c1",
+          "quote": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]",
+          "symbol": null
+        },
+        "min_history": {
+          "chunk_id": "chunk-4ff50858be0c75870d59c403a6089e5ee17346aed204d8fc5fba99c9b5cbdc92",
+          "quote": "\"min_history\": 0",
+          "symbol": null
+        },
+        "outputs": {
+          "chunk_id": "chunk-3478558ca578b2421a9eafa4318746e1999211f4102a9c0c15c0327f07b4cdc8",
+          "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+          "symbol": null
+        },
+        "parameters": {
+          "chunk_id": "chunk-fd17f7c1a645f4eb1a20399451cdb9d8dc01b864ff340ff99fc0b9ad68a305d2",
+          "quote": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"threshold\",\n      \"direction\"\n    ],\n    \"properties\": {\n      \"threshold\": {\n        \"type\": \"number\"\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\"\n        ]\n      }\n    }\n  }",
+          "symbol": null
+        },
+        "supported_directions": {
+          "chunk_id": "chunk-de86850269dd11bf370e1c1b73882ab41a486ea5bb0847651f6a4485240ed518",
+          "quote": "\"supported_directions\": [\n    \"upper\",\n    \"lower\"\n  ]",
+          "symbol": null
+        },
+        "task_type": {
+          "chunk_id": "chunk-cc6f404da734a520b42e2665491dfb48ef7799eaa117e5236e7b5370623beebd",
+          "quote": "\"task_type\": \"time_series_anomaly_detection\"",
+          "symbol": null
+        },
+        "version": {
+          "chunk_id": "chunk-2d0ddc000c30e78b533d4f4dda1c0eb1c252a479521febd8fd65f31dbf399938",
+          "quote": "\"version\": \"1.1.0\"",
+          "symbol": null
+        }
+      },
+      "implementation_verified": false,
+      "inputs": {
+        "properties": {
+          "host_id": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "value": {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "timestamp",
+          "host_id",
+          "value"
+        ],
+        "type": "object"
+      },
+      "knowledge_status": "source_checked",
+      "limitations": [
+        "expert authored plugin card; not model extraction"
+      ],
+      "local_id": "fixed_threshold",
+      "manifest_field_evidence": {
+        "algorithm_spec": {
+          "chunk_id": "chunk-c82eeb44ca26bffd3d259c945e1d6431c2346b4551174279f20a14d4e057587a",
+          "quote": "\"algorithm_spec\": \"固定阈值：upper=x-T，lower=T-x，evidence包含threshold；缺失value时missing_input。等于阈值时分数为0，只有严格大于0才告警。fit仅确认存在有效训练值；reset无历史状态。\"",
+          "symbol": null
+        },
+        "defaults": {
+          "chunk_id": "chunk-c368425fa266f67e61189076a0e25498f42948e09176433c697656320480a4a3",
+          "quote": "\"defaults\": {\n    \"threshold\": 85.0,\n    \"direction\": \"upper\"\n  }",
+          "symbol": null
+        },
+        "dependency_profile": {
+          "chunk_id": "chunk-9af70779fa9067ce866881f79627abbb80c583543a60fd5b80e4ca1ce4c43777",
+          "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+          "symbol": null
+        },
+        "evaluation_metrics": {
+          "chunk_id": "chunk-ac71e62268231732aa883f1bec7afeb0f00dc16b0ced749de1176cbc885982b1",
+          "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+          "symbol": null
+        },
+        "inputs": {
+          "chunk_id": "chunk-7ac5e3104c65ea345ed16051fd2dfa6aeb1588f1584dc99ac7a53dec3b632191",
+          "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+          "symbol": null
+        },
+        "metric_kinds": {
+          "chunk_id": "chunk-025529308b0292dbc0047c06fb0b9aa613e4ab2e7d1ade142dda950786a421c1",
+          "quote": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]",
+          "symbol": null
+        },
+        "min_history": {
+          "chunk_id": "chunk-4ff50858be0c75870d59c403a6089e5ee17346aed204d8fc5fba99c9b5cbdc92",
+          "quote": "\"min_history\": 0",
+          "symbol": null
+        },
+        "outputs": {
+          "chunk_id": "chunk-3478558ca578b2421a9eafa4318746e1999211f4102a9c0c15c0327f07b4cdc8",
+          "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+          "symbol": null
+        },
+        "parameters": {
+          "chunk_id": "chunk-fd17f7c1a645f4eb1a20399451cdb9d8dc01b864ff340ff99fc0b9ad68a305d2",
+          "quote": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"threshold\",\n      \"direction\"\n    ],\n    \"properties\": {\n      \"threshold\": {\n        \"type\": \"number\"\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\"\n        ]\n      }\n    }\n  }",
+          "symbol": null
+        },
+        "supported_directions": {
+          "chunk_id": "chunk-de86850269dd11bf370e1c1b73882ab41a486ea5bb0847651f6a4485240ed518",
+          "quote": "\"supported_directions\": [\n    \"upper\",\n    \"lower\"\n  ]",
+          "symbol": null
+        },
+        "task_type": {
+          "chunk_id": "chunk-cc6f404da734a520b42e2665491dfb48ef7799eaa117e5236e7b5370623beebd",
+          "quote": "\"task_type\": \"time_series_anomaly_detection\"",
+          "symbol": null
+        },
+        "version": {
+          "chunk_id": "chunk-2d0ddc000c30e78b533d4f4dda1c0eb1c252a479521febd8fd65f31dbf399938",
+          "quote": "\"version\": \"1.1.0\"",
+          "symbol": null
+        }
+      },
+      "method_id": "fixed_threshold",
+      "metric_kinds": [
+        "gauge",
+        "rate"
+      ],
+      "min_history": 0,
+      "name": "固定阈值",
+      "origin": "reference",
+      "outputs": {
+        "properties": {
+          "evidence": {
+            "type": "object"
+          },
+          "score": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "status": {
+            "enum": [
+              "ok",
+              "insufficient_history",
+              "missing_input",
+              "invalid_input"
+            ]
+          }
+        },
+        "required": [
+          "timestamp",
+          "host_id",
+          "status",
+          "score",
+          "evidence"
+        ],
+        "type": "object"
+      },
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "direction": {
+            "enum": [
+              "upper",
+              "lower"
+            ]
+          },
+          "threshold": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "threshold",
+          "direction"
+        ],
+        "type": "object"
+      },
+      "plugin_hashes": {
+        "capability.json": "sha256:a19217ef27bff5c0726e6be8d4dc123a509bfe2d34c6fe8b63b0f2cd6c5ef045",
+        "checks.py": "sha256:009933701326684689fb100d585f4bb44d596016fa7d9278147f6999566e9427",
+        "reference.py": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70"
+      },
+      "response_evidence": {
+        "origin": "reference",
+        "source_sha256": "sha256:a19217ef27bff5c0726e6be8d4dc123a509bfe2d34c6fe8b63b0f2cd6c5ef045"
+      },
+      "single_host": true,
+      "source_id": "source-ea7569716e76f114a375621f6091c81e14430c0eaface734e8642612e1eab8d3",
+      "source_status": "registered_card",
+      "spec_sources": [
+        {
+          "chunk_id": "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+          "end_line": 7,
+          "path": "materials/metrics/02-fixed-threshold.txt",
+          "quote": "适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1，不需要历史基线。\nupper 分数为 x-T，lower 分数为 T-x。严格 score>0 才是异常候选；等号不触发。\n业务阈值必须来自用户明确值或有引用的业务材料；假设阈值要标为 candidate_assumption。\n本材料没有给定任何指标的业务阈值；禁止虚构业务达标保证。\ncalibration 不改变固定阈值 T；共享可信告警器处理连续点数和事件合并。",
+          "sha256": "sha256:dc91558e86cf108f1796ad3f1ab2c5826c11517f8a443f9315d918f410ab5a3f",
+          "start_line": 3
+        },
+        {
+          "chunk_id": "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+          "end_line": 19,
+          "path": "materials/metrics/reference_fixed.py",
+          "quote": "    def fit(self, train_points):\n        if not any(point[\"value\"] is not None for point in train_points):\n            raise ValueError(\"no valid training observations\")\n        self.reset()\n\n    def reset(self):\n        pass",
+          "sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+          "start_line": 13
+        }
+      ],
+      "specification_sha256": "sha256:d78418b686499b015abb691e10e65fad63592d12ad25bcab36e2ced5af7a2060",
+      "summary": "固定阈值；业务阈值须由用户确认；未指定值只是候选假设。",
+      "supported_directions": [
+        "upper",
+        "lower"
+      ],
+      "task_type": "time_series_anomaly_detection",
+      "verification": "reference",
+      "verification_level": "contract_only",
+      "version": "1.1.0"
+    }
+  ],
+  "mode": "structured",
+  "knowledge_ids": [
+    "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+    "chunk-2d0ddc000c30e78b533d4f4dda1c0eb1c252a479521febd8fd65f31dbf399938",
+    "chunk-3478558ca578b2421a9eafa4318746e1999211f4102a9c0c15c0327f07b4cdc8",
+    "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+    "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+    "chunk-7ac5e3104c65ea345ed16051fd2dfa6aeb1588f1584dc99ac7a53dec3b632191",
+    "chunk-cc6f404da734a520b42e2665491dfb48ef7799eaa117e5236e7b5370623beebd",
+    "source-77c556c6553d4192078e1bfdf985a4cd89e45754f491b6ee917b9dcc07769438",
+    "source-c6d85ec31dbd8809fc844451579165bc762b556e94fd925222e0afb96d75a74c"
+  ],
+  "chunks": [
+    {
+      "id": "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+      "end_line": 7,
+      "sha256": "sha256:625932185c4e40cb0b5c38d216e868878e7900d0b17e6c5c81b6de4d9a317480",
+      "source_id": "source-c6d85ec31dbd8809fc844451579165bc762b556e94fd925222e0afb96d75a74c",
+      "start_line": 3,
+      "text": "适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1，不需要历史基线。\nupper 分数为 x-T，lower 分数为 T-x。严格 score>0 才是异常候选；等号不触发。\n业务阈值必须来自用户明确值或有引用的业务材料；假设阈值要标为 candidate_assumption。\n本材料没有给定任何指标的业务阈值；禁止虚构业务达标保证。\ncalibration 不改变固定阈值 T；共享可信告警器处理连续点数和事件合并。",
+      "source": "materials/metrics/02-fixed-threshold.txt",
+      "source_sha256": "sha256:dc91558e86cf108f1796ad3f1ab2c5826c11517f8a443f9315d918f410ab5a3f",
+      "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "summary": "固定阈值；业务阈值须由用户确认；未指定值只是候选假设。",
+      "conditions_status": "evidenced",
+      "knowledge_status": "source_checked"
+    },
+    {
+      "id": "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+      "end_line": 19,
+      "sha256": "sha256:dcdb3f0bc270d9ef3b5002191bb26e2777f76d23a9a3c4fce137b012df80f7c6",
+      "source_id": "source-77c556c6553d4192078e1bfdf985a4cd89e45754f491b6ee917b9dcc07769438",
+      "start_line": 13,
+      "text": "    def fit(self, train_points):\n        if not any(point[\"value\"] is not None for point in train_points):\n            raise ValueError(\"no valid training observations\")\n        self.reset()\n\n    def reset(self):\n        pass",
+      "source": "materials/metrics/reference_fixed.py",
+      "source_sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+      "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "summary": "固定阈值；业务阈值须由用户确认；未指定值只是候选假设。",
+      "conditions_status": "evidenced",
+      "knowledge_status": "source_checked"
+    },
+    {
+      "id": "chunk-2d0ddc000c30e78b533d4f4dda1c0eb1c252a479521febd8fd65f31dbf399938",
+      "end_line": 2,
+      "sha256": "sha256:434beef7a807fb98e7eac094ecd06733613bf46816f600318201d4d75a8b416d",
+      "source_id": "source-ea7569716e76f114a375621f6091c81e14430c0eaface734e8642612e1eab8d3",
+      "start_line": 2,
+      "text": "\"version\": \"1.1.0\"",
+      "source": "capabilities/fixed_threshold/capability.json",
+      "source_sha256": "sha256:a19217ef27bff5c0726e6be8d4dc123a509bfe2d34c6fe8b63b0f2cd6c5ef045",
+      "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "summary": "固定阈值；业务阈值须由用户确认；未指定值只是候选假设。",
+      "conditions_status": "evidenced",
+      "knowledge_status": "extracted_unverified"
+    },
+    {
+      "id": "chunk-cc6f404da734a520b42e2665491dfb48ef7799eaa117e5236e7b5370623beebd",
+      "end_line": 3,
+      "sha256": "sha256:a144d8d828e7fb97f5f6956262b45ad28185f5f70aaa90bfec23e32d64a1a579",
+      "source_id": "source-ea7569716e76f114a375621f6091c81e14430c0eaface734e8642612e1eab8d3",
+      "start_line": 3,
+      "text": "\"task_type\": \"time_series_anomaly_detection\"",
+      "source": "capabilities/fixed_threshold/capability.json",
+      "source_sha256": "sha256:a19217ef27bff5c0726e6be8d4dc123a509bfe2d34c6fe8b63b0f2cd6c5ef045",
+      "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "summary": "固定阈值；业务阈值须由用户确认；未指定值只是候选假设。",
+      "conditions_status": "evidenced",
+      "knowledge_status": "extracted_unverified"
+    },
+    {
+      "id": "chunk-7ac5e3104c65ea345ed16051fd2dfa6aeb1588f1584dc99ac7a53dec3b632191",
+      "end_line": 25,
+      "sha256": "sha256:26322978e7b7ba1109a5645a4cebda5a53a17a749135650c1dedbe6433cd305b",
+      "source_id": "source-ea7569716e76f114a375621f6091c81e14430c0eaface734e8642612e1eab8d3",
+      "start_line": 4,
+      "text": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+      "source": "capabilities/fixed_threshold/capability.json",
+      "source_sha256": "sha256:a19217ef27bff5c0726e6be8d4dc123a509bfe2d34c6fe8b63b0f2cd6c5ef045",
+      "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "summary": "固定阈值；业务阈值须由用户确认；未指定值只是候选假设。",
+      "conditions_status": "evidenced",
+      "knowledge_status": "extracted_unverified"
+    },
+    {
+      "id": "chunk-3478558ca578b2421a9eafa4318746e1999211f4102a9c0c15c0327f07b4cdc8",
+      "end_line": 54,
+      "sha256": "sha256:067211d58506363cc1bd45491834d76cd2d1c616f66e34a19adaef112994c8f8",
+      "source_id": "source-ea7569716e76f114a375621f6091c81e14430c0eaface734e8642612e1eab8d3",
+      "start_line": 26,
+      "text": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+      "source": "capabilities/fixed_threshold/capability.json",
+      "source_sha256": "sha256:a19217ef27bff5c0726e6be8d4dc123a509bfe2d34c6fe8b63b0f2cd6c5ef045",
+      "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "summary": "固定阈值；业务阈值须由用户确认；未指定值只是候选假设。",
+      "conditions_status": "evidenced",
+      "knowledge_status": "extracted_unverified"
+    }
+  ],
+  "experiences": [],
+  "excluded": [
+    {
+      "capability_id": "capability-04f01882e204ff779b5af174effe77a90d0602613195ad5df94e5bb92a3b98d8",
+      "reason": "method_not_allowed"
+    },
+    {
+      "capability_id": "capability-08565f7fa2e1d91f5f465077681e1c1273a049d893844ad80ed4723ee2b995f6",
+      "reason": "dependency_profile_incompatible"
+    },
+    {
+      "capability_id": "capability-11520c6eba9320652cb42dc119002670a468b31059a5dc89041743cadb9530ec",
+      "reason": "method_not_allowed"
+    },
+    {
+      "capability_id": "capability-18907b00ca1f343bc6f2bfe6fdcfedd3b1a5ff832c90d62224f2c215423c04db",
+      "reason": "not_single_host"
+    },
+    {
+      "capability_id": "capability-1a2f586ebb422419090b27c5d53bacea4237ac739379e46a9b64275e3f7623c1",
+      "reason": "metric_kind_not_supported"
+    },
+    {
+      "capability_id": "capability-1fccd2412c2a28daadb268f8668ba558f16a597a9eca5fd8d89c594d787f721d",
+      "reason": "dependency_profile_incompatible"
+    },
+    {
+      "capability_id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "reason": "method_not_allowed"
+    },
+    {
+      "capability_id": "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+      "reason": "method_not_allowed"
+    },
+    {
+      "capability_id": "capability-764b9a2a6c8aebe862df97558119174dbbdb8e64f055d71a2b78859e1cbee7e6",
+      "reason": "method_not_allowed"
+    },
+    {
+      "capability_id": "capability-a13226db11d3d29b346f4e7a55dcd85228afdeb959a5556bb9d46bf3578ddc0f",
+      "reason": "metric_kind_not_supported"
+    },
+    {
+      "capability_id": "capability-b7d865a18d3bbeefd4fd907ec3a48e750208839c3940af715483c7e366b895de",
+      "reason": "method_not_allowed"
+    },
+    {
+      "capability_id": "capability-cb052fd309e7c61ec0cab3f4d9007244e4ca7337beedb7ec0312697c9adc32d4",
+      "reason": "dependency_profile_incompatible"
+    },
+    {
+      "capability_id": "capability-dd84d52fd2c312d197e39c39ece878fd4369acb9abaf1fedee521a5f8d3c67ad",
+      "reason": "metric_kind_not_supported"
+    }
+  ],
+  "conditions_notice": "extracted applicability claims are source-linked, not implementation verification"
+}

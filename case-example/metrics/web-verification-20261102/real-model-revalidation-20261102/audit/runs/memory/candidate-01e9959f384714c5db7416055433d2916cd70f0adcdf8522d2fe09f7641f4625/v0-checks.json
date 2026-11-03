@@ -1,0 +1,68 @@
+{
+  "candidate_id": "fixed-threshold-70-p2",
+  "capability_version": "1.1.0",
+  "checks": [
+    {
+      "check": "static_profile",
+      "layer": "contract",
+      "passed": true
+    },
+    {
+      "check": "missing_input_contract",
+      "layer": "contract",
+      "passed": true
+    },
+    {
+      "check": "state_reload",
+      "layer": "contract",
+      "passed": true
+    },
+    {
+      "check": "reset_repeat_future_invariance",
+      "layer": "contract",
+      "passed": true
+    },
+    {
+      "check": "fixed_strict_boundary",
+      "layer": "property",
+      "passed": true,
+      "points": 3
+    },
+    {
+      "check": "fixed_missing",
+      "layer": "property",
+      "passed": true,
+      "points": 6
+    },
+    {
+      "check": "fixed_strict_boundary",
+      "layer": "reference",
+      "passed": true,
+      "points": 3
+    },
+    {
+      "check": "fixed_missing",
+      "layer": "reference",
+      "passed": true,
+      "points": 6
+    }
+  ],
+  "config": {
+    "direction": "upper",
+    "method_id": "fixed_threshold",
+    "threshold": 70.0
+  },
+  "dependency_profile": "metrics-py312-stdlib/1",
+  "origin": "llm_api",
+  "passed": true,
+  "plugin_hashes": {
+    "capability.json": "sha256:a19217ef27bff5c0726e6be8d4dc123a509bfe2d34c6fe8b63b0f2cd6c5ef045",
+    "checks.py": "sha256:009933701326684689fb100d585f4bb44d596016fa7d9278147f6999566e9427",
+    "reference.py": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70"
+  },
+  "protocol": "metrics-method-check/3",
+  "repairable": true,
+  "source_sha256": "sha256:9ceaa85724bf25dae0d8a5e0cd379ba48dd1c91886050858518d4759b102e238",
+  "verification_level": "reference_verified",
+  "version": 0
+}

@@ -1,0 +1,9 @@
+# 构造材料：单主机指标字段规范
+
+本文件是模拟业务专家材料，不是生产经验。
+输入为单主机、单指标，字段 timestamp、host_id、value；时间为 UTC，固定采样间隔。
+metric_kind 仅允许 gauge 或已换算的 rate，原始 counter 不支持。
+CPU、内存以 percent 为单位，磁盘延迟以 ms 为单位，网络速率以 bytes/s 为单位。
+缺少 value 保留时间槽，不能删除行。重复、乱序、无穷值和物理范围外值拒绝。
+向前填充最多三点，无历史或超过三点时 missing_input；不能把缺失当正常。
+两种算法都支持 gauge/rate，不执行根因定位或多主机联合检测。

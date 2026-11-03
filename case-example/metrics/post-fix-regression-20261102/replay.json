@@ -1,0 +1,146 @@
+[
+  {
+    "kind": "post_fix_development_replay",
+    "task_id": "ui-b0c4acdd29bc47d9",
+    "source_report_sha256": "3263479071fc6fd2f7271cf18664758fc6cb5eb236909ef7de606075398fd70c",
+    "frozen_objective": "sustained_coverage",
+    "frozen_policy": "recall",
+    "original_selection": {
+      "basis": "labelled_development",
+      "beta": 2.0,
+      "criteria": [
+        "event_fbeta_desc",
+        "point_fbeta_desc",
+        "false_alarm_rate_asc",
+        "matched_delay_asc",
+        "coverage_desc",
+        "candidate_id"
+      ],
+      "objective": "event_detection",
+      "policy": "recall",
+      "protocol": "metrics-selection/2",
+      "ranking": [
+        "fixed_threshold_upper_70_persistence2",
+        "ewma_upper_alpha02_persistence2",
+        "rolling_mad_upper_default_window_persistence2"
+      ],
+      "reason": "按开发集目标及次级 Fβ、正常误报频次、匹配延迟、覆盖率和候选ID排序；最终测试不参与选择。",
+      "requested_policy": "recall",
+      "selected": "fixed_threshold_upper_70_persistence2",
+      "status": "SELECTED",
+      "tie_broken_by": "event_fbeta",
+      "warnings": [
+        "LOW_EVENT_COUNT: 真实事件少于5个，事件F1不足以支持统计结论。"
+      ]
+    },
+    "replayed_selection": {
+      "status": "SELECTED",
+      "ranking": [
+        "ewma_upper_alpha02_persistence2",
+        "fixed_threshold_upper_70_persistence2",
+        "rolling_mad_upper_default_window_persistence2"
+      ],
+      "selected": "ewma_upper_alpha02_persistence2",
+      "basis": "labelled_development",
+      "reason": "按开发集目标及次级 Fβ、正常误报频次、匹配延迟、覆盖率和候选ID排序；最终测试不参与选择。",
+      "policy": "recall",
+      "beta": 2.0,
+      "criteria": [
+        "point_fbeta_desc",
+        "event_fbeta_desc",
+        "false_alarm_rate_asc",
+        "matched_delay_asc",
+        "coverage_desc",
+        "candidate_id"
+      ],
+      "tie_broken_by": "point_fbeta",
+      "warnings": [
+        "LOW_EVENT_COUNT: 真实事件少于5个，事件F1不足以支持统计结论。"
+      ],
+      "protocol": "metrics-selection/2",
+      "objective": "sustained_coverage",
+      "requested_policy": "recall"
+    },
+    "selection_explanation": {
+      "评价目标": "持续区间覆盖",
+      "实际选优偏好": "偏好少漏报",
+      "比较依据": "有标签开发集",
+      "排序顺序": "开发点级 F2 → 开发事件 F2 → 开发正常误报频次（升序） → 开发匹配延迟（升序） → 开发覆盖率（降序） → 候选标识（稳定决胜）",
+      "实际决胜项": "开发点级 F2"
+    },
+    "source_unchanged": true,
+    "model_calls": 0,
+    "final_test_executed": false
+  },
+  {
+    "kind": "post_fix_development_replay",
+    "task_id": "ui-a25079152c7940fa",
+    "source_report_sha256": "fac84b4ef97a7e34ed1fb67eb69325067f88795c61af1ec2d177219c4ae90294",
+    "frozen_objective": "sustained_coverage",
+    "frozen_policy": "precision",
+    "original_selection": {
+      "basis": "labelled_development",
+      "beta": 0.5,
+      "criteria": [
+        "event_fbeta_desc",
+        "point_fbeta_desc",
+        "false_alarm_rate_asc",
+        "matched_delay_asc",
+        "coverage_desc",
+        "candidate_id"
+      ],
+      "objective": "event_detection",
+      "policy": "precision",
+      "protocol": "metrics-selection/2",
+      "ranking": [
+        "ewma_alpha0.3_persist2_upper",
+        "rolling_mad_w30_persist2_upper"
+      ],
+      "reason": "按开发集目标及次级 Fβ、正常误报频次、匹配延迟、覆盖率和候选ID排序；最终测试不参与选择。",
+      "requested_policy": "precision",
+      "selected": "ewma_alpha0.3_persist2_upper",
+      "status": "SELECTED",
+      "tie_broken_by": "event_fbeta",
+      "warnings": [
+        "LOW_EVENT_COUNT: 真实事件少于5个，事件F1不足以支持统计结论。"
+      ]
+    },
+    "replayed_selection": {
+      "status": "SELECTED",
+      "ranking": [
+        "ewma_alpha0.3_persist2_upper",
+        "rolling_mad_w30_persist2_upper"
+      ],
+      "selected": "ewma_alpha0.3_persist2_upper",
+      "basis": "labelled_development",
+      "reason": "按开发集目标及次级 Fβ、正常误报频次、匹配延迟、覆盖率和候选ID排序；最终测试不参与选择。",
+      "policy": "precision",
+      "beta": 0.5,
+      "criteria": [
+        "point_fbeta_desc",
+        "event_fbeta_desc",
+        "false_alarm_rate_asc",
+        "matched_delay_asc",
+        "coverage_desc",
+        "candidate_id"
+      ],
+      "tie_broken_by": "point_fbeta",
+      "warnings": [
+        "LOW_EVENT_COUNT: 真实事件少于5个，事件F1不足以支持统计结论。"
+      ],
+      "protocol": "metrics-selection/2",
+      "objective": "sustained_coverage",
+      "requested_policy": "precision"
+    },
+    "selection_explanation": {
+      "评价目标": "持续区间覆盖",
+      "实际选优偏好": "偏好少误报",
+      "比较依据": "有标签开发集",
+      "排序顺序": "开发点级 F0.5 → 开发事件 F0.5 → 开发正常误报频次（升序） → 开发匹配延迟（升序） → 开发覆盖率（降序） → 候选标识（稳定决胜）",
+      "实际决胜项": "开发点级 F0.5"
+    },
+    "source_unchanged": true,
+    "model_calls": 0,
+    "final_test_executed": false
+  }
+]

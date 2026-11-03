@@ -1,0 +1,32 @@
+{
+  "schema_version": "metrics-task/1",
+  "task_id": "metrics-new-directory-v2",
+  "requirement": "为单主机内存利用率生成异常检测器，检测持续升高。固定阈值候选使用我指定的85 percent上界；同时比较滚动MAD。连续两点才开始告警，允许短暂缺失。分别报告误报、覆盖率和发现延迟，不要求根因定位。",
+  "dataset_id": "sim-memory_shift-v1",
+  "metric": "memory_utilization",
+  "anomaly_target": "upper",
+  "explicit_constraints": {
+    "threshold": 85.0,
+    "direction": "upper",
+    "persistence_points": 2.0
+  },
+  "ranking_preferences": [
+    "event_f1",
+    "coverage",
+    "false_alarm_rate"
+  ],
+  "allowed_methods": [
+    "fixed_threshold",
+    "rolling_mad"
+  ],
+  "knowledge_snapshot": "sha256:0917dde9948a31d7317a76d1f5a34c38e104b1c4ba5ab3ef702de4b8cd2f33de",
+  "validation_protocol": "metrics-evaluation/1",
+  "budgets": {
+    "model_calls": 16,
+    "repair_rounds": 2,
+    "candidates": 2,
+    "wall_seconds": 900
+  },
+  "model_mode": "api",
+  "model_profile_id": "metrics-c9a0036e73b91ba3"
+}

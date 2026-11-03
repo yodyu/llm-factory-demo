@@ -1,0 +1,255 @@
+{
+  "candidate_id": "memory_utilization_rolling_mad_upper_w30_h15_q99_p2",
+  "role": "development",
+  "plan": {
+    "candidate_id": "memory_utilization_rolling_mad_upper_w30_h15_q99_p2",
+    "config": {
+      "method_id": "rolling_mad",
+      "window": 30,
+      "min_history": 15,
+      "direction": "upper",
+      "quantile": 0.99
+    },
+    "persistence_points": 2,
+    "parameter_sources": {
+      "window": "protocol_default",
+      "min_history": "protocol_default",
+      "direction": "user_explicit",
+      "quantile": "protocol_default",
+      "persistence_points": "user_explicit",
+      "scale_floor": "knowledge:capability-495442200c109b16b45d3bfb8ff7eba7746d1cce28b0631e0893d13cb60e39e9",
+      "missing_fill": "knowledge:capability-106fc5025f92d2dfec9698b99161e17a6e35a65509b48320d43e5828858adb0f"
+    },
+    "knowledge_ids": [
+      "capability-495442200c109b16b45d3bfb8ff7eba7746d1cce28b0631e0893d13cb60e39e9",
+      "capability-106fc5025f92d2dfec9698b99161e17a6e35a65509b48320d43e5828858adb0f",
+      "capability-ba2670c5ca166ee2f6458d8f8bf37cf3adb2ce63c28bdba06d15d10137a86c42"
+    ],
+    "limitations": [
+      "前15个真实观测之前不产生判定；每点只使用该点之前最近30个时间槽的历史。",
+      "scale_floor 在训练阶段由有效值R7 IQR按 max(1e-9, IQR*1e-6) 计算；当前仅提供min/max/mean，未提供IQR，因此不在规划中虚构数值。",
+      "校准需至少100个可判断计分点，并用nearest-rank 0.99分位确定阈值，严格 score>阈值 才异常；训练有效点为299，数量上满足默认校准前提，但仍需实际执行。",
+      "非常缓慢的持续升高可能被滚动中位数和MAD吸收，导致覆盖率下降或发现延迟变长；周期波动和正常业务高峰可能造成误报。",
+      "连续2点才告警，最早在第二个异常点触发；短暂缺失按规则最多向前填充3点，长缺失导致 missing_input，不计为正常。"
+    ]
+  },
+  "versions": [
+    {
+      "version": 0,
+      "origin": "llm_api",
+      "source_path": "candidate-eed1519ccc941e1cd33c3e3c07523594fbf1318f9682e67b91309a27e3bed153/v0.py",
+      "source_sha256": "sha256:7a7a5f678bb6feb777dfe1fde88d3f055e75f6e8b911ad4195099aad95683c1a",
+      "parent_source_sha256": null,
+      "knowledge_ids": [
+        "capability-495442200c109b16b45d3bfb8ff7eba7746d1cce28b0631e0893d13cb60e39e9",
+        "capability-106fc5025f92d2dfec9698b99161e17a6e35a65509b48320d43e5828858adb0f",
+        "capability-ba2670c5ca166ee2f6458d8f8bf37cf3adb2ce63c28bdba06d15d10137a86c42"
+      ],
+      "explanation": "实现滚动MAD上侧检测器：训练阶段用有效原始值的R7四分位距计算scale_floor；评分只使用当前点之前最近30个槽，真实观测少于15时为insufficient_history；插补值可参与统计但不计真实历史；先评分后追加，缺失、插补和异常槽都保留在滚动窗口中。不实现连续点、校准告警阈值或标签判定，由可信侧处理。",
+      "validation": {
+        "protocol": "metrics-method-check/1",
+        "candidate_id": "memory_utilization_rolling_mad_upper_w30_h15_q99_p2",
+        "version": 0,
+        "origin": "llm_api",
+        "source_sha256": "sha256:7a7a5f678bb6feb777dfe1fde88d3f055e75f6e8b911ad4195099aad95683c1a",
+        "config": {
+          "method_id": "rolling_mad",
+          "window": 30,
+          "min_history": 15,
+          "direction": "upper",
+          "quantile": 0.99
+        },
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "checks": [
+          {
+            "check": "static_profile",
+            "passed": true
+          },
+          {
+            "check": "mad_past_only",
+            "passed": false,
+            "point_index": 0,
+            "development_input": [
+              {
+                "timestamp": "2026-01-01T00:00:00Z",
+                "host_id": "validation-host",
+                "value": 1.0
+              }
+            ],
+            "difference": {
+              "code": "OUTPUT_SCHEMA",
+              "line": null,
+              "fields": [
+                [
+                  "evidence"
+                ]
+              ],
+              "message": "output must match Score schema; non-ok score must be null"
+            },
+            "allowed_changes": "candidate source only; keep frozen config and interface"
+          }
+        ],
+        "passed": false,
+        "repairable": true
+      }
+    },
+    {
+      "version": 1,
+      "origin": "llm_api",
+      "source_path": "candidate-eed1519ccc941e1cd33c3e3c07523594fbf1318f9682e67b91309a27e3bed153/v1.py",
+      "source_sha256": "sha256:f1a31844d20d7558fb784cbe3db7071acc4f2d86dba291a7e15f066cacca8c3c",
+      "parent_source_sha256": "sha256:7a7a5f678bb6feb777dfe1fde88d3f055e75f6e8b911ad4195099aad95683c1a",
+      "knowledge_ids": [
+        "capability-495442200c109b16b45d3bfb8ff7eba7746d1cce28b0631e0893d13cb60e39e9",
+        "capability-106fc5025f92d2dfec9698b99161e17a6e35a65509b48320d43e5828858adb0f",
+        "capability-ba2670c5ca166ee2f6458d8f8bf37cf3adb2ce63c28bdba06d15d10137a86c42"
+      ],
+      "explanation": "Rolling MAD detector using the frozen w30/h15 upper-direction configuration. It scores before appending, retains unavailable slots, uses imputations only as usable historical values without counting them as real observations, and returns null evidence on non-ok statuses.",
+      "validation": {
+        "protocol": "metrics-method-check/1",
+        "candidate_id": "memory_utilization_rolling_mad_upper_w30_h15_q99_p2",
+        "version": 1,
+        "origin": "llm_api",
+        "source_sha256": "sha256:f1a31844d20d7558fb784cbe3db7071acc4f2d86dba291a7e15f066cacca8c3c",
+        "config": {
+          "method_id": "rolling_mad",
+          "window": 30,
+          "min_history": 15,
+          "direction": "upper",
+          "quantile": 0.99
+        },
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "checks": [
+          {
+            "check": "static_profile",
+            "passed": true
+          },
+          {
+            "check": "mad_past_only",
+            "passed": false,
+            "point_index": 0,
+            "development_input": [
+              {
+                "timestamp": "2026-01-01T00:00:00Z",
+                "host_id": "validation-host",
+                "value": 1.0
+              }
+            ],
+            "difference": {
+              "code": "OUTPUT_SCHEMA",
+              "line": null,
+              "fields": [
+                [
+                  "evidence"
+                ]
+              ],
+              "message": "output must match Score schema; non-ok score must be null"
+            },
+            "allowed_changes": "candidate source only; keep frozen config and interface"
+          }
+        ],
+        "passed": false,
+        "repairable": true
+      }
+    },
+    {
+      "version": 2,
+      "origin": "llm_api",
+      "source_path": "candidate-eed1519ccc941e1cd33c3e3c07523594fbf1318f9682e67b91309a27e3bed153/v2.py",
+      "source_sha256": "sha256:5470d2767aab2f77e39eb78bdd1cf27e983f9e7399ab1c23ad93f6d8c2b7e232",
+      "parent_source_sha256": "sha256:f1a31844d20d7558fb784cbe3db7071acc4f2d86dba291a7e15f066cacca8c3c",
+      "knowledge_ids": [
+        "capability-495442200c109b16b45d3bfb8ff7eba7746d1cce28b0631e0893d13cb60e39e9",
+        "capability-106fc5025f92d2dfec9698b99161e17a6e35a65509b48320d43e5828858adb0f",
+        "capability-ba2670c5ca166ee2f6458d8f8bf37cf3adb2ce63c28bdba06d15d10137a86c42"
+      ],
+      "explanation": "Rolling MAD upper detector with frozen w=30, min_history=15, upper direction, past-only scoring, R7-IQR scale floor, and strict output schema. Non-ok results now omit evidence and use null score.",
+      "validation": {
+        "protocol": "metrics-method-check/1",
+        "candidate_id": "memory_utilization_rolling_mad_upper_w30_h15_q99_p2",
+        "version": 2,
+        "origin": "llm_api",
+        "source_sha256": "sha256:5470d2767aab2f77e39eb78bdd1cf27e983f9e7399ab1c23ad93f6d8c2b7e232",
+        "config": {
+          "method_id": "rolling_mad",
+          "window": 30,
+          "min_history": 15,
+          "direction": "upper",
+          "quantile": 0.99
+        },
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "checks": [
+          {
+            "check": "static_profile",
+            "passed": true
+          },
+          {
+            "check": "mad_past_only",
+            "passed": false,
+            "point_index": 0,
+            "development_input": [
+              {
+                "timestamp": "2026-01-01T00:00:00Z",
+                "host_id": "validation-host",
+                "value": 1.0
+              }
+            ],
+            "difference": {
+              "code": "OUTPUT_SCHEMA",
+              "line": null,
+              "fields": [
+                [
+                  "evidence"
+                ]
+              ],
+              "message": "output must match Score schema; non-ok score must be null"
+            },
+            "allowed_changes": "candidate source only; keep frozen config and interface"
+          }
+        ],
+        "passed": false,
+        "repairable": true
+      }
+    }
+  ],
+  "failure": {
+    "code": "CANDIDATE_ERROR",
+    "feedback": {
+      "code": "METHOD_VALIDATION_FAILED",
+      "checks": [
+        {
+          "check": "static_profile",
+          "passed": true
+        },
+        {
+          "check": "mad_past_only",
+          "passed": false,
+          "point_index": 0,
+          "development_input": [
+            {
+              "timestamp": "2026-01-01T00:00:00Z",
+              "host_id": "validation-host",
+              "value": 1.0
+            }
+          ],
+          "difference": {
+            "code": "OUTPUT_SCHEMA",
+            "line": null,
+            "fields": [
+              [
+                "evidence"
+              ]
+            ],
+            "message": "output must match Score schema; non-ok score must be null"
+          },
+          "allowed_changes": "candidate source only; keep frozen config and interface"
+        }
+      ]
+    }
+  },
+  "report": {
+    "execution_status": "FAILED",
+    "engineering_status": "FAILED",
+    "effect_status": "NOT_MEASURED"
+  }
+}

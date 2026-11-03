@@ -1,0 +1,94 @@
+{
+  "candidate_id": "rolling_mad_w30_p2_upper",
+  "capability_version": "1.1.0",
+  "checks": [
+    {
+      "check": "static_profile",
+      "layer": "contract",
+      "passed": true
+    },
+    {
+      "check": "missing_input_contract",
+      "layer": "contract",
+      "passed": true
+    },
+    {
+      "check": "state_reload",
+      "layer": "contract",
+      "passed": true
+    },
+    {
+      "check": "reset_repeat_future_invariance",
+      "layer": "contract",
+      "passed": true
+    },
+    {
+      "check": "mad_past_only",
+      "layer": "property",
+      "passed": true,
+      "points": 17
+    },
+    {
+      "check": "mad_zero_scale",
+      "layer": "property",
+      "passed": true,
+      "points": 33
+    },
+    {
+      "check": "mad_missing_slots",
+      "layer": "property",
+      "passed": true,
+      "points": 50
+    },
+    {
+      "check": "mad_imputed_not_original",
+      "layer": "property",
+      "passed": true,
+      "points": 19
+    },
+    {
+      "check": "mad_past_only",
+      "layer": "reference",
+      "passed": true,
+      "points": 17
+    },
+    {
+      "check": "mad_zero_scale",
+      "layer": "reference",
+      "passed": true,
+      "points": 33
+    },
+    {
+      "check": "mad_missing_slots",
+      "layer": "reference",
+      "passed": true,
+      "points": 50
+    },
+    {
+      "check": "mad_imputed_not_original",
+      "layer": "reference",
+      "passed": true,
+      "points": 19
+    }
+  ],
+  "config": {
+    "direction": "upper",
+    "method_id": "rolling_mad",
+    "min_history": 15,
+    "quantile": 0.99,
+    "window": 30
+  },
+  "dependency_profile": "metrics-py312-stdlib/1",
+  "origin": "llm_api",
+  "passed": true,
+  "plugin_hashes": {
+    "capability.json": "sha256:8c0d97bc2c8d13616df091cf37dd91afb32c06abe43ac6449d9c512c083333bf",
+    "checks.py": "sha256:2ae8cf000dda9f9f86e3c19c993b76d14af181fba24d81d2a020643fdd9e613c",
+    "reference.py": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7"
+  },
+  "protocol": "metrics-method-check/3",
+  "repairable": true,
+  "source_sha256": "sha256:32f277df832d5254114da8da607659fcda150ac385c82affbbdeea4845f1918a",
+  "verification_level": "reference_verified",
+  "version": 0
+}

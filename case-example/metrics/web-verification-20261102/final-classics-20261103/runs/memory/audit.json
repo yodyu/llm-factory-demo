@@ -1,0 +1,1229 @@
+{
+  "label": "memory",
+  "task_id": "ui-1deabf9ab9634a9a",
+  "status": "COMPLETED",
+  "origin": "llm_api",
+  "task": {
+    "acceptance_criteria": {
+      "max_false_alarms_per_hour": null,
+      "min_event_f1": null,
+      "min_event_recall": null
+    },
+    "allowed_methods": [
+      "ewma",
+      "fixed_threshold",
+      "rolling_mad"
+    ],
+    "anomaly_target": "upper",
+    "budgets": {
+      "candidates": 3,
+      "model_calls": 16,
+      "repair_rounds": 2,
+      "wall_seconds": 900
+    },
+    "dataset_id": "sim-memory_drift-v1",
+    "evaluation_objective": "sustained_coverage",
+    "explicit_constraints": {
+      "alpha": 0.2,
+      "direction": "upper",
+      "persistence_points": 2.0,
+      "threshold": 70.0
+    },
+    "knowledge_snapshot": "sha256:7cbd569bbbbcf05287069fb4da11e9566620597575198f666f1d5e93c6ac72c9",
+    "metric": "memory_utilization",
+    "model_mode": "api",
+    "model_profile_id": "metrics-c9a0036e73b91ba3",
+    "ranking_preferences": [],
+    "requirement": "用模拟数据检测单主机内存利用率缓慢升高，比较固定阈值、滚动 MAD 和 EWMA 三种方法；固定阈值为 70%，EWMA 的 alpha 为 0.2，连续两点异常才报警，优先覆盖持续异常区间，输出代码和验证报告。",
+    "requirement_draft": {
+      "binding": "sha256:d79b7f8776dec1f6d2232f2421826a7157fce662ef8e6e51b8adf879f25ad00b",
+      "defaults": [
+        "演示提示：输出代码和验证报告 本次先生成支持范围内的离线检测方案。",
+        "选优偏好：balanced",
+        "模拟数据：每 60 秒一点，独立四段；允许最多前向填补 3 点。"
+      ],
+      "evidence": {
+        "alpha": {
+          "origin": "user_explicit",
+          "quote": "alpha 为 0.2",
+          "turn": 1
+        },
+        "data_source": {
+          "origin": "user_explicit",
+          "quote": "模拟",
+          "turn": 1
+        },
+        "direction": {
+          "origin": "user_explicit",
+          "quote": "用模拟数据检测单主机内存利用率缓慢升高，比较固定阈值、滚动 MAD 和 EWMA 三种方法；固定阈值为 70%，EWMA 的 alpha 为 0.2，连续两点异常才报警，优先覆盖持续异常区间，输出代码和验证报告。",
+          "turn": 1
+        },
+        "evaluation_objective": {
+          "origin": "user_explicit",
+          "quote": "用模拟数据检测单主机内存利用率缓慢升高，比较固定阈值、滚动 MAD 和 EWMA 三种方法；固定阈值为 70%，EWMA 的 alpha 为 0.2，连续两点异常才报警，优先覆盖持续异常区间，输出代码和验证报告。",
+          "turn": 1
+        },
+        "methods": {
+          "origin": "user_explicit",
+          "quote": "用模拟数据检测单主机内存利用率缓慢升高，比较固定阈值、滚动 MAD 和 EWMA 三种方法；固定阈值为 70%，EWMA 的 alpha 为 0.2，连续两点异常才报警，优先覆盖持续异常区间，输出代码和验证报告。",
+          "turn": 1
+        },
+        "persistence_points": {
+          "origin": "user_explicit",
+          "quote": "连续两点",
+          "turn": 1
+        },
+        "scenario": {
+          "origin": "user_explicit",
+          "quote": "用模拟数据检测单主机内存利用率缓慢升高，比较固定阈值、滚动 MAD 和 EWMA 三种方法；固定阈值为 70%，EWMA 的 alpha 为 0.2，连续两点异常才报警，优先覆盖持续异常区间，输出代码和验证报告。",
+          "turn": 1
+        },
+        "selection_policy": {
+          "origin": "protocol_default",
+          "quote": "协议默认值",
+          "turn": 0
+        },
+        "threshold": {
+          "origin": "user_explicit",
+          "quote": "阈值为 70%",
+          "turn": 1
+        }
+      },
+      "issues": [],
+      "model_mode": "api",
+      "model_usage": {
+        "input_tokens": 2214,
+        "kind": "api",
+        "missing_usage_requests": 0,
+        "notice": "Counts include retries and repairs; tokens are provider-reported only; missing usage is not zero.",
+        "output_tokens": 350,
+        "requests": 2,
+        "reservations": 2,
+        "total_tokens": 2564
+      },
+      "parse_task_id": "understand-5cded59a1fc9452a",
+      "revision": 1,
+      "schema_version": "metrics-requirement-draft/1",
+      "turns": [
+        "用模拟数据检测单主机内存利用率缓慢升高，比较固定阈值、滚动 MAD 和 EWMA 三种方法；固定阈值为 70%，EWMA 的 alpha 为 0.2，连续两点异常才报警，优先覆盖持续异常区间，输出代码和验证报告。"
+      ],
+      "values": {
+        "alpha": 0.2,
+        "data_source": "simulation",
+        "direction": "upper",
+        "evaluation_objective": "sustained_coverage",
+        "methods": [
+          "ewma",
+          "fixed_threshold",
+          "rolling_mad"
+        ],
+        "persistence_points": 2,
+        "scenario": "memory_drift",
+        "selection_policy": "balanced",
+        "threshold": 70.0
+      }
+    },
+    "schema_version": "metrics-task/1",
+    "selection_policy": "balanced",
+    "task_id": "ui-1deabf9ab9634a9a",
+    "validation_protocol": "metrics-evaluation/1"
+  },
+  "requirement": "用模拟数据检测单主机内存利用率缓慢升高，比较固定阈值、滚动 MAD 和 EWMA 三种方法；固定阈值为 70%，EWMA 的 alpha 为 0.2，连续两点异常才报警，优先覆盖持续异常区间，输出代码和验证报告。",
+  "usage": {
+    "kind": "api",
+    "requests": 4,
+    "reservations": 4,
+    "input_tokens": 144310,
+    "output_tokens": 7585,
+    "total_tokens": 151895,
+    "missing_usage_requests": 0,
+    "notice": "Counts include retries and repairs; tokens are provider-reported only; missing usage is not zero."
+  },
+  "knowledge_usage": {
+    "supplied": [
+      "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+      "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+      "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+      "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+      "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+      "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+      "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+      "experience-a8e8e9a87dc1295acaec38b753c50472293b2801394f306dfea6992b210ffadf",
+      "source-77c556c6553d4192078e1bfdf985a4cd89e45754f491b6ee917b9dcc07769438",
+      "source-b87632b829b20184b15b4a9610c028db947eb04a8672c227b3caa14ff39afcd3",
+      "source-ba12995471501af4d22a092ff63e3420003103c0a364a4769ae2afa939fd5cab",
+      "source-c6d85ec31dbd8809fc844451579165bc762b556e94fd925222e0afb96d75a74c",
+      "source-f5e5f8ac42e9fd7f7bb393e7cc89533f14187c96f6d02a17f9fd4374221933b2"
+    ],
+    "cited": [
+      "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+      "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+      "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+      "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+      "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+      "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+      "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+      "experience-a8e8e9a87dc1295acaec38b753c50472293b2801394f306dfea6992b210ffadf"
+    ],
+    "references": [
+      {
+        "候选": "fixed_threshold_memory_upper_70",
+        "阶段": "方案",
+        "知识ID": [
+          "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+          "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+          "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+          "experience-a8e8e9a87dc1295acaec38b753c50472293b2801394f306dfea6992b210ffadf"
+        ]
+      },
+      {
+        "候选": "fixed_threshold_memory_upper_70",
+        "阶段": "代码 v0",
+        "知识ID": [
+          "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+          "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+          "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+          "experience-a8e8e9a87dc1295acaec38b753c50472293b2801394f306dfea6992b210ffadf"
+        ]
+      },
+      {
+        "候选": "rolling_mad_memory_upper_default",
+        "阶段": "方案",
+        "知识ID": [
+          "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+          "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+          "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+          "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a"
+        ]
+      },
+      {
+        "候选": "rolling_mad_memory_upper_default",
+        "阶段": "代码 v0",
+        "知识ID": [
+          "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+          "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+          "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+          "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a"
+        ]
+      },
+      {
+        "候选": "ewma_memory_upper_alpha02",
+        "阶段": "方案",
+        "知识ID": [
+          "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+          "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd"
+        ]
+      },
+      {
+        "候选": "ewma_memory_upper_alpha02",
+        "阶段": "代码 v0",
+        "知识ID": [
+          "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+          "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd"
+        ]
+      }
+    ],
+    "unprovided_citations": [],
+    "supplied_experiences": [
+      "experience-a8e8e9a87dc1295acaec38b753c50472293b2801394f306dfea6992b210ffadf"
+    ],
+    "cited_experiences": [
+      "experience-a8e8e9a87dc1295acaec38b753c50472293b2801394f306dfea6992b210ffadf"
+    ]
+  },
+  "prompts": [
+    {
+      "call_id": "ui-1deabf9ab9634a9a:plan:format-0",
+      "prompt_sha256": "sha256:ac70d17f956f5fd3feafa06c224d59a0bf0cbe1c9ad08fffa67ecb3d6fc7d4f8",
+      "provided_experience_ids": [
+        "experience-a8e8e9a87dc1295acaec38b753c50472293b2801394f306dfea6992b210ffadf"
+      ],
+      "has_previous_source": false,
+      "has_development_feedback": false
+    },
+    {
+      "call_id": "ui-1deabf9ab9634a9a:code-fixed_threshold_memory_upper_70-v0:format-0",
+      "prompt_sha256": "sha256:f5d4066cbf791c529125755ca1fcd31e062e86729cc749db480e5e5c9c129313",
+      "provided_experience_ids": [
+        "experience-a8e8e9a87dc1295acaec38b753c50472293b2801394f306dfea6992b210ffadf"
+      ],
+      "has_previous_source": false,
+      "has_development_feedback": false
+    },
+    {
+      "call_id": "ui-1deabf9ab9634a9a:code-rolling_mad_memory_upper_default-v0:format-0",
+      "prompt_sha256": "sha256:ab03ac9c9890d460f5dac2b76dff7cdd9c4adff0992dc7a4214cad94db6b1e0c",
+      "provided_experience_ids": [
+        "experience-a8e8e9a87dc1295acaec38b753c50472293b2801394f306dfea6992b210ffadf"
+      ],
+      "has_previous_source": false,
+      "has_development_feedback": false
+    },
+    {
+      "call_id": "ui-1deabf9ab9634a9a:code-ewma_memory_upper_alpha02-v0:format-0",
+      "prompt_sha256": "sha256:632fd534223e8be6213f0575a12b41145c06b896bb65f02695cfcf8eeb1c6406",
+      "provided_experience_ids": [
+        "experience-a8e8e9a87dc1295acaec38b753c50472293b2801394f306dfea6992b210ffadf"
+      ],
+      "has_previous_source": false,
+      "has_development_feedback": false
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "fixed_threshold_memory_upper_70",
+      "config": {
+        "direction": "upper",
+        "method_id": "fixed_threshold",
+        "threshold": 70.0
+      },
+      "development": {
+        "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+        "coverage": {
+          "denominator": 240,
+          "null_reason": null,
+          "numerator": 240,
+          "value": 1.0
+        },
+        "effect_status": "MEASURED",
+        "engineering_status": "PASSED",
+        "event": {
+          "f1": {
+            "denominator": 2,
+            "null_reason": null,
+            "numerator": 2,
+            "value": 1.0
+          },
+          "fn": 0,
+          "fp": 0,
+          "pairs": [
+            {
+              "delay_seconds": 4800.0,
+              "prediction_id": "pred-0000",
+              "truth_id": "truth-0000"
+            }
+          ],
+          "precision": {
+            "denominator": 1,
+            "null_reason": null,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 1,
+            "null_reason": null,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "tp": 1,
+          "unmatched_prediction_ids": [],
+          "unmatched_truth_ids": []
+        },
+        "execution_status": "SUCCEEDED",
+        "matched_delay_seconds": {
+          "maximum": 4800.0,
+          "median": 4800.0,
+          "missed_events": 0,
+          "null_reason": null
+        },
+        "normal_false_alarms_per_host_hour": {
+          "denominator": 7800,
+          "null_reason": null,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "peak_memory_bytes": null,
+        "peak_memory_null_reason": "not_measured",
+        "point": {
+          "abstained_normal": 0,
+          "f1": {
+            "denominator": 140,
+            "null_reason": null,
+            "numerator": 60,
+            "value": 0.42857142857142855
+          },
+          "fn": 80,
+          "fp": 0,
+          "precision": {
+            "denominator": 30,
+            "null_reason": null,
+            "numerator": 30,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 110,
+            "null_reason": null,
+            "numerator": 30,
+            "value": 0.2727272727272727
+          },
+          "tn": 130,
+          "total": 240,
+          "tp": 30
+        },
+        "predicted_events": [
+          {
+            "end_at": "2026-01-03T04:20:00Z",
+            "event_id": "pred-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T03:50:00Z",
+            "trigger_at": "2026-01-03T03:50:00Z"
+          }
+        ],
+        "protocol": "metrics-evaluation/1",
+        "runtime_seconds": 0.14298433437943459,
+        "truth_events": [
+          {
+            "end_at": "2026-01-03T04:20:00Z",
+            "event_id": "truth-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T02:30:00Z",
+            "trigger_at": "2026-01-03T02:30:00Z"
+          }
+        ]
+      },
+      "versions": [
+        {
+          "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+          "capability_version": "1.1.0",
+          "explanation": "实现用户明确指定的内存利用率固定上阈值 70%。upper 分数为 value-70，等于阈值为 0，不产生告警候选；连续两点判断由可信告警侧处理。fit 仅要求至少一个有限有效训练值，不保留历史状态；save/load 保留配置与拟合状态。",
+          "knowledge_ids": [
+            "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+            "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+            "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+            "experience-a8e8e9a87dc1295acaec38b753c50472293b2801394f306dfea6992b210ffadf"
+          ],
+          "origin": "llm_api",
+          "parent_source_sha256": null,
+          "plugin_hashes": {
+            "capability.json": "sha256:a19217ef27bff5c0726e6be8d4dc123a509bfe2d34c6fe8b63b0f2cd6c5ef045",
+            "checks.py": "sha256:009933701326684689fb100d585f4bb44d596016fa7d9278147f6999566e9427",
+            "reference.py": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70"
+          },
+          "source_path": "candidate-ee488d83f2be3a63c3bf1b4ce55e059b9a5f8166e910926b4f1717917536c02e/v0.py",
+          "source_ref": "sha256:90b2a9efbd95378a55d5bdaa5a62b4c3c80b2de4dcd5d4fd0560e5ee2f48f899",
+          "source_sha256": "sha256:90b2a9efbd95378a55d5bdaa5a62b4c3c80b2de4dcd5d4fd0560e5ee2f48f899",
+          "specification_sha256": "sha256:d78418b686499b015abb691e10e65fad63592d12ad25bcab36e2ced5af7a2060",
+          "validation": {
+            "candidate_id": "fixed_threshold_memory_upper_70",
+            "capability_version": "1.1.0",
+            "checks": [
+              {
+                "check": "static_profile",
+                "layer": "contract",
+                "passed": true
+              },
+              {
+                "check": "missing_input_contract",
+                "layer": "contract",
+                "passed": true
+              },
+              {
+                "check": "state_reload",
+                "layer": "contract",
+                "passed": true
+              },
+              {
+                "check": "reset_repeat_future_invariance",
+                "layer": "contract",
+                "passed": true
+              },
+              {
+                "check": "fixed_strict_boundary",
+                "layer": "property",
+                "passed": true,
+                "points": 3
+              },
+              {
+                "check": "fixed_missing",
+                "layer": "property",
+                "passed": true,
+                "points": 6
+              },
+              {
+                "check": "fixed_strict_boundary",
+                "layer": "reference",
+                "passed": true,
+                "points": 3
+              },
+              {
+                "check": "fixed_missing",
+                "layer": "reference",
+                "passed": true,
+                "points": 6
+              }
+            ],
+            "config": {
+              "direction": "upper",
+              "method_id": "fixed_threshold",
+              "threshold": 70.0
+            },
+            "dependency_profile": "metrics-py312-stdlib/1",
+            "origin": "llm_api",
+            "passed": true,
+            "plugin_hashes": {
+              "capability.json": "sha256:a19217ef27bff5c0726e6be8d4dc123a509bfe2d34c6fe8b63b0f2cd6c5ef045",
+              "checks.py": "sha256:009933701326684689fb100d585f4bb44d596016fa7d9278147f6999566e9427",
+              "reference.py": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70"
+            },
+            "protocol": "metrics-method-check/3",
+            "repairable": true,
+            "source_sha256": "sha256:90b2a9efbd95378a55d5bdaa5a62b4c3c80b2de4dcd5d4fd0560e5ee2f48f899",
+            "verification_level": "reference_verified",
+            "version": 0
+          },
+          "version": 0,
+          "passed": true,
+          "implementation_id": "implementation-9a67b76c852c0478248a7a427efe6f5c733b115d68a0c489aef296f89e3873e4"
+        }
+      ]
+    },
+    {
+      "candidate_id": "rolling_mad_memory_upper_default",
+      "config": {
+        "direction": "upper",
+        "method_id": "rolling_mad",
+        "min_history": 15,
+        "quantile": 0.99,
+        "window": 30
+      },
+      "development": {
+        "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+        "coverage": {
+          "denominator": 240,
+          "null_reason": null,
+          "numerator": 240,
+          "value": 1.0
+        },
+        "effect_status": "MEASURED",
+        "engineering_status": "PASSED",
+        "event": {
+          "f1": {
+            "denominator": 3,
+            "null_reason": null,
+            "numerator": 2,
+            "value": 0.6666666666666666
+          },
+          "fn": 0,
+          "fp": 1,
+          "pairs": [
+            {
+              "delay_seconds": 480.0,
+              "prediction_id": "pred-0000",
+              "truth_id": "truth-0000"
+            }
+          ],
+          "precision": {
+            "denominator": 2,
+            "null_reason": null,
+            "numerator": 1,
+            "value": 0.5
+          },
+          "recall": {
+            "denominator": 1,
+            "null_reason": null,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "tp": 1,
+          "unmatched_prediction_ids": [
+            "pred-0001"
+          ],
+          "unmatched_truth_ids": []
+        },
+        "execution_status": "SUCCEEDED",
+        "matched_delay_seconds": {
+          "maximum": 480.0,
+          "median": 480.0,
+          "missed_events": 0,
+          "null_reason": null
+        },
+        "normal_false_alarms_per_host_hour": {
+          "denominator": 7800,
+          "null_reason": null,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "peak_memory_bytes": null,
+        "peak_memory_null_reason": "not_measured",
+        "point": {
+          "abstained_normal": 0,
+          "f1": {
+            "denominator": 112,
+            "null_reason": null,
+            "numerator": 4,
+            "value": 0.03571428571428571
+          },
+          "fn": 108,
+          "fp": 0,
+          "precision": {
+            "denominator": 2,
+            "null_reason": null,
+            "numerator": 2,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 110,
+            "null_reason": null,
+            "numerator": 2,
+            "value": 0.01818181818181818
+          },
+          "tn": 130,
+          "total": 240,
+          "tp": 2
+        },
+        "predicted_events": [
+          {
+            "end_at": "2026-01-03T02:39:00Z",
+            "event_id": "pred-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T02:38:00Z",
+            "trigger_at": "2026-01-03T02:38:00Z"
+          },
+          {
+            "end_at": "2026-01-03T02:47:00Z",
+            "event_id": "pred-0001",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T02:46:00Z",
+            "trigger_at": "2026-01-03T02:46:00Z"
+          }
+        ],
+        "protocol": "metrics-evaluation/1",
+        "runtime_seconds": 0.12058855220675468,
+        "truth_events": [
+          {
+            "end_at": "2026-01-03T04:20:00Z",
+            "event_id": "truth-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T02:30:00Z",
+            "trigger_at": "2026-01-03T02:30:00Z"
+          }
+        ]
+      },
+      "versions": [
+        {
+          "capability_id": "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+          "capability_version": "1.1.0",
+          "explanation": "实现滚动MAD检测器：训练有效原始值的R7 IQR生成scale_floor；评分仅使用当前点之前最近30个时间槽，真实原始观测达到15个后输出upper方向分数；先评分再追加当前点，缺失、插补和异常点均占槽并保留窗口；reset不保留角色历史，save/load保留配置、scale_floor和滚动状态。",
+          "knowledge_ids": [
+            "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+            "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+            "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+            "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a"
+          ],
+          "origin": "llm_api",
+          "parent_source_sha256": null,
+          "plugin_hashes": {
+            "capability.json": "sha256:8c0d97bc2c8d13616df091cf37dd91afb32c06abe43ac6449d9c512c083333bf",
+            "checks.py": "sha256:2ae8cf000dda9f9f86e3c19c993b76d14af181fba24d81d2a020643fdd9e613c",
+            "reference.py": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7"
+          },
+          "source_path": "candidate-cce35994780269d48115a68b57f08e142bb2bb94d94e289ae7536fb379c7e076/v0.py",
+          "source_ref": "sha256:18f4daca57291020804eafd97672131f33b8fbe99f9500a2cd07d514b32fbd8b",
+          "source_sha256": "sha256:18f4daca57291020804eafd97672131f33b8fbe99f9500a2cd07d514b32fbd8b",
+          "specification_sha256": "sha256:1341c8dba78c069e25220a8afe6f80caaf9150384348d3c7f47c3c4e1dce8309",
+          "validation": {
+            "candidate_id": "rolling_mad_memory_upper_default",
+            "capability_version": "1.1.0",
+            "checks": [
+              {
+                "check": "static_profile",
+                "layer": "contract",
+                "passed": true
+              },
+              {
+                "check": "missing_input_contract",
+                "layer": "contract",
+                "passed": true
+              },
+              {
+                "check": "state_reload",
+                "layer": "contract",
+                "passed": true
+              },
+              {
+                "check": "reset_repeat_future_invariance",
+                "layer": "contract",
+                "passed": true
+              },
+              {
+                "check": "mad_past_only",
+                "layer": "property",
+                "passed": true,
+                "points": 17
+              },
+              {
+                "check": "mad_zero_scale",
+                "layer": "property",
+                "passed": true,
+                "points": 33
+              },
+              {
+                "check": "mad_missing_slots",
+                "layer": "property",
+                "passed": true,
+                "points": 50
+              },
+              {
+                "check": "mad_imputed_not_original",
+                "layer": "property",
+                "passed": true,
+                "points": 19
+              },
+              {
+                "check": "mad_past_only",
+                "layer": "reference",
+                "passed": true,
+                "points": 17
+              },
+              {
+                "check": "mad_zero_scale",
+                "layer": "reference",
+                "passed": true,
+                "points": 33
+              },
+              {
+                "check": "mad_missing_slots",
+                "layer": "reference",
+                "passed": true,
+                "points": 50
+              },
+              {
+                "check": "mad_imputed_not_original",
+                "layer": "reference",
+                "passed": true,
+                "points": 19
+              }
+            ],
+            "config": {
+              "direction": "upper",
+              "method_id": "rolling_mad",
+              "min_history": 15,
+              "quantile": 0.99,
+              "window": 30
+            },
+            "dependency_profile": "metrics-py312-stdlib/1",
+            "origin": "llm_api",
+            "passed": true,
+            "plugin_hashes": {
+              "capability.json": "sha256:8c0d97bc2c8d13616df091cf37dd91afb32c06abe43ac6449d9c512c083333bf",
+              "checks.py": "sha256:2ae8cf000dda9f9f86e3c19c993b76d14af181fba24d81d2a020643fdd9e613c",
+              "reference.py": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7"
+            },
+            "protocol": "metrics-method-check/3",
+            "repairable": true,
+            "source_sha256": "sha256:18f4daca57291020804eafd97672131f33b8fbe99f9500a2cd07d514b32fbd8b",
+            "verification_level": "reference_verified",
+            "version": 0
+          },
+          "version": 0,
+          "passed": true,
+          "implementation_id": "implementation-0ee9f20b6689adb065a3223156dcc86d00ce4fdcac57e6fa58adf6765fdb7dc6"
+        }
+      ]
+    },
+    {
+      "candidate_id": "ewma_memory_upper_alpha02",
+      "config": {
+        "alpha": 0.2,
+        "direction": "upper",
+        "method_id": "ewma",
+        "min_history": 3,
+        "quantile": 0.99
+      },
+      "development": {
+        "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+        "coverage": {
+          "denominator": 240,
+          "null_reason": null,
+          "numerator": 240,
+          "value": 1.0
+        },
+        "effect_status": "MEASURED",
+        "engineering_status": "PASSED",
+        "event": {
+          "f1": {
+            "denominator": 2,
+            "null_reason": null,
+            "numerator": 2,
+            "value": 1.0
+          },
+          "fn": 0,
+          "fp": 0,
+          "pairs": [
+            {
+              "delay_seconds": 360.0,
+              "prediction_id": "pred-0000",
+              "truth_id": "truth-0000"
+            }
+          ],
+          "precision": {
+            "denominator": 1,
+            "null_reason": null,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 1,
+            "null_reason": null,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "tp": 1,
+          "unmatched_prediction_ids": [],
+          "unmatched_truth_ids": []
+        },
+        "execution_status": "SUCCEEDED",
+        "matched_delay_seconds": {
+          "maximum": 360.0,
+          "median": 360.0,
+          "missed_events": 0,
+          "null_reason": null
+        },
+        "normal_false_alarms_per_host_hour": {
+          "denominator": 7800,
+          "null_reason": null,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "peak_memory_bytes": null,
+        "peak_memory_null_reason": "not_measured",
+        "point": {
+          "abstained_normal": 0,
+          "f1": {
+            "denominator": 236,
+            "null_reason": null,
+            "numerator": 208,
+            "value": 0.8813559322033898
+          },
+          "fn": 6,
+          "fp": 22,
+          "precision": {
+            "denominator": 126,
+            "null_reason": null,
+            "numerator": 104,
+            "value": 0.8253968253968254
+          },
+          "recall": {
+            "denominator": 110,
+            "null_reason": null,
+            "numerator": 104,
+            "value": 0.9454545454545454
+          },
+          "tn": 108,
+          "total": 240,
+          "tp": 104
+        },
+        "predicted_events": [
+          {
+            "end_at": "2026-01-03T04:42:00Z",
+            "event_id": "pred-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T02:36:00Z",
+            "trigger_at": "2026-01-03T02:36:00Z"
+          }
+        ],
+        "protocol": "metrics-evaluation/1",
+        "runtime_seconds": 0.13012268021702766,
+        "truth_events": [
+          {
+            "end_at": "2026-01-03T04:20:00Z",
+            "event_id": "truth-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T02:30:00Z",
+            "trigger_at": "2026-01-03T02:30:00Z"
+          }
+        ]
+      },
+      "versions": [
+        {
+          "capability_id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+          "capability_version": "1.1.0",
+          "explanation": "实现用户指定的 upper-direction EWMA，alpha=0.2，min_history=3，quantile=0.99。训练有效值均值作为固定 baseline，总体标准差设置下限 1e-9；评分时先用可用值更新平滑值，再仅对 original_present=True 的点增加真实历史计数。缺失值不更新平滑值和计数，连续两点逻辑由可信侧处理。",
+          "knowledge_ids": [
+            "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+            "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd"
+          ],
+          "origin": "llm_api",
+          "parent_source_sha256": null,
+          "plugin_hashes": {
+            "capability.json": "sha256:99e8d1e67f8b4b1fd9df769136a4b0bb3778393bdb266ccb706b1c289755bded",
+            "checks.py": "sha256:025c96a17a67127db78722b0cfefe382b79c1c22eb88f6cea06c3f6c429c58fd",
+            "reference.py": "sha256:44dd23aa0347c6a21a5bdd5ac6cc405385225bd8af67b44d9c95c93cd66a1333"
+          },
+          "source_path": "candidate-f8e383a9e6e045eb20e3da125d037cf5987c71070e859b91b3e79a8c2003974e/v0.py",
+          "source_ref": "sha256:ab3817c394b2a74f147ca5b36b6d12392184c83a0a90ea09a54d964a73f6219d",
+          "source_sha256": "sha256:ab3817c394b2a74f147ca5b36b6d12392184c83a0a90ea09a54d964a73f6219d",
+          "specification_sha256": "sha256:53abdca0789200f3681895fdd88b049227e8b5e9587a9cc82d7f1d1bcc70bda2",
+          "validation": {
+            "candidate_id": "ewma_memory_upper_alpha02",
+            "capability_version": "1.1.0",
+            "checks": [
+              {
+                "check": "static_profile",
+                "layer": "contract",
+                "passed": true
+              },
+              {
+                "check": "missing_input_contract",
+                "layer": "contract",
+                "passed": true
+              },
+              {
+                "check": "state_reload",
+                "layer": "contract",
+                "passed": true
+              },
+              {
+                "check": "reset_repeat_future_invariance",
+                "layer": "contract",
+                "passed": true
+              },
+              {
+                "check": "ewma_cold_start",
+                "layer": "property",
+                "passed": true,
+                "points": 3
+              },
+              {
+                "check": "ewma_monotonic_step",
+                "layer": "property",
+                "passed": true,
+                "points": 13
+              },
+              {
+                "check": "ewma_missing",
+                "layer": "property",
+                "passed": true,
+                "points": 8
+              },
+              {
+                "check": "ewma_cold_start",
+                "layer": "reference",
+                "passed": true,
+                "points": 3
+              },
+              {
+                "check": "ewma_monotonic_step",
+                "layer": "reference",
+                "passed": true,
+                "points": 13
+              },
+              {
+                "check": "ewma_missing",
+                "layer": "reference",
+                "passed": true,
+                "points": 8
+              }
+            ],
+            "config": {
+              "alpha": 0.2,
+              "direction": "upper",
+              "method_id": "ewma",
+              "min_history": 3,
+              "quantile": 0.99
+            },
+            "dependency_profile": "metrics-py312-stdlib/1",
+            "origin": "llm_api",
+            "passed": true,
+            "plugin_hashes": {
+              "capability.json": "sha256:99e8d1e67f8b4b1fd9df769136a4b0bb3778393bdb266ccb706b1c289755bded",
+              "checks.py": "sha256:025c96a17a67127db78722b0cfefe382b79c1c22eb88f6cea06c3f6c429c58fd",
+              "reference.py": "sha256:44dd23aa0347c6a21a5bdd5ac6cc405385225bd8af67b44d9c95c93cd66a1333"
+            },
+            "protocol": "metrics-method-check/3",
+            "repairable": true,
+            "source_sha256": "sha256:ab3817c394b2a74f147ca5b36b6d12392184c83a0a90ea09a54d964a73f6219d",
+            "verification_level": "reference_verified",
+            "version": 0
+          },
+          "version": 0,
+          "passed": true,
+          "implementation_id": "implementation-860fd51bbf4f3a77177c542712928cc5acadc3a15c96e5cb2941932b9cd4530c"
+        }
+      ]
+    }
+  ],
+  "selection": {
+    "basis": "labelled_development",
+    "beta": 1.0,
+    "criteria": [
+      "point_f1_desc",
+      "event_f1_desc",
+      "false_alarm_rate_asc",
+      "matched_delay_asc",
+      "coverage_desc",
+      "candidate_id"
+    ],
+    "objective": "sustained_coverage",
+    "policy": "balanced",
+    "protocol": "metrics-selection/2",
+    "ranking": [
+      "ewma_memory_upper_alpha02",
+      "fixed_threshold_memory_upper_70",
+      "rolling_mad_memory_upper_default"
+    ],
+    "reason": "按开发集目标及次级 Fβ、正常误报频次、匹配延迟、覆盖率和候选ID排序；最终测试不参与选择。",
+    "requested_policy": "balanced",
+    "selected": "ewma_memory_upper_alpha02",
+    "status": "SELECTED",
+    "tie_broken_by": "point_f1",
+    "warnings": [
+      "LOW_EVENT_COUNT: 真实事件少于5个，事件F1不足以支持统计结论。"
+    ]
+  },
+  "final": {
+    "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+    "coverage": {
+      "denominator": 240,
+      "null_reason": null,
+      "numerator": 240,
+      "value": 1.0
+    },
+    "effect_status": "MEASURED",
+    "engineering_status": "PASSED",
+    "event": {
+      "f1": {
+        "denominator": 2,
+        "null_reason": null,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "fn": 0,
+      "fp": 0,
+      "pairs": [
+        {
+          "delay_seconds": 300.0,
+          "prediction_id": "pred-0000",
+          "truth_id": "truth-0000"
+        }
+      ],
+      "precision": {
+        "denominator": 1,
+        "null_reason": null,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "recall": {
+        "denominator": 1,
+        "null_reason": null,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "tp": 1,
+      "unmatched_prediction_ids": [],
+      "unmatched_truth_ids": []
+    },
+    "execution_status": "SUCCEEDED",
+    "matched_delay_seconds": {
+      "maximum": 300.0,
+      "median": 300.0,
+      "missed_events": 0,
+      "null_reason": null
+    },
+    "normal_false_alarms_per_host_hour": {
+      "denominator": 7800,
+      "null_reason": null,
+      "numerator": 0,
+      "value": 0.0
+    },
+    "peak_memory_bytes": null,
+    "peak_memory_null_reason": "not_measured",
+    "phase": "test",
+    "point": {
+      "abstained_normal": 0,
+      "f1": {
+        "denominator": 230,
+        "null_reason": null,
+        "numerator": 210,
+        "value": 0.9130434782608695
+      },
+      "fn": 5,
+      "fp": 15,
+      "precision": {
+        "denominator": 120,
+        "null_reason": null,
+        "numerator": 105,
+        "value": 0.875
+      },
+      "recall": {
+        "denominator": 110,
+        "null_reason": null,
+        "numerator": 105,
+        "value": 0.9545454545454546
+      },
+      "tn": 115,
+      "total": 240,
+      "tp": 105
+    },
+    "predicted_events": [
+      {
+        "end_at": "2026-01-04T04:35:00Z",
+        "event_id": "pred-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-04T02:35:00Z",
+        "trigger_at": "2026-01-04T02:35:00Z"
+      }
+    ],
+    "protocol": "metrics-evaluation/1",
+    "runtime_seconds": 0.12393176928162575,
+    "selected": "ewma_memory_upper_alpha02",
+    "selection_sha256": "sha256:9fb56b04f372018d8f0536df60806ff5e51abb8429631b6931557f9da870b009",
+    "test_execution_started": true,
+    "truth_events": [
+      {
+        "end_at": "2026-01-04T04:20:00Z",
+        "event_id": "truth-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-04T02:30:00Z",
+        "trigger_at": "2026-01-04T02:30:00Z"
+      }
+    ]
+  },
+  "publication": {
+    "publication_id": "publication-6dd766a40cb495f5dc1c444eb418a4faac878a866d4bab35027d6f5e07fd7a3c",
+    "node_ids": [
+      "experience-2c0a28207a7c66ce05eb6cf3c84bd3ebfa387404e12d6d908a70dd3682306e0c",
+      "experience-3946b9860fbae3a78763063b9c7f1c60d4247661f8e13c51854b41060c43a622",
+      "experience-5a4b92ccb1f88db53c69f3fca6d4fca6f2054db2c7fad5b62a6e86e015aa13f9",
+      "implementation-0ee9f20b6689adb065a3223156dcc86d00ce4fdcac57e6fa58adf6765fdb7dc6",
+      "implementation-860fd51bbf4f3a77177c542712928cc5acadc3a15c96e5cb2941932b9cd4530c",
+      "implementation-9a67b76c852c0478248a7a427efe6f5c733b115d68a0c489aef296f89e3873e4",
+      "validation-270fe2be959d4e204ac62e72ccf3777139a0c983096e1a13351af9aa52781c22",
+      "validation-2d782726e84df961a5043445b7c009a1c24c47a9c320b7743115b316f70ff040",
+      "validation-90822dc0b3004f039f5198bac07c5ed5f841eed412e71fcefaa007f81eda128c"
+    ],
+    "status": "PUBLISHED"
+  },
+  "workflow_runtime_seconds": 209.0492774322629,
+  "operations": [
+    {
+      "operation_id": "ui-1deabf9ab9634a9a:plan:format-0",
+      "resource": "model",
+      "status": "SUCCEEDED",
+      "metadata": {
+        "actual_model": "doubao-seed-2-1-pro-260915",
+        "elapsed_seconds": 48.91378402709961,
+        "failure_code": null,
+        "input_tokens": 30020,
+        "output_tokens": 1813,
+        "profile_id": "metrics-c9a0036e73b91ba3"
+      }
+    },
+    {
+      "operation_id": "ui-1deabf9ab9634a9a:code-fixed_threshold_memory_upper_70-v0:format-0",
+      "resource": "model",
+      "status": "SUCCEEDED",
+      "metadata": {
+        "actual_model": "doubao-seed-2-1-pro-260915",
+        "elapsed_seconds": 33.05904361233115,
+        "failure_code": null,
+        "input_tokens": 36861,
+        "output_tokens": 1633,
+        "profile_id": "metrics-c9a0036e73b91ba3"
+      }
+    },
+    {
+      "operation_id": "ui-1deabf9ab9634a9a:check-fixed_threshold_memory_upper_70-v0",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-1deabf9ab9634a9a:development-fixed_threshold_memory_upper_70",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-1deabf9ab9634a9a:code-rolling_mad_memory_upper_default-v0:format-0",
+      "resource": "model",
+      "status": "SUCCEEDED",
+      "metadata": {
+        "actual_model": "doubao-seed-2-1-pro-260915",
+        "elapsed_seconds": 48.75580110400915,
+        "failure_code": null,
+        "input_tokens": 39649,
+        "output_tokens": 2265,
+        "profile_id": "metrics-c9a0036e73b91ba3"
+      }
+    },
+    {
+      "operation_id": "ui-1deabf9ab9634a9a:check-rolling_mad_memory_upper_default-v0",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-1deabf9ab9634a9a:calibrate-rolling_mad_memory_upper_default",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-1deabf9ab9634a9a:development-rolling_mad_memory_upper_default",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-1deabf9ab9634a9a:code-ewma_memory_upper_alpha02-v0:format-0",
+      "resource": "model",
+      "status": "SUCCEEDED",
+      "metadata": {
+        "actual_model": "doubao-seed-2-1-pro-260915",
+        "elapsed_seconds": 51.156805381178856,
+        "failure_code": null,
+        "input_tokens": 37780,
+        "output_tokens": 1874,
+        "profile_id": "metrics-c9a0036e73b91ba3"
+      }
+    },
+    {
+      "operation_id": "ui-1deabf9ab9634a9a:check-ewma_memory_upper_alpha02-v0",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-1deabf9ab9634a9a:calibrate-ewma_memory_upper_alpha02",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-1deabf9ab9634a9a:development-ewma_memory_upper_alpha02",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-1deabf9ab9634a9a:final-test",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-1deabf9ab9634a9a:knowledge:publication-6dd766a40cb495f5dc1c444eb418a4faac878a866d4bab35027d6f5e07fd7a3c",
+      "resource": "knowledge-publication",
+      "status": "SUCCEEDED",
+      "metadata": {
+        "payload_ref": "sha256:8c3a51ed7bdb68e2e8f74c84bbac9c87338ebab766aa29ea37e4671b497a800e",
+        "publication_id": "publication-6dd766a40cb495f5dc1c444eb418a4faac878a866d4bab35027d6f5e07fd7a3c"
+      }
+    }
+  ],
+  "browser_download_matches_server": true
+}

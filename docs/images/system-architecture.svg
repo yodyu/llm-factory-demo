@@ -1,0 +1,107 @@
+<svg id="arch-diagram" xmlns="http://www.w3.org/2000/svg" width="1280" height="820" viewBox="0 0 1280 820" role="img" aria-labelledby="arch-title arch-desc">
+  <title id="arch-title">LLM Factory 系统架构</title>
+  <desc id="arch-desc">Web 与 CLI 按操作访问可信应用。知识服务构建和检索知识，Agent 编排规划、代码生成与修复，宿主侧验证和评价。模型接入连接外部 LLM API 或本地 mock，候选代码在 Docker 沙箱执行。主图展示默认 Web 路径：Neo4j 保存能力知识与经验；能力插件提供可信规格、属性检查和可选参考。独立 SQLite 账本存任务与请求预算，文件保存源码、报告和快照。仅绘主要关系，共用依赖省略。</desc>
+  <defs>
+    <marker id="arch-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto-start-reverse"><path d="M0 0 7 3.5 0 7" fill="none" stroke="#7b8a94" stroke-width="1.3"/></marker>
+    <marker id="arch-data-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto-start-reverse"><path d="M0 0 7 3.5 0 7" fill="none" stroke="#238679" stroke-width="1.3"/></marker>
+    <style>
+#arch-diagram text{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#223845}
+#arch-diagram .heading{font-size:28px;font-weight:650;letter-spacing:-.6px}
+#arch-diagram .label{font-size:15px;fill:#667c87}
+#arch-diagram .name{font-size:23px;font-weight:600;text-anchor:middle}
+#arch-diagram .note{font-size:16px;fill:#70838c;text-anchor:middle}
+#arch-diagram .zone{font-size:16px;fill:#5a727d;font-weight:500}
+#arch-diagram .node-bg{fill:#fff;stroke:#d6e1e5;stroke-width:1.2}
+#arch-diagram .core-bg{fill:#e3f2ed;stroke:#78b5a8;stroke-width:1.4}
+#arch-diagram .wire{fill:none;stroke:#7b8a94;stroke-width:1.7;marker-end:url(#arch-arrow)}
+#arch-diagram .data{fill:none;stroke:#238679;stroke-width:1.7;stroke-dasharray:6 4;marker-end:url(#arch-data-arrow)}
+#arch-diagram .node:focus{outline:none}
+#arch-diagram .node:focus .node-bg,#arch-diagram .node.selected .node-bg{stroke:#14796e;stroke-width:2.5}
+    </style>
+  </defs>
+  <rect width="1280" height="820" rx="20" fill="#fafcfd"/>
+  <rect x="40" y="36" width="4" height="30" rx="2" fill="#208777"/>
+  <text x="58" y="61" class="heading">LLM Factory 系统架构</text>
+  <path d="M945 50 H979" class="wire"/><text x="991" y="56" class="label">调用</text>
+  <path d="M1090 50 H1124" class="data"/><text x="1136" y="56" class="label">知识 / 产物</text>
+  <g class="node" aria-label="Web 与 CLI 入口">
+    <rect x="420" y="105" width="280" height="66" rx="12" class="node-bg"/>
+    <text x="560" y="147" class="name">Web / CLI</text>
+  </g>
+  <g class="node" aria-label="CLI 导入文档与已有目录中的 Python 源码，只读抽取">
+    <rect x="70" y="105" width="250" height="66" rx="12" class="node-bg"/>
+    <text x="195" y="133" class="name" style="font-size:20px">文档 / Python 源码</text>
+    <text x="195" y="156" class="note" style="font-size:14px">CLI 导入 · 只读，不执行</text>
+  </g>
+  <path d="M560 171 V214" class="wire"/>
+  <rect x="40" y="214" width="950" height="410" rx="16" fill="#f0f5f6" stroke="#dce6e9"/>
+  <text x="64" y="247" class="zone">可信应用</text>
+  <rect x="1030" y="214" width="210" height="410" rx="16" fill="#f3f3f8" stroke="#e0e2eb"/>
+  <text x="1050" y="247" class="zone">外部 / 隔离区</text>
+  <path d="M195 171 V300" class="data"/>
+  <g class="node" aria-label="知识服务">
+    <rect x="70" y="300" width="250" height="110" rx="12" class="node-bg"/>
+    <text x="195" y="346" class="name">知识服务</text>
+    <text x="195" y="378" class="note" style="font-size:14px">抽取 · 冻结检索 · 开发经验</text>
+  </g>
+  <g class="node" aria-label="Agent 任务编排">
+    <rect x="420" y="300" width="280" height="110" rx="12" class="node-bg core-bg"/>
+    <text x="560" y="346" class="name">Agent 编排</text>
+    <text x="560" y="378" class="note">规划 · 冻结规格生成 · 修复</text>
+  </g>
+  <g class="node" aria-label="模型接入">
+    <rect x="780" y="300" width="180" height="110" rx="12" class="node-bg"/>
+    <text x="870" y="346" class="name">模型接入</text>
+    <text x="870" y="378" class="note">API / 本地 Mock</text>
+  </g>
+  <g class="node" aria-label="外部 LLM API">
+    <rect x="1050" y="300" width="170" height="110" rx="12" class="node-bg"/>
+    <text x="1135" y="365" class="name">LLM API</text>
+  </g>
+  <path d="M320 330 H420" class="data"/><text x="370" y="318" class="note">检索</text>
+  <path d="M420 386 H320" class="data"/><text x="370" y="409" class="note">回写</text>
+  <path d="M700 355 H780" class="wire"/>
+  <path d="M960 355 H1050" class="wire"/>
+  <g class="node" aria-label="所有者审查的可信能力插件">
+    <rect x="70" y="500" width="250" height="100" rx="12" class="node-bg"/>
+    <text x="195" y="532" class="name" style="font-size:21px">可信能力插件</text>
+    <text x="195" y="559" class="note" style="font-size:14px">清单 / 属性检查 / 可选参考</text>
+    <text x="195" y="583" class="note" style="font-size:14px">注册表校验 · 冻结版本与摘要</text>
+  </g>
+  <path d="M195 500 V410" class="data"/>
+  <text x="205" y="457" class="label" style="font-size:14px">注册专家卡片</text>
+  <path d="M320 550 H420" class="data"/>
+  <text x="370" y="537" class="note" style="font-size:13px">检查 / 参考</text>
+  <g class="node" aria-label="验证与评价">
+    <rect x="420" y="500" width="280" height="100" rx="12" class="node-bg"/>
+    <text x="560" y="542" class="name">验证与评价</text>
+    <text x="560" y="574" class="note">契约 → 属性 → 可选参考</text>
+  </g>
+  <path d="M560 410 V500" class="wire" marker-start="url(#arch-arrow)"/>
+  <path d="M700 530 H1050" class="wire"/>
+  <text x="867" y="517" class="note">隔离执行</text>
+  <path d="M1050 574 H700" class="wire"/>
+  <text x="867" y="598" class="note">分数 / 状态</text>
+  <g class="node" aria-label="Docker 候选沙箱">
+    <rect x="1050" y="500" width="170" height="100" rx="12" class="node-bg" stroke-dasharray="5 4"/>
+    <text x="1135" y="542" class="name">Docker 沙箱</text>
+    <text x="1135" y="574" class="note">候选代码执行</text>
+  </g>
+  <path d="M560 624 V680" class="wire"/>
+  <rect x="40" y="680" width="1200" height="100" rx="14" fill="#f0f3f5" stroke="#dfe6e9"/>
+  <g class="node" aria-label="Neo4j 能力知识与经验存储">
+    <rect x="64" y="698" width="340" height="64" rx="9" class="node-bg"/>
+    <text x="234" y="727" class="name" style="font-size:20px">Neo4j</text>
+    <text x="234" y="750" class="note">能力知识 / 经验</text>
+  </g>
+  <g class="node" aria-label="SQLite 任务与请求预算账本">
+    <rect x="426" y="698" width="340" height="64" rx="9" class="node-bg"/>
+    <text x="596" y="727" class="name" style="font-size:20px">SQLite</text>
+    <text x="596" y="750" class="note">任务 / 请求预算</text>
+  </g>
+  <g class="node" aria-label="文件与产物存储">
+    <rect x="788" y="698" width="428" height="64" rx="9" class="node-bg"/>
+    <text x="1002" y="727" class="name" style="font-size:20px">文件存储</text>
+    <text x="1002" y="750" class="note">源码 / 报告 / 快照</text>
+  </g>
+</svg>

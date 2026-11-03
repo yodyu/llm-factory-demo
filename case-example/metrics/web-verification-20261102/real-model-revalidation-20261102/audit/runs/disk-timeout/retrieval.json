@@ -1,0 +1,881 @@
+{
+  "snapshot_id": "sha256:437639220b72248f70b1d19422a1846890cb8f175a35dfaf5af6a83129d134a2",
+  "schema_version": "metrics-knowledge/2",
+  "status": "RETRIEVED",
+  "relevance_score": 6,
+  "capabilities": [
+    {
+      "id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "algorithm_spec": "训练有效值均值为固定baseline，scale=max(1e-9,训练总体标准差)。reset令smooth=baseline,count=0。可用当前值x先更新smooth=alpha*x+(1-alpha)*smooth，只有original_present=True才count+=1。count<min_history时insufficient_history，score=None,evidence={}。否则upper=(smooth-baseline)/scale，lower取反，two_sided取绝对值；evidence含ewma、baseline、scale。value=None时missing_input、score=None、evidence={}，不更新平滑值或计数。fit不得留下角色滚动状态，save/load必须保留全部配置和统计量。",
+      "citations": [
+        {
+          "chunk_id": "chunk-96b8b23d75a52b7582040f893468476eb249c8ec4e3d9091c1572b61e5c0cf7f",
+          "quote": "\"version\": \"1.1.0\"",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-2a02b38d696a28dc91734798fd7d8ff5fa2479449a0aaa3f89e82c5a4838142f",
+          "quote": "\"task_type\": \"time_series_anomaly_detection\"",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-34fa5092783300977f9315d7c7762a16a6734bcd2158f675d95e870de75b00de",
+          "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-4e92a7e59da2eb69f17cedffd17fcf57caa3b4ad9dfe2b1eeb716ffee96fd3d8",
+          "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-af2842f299358bcf77f8f4140ab16812104670aeca5a92b478aaf9f6804734e4",
+          "quote": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"alpha\",\n      \"min_history\",\n      \"direction\",\n      \"quantile\"\n    ],\n    \"properties\": {\n      \"alpha\": {\n        \"type\": \"number\",\n        \"exclusiveMinimum\": 0,\n        \"maximum\": 1\n      },\n      \"min_history\": {\n        \"type\": \"integer\",\n        \"minimum\": 1,\n        \"maximum\": 600\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\",\n          \"two_sided\"\n        ]\n      },\n      \"quantile\": {\n        \"type\": \"number\",\n        \"exclusiveMinimum\": 0,\n        \"maximum\": 1\n      }\n    }\n  }",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-8370f4f502cf8bbfe8ef9e48953bfb151c0db34bd4e925ff7ea6e65b7e25b67b",
+          "quote": "\"defaults\": {\n    \"alpha\": 0.3,\n    \"min_history\": 3,\n    \"direction\": \"upper\",\n    \"quantile\": 0.99\n  }",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-350e917425a50e4b5fe9e0c75b362cb1e508f222f70bf676a8a5e4104a46d01b",
+          "quote": "\"algorithm_spec\": \"训练有效值均值为固定baseline，scale=max(1e-9,训练总体标准差)。reset令smooth=baseline,count=0。可用当前值x先更新smooth=alpha*x+(1-alpha)*smooth，只有original_present=True才count+=1。count<min_history时insufficient_history，score=None,evidence={}。否则upper=(smooth-baseline)/scale，lower取反，two_sided取绝对值；evidence含ewma、baseline、scale。value=None时missing_input、score=None、evidence={}，不更新平滑值或计数。fit不得留下角色滚动状态，save/load必须保留全部配置和统计量。\"",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-465e13d432ac0590e86edce43685dab418539a13a2712698fa6f6b15a02c4da4",
+          "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-b0cbb71a5211b5094b7da7b6c66071875e98520992e1fd9fd9e0e05eb4ff4f4d",
+          "quote": "\"supported_directions\": [\n    \"upper\",\n    \"lower\",\n    \"two_sided\"\n  ]",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-fbf989972aae5ca6851b98513776fbd7849caa130984aaf51ea52a9822c72eab",
+          "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-6a3c6277d83e592da32533d49e3fb05c030cf1ea8f99f33d0ae4b4de73882980",
+          "quote": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-bea9073652b8e5ffcac2ac4681a1f32a4ba7b1382b447d9c039b1021f6a75b66",
+          "quote": "\"min_history\": 3",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+          "quote": "任务类型：time_series_anomaly_detection；输入 gauge 或已换算的 rate，输出 timestamp、host_id、status、score、evidence 字典。\n训练有效值的均值为固定 baseline，scale=max(1e-9,训练有效值的总体标准差)。角色开始 reset 时 smooth=baseline，原始有效点计数 count=0。\n参数 alpha 默认0.3，0<alpha<=1；min_history 默认3，1到600；direction 为 upper/lower/two_sided；quantile 默认0.99，由可信侧在无标签校准集计算。\n当前可用值 x（包括前向插补值）到来，先更新 smooth=alpha*x+(1-alpha)*smooth；只有 original_present=True 时 count 加1。\ncount<min_history 输出 insufficient_history，score=None，evidence={}；足够历史后 upper=(smooth-baseline)/scale，lower 为其相反数，two_sided 为绝对值。\n足够历史时 evidence 包含 ewma、baseline、scale。value=None 输出 missing_input、score=None、evidence={}，不更新计数或平滑值。\nfit 不能保留训练角色的滑动状态；reset 保留训练 baseline/scale，清空计数并恢复 smooth。save_state/load_state 保留配置及全部统计状态。",
+          "symbol": null
+        }
+      ],
+      "conditions_status": "evidenced",
+      "constraints": [
+        "适于持续变化；固定训练基线保留长期偏移，较小alpha会降低响应速度。"
+      ],
+      "defaults": {
+        "alpha": 0.3,
+        "direction": "upper",
+        "min_history": 3,
+        "quantile": 0.99
+      },
+      "dependency_profile": "metrics-py312-stdlib/1",
+      "evaluation_metrics": [
+        "event_f1",
+        "point_f1",
+        "normal_false_alarms_per_host_hour",
+        "matched_delay_seconds"
+      ],
+      "field_evidence": {
+        "algorithm_spec": {
+          "chunk_id": "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+          "quote": "任务类型：time_series_anomaly_detection；输入 gauge 或已换算的 rate，输出 timestamp、host_id、status、score、evidence 字典。\n训练有效值的均值为固定 baseline，scale=max(1e-9,训练有效值的总体标准差)。角色开始 reset 时 smooth=baseline，原始有效点计数 count=0。\n参数 alpha 默认0.3，0<alpha<=1；min_history 默认3，1到600；direction 为 upper/lower/two_sided；quantile 默认0.99，由可信侧在无标签校准集计算。\n当前可用值 x（包括前向插补值）到来，先更新 smooth=alpha*x+(1-alpha)*smooth；只有 original_present=True 时 count 加1。\ncount<min_history 输出 insufficient_history，score=None，evidence={}；足够历史后 upper=(smooth-baseline)/scale，lower 为其相反数，two_sided 为绝对值。\n足够历史时 evidence 包含 ewma、baseline、scale。value=None 输出 missing_input、score=None、evidence={}，不更新计数或平滑值。\nfit 不能保留训练角色的滑动状态；reset 保留训练 baseline/scale，清空计数并恢复 smooth。save_state/load_state 保留配置及全部统计状态。",
+          "symbol": null
+        },
+        "defaults": {
+          "chunk_id": "chunk-8370f4f502cf8bbfe8ef9e48953bfb151c0db34bd4e925ff7ea6e65b7e25b67b",
+          "quote": "\"defaults\": {\n    \"alpha\": 0.3,\n    \"min_history\": 3,\n    \"direction\": \"upper\",\n    \"quantile\": 0.99\n  }",
+          "symbol": null
+        },
+        "dependency_profile": {
+          "chunk_id": "chunk-fbf989972aae5ca6851b98513776fbd7849caa130984aaf51ea52a9822c72eab",
+          "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+          "symbol": null
+        },
+        "evaluation_metrics": {
+          "chunk_id": "chunk-465e13d432ac0590e86edce43685dab418539a13a2712698fa6f6b15a02c4da4",
+          "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+          "symbol": null
+        },
+        "inputs": {
+          "chunk_id": "chunk-34fa5092783300977f9315d7c7762a16a6734bcd2158f675d95e870de75b00de",
+          "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+          "symbol": null
+        },
+        "metric_kinds": {
+          "chunk_id": "chunk-6a3c6277d83e592da32533d49e3fb05c030cf1ea8f99f33d0ae4b4de73882980",
+          "quote": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]",
+          "symbol": null
+        },
+        "min_history": {
+          "chunk_id": "chunk-bea9073652b8e5ffcac2ac4681a1f32a4ba7b1382b447d9c039b1021f6a75b66",
+          "quote": "\"min_history\": 3",
+          "symbol": null
+        },
+        "outputs": {
+          "chunk_id": "chunk-4e92a7e59da2eb69f17cedffd17fcf57caa3b4ad9dfe2b1eeb716ffee96fd3d8",
+          "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+          "symbol": null
+        },
+        "parameters": {
+          "chunk_id": "chunk-af2842f299358bcf77f8f4140ab16812104670aeca5a92b478aaf9f6804734e4",
+          "quote": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"alpha\",\n      \"min_history\",\n      \"direction\",\n      \"quantile\"\n    ],\n    \"properties\": {\n      \"alpha\": {\n        \"type\": \"number\",\n        \"exclusiveMinimum\": 0,\n        \"maximum\": 1\n      },\n      \"min_history\": {\n        \"type\": \"integer\",\n        \"minimum\": 1,\n        \"maximum\": 600\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\",\n          \"two_sided\"\n        ]\n      },\n      \"quantile\": {\n        \"type\": \"number\",\n        \"exclusiveMinimum\": 0,\n        \"maximum\": 1\n      }\n    }\n  }",
+          "symbol": null
+        },
+        "supported_directions": {
+          "chunk_id": "chunk-b0cbb71a5211b5094b7da7b6c66071875e98520992e1fd9fd9e0e05eb4ff4f4d",
+          "quote": "\"supported_directions\": [\n    \"upper\",\n    \"lower\",\n    \"two_sided\"\n  ]",
+          "symbol": null
+        },
+        "task_type": {
+          "chunk_id": "chunk-2a02b38d696a28dc91734798fd7d8ff5fa2479449a0aaa3f89e82c5a4838142f",
+          "quote": "\"task_type\": \"time_series_anomaly_detection\"",
+          "symbol": null
+        },
+        "version": {
+          "chunk_id": "chunk-96b8b23d75a52b7582040f893468476eb249c8ec4e3d9091c1572b61e5c0cf7f",
+          "quote": "\"version\": \"1.1.0\"",
+          "symbol": null
+        }
+      },
+      "implementation_verified": false,
+      "inputs": {
+        "properties": {
+          "host_id": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "value": {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "timestamp",
+          "host_id",
+          "value"
+        ],
+        "type": "object"
+      },
+      "knowledge_status": "source_checked",
+      "limitations": [
+        "expert authored plugin card; not model extraction"
+      ],
+      "local_id": "ewma",
+      "manifest_field_evidence": {
+        "algorithm_spec": {
+          "chunk_id": "chunk-350e917425a50e4b5fe9e0c75b362cb1e508f222f70bf676a8a5e4104a46d01b",
+          "quote": "\"algorithm_spec\": \"训练有效值均值为固定baseline，scale=max(1e-9,训练总体标准差)。reset令smooth=baseline,count=0。可用当前值x先更新smooth=alpha*x+(1-alpha)*smooth，只有original_present=True才count+=1。count<min_history时insufficient_history，score=None,evidence={}。否则upper=(smooth-baseline)/scale，lower取反，two_sided取绝对值；evidence含ewma、baseline、scale。value=None时missing_input、score=None、evidence={}，不更新平滑值或计数。fit不得留下角色滚动状态，save/load必须保留全部配置和统计量。\"",
+          "symbol": null
+        },
+        "defaults": {
+          "chunk_id": "chunk-8370f4f502cf8bbfe8ef9e48953bfb151c0db34bd4e925ff7ea6e65b7e25b67b",
+          "quote": "\"defaults\": {\n    \"alpha\": 0.3,\n    \"min_history\": 3,\n    \"direction\": \"upper\",\n    \"quantile\": 0.99\n  }",
+          "symbol": null
+        },
+        "dependency_profile": {
+          "chunk_id": "chunk-fbf989972aae5ca6851b98513776fbd7849caa130984aaf51ea52a9822c72eab",
+          "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+          "symbol": null
+        },
+        "evaluation_metrics": {
+          "chunk_id": "chunk-465e13d432ac0590e86edce43685dab418539a13a2712698fa6f6b15a02c4da4",
+          "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+          "symbol": null
+        },
+        "inputs": {
+          "chunk_id": "chunk-34fa5092783300977f9315d7c7762a16a6734bcd2158f675d95e870de75b00de",
+          "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+          "symbol": null
+        },
+        "metric_kinds": {
+          "chunk_id": "chunk-6a3c6277d83e592da32533d49e3fb05c030cf1ea8f99f33d0ae4b4de73882980",
+          "quote": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]",
+          "symbol": null
+        },
+        "min_history": {
+          "chunk_id": "chunk-bea9073652b8e5ffcac2ac4681a1f32a4ba7b1382b447d9c039b1021f6a75b66",
+          "quote": "\"min_history\": 3",
+          "symbol": null
+        },
+        "outputs": {
+          "chunk_id": "chunk-4e92a7e59da2eb69f17cedffd17fcf57caa3b4ad9dfe2b1eeb716ffee96fd3d8",
+          "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+          "symbol": null
+        },
+        "parameters": {
+          "chunk_id": "chunk-af2842f299358bcf77f8f4140ab16812104670aeca5a92b478aaf9f6804734e4",
+          "quote": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"alpha\",\n      \"min_history\",\n      \"direction\",\n      \"quantile\"\n    ],\n    \"properties\": {\n      \"alpha\": {\n        \"type\": \"number\",\n        \"exclusiveMinimum\": 0,\n        \"maximum\": 1\n      },\n      \"min_history\": {\n        \"type\": \"integer\",\n        \"minimum\": 1,\n        \"maximum\": 600\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\",\n          \"two_sided\"\n        ]\n      },\n      \"quantile\": {\n        \"type\": \"number\",\n        \"exclusiveMinimum\": 0,\n        \"maximum\": 1\n      }\n    }\n  }",
+          "symbol": null
+        },
+        "supported_directions": {
+          "chunk_id": "chunk-b0cbb71a5211b5094b7da7b6c66071875e98520992e1fd9fd9e0e05eb4ff4f4d",
+          "quote": "\"supported_directions\": [\n    \"upper\",\n    \"lower\",\n    \"two_sided\"\n  ]",
+          "symbol": null
+        },
+        "task_type": {
+          "chunk_id": "chunk-2a02b38d696a28dc91734798fd7d8ff5fa2479449a0aaa3f89e82c5a4838142f",
+          "quote": "\"task_type\": \"time_series_anomaly_detection\"",
+          "symbol": null
+        },
+        "version": {
+          "chunk_id": "chunk-96b8b23d75a52b7582040f893468476eb249c8ec4e3d9091c1572b61e5c0cf7f",
+          "quote": "\"version\": \"1.1.0\"",
+          "symbol": null
+        }
+      },
+      "method_id": "ewma",
+      "metric_kinds": [
+        "gauge",
+        "rate"
+      ],
+      "min_history": 3,
+      "name": "EWMA",
+      "origin": "reference",
+      "outputs": {
+        "properties": {
+          "evidence": {
+            "type": "object"
+          },
+          "score": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "status": {
+            "enum": [
+              "ok",
+              "insufficient_history",
+              "missing_input",
+              "invalid_input"
+            ]
+          }
+        },
+        "required": [
+          "timestamp",
+          "host_id",
+          "status",
+          "score",
+          "evidence"
+        ],
+        "type": "object"
+      },
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "alpha": {
+            "exclusiveMinimum": 0,
+            "maximum": 1,
+            "type": "number"
+          },
+          "direction": {
+            "enum": [
+              "upper",
+              "lower",
+              "two_sided"
+            ]
+          },
+          "min_history": {
+            "maximum": 600,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "quantile": {
+            "exclusiveMinimum": 0,
+            "maximum": 1,
+            "type": "number"
+          }
+        },
+        "required": [
+          "alpha",
+          "min_history",
+          "direction",
+          "quantile"
+        ],
+        "type": "object"
+      },
+      "plugin_hashes": {
+        "capability.json": "sha256:99e8d1e67f8b4b1fd9df769136a4b0bb3778393bdb266ccb706b1c289755bded",
+        "checks.py": "sha256:025c96a17a67127db78722b0cfefe382b79c1c22eb88f6cea06c3f6c429c58fd",
+        "reference.py": "sha256:44dd23aa0347c6a21a5bdd5ac6cc405385225bd8af67b44d9c95c93cd66a1333"
+      },
+      "response_evidence": {
+        "origin": "reference",
+        "source_sha256": "sha256:99e8d1e67f8b4b1fd9df769136a4b0bb3778393bdb266ccb706b1c289755bded"
+      },
+      "single_host": true,
+      "source_id": "source-4c07c492c51ec96bd9f5a40295082bd98e0adb3d70462c8691da4fa03504dfc7",
+      "source_status": "registered_card",
+      "spec_sources": [
+        {
+          "chunk_id": "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+          "end_line": 8,
+          "path": "materials/metrics/06-ewma.txt",
+          "quote": "任务类型：time_series_anomaly_detection；输入 gauge 或已换算的 rate，输出 timestamp、host_id、status、score、evidence 字典。\n训练有效值的均值为固定 baseline，scale=max(1e-9,训练有效值的总体标准差)。角色开始 reset 时 smooth=baseline，原始有效点计数 count=0。\n参数 alpha 默认0.3，0<alpha<=1；min_history 默认3，1到600；direction 为 upper/lower/two_sided；quantile 默认0.99，由可信侧在无标签校准集计算。\n当前可用值 x（包括前向插补值）到来，先更新 smooth=alpha*x+(1-alpha)*smooth；只有 original_present=True 时 count 加1。\ncount<min_history 输出 insufficient_history，score=None，evidence={}；足够历史后 upper=(smooth-baseline)/scale，lower 为其相反数，two_sided 为绝对值。\n足够历史时 evidence 包含 ewma、baseline、scale。value=None 输出 missing_input、score=None、evidence={}，不更新计数或平滑值。\nfit 不能保留训练角色的滑动状态；reset 保留训练 baseline/scale，清空计数并恢复 smooth。save_state/load_state 保留配置及全部统计状态。",
+          "sha256": "sha256:b5f7c12ab2e1ea98e55f6c7d25cbf73ffaa6df42cbbfc42ada8265f23e0092d5",
+          "start_line": 2
+        }
+      ],
+      "specification_sha256": "sha256:53abdca0789200f3681895fdd88b049227e8b5e9587a9cc82d7f1d1bcc70bda2",
+      "summary": "EWMA；适于持续变化；固定训练基线保留长期偏移，较小alpha会降低响应速度。",
+      "supported_directions": [
+        "upper",
+        "lower",
+        "two_sided"
+      ],
+      "task_type": "time_series_anomaly_detection",
+      "verification": "reference",
+      "verification_level": "contract_only",
+      "version": "1.1.0"
+    },
+    {
+      "id": "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+      "algorithm_spec": "仅使用当前点前最近window时间槽（包含None槽）；只有original_present=True的历史点计min_history。可用插补值参与median/MAD，但不计真实历史数。value=None时missing_input；真实历史不足时insufficient_history。m=median(有效历史)，mad=median(abs(v-m))，s=max(1.4826*mad,scale_floor)。upper=(x-m)/s，lower=(m-x)/s，two_sided=abs(x-m)/s。evidence含median,mad,scale。训练有效原始值R7分位数（位置(n-1)*q线性插值）的IQR确定scale_floor=max(1e-9,IQR*1e-6)。先评分，再把当前点追加到历史，包括异常点、插补和不可用None槽，保留最近window槽。min_history不得超过window。fit不能把训练点留作角色历史。",
+      "citations": [
+        {
+          "chunk_id": "chunk-e1aae8b6e15e7b39faf151c8739d575ca87b379a43bb79b0ec44f0dc20fcb0d3",
+          "quote": "\"version\": \"1.1.0\"",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-01acabfe7680bcd31dc22e3b098b65c691ad778dfc2c5a000280f884d14e9803",
+          "quote": "\"task_type\": \"time_series_anomaly_detection\"",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-75c971923c30117c0d22b5a54ba8cfe7f93dc99835f7911505d4e07bac9904d6",
+          "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-bc8455b7d7c67af9145bf04a2c6c5198c6f7a6f4b564d3984a6b587f43f6a61f",
+          "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-322b51ba7dd5a1df937ce44c2899e5f42bb6b345ca44028fd41fdb28a4d20143",
+          "quote": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"window\",\n      \"min_history\",\n      \"direction\",\n      \"quantile\"\n    ],\n    \"properties\": {\n      \"window\": {\n        \"type\": \"integer\",\n        \"minimum\": 1,\n        \"maximum\": 600\n      },\n      \"min_history\": {\n        \"type\": \"integer\",\n        \"minimum\": 1,\n        \"maximum\": 600\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\",\n          \"two_sided\"\n        ]\n      },\n      \"quantile\": {\n        \"type\": \"number\",\n        \"exclusiveMinimum\": 0,\n        \"maximum\": 1\n      }\n    }\n  }",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-0dd5a0ddf58445818e5c98c50b5ea088c5b6e2f38f2c37ab72c5d4f3750572e4",
+          "quote": "\"defaults\": {\n    \"window\": 30,\n    \"min_history\": 15,\n    \"direction\": \"upper\",\n    \"quantile\": 0.99\n  }",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-141dc9ba90ddfe3b33842d67a06bf38d19f11895856e435f3d8f13d6bc8949d4",
+          "quote": "\"algorithm_spec\": \"仅使用当前点前最近window时间槽（包含None槽）；只有original_present=True的历史点计min_history。可用插补值参与median/MAD，但不计真实历史数。value=None时missing_input；真实历史不足时insufficient_history。m=median(有效历史)，mad=median(abs(v-m))，s=max(1.4826*mad,scale_floor)。upper=(x-m)/s，lower=(m-x)/s，two_sided=abs(x-m)/s。evidence含median,mad,scale。训练有效原始值R7分位数（位置(n-1)*q线性插值）的IQR确定scale_floor=max(1e-9,IQR*1e-6)。先评分，再把当前点追加到历史，包括异常点、插补和不可用None槽，保留最近window槽。min_history不得超过window。fit不能把训练点留作角色历史。\"",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-b15354d575b98e05d68a9f039deeda7408f2f9cbea83d471ed70e27800613158",
+          "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-ee690c0d03d8a343e813f7ae47f572843fe5469fb9434e031f6f8318f2e87967",
+          "quote": "\"supported_directions\": [\n    \"upper\",\n    \"lower\",\n    \"two_sided\"\n  ]",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-8ecb2409d571a1fd89c1d61fcf21d8ccfe6793754a6530c89d1b62b415f901db",
+          "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-688e8b6e288657d1ba85c4be02aa0e148b848865343bf3e22e3d6b86caa4cde5",
+          "quote": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-49ee0c29401e79553f598af9b25a5efff97185a0b09727d2206c7b5e4c8ce8e2",
+          "quote": "\"min_history\": 15",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+          "quote": "适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1。\nW 默认 30 个时间槽，min_history 默认 15 个真实观测，且 min_history<=W。\n仅用当前点之前最近 W 个槽；统计可用观测含短缺失插补值，但插补不增加真实历史数。\nm=历史中位数，MAD=|历史-m| 的中位数，scale=max(1.4826*MAD, scale_floor)。\n训练原始有效值的 R7 IQR 决定 scale_floor=max(1e-9,IQR*1e-6)。\nupper=(x-m)/scale，lower=(m-x)/scale，two_sided=|x-m|/scale。\n先评分再追加当前点；不可用点也占历史时间槽，历史不足返回 insufficient_history 和空分数。\ncalibration 的可判断计分分数至少 100 个，nearest-rank 0.99 分位阈值；不使用标签。\n严格 score>阈值，所有可用点（含异常）均更新窗口，长漂移可能被吸收，周期模式可能误报。",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+          "quote": "def quantile(values, q):\n    values = sorted(values)\n    pos = (len(values) - 1) * q\n    lo = int(pos)\n    hi = min(lo + 1, len(values) - 1)\n    return values[lo] + (values[hi] - values[lo]) * (pos - lo)\n\n\nclass Detector:\n    def __init__(self, config):\n        self.config = dict(config)\n        self.floor = None\n        self.history = []\n\n    def fit(self, train_points):\n        values = [p[\"value\"] for p in train_points if p[\"value\"] is not None]\n        if not values:\n            raise ValueError(\"no valid training observations\")\n        self.floor = max(1e-9, (quantile(values, 0.75) - quantile(values, 0.25)) * 1e-6)\n        self.reset()\n\n    def reset(self):\n        self.history = []",
+          "symbol": null
+        },
+        {
+          "chunk_id": "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+          "quote": "    def score_one(self, point):\n        if self.floor is None:\n            raise ValueError(\"fit required\")\n        value, evidence = point[\"value\"], {}\n        score, status = None, \"ok\"\n        if value is None:\n            status = \"missing_input\"\n        elif sum(slot[1] for slot in self.history) < self.config[\"min_history\"]:\n            status = \"insufficient_history\"\n        else:\n            values = [slot[0] for slot in self.history if slot[0] is not None]\n            center = median(values)\n            mad = median([abs(x - center) for x in values])\n            scale = max(1.4826 * mad, self.floor)\n            delta = value - center\n            if self.config[\"direction\"] == \"lower\":\n                delta = -delta\n            elif self.config[\"direction\"] == \"two_sided\":\n                delta = abs(delta)\n            score = delta / scale\n            evidence = {\"median\": center, \"mad\": mad, \"scale\": scale}\n        self.history.append([value, point[\"original_present\"]])\n        self.history = self.history[-self.config[\"window\"]:]\n        return {\"timestamp\": point[\"timestamp\"], \"host_id\": point[\"host_id\"],\n                \"status\": status, \"score\": score, \"evidence\": evidence}",
+          "symbol": null
+        }
+      ],
+      "conditions_status": "evidenced",
+      "constraints": [
+        "自适应历史窗口可能把持续变化吸收为新基线。"
+      ],
+      "defaults": {
+        "direction": "upper",
+        "min_history": 15,
+        "quantile": 0.99,
+        "window": 30
+      },
+      "dependency_profile": "metrics-py312-stdlib/1",
+      "evaluation_metrics": [
+        "event_f1",
+        "point_f1",
+        "normal_false_alarms_per_host_hour",
+        "matched_delay_seconds"
+      ],
+      "field_evidence": {
+        "algorithm_spec": {
+          "chunk_id": "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+          "quote": "适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1。\nW 默认 30 个时间槽，min_history 默认 15 个真实观测，且 min_history<=W。\n仅用当前点之前最近 W 个槽；统计可用观测含短缺失插补值，但插补不增加真实历史数。\nm=历史中位数，MAD=|历史-m| 的中位数，scale=max(1.4826*MAD, scale_floor)。\n训练原始有效值的 R7 IQR 决定 scale_floor=max(1e-9,IQR*1e-6)。\nupper=(x-m)/scale，lower=(m-x)/scale，two_sided=|x-m|/scale。\n先评分再追加当前点；不可用点也占历史时间槽，历史不足返回 insufficient_history 和空分数。\ncalibration 的可判断计分分数至少 100 个，nearest-rank 0.99 分位阈值；不使用标签。\n严格 score>阈值，所有可用点（含异常）均更新窗口，长漂移可能被吸收，周期模式可能误报。",
+          "symbol": null
+        },
+        "defaults": {
+          "chunk_id": "chunk-0dd5a0ddf58445818e5c98c50b5ea088c5b6e2f38f2c37ab72c5d4f3750572e4",
+          "quote": "\"defaults\": {\n    \"window\": 30,\n    \"min_history\": 15,\n    \"direction\": \"upper\",\n    \"quantile\": 0.99\n  }",
+          "symbol": null
+        },
+        "dependency_profile": {
+          "chunk_id": "chunk-8ecb2409d571a1fd89c1d61fcf21d8ccfe6793754a6530c89d1b62b415f901db",
+          "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+          "symbol": null
+        },
+        "evaluation_metrics": {
+          "chunk_id": "chunk-b15354d575b98e05d68a9f039deeda7408f2f9cbea83d471ed70e27800613158",
+          "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+          "symbol": null
+        },
+        "inputs": {
+          "chunk_id": "chunk-75c971923c30117c0d22b5a54ba8cfe7f93dc99835f7911505d4e07bac9904d6",
+          "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+          "symbol": null
+        },
+        "metric_kinds": {
+          "chunk_id": "chunk-688e8b6e288657d1ba85c4be02aa0e148b848865343bf3e22e3d6b86caa4cde5",
+          "quote": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]",
+          "symbol": null
+        },
+        "min_history": {
+          "chunk_id": "chunk-49ee0c29401e79553f598af9b25a5efff97185a0b09727d2206c7b5e4c8ce8e2",
+          "quote": "\"min_history\": 15",
+          "symbol": null
+        },
+        "outputs": {
+          "chunk_id": "chunk-bc8455b7d7c67af9145bf04a2c6c5198c6f7a6f4b564d3984a6b587f43f6a61f",
+          "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+          "symbol": null
+        },
+        "parameters": {
+          "chunk_id": "chunk-322b51ba7dd5a1df937ce44c2899e5f42bb6b345ca44028fd41fdb28a4d20143",
+          "quote": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"window\",\n      \"min_history\",\n      \"direction\",\n      \"quantile\"\n    ],\n    \"properties\": {\n      \"window\": {\n        \"type\": \"integer\",\n        \"minimum\": 1,\n        \"maximum\": 600\n      },\n      \"min_history\": {\n        \"type\": \"integer\",\n        \"minimum\": 1,\n        \"maximum\": 600\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\",\n          \"two_sided\"\n        ]\n      },\n      \"quantile\": {\n        \"type\": \"number\",\n        \"exclusiveMinimum\": 0,\n        \"maximum\": 1\n      }\n    }\n  }",
+          "symbol": null
+        },
+        "supported_directions": {
+          "chunk_id": "chunk-ee690c0d03d8a343e813f7ae47f572843fe5469fb9434e031f6f8318f2e87967",
+          "quote": "\"supported_directions\": [\n    \"upper\",\n    \"lower\",\n    \"two_sided\"\n  ]",
+          "symbol": null
+        },
+        "task_type": {
+          "chunk_id": "chunk-01acabfe7680bcd31dc22e3b098b65c691ad778dfc2c5a000280f884d14e9803",
+          "quote": "\"task_type\": \"time_series_anomaly_detection\"",
+          "symbol": null
+        },
+        "version": {
+          "chunk_id": "chunk-e1aae8b6e15e7b39faf151c8739d575ca87b379a43bb79b0ec44f0dc20fcb0d3",
+          "quote": "\"version\": \"1.1.0\"",
+          "symbol": null
+        }
+      },
+      "implementation_verified": false,
+      "inputs": {
+        "properties": {
+          "host_id": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "value": {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "timestamp",
+          "host_id",
+          "value"
+        ],
+        "type": "object"
+      },
+      "knowledge_status": "source_checked",
+      "limitations": [
+        "expert authored plugin card; not model extraction"
+      ],
+      "local_id": "rolling_mad",
+      "manifest_field_evidence": {
+        "algorithm_spec": {
+          "chunk_id": "chunk-141dc9ba90ddfe3b33842d67a06bf38d19f11895856e435f3d8f13d6bc8949d4",
+          "quote": "\"algorithm_spec\": \"仅使用当前点前最近window时间槽（包含None槽）；只有original_present=True的历史点计min_history。可用插补值参与median/MAD，但不计真实历史数。value=None时missing_input；真实历史不足时insufficient_history。m=median(有效历史)，mad=median(abs(v-m))，s=max(1.4826*mad,scale_floor)。upper=(x-m)/s，lower=(m-x)/s，two_sided=abs(x-m)/s。evidence含median,mad,scale。训练有效原始值R7分位数（位置(n-1)*q线性插值）的IQR确定scale_floor=max(1e-9,IQR*1e-6)。先评分，再把当前点追加到历史，包括异常点、插补和不可用None槽，保留最近window槽。min_history不得超过window。fit不能把训练点留作角色历史。\"",
+          "symbol": null
+        },
+        "defaults": {
+          "chunk_id": "chunk-0dd5a0ddf58445818e5c98c50b5ea088c5b6e2f38f2c37ab72c5d4f3750572e4",
+          "quote": "\"defaults\": {\n    \"window\": 30,\n    \"min_history\": 15,\n    \"direction\": \"upper\",\n    \"quantile\": 0.99\n  }",
+          "symbol": null
+        },
+        "dependency_profile": {
+          "chunk_id": "chunk-8ecb2409d571a1fd89c1d61fcf21d8ccfe6793754a6530c89d1b62b415f901db",
+          "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+          "symbol": null
+        },
+        "evaluation_metrics": {
+          "chunk_id": "chunk-b15354d575b98e05d68a9f039deeda7408f2f9cbea83d471ed70e27800613158",
+          "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+          "symbol": null
+        },
+        "inputs": {
+          "chunk_id": "chunk-75c971923c30117c0d22b5a54ba8cfe7f93dc99835f7911505d4e07bac9904d6",
+          "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+          "symbol": null
+        },
+        "metric_kinds": {
+          "chunk_id": "chunk-688e8b6e288657d1ba85c4be02aa0e148b848865343bf3e22e3d6b86caa4cde5",
+          "quote": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]",
+          "symbol": null
+        },
+        "min_history": {
+          "chunk_id": "chunk-49ee0c29401e79553f598af9b25a5efff97185a0b09727d2206c7b5e4c8ce8e2",
+          "quote": "\"min_history\": 15",
+          "symbol": null
+        },
+        "outputs": {
+          "chunk_id": "chunk-bc8455b7d7c67af9145bf04a2c6c5198c6f7a6f4b564d3984a6b587f43f6a61f",
+          "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+          "symbol": null
+        },
+        "parameters": {
+          "chunk_id": "chunk-322b51ba7dd5a1df937ce44c2899e5f42bb6b345ca44028fd41fdb28a4d20143",
+          "quote": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"window\",\n      \"min_history\",\n      \"direction\",\n      \"quantile\"\n    ],\n    \"properties\": {\n      \"window\": {\n        \"type\": \"integer\",\n        \"minimum\": 1,\n        \"maximum\": 600\n      },\n      \"min_history\": {\n        \"type\": \"integer\",\n        \"minimum\": 1,\n        \"maximum\": 600\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\",\n          \"two_sided\"\n        ]\n      },\n      \"quantile\": {\n        \"type\": \"number\",\n        \"exclusiveMinimum\": 0,\n        \"maximum\": 1\n      }\n    }\n  }",
+          "symbol": null
+        },
+        "supported_directions": {
+          "chunk_id": "chunk-ee690c0d03d8a343e813f7ae47f572843fe5469fb9434e031f6f8318f2e87967",
+          "quote": "\"supported_directions\": [\n    \"upper\",\n    \"lower\",\n    \"two_sided\"\n  ]",
+          "symbol": null
+        },
+        "task_type": {
+          "chunk_id": "chunk-01acabfe7680bcd31dc22e3b098b65c691ad778dfc2c5a000280f884d14e9803",
+          "quote": "\"task_type\": \"time_series_anomaly_detection\"",
+          "symbol": null
+        },
+        "version": {
+          "chunk_id": "chunk-e1aae8b6e15e7b39faf151c8739d575ca87b379a43bb79b0ec44f0dc20fcb0d3",
+          "quote": "\"version\": \"1.1.0\"",
+          "symbol": null
+        }
+      },
+      "method_id": "rolling_mad",
+      "metric_kinds": [
+        "gauge",
+        "rate"
+      ],
+      "min_history": 15,
+      "name": "滚动 MAD",
+      "origin": "reference",
+      "outputs": {
+        "properties": {
+          "evidence": {
+            "type": "object"
+          },
+          "score": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "status": {
+            "enum": [
+              "ok",
+              "insufficient_history",
+              "missing_input",
+              "invalid_input"
+            ]
+          }
+        },
+        "required": [
+          "timestamp",
+          "host_id",
+          "status",
+          "score",
+          "evidence"
+        ],
+        "type": "object"
+      },
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "direction": {
+            "enum": [
+              "upper",
+              "lower",
+              "two_sided"
+            ]
+          },
+          "min_history": {
+            "maximum": 600,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "quantile": {
+            "exclusiveMinimum": 0,
+            "maximum": 1,
+            "type": "number"
+          },
+          "window": {
+            "maximum": 600,
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "window",
+          "min_history",
+          "direction",
+          "quantile"
+        ],
+        "type": "object"
+      },
+      "plugin_hashes": {
+        "capability.json": "sha256:8c0d97bc2c8d13616df091cf37dd91afb32c06abe43ac6449d9c512c083333bf",
+        "checks.py": "sha256:2ae8cf000dda9f9f86e3c19c993b76d14af181fba24d81d2a020643fdd9e613c",
+        "reference.py": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7"
+      },
+      "response_evidence": {
+        "origin": "reference",
+        "source_sha256": "sha256:8c0d97bc2c8d13616df091cf37dd91afb32c06abe43ac6449d9c512c083333bf"
+      },
+      "single_host": true,
+      "source_id": "source-2630f728574552438d12c84eb386ac1805983e7796feae54ff6940fcde0a1958",
+      "source_status": "registered_card",
+      "spec_sources": [
+        {
+          "chunk_id": "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+          "end_line": 11,
+          "path": "materials/metrics/03-rolling-mad.txt",
+          "quote": "适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1。\nW 默认 30 个时间槽，min_history 默认 15 个真实观测，且 min_history<=W。\n仅用当前点之前最近 W 个槽；统计可用观测含短缺失插补值，但插补不增加真实历史数。\nm=历史中位数，MAD=|历史-m| 的中位数，scale=max(1.4826*MAD, scale_floor)。\n训练原始有效值的 R7 IQR 决定 scale_floor=max(1e-9,IQR*1e-6)。\nupper=(x-m)/scale，lower=(m-x)/scale，two_sided=|x-m|/scale。\n先评分再追加当前点；不可用点也占历史时间槽，历史不足返回 insufficient_history 和空分数。\ncalibration 的可判断计分分数至少 100 个，nearest-rank 0.99 分位阈值；不使用标签。\n严格 score>阈值，所有可用点（含异常）均更新窗口，长漂移可能被吸收，周期模式可能误报。",
+          "sha256": "sha256:c9b2a8158fe0978e951ec2e8c8141b661112b62cb1ca560ad72bea6d69c791d1",
+          "start_line": 3
+        },
+        {
+          "chunk_id": "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+          "end_line": 33,
+          "path": "materials/metrics/reference_mad.py",
+          "quote": "def quantile(values, q):\n    values = sorted(values)\n    pos = (len(values) - 1) * q\n    lo = int(pos)\n    hi = min(lo + 1, len(values) - 1)\n    return values[lo] + (values[hi] - values[lo]) * (pos - lo)\n\n\nclass Detector:\n    def __init__(self, config):\n        self.config = dict(config)\n        self.floor = None\n        self.history = []\n\n    def fit(self, train_points):\n        values = [p[\"value\"] for p in train_points if p[\"value\"] is not None]\n        if not values:\n            raise ValueError(\"no valid training observations\")\n        self.floor = max(1e-9, (quantile(values, 0.75) - quantile(values, 0.25)) * 1e-6)\n        self.reset()\n\n    def reset(self):\n        self.history = []",
+          "sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+          "start_line": 11
+        },
+        {
+          "chunk_id": "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+          "end_line": 59,
+          "path": "materials/metrics/reference_mad.py",
+          "quote": "    def score_one(self, point):\n        if self.floor is None:\n            raise ValueError(\"fit required\")\n        value, evidence = point[\"value\"], {}\n        score, status = None, \"ok\"\n        if value is None:\n            status = \"missing_input\"\n        elif sum(slot[1] for slot in self.history) < self.config[\"min_history\"]:\n            status = \"insufficient_history\"\n        else:\n            values = [slot[0] for slot in self.history if slot[0] is not None]\n            center = median(values)\n            mad = median([abs(x - center) for x in values])\n            scale = max(1.4826 * mad, self.floor)\n            delta = value - center\n            if self.config[\"direction\"] == \"lower\":\n                delta = -delta\n            elif self.config[\"direction\"] == \"two_sided\":\n                delta = abs(delta)\n            score = delta / scale\n            evidence = {\"median\": center, \"mad\": mad, \"scale\": scale}\n        self.history.append([value, point[\"original_present\"]])\n        self.history = self.history[-self.config[\"window\"]:]\n        return {\"timestamp\": point[\"timestamp\"], \"host_id\": point[\"host_id\"],\n                \"status\": status, \"score\": score, \"evidence\": evidence}",
+          "sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+          "start_line": 35
+        }
+      ],
+      "specification_sha256": "sha256:1341c8dba78c069e25220a8afe6f80caaf9150384348d3c7f47c3c4e1dce8309",
+      "summary": "滚动 MAD；自适应历史窗口可能把持续变化吸收为新基线。",
+      "supported_directions": [
+        "upper",
+        "lower",
+        "two_sided"
+      ],
+      "task_type": "time_series_anomaly_detection",
+      "verification": "reference",
+      "verification_level": "contract_only",
+      "version": "1.1.0"
+    }
+  ],
+  "mode": "structured",
+  "knowledge_ids": [
+    "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+    "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+    "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+    "chunk-2a02b38d696a28dc91734798fd7d8ff5fa2479449a0aaa3f89e82c5a4838142f",
+    "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+    "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+    "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+    "chunk-96b8b23d75a52b7582040f893468476eb249c8ec4e3d9091c1572b61e5c0cf7f",
+    "experience-3c400aad5437cbffcfb4c026c178eb8a77e87e62d45cf0f1d19685c28d666b0a",
+    "experience-8994fbe8622595cad805f1388c2ffd8746b76ce1809cdea8020c5866f76a10f4",
+    "source-b87632b829b20184b15b4a9610c028db947eb04a8672c227b3caa14ff39afcd3",
+    "source-ba12995471501af4d22a092ff63e3420003103c0a364a4769ae2afa939fd5cab",
+    "source-f5e5f8ac42e9fd7f7bb393e7cc89533f14187c96f6d02a17f9fd4374221933b2"
+  ],
+  "chunks": [
+    {
+      "id": "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+      "end_line": 8,
+      "sha256": "sha256:ad928cc8d8383883854eb640869ea754afeda1bcbc9cefc8d5852d159b4d2283",
+      "source_id": "source-f5e5f8ac42e9fd7f7bb393e7cc89533f14187c96f6d02a17f9fd4374221933b2",
+      "start_line": 2,
+      "text": "任务类型：time_series_anomaly_detection；输入 gauge 或已换算的 rate，输出 timestamp、host_id、status、score、evidence 字典。\n训练有效值的均值为固定 baseline，scale=max(1e-9,训练有效值的总体标准差)。角色开始 reset 时 smooth=baseline，原始有效点计数 count=0。\n参数 alpha 默认0.3，0<alpha<=1；min_history 默认3，1到600；direction 为 upper/lower/two_sided；quantile 默认0.99，由可信侧在无标签校准集计算。\n当前可用值 x（包括前向插补值）到来，先更新 smooth=alpha*x+(1-alpha)*smooth；只有 original_present=True 时 count 加1。\ncount<min_history 输出 insufficient_history，score=None，evidence={}；足够历史后 upper=(smooth-baseline)/scale，lower 为其相反数，two_sided 为绝对值。\n足够历史时 evidence 包含 ewma、baseline、scale。value=None 输出 missing_input、score=None、evidence={}，不更新计数或平滑值。\nfit 不能保留训练角色的滑动状态；reset 保留训练 baseline/scale，清空计数并恢复 smooth。save_state/load_state 保留配置及全部统计状态。",
+      "source": "materials/metrics/06-ewma.txt",
+      "source_sha256": "sha256:b5f7c12ab2e1ea98e55f6c7d25cbf73ffaa6df42cbbfc42ada8265f23e0092d5",
+      "capability_id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "summary": "EWMA；适于持续变化；固定训练基线保留长期偏移，较小alpha会降低响应速度。",
+      "conditions_status": "evidenced",
+      "knowledge_status": "source_checked"
+    },
+    {
+      "id": "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+      "end_line": 11,
+      "sha256": "sha256:3518af826abcd5b926b957040dd64304f5dbba91457c0d2c8ad7c814b05ec806",
+      "source_id": "source-b87632b829b20184b15b4a9610c028db947eb04a8672c227b3caa14ff39afcd3",
+      "start_line": 3,
+      "text": "适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1。\nW 默认 30 个时间槽，min_history 默认 15 个真实观测，且 min_history<=W。\n仅用当前点之前最近 W 个槽；统计可用观测含短缺失插补值，但插补不增加真实历史数。\nm=历史中位数，MAD=|历史-m| 的中位数，scale=max(1.4826*MAD, scale_floor)。\n训练原始有效值的 R7 IQR 决定 scale_floor=max(1e-9,IQR*1e-6)。\nupper=(x-m)/scale，lower=(m-x)/scale，two_sided=|x-m|/scale。\n先评分再追加当前点；不可用点也占历史时间槽，历史不足返回 insufficient_history 和空分数。\ncalibration 的可判断计分分数至少 100 个，nearest-rank 0.99 分位阈值；不使用标签。\n严格 score>阈值，所有可用点（含异常）均更新窗口，长漂移可能被吸收，周期模式可能误报。",
+      "source": "materials/metrics/03-rolling-mad.txt",
+      "source_sha256": "sha256:c9b2a8158fe0978e951ec2e8c8141b661112b62cb1ca560ad72bea6d69c791d1",
+      "capability_id": "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+      "summary": "滚动 MAD；自适应历史窗口可能把持续变化吸收为新基线。",
+      "conditions_status": "evidenced",
+      "knowledge_status": "source_checked"
+    },
+    {
+      "id": "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+      "end_line": 33,
+      "sha256": "sha256:5028e31ce77e9d7276fd11125c6820d154c8efe45560981f5bc92ac97a1abd00",
+      "source_id": "source-ba12995471501af4d22a092ff63e3420003103c0a364a4769ae2afa939fd5cab",
+      "start_line": 11,
+      "text": "def quantile(values, q):\n    values = sorted(values)\n    pos = (len(values) - 1) * q\n    lo = int(pos)\n    hi = min(lo + 1, len(values) - 1)\n    return values[lo] + (values[hi] - values[lo]) * (pos - lo)\n\n\nclass Detector:\n    def __init__(self, config):\n        self.config = dict(config)\n        self.floor = None\n        self.history = []\n\n    def fit(self, train_points):\n        values = [p[\"value\"] for p in train_points if p[\"value\"] is not None]\n        if not values:\n            raise ValueError(\"no valid training observations\")\n        self.floor = max(1e-9, (quantile(values, 0.75) - quantile(values, 0.25)) * 1e-6)\n        self.reset()\n\n    def reset(self):\n        self.history = []",
+      "source": "materials/metrics/reference_mad.py",
+      "source_sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+      "capability_id": "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+      "summary": "滚动 MAD；自适应历史窗口可能把持续变化吸收为新基线。",
+      "conditions_status": "evidenced",
+      "knowledge_status": "source_checked"
+    },
+    {
+      "id": "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+      "end_line": 59,
+      "sha256": "sha256:6b67dc0f90495db8eb533d3347cd1ecb651ec42d49e403e377b30fad7cc9b5b9",
+      "source_id": "source-ba12995471501af4d22a092ff63e3420003103c0a364a4769ae2afa939fd5cab",
+      "start_line": 35,
+      "text": "    def score_one(self, point):\n        if self.floor is None:\n            raise ValueError(\"fit required\")\n        value, evidence = point[\"value\"], {}\n        score, status = None, \"ok\"\n        if value is None:\n            status = \"missing_input\"\n        elif sum(slot[1] for slot in self.history) < self.config[\"min_history\"]:\n            status = \"insufficient_history\"\n        else:\n            values = [slot[0] for slot in self.history if slot[0] is not None]\n            center = median(values)\n            mad = median([abs(x - center) for x in values])\n            scale = max(1.4826 * mad, self.floor)\n            delta = value - center\n            if self.config[\"direction\"] == \"lower\":\n                delta = -delta\n            elif self.config[\"direction\"] == \"two_sided\":\n                delta = abs(delta)\n            score = delta / scale\n            evidence = {\"median\": center, \"mad\": mad, \"scale\": scale}\n        self.history.append([value, point[\"original_present\"]])\n        self.history = self.history[-self.config[\"window\"]:]\n        return {\"timestamp\": point[\"timestamp\"], \"host_id\": point[\"host_id\"],\n                \"status\": status, \"score\": score, \"evidence\": evidence}",
+      "source": "materials/metrics/reference_mad.py",
+      "source_sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+      "capability_id": "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+      "summary": "滚动 MAD；自适应历史窗口可能把持续变化吸收为新基线。",
+      "conditions_status": "evidenced",
+      "knowledge_status": "source_checked"
+    },
+    {
+      "id": "chunk-96b8b23d75a52b7582040f893468476eb249c8ec4e3d9091c1572b61e5c0cf7f",
+      "end_line": 2,
+      "sha256": "sha256:434beef7a807fb98e7eac094ecd06733613bf46816f600318201d4d75a8b416d",
+      "source_id": "source-4c07c492c51ec96bd9f5a40295082bd98e0adb3d70462c8691da4fa03504dfc7",
+      "start_line": 2,
+      "text": "\"version\": \"1.1.0\"",
+      "source": "capabilities/ewma/capability.json",
+      "source_sha256": "sha256:99e8d1e67f8b4b1fd9df769136a4b0bb3778393bdb266ccb706b1c289755bded",
+      "capability_id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "summary": "EWMA；适于持续变化；固定训练基线保留长期偏移，较小alpha会降低响应速度。",
+      "conditions_status": "evidenced",
+      "knowledge_status": "extracted_unverified"
+    },
+    {
+      "id": "chunk-2a02b38d696a28dc91734798fd7d8ff5fa2479449a0aaa3f89e82c5a4838142f",
+      "end_line": 3,
+      "sha256": "sha256:a144d8d828e7fb97f5f6956262b45ad28185f5f70aaa90bfec23e32d64a1a579",
+      "source_id": "source-4c07c492c51ec96bd9f5a40295082bd98e0adb3d70462c8691da4fa03504dfc7",
+      "start_line": 3,
+      "text": "\"task_type\": \"time_series_anomaly_detection\"",
+      "source": "capabilities/ewma/capability.json",
+      "source_sha256": "sha256:99e8d1e67f8b4b1fd9df769136a4b0bb3778393bdb266ccb706b1c289755bded",
+      "capability_id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "summary": "EWMA；适于持续变化；固定训练基线保留长期偏移，较小alpha会降低响应速度。",
+      "conditions_status": "evidenced",
+      "knowledge_status": "extracted_unverified"
+    }
+  ],
+  "experiences": [
+    {
+      "id": "experience-8994fbe8622595cad805f1388c2ffd8746b76ce1809cdea8020c5866f76a10f4",
+      "method_id": "ewma",
+      "metric_kind": "gauge",
+      "origin": "llm_api",
+      "implementation_id": "implementation-ac68184ae1fefa93ba22087939bba8fab4b711fc1e275d04d44a68fee85ebf3d",
+      "validation_id": "validation-35c2268bee1d935facc6c11438fab08844e3005c2e07093aa7332270078c8ed8",
+      "reusable_implementation": true,
+      "implementation_verified": true,
+      "method_validation_protocol": "metrics-method-check/3",
+      "effect_status": "MEASURED",
+      "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+      "issue": "verified_method_requires_new_input_evaluation",
+      "action": "initial_generation",
+      "reuse_scope": "single host and metric; revalidate code, calibration and effect on new data",
+      "final_feedback_policy": "final values, labels and metrics omitted from retrieval summary",
+      "development_feedback": []
+    },
+    {
+      "id": "experience-3c400aad5437cbffcfb4c026c178eb8a77e87e62d45cf0f1d19685c28d666b0a",
+      "method_id": "rolling_mad",
+      "metric_kind": "gauge",
+      "origin": "llm_api",
+      "implementation_id": "implementation-bd0a98bd6b5896aa07e59cf3d646aec6c5b019db47b35beffd5f8ed39aad6f71",
+      "validation_id": "validation-7197c5a7661391394d87b13ab2d3205305872beeb138f6a7118f365f5b35b3a8",
+      "reusable_implementation": false,
+      "implementation_verified": true,
+      "method_validation_protocol": "metrics-method-check/3",
+      "effect_status": "NOT_QUALIFIED_FOR_REUSE",
+      "acceptance_status": "NOT_CLAIMED",
+      "issue": "verified_method_requires_new_input_evaluation",
+      "action": "initial_generation",
+      "reuse_scope": "single host and metric; revalidate code, calibration and effect on new data",
+      "final_feedback_policy": "final values, labels and metrics omitted from retrieval summary",
+      "development_feedback": []
+    }
+  ],
+  "excluded": [
+    {
+      "capability_id": "capability-030fe8c79fbda16e7a81dbae957711d2180d708adbcff7ca11833deec371cff4",
+      "reason": "not_single_host"
+    },
+    {
+      "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "reason": "method_not_allowed"
+    },
+    {
+      "capability_id": "capability-c0fed109a733a1f9f2987847ea7fb21c185bb0c29774bbef00e79509a8e3aaea",
+      "reason": "dependency_profile_incompatible"
+    },
+    {
+      "capability_id": "capability-cf6b618188672392af8b0553024452b5f6ac7057809892d9bfaeb8734d518e5c",
+      "reason": "method_not_allowed"
+    }
+  ],
+  "conditions_notice": "extracted applicability claims are source-linked, not implementation verification"
+}

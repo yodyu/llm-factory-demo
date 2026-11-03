@@ -1,0 +1,62 @@
+{
+  "method": "Observed Web pages, no synthetic screenshots",
+  "checks": [
+    {
+      "task": "ui-ac5fa8e7cab64a6d",
+      "sections": [
+        "结果概览",
+        "知识依据",
+        "运行与验证",
+        "模型用量"
+      ],
+      "identity_stable": true,
+      "candidates": 1,
+      "knowledge_supplied": 13,
+      "knowledge_cited": 5,
+      "model_requests": 2
+    },
+    {
+      "task": "ui-39b59545cd5d4b96",
+      "sections": [
+        "模型用量",
+        "知识依据",
+        "运行与验证",
+        "结果概览"
+      ],
+      "identity_stable": true,
+      "candidates": 2,
+      "knowledge_supplied": 18,
+      "knowledge_cited": 13,
+      "model_requests": 3
+    },
+    {
+      "task": "ui-061bbc0f5eff41d0",
+      "sections": [
+        "运行与验证",
+        "结果概览",
+        "知识依据",
+        "模型用量",
+        "知识图谱"
+      ],
+      "identity_stable": true,
+      "running_to_completed_identity_stable": true,
+      "selection_target": "持续区间覆盖",
+      "selected": "ewma-alpha02-p2",
+      "return_from_graph_identity_stable": true
+    },
+    {
+      "task": "ui-8072f05359334d6e",
+      "sections": [
+        "结果概览",
+        "知识依据",
+        "运行与验证",
+        "模型用量"
+      ],
+      "identity_stable": true,
+      "running_to_completed_identity_stable": true,
+      "selection_target": "持续区间覆盖",
+      "selected": "ewma_alpha0.3_p2",
+      "model_requests": 4
+    }
+  ]
+}

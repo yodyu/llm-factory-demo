@@ -1,0 +1,27 @@
+[
+  {
+    "call_id": "ingest-bugfix-20261103-1:extract-3:format-1",
+    "issues": [
+      {
+        "field": "capabilities",
+        "type": "model_type",
+        "path": "capabilities[0]"
+      },
+      {
+        "field": "capabilities",
+        "type": "model_type",
+        "path": "capabilities[1]"
+      },
+      {
+        "field": "capabilities",
+        "type": "model_type",
+        "path": "capabilities[2]"
+      },
+      {
+        "field": "capabilities",
+        "type": "model_type",
+        "path": "capabilities[3]"
+      }
+    ]
+  }
+]

@@ -1,0 +1,82 @@
+{
+  "supported": true,
+  "understanding": "任务是在60秒采样的单主机磁盘I/O延迟gauge指标（disk_latency，单位ms）上，用模拟数据检测持续升高；比较EWMA与滚动MAD两种已注册方法。检测方向固定为upper。EWMA必须使用用户明确给出的alpha=0.3；两种候选均采用连续2个异常点才报警，以降低单点抖动导致的误报。计划阶段先给出检测器配置、参数依据、知识引用与限制；检测代码和验证报告属于后续实现/验证交付，不在本阶段展开。",
+  "anomaly_target": "upper",
+  "limitations": [
+    "当前处于plan阶段，仅输出检测方案；具体检测代码和验证报告需在后续实现与验证阶段生成。",
+    "两种能力卡片均为contract_only/reference，implementation_verified=false；需在新模拟数据上重新验证代码、校准和效果。",
+    "quantile=0.99是方法默认值，并非从本次无标签校准集或业务SLA得出；实际阈值应由可信侧基于校准分数计算。",
+    "rolling_mad的自适应窗口可能吸收持续升高，若模拟异常持续时间较长可能降低检出敏感性。",
+    "EWMA使用固定训练baseline，长期水位变化会保留为偏移；alpha较小会降低对突发升高的响应速度。",
+    "本方案按单主机单指标处理；跨主机聚合、多指标关联、容量预测等未接入能力不包含在本次范围内。"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "ewma_alpha0.3_upper_p2",
+      "config": {
+        "method_id": "ewma",
+        "alpha": 0.3,
+        "min_history": 3,
+        "direction": "upper",
+        "quantile": 0.99
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "alpha": "user_explicit",
+        "direction": "user_explicit",
+        "persistence_points": "user_explicit",
+        "min_history": "protocol_default",
+        "quantile": "protocol_default",
+        "method_id": "knowledge:capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17"
+      },
+      "knowledge_ids": [
+        "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+        "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+        "experience-1a45af64c9486f459f33d134feaea09ec6cfd61ba346b46f6dcd8df062f8002a",
+        "experience-8994fbe8622595cad805f1388c2ffd8746b76ce1809cdea8020c5866f76a10f4"
+      ],
+      "limitations": [
+        "固定baseline会保留长期水位偏移；若模拟基线本身随时间非异常迁移，可能产生误报。",
+        "alpha=0.3由用户明确指定，不能在候选中更改；较小alpha可能降低对快速升高的响应速度。",
+        "quantile=0.99为协议默认，不代表本次业务阈值；上线前需用无标签校准集计算阈值。",
+        "历史经验包含一次MODEL_TIMEOUT风险提示；后续代码应避免外部模型调用和高延迟依赖。"
+      ],
+      "capability_id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "selection_reason": "EWMA支持upper方向和gauge指标，适用于持续变化；固定训练baseline配合平滑值可检测相对训练期的持续升高。用户明确指定alpha=0.3、direction=upper，并要求连续两点报警，因此persistence_points=2。min_history=3和quantile=0.99来自已注册方法默认配置；假设模拟数据中存在可用于fit的训练段，且异常升高会在平滑值上维持至少两个采样点。该候选能抑制单点尖峰，但对非常缓慢漂移的响应可能较慢。"
+    },
+    {
+      "candidate_id": "rolling_mad_w30_upper_p2",
+      "config": {
+        "method_id": "rolling_mad",
+        "window": 30,
+        "min_history": 15,
+        "direction": "upper",
+        "quantile": 0.99
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "direction": "user_explicit",
+        "persistence_points": "user_explicit",
+        "window": "protocol_default",
+        "min_history": "protocol_default",
+        "quantile": "protocol_default",
+        "method_id": "knowledge:capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f"
+      },
+      "knowledge_ids": [
+        "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+        "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+        "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+        "experience-3c400aad5437cbffcfb4c026c178eb8a77e87e62d45cf0f1d19685c28d666b0a"
+      ],
+      "limitations": [
+        "滚动窗口可能把长时间持续升高吸收为新基线，导致异常后段分数下降。",
+        "默认30时间槽窗口未由本次模拟数据调优；异常持续时间、周期模式或采样间隔变化时需重新评估。",
+        "quantile=0.99为协议默认，不是业务阈值；应基于至少100个可判断校准分数按无标签校准流程确定。",
+        "周期模式若未被训练或窗口结构覆盖，可能产生误报。",
+        "演示纠正：已移除未提供的知识引用，相关参数不再标记为知识依据。"
+      ],
+      "capability_id": "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+      "selection_reason": "滚动MAD支持upper方向和gauge指标，使用最近30个时间槽的中位数和MAD进行局部鲁棒评分，适合与EWMA比较：它不依赖长期固定均值，对局部离群升高敏感，并可通过连续两点确认减少误报。window=30、min_history=15、quantile=0.99均采用已注册默认值；在60秒采样下相当于最多查看30分钟窗口，并要求至少15个真实观测。假设模拟异常在窗口内表现为高于近期中位数的持续偏移。"
+    }
+  ]
+}

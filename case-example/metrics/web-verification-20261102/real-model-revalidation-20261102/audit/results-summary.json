@@ -1,0 +1,426 @@
+{
+  "experiments": {
+    "repair": {
+      "task_id": "ui-74cc4a21520a4e1b",
+      "status": "COMPLETED",
+      "origin": "fault_injection",
+      "point_precision": 1.0,
+      "point_recall": 0.9833333333333333,
+      "point_f1": 0.9915966386554622,
+      "event_f1": 1.0,
+      "point_counts": {
+        "tp": 59,
+        "fp": 0,
+        "fn": 1,
+        "tn": 180,
+        "total": 240
+      },
+      "event_counts": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0
+      },
+      "delay_median": 60.0,
+      "normal_false_alarms_per_hour": 0.0,
+      "coverage": 1.0,
+      "model_usage": {
+        "kind": "api",
+        "requests": 3,
+        "reservations": 3,
+        "input_tokens": 52582,
+        "output_tokens": 4650,
+        "total_tokens": 57232,
+        "missing_usage_requests": 0,
+        "notice": "Counts include retries and repairs; tokens are provider-reported only; missing usage is not zero."
+      },
+      "runtime_seconds": 92.92188163474202,
+      "selected": "fixed_threshold_memory_upper_85_p2",
+      "provided_knowledge": 11,
+      "cited_knowledge": 6,
+      "provided_experiences": 2,
+      "cited_experiences": 1,
+      "publication_nodes": 6,
+      "candidates": [
+        {
+          "method": "fixed_threshold",
+          "candidate_id": "fixed_threshold_memory_upper_85_p2",
+          "source_paths": [
+            "candidate-4083fd02ab0df291a39581c0d2dc24d3c1b64e5bd9b3209d41d74182f83e80ad/v0.py",
+            "candidate-4083fd02ab0df291a39581c0d2dc24d3c1b64e5bd9b3209d41d74182f83e80ad/v1.py"
+          ],
+          "checks_per_version": [
+            5,
+            8
+          ],
+          "passed_per_version": [
+            false,
+            true
+          ],
+          "dev_precision": 1.0,
+          "dev_recall": 0.9833333333333333,
+          "dev_f1": 0.9915966386554622,
+          "dev_fbeta": 0.9915966386554622,
+          "beta": 1.0,
+          "source_sha256": [
+            "sha256:4c95e5b297ac516c7e7a27d9c0dd2df63a7bd00ef3ddaca927da94fface38cf3",
+            "sha256:2a03309ff56fe9b5505a82a1b4a2a58ef9d1c8425de5f7a4f73023d42e4bd527"
+          ]
+        }
+      ]
+    },
+    "cpu": {
+      "task_id": "ui-34a756c1b4ac490b",
+      "status": "COMPLETED",
+      "origin": "llm_api",
+      "point_precision": 1.0,
+      "point_recall": 0.4444444444444444,
+      "point_f1": 0.6153846153846154,
+      "event_f1": 0.8,
+      "point_counts": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 5,
+        "tn": 231,
+        "total": 240
+      },
+      "event_counts": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 1
+      },
+      "delay_median": 120.0,
+      "normal_false_alarms_per_hour": 0.0,
+      "coverage": 1.0,
+      "model_usage": {
+        "kind": "api",
+        "requests": 2,
+        "reservations": 2,
+        "input_tokens": 29619,
+        "output_tokens": 2347,
+        "total_tokens": 31966,
+        "missing_usage_requests": 0,
+        "notice": "Counts include retries and repairs; tokens are provider-reported only; missing usage is not zero."
+      },
+      "runtime_seconds": 65.745360404253,
+      "selected": "fixed_threshold_cpu_upper_90_p3",
+      "provided_knowledge": 9,
+      "cited_knowledge": 4,
+      "provided_experiences": 0,
+      "cited_experiences": 0,
+      "publication_nodes": 3,
+      "candidates": [
+        {
+          "method": "fixed_threshold",
+          "candidate_id": "fixed_threshold_cpu_upper_90_p3",
+          "source_paths": [
+            "candidate-6e556c02624664f884d552b08ca090710acb4dc9c627b97f2d129c9a226c44d5/v0.py"
+          ],
+          "checks_per_version": [
+            8
+          ],
+          "passed_per_version": [
+            true
+          ],
+          "dev_precision": 1.0,
+          "dev_recall": 0.4444444444444444,
+          "dev_f1": 0.6153846153846154,
+          "dev_fbeta": 0.6153846153846154,
+          "beta": 1.0,
+          "source_sha256": [
+            "sha256:1cda364b1636b5325c6102212290ec2adca40c058f0369926bb2d53f97a0626a"
+          ]
+        }
+      ]
+    },
+    "disk": {
+      "task_id": "ui-da4c1f50a3504008",
+      "status": "COMPLETED",
+      "origin": "llm_api",
+      "point_precision": 1.0,
+      "point_recall": 0.2,
+      "point_f1": 0.3333333333333333,
+      "event_f1": 1.0,
+      "point_counts": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 16,
+        "tn": 220,
+        "total": 240
+      },
+      "event_counts": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "delay_median": 480.0,
+      "normal_false_alarms_per_hour": 0.0,
+      "coverage": 1.0,
+      "model_usage": {
+        "kind": "api",
+        "requests": 3,
+        "reservations": 3,
+        "input_tokens": 88681,
+        "output_tokens": 6117,
+        "total_tokens": 94798,
+        "missing_usage_requests": 0,
+        "notice": "Counts include retries and repairs; tokens are provider-reported only; missing usage is not zero."
+      },
+      "runtime_seconds": 132.13974445313215,
+      "selected": "ewma_alpha0.3_upper_p2",
+      "provided_knowledge": 14,
+      "cited_knowledge": 8,
+      "provided_experiences": 3,
+      "cited_experiences": 3,
+      "publication_nodes": 6,
+      "candidates": [
+        {
+          "method": "ewma",
+          "candidate_id": "ewma_alpha0.3_upper_p2",
+          "source_paths": [
+            "candidate-e5cb6ef0d6cb8bf298407d01a5a5015f2b48b802f6fb4497604ceb2f8249b91a/v0.py"
+          ],
+          "checks_per_version": [
+            10
+          ],
+          "passed_per_version": [
+            true
+          ],
+          "dev_precision": 1.0,
+          "dev_recall": 0.2,
+          "dev_f1": 0.3333333333333333,
+          "dev_fbeta": 0.5555555555555556,
+          "beta": 0.5,
+          "source_sha256": [
+            "sha256:2235ac3aea50af4e99c77d4b7729621f3190b568e4ce9385a6aa4b498ccbd54b"
+          ]
+        },
+        {
+          "method": "rolling_mad",
+          "candidate_id": "rolling_mad_w30_upper_p2",
+          "source_paths": [
+            "candidate-dd3e36e6bb22a4876e220b192c017fb7a3a41a3bd0b0c0a4cb5581e9174e8b4c/v0.py"
+          ],
+          "checks_per_version": [
+            12
+          ],
+          "passed_per_version": [
+            true
+          ],
+          "dev_precision": 0.0,
+          "dev_recall": 0.0,
+          "dev_f1": 0.0,
+          "dev_fbeta": 0.0,
+          "beta": 0.5,
+          "source_sha256": [
+            "sha256:372736fa28b321bba196fa245c0973c037593230b854af7e8a1bbe1e42e8b39f"
+          ]
+        }
+      ]
+    },
+    "disk-timeout": {
+      "task_id": "ui-e6121958cd5a44b7",
+      "status": "FAILED",
+      "origin": "llm_api",
+      "point_precision": null,
+      "point_recall": null,
+      "point_f1": null,
+      "event_f1": null,
+      "point_counts": {
+        "tp": null,
+        "fp": null,
+        "fn": null,
+        "tn": null,
+        "total": null
+      },
+      "event_counts": {
+        "tp": null,
+        "fp": null,
+        "fn": null
+      },
+      "delay_median": null,
+      "normal_false_alarms_per_hour": null,
+      "coverage": null,
+      "model_usage": {
+        "kind": "api",
+        "requests": 1,
+        "reservations": 1,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null,
+        "missing_usage_requests": 1,
+        "notice": "Counts include retries and repairs; tokens are provider-reported only; missing usage is not zero."
+      },
+      "runtime_seconds": 61.141191743314266,
+      "selected": null,
+      "provided_knowledge": 13,
+      "cited_knowledge": 0,
+      "provided_experiences": 2,
+      "cited_experiences": 0,
+      "publication_nodes": 1,
+      "candidates": []
+    },
+    "memory": {
+      "task_id": "ui-15e8770de18747f7",
+      "status": "COMPLETED",
+      "origin": "llm_api",
+      "point_precision": 0.8442622950819673,
+      "point_recall": 0.9363636363636364,
+      "point_f1": 0.8879310344827587,
+      "event_f1": 0.6666666666666666,
+      "point_counts": {
+        "tp": 103,
+        "fp": 19,
+        "fn": 7,
+        "tn": 111,
+        "total": 240
+      },
+      "event_counts": {
+        "tp": 1,
+        "fp": 1,
+        "fn": 0
+      },
+      "delay_median": 420.0,
+      "normal_false_alarms_per_hour": 0.46153846153846156,
+      "coverage": 1.0,
+      "model_usage": {
+        "kind": "api",
+        "requests": 4,
+        "reservations": 4,
+        "input_tokens": 142728,
+        "output_tokens": 7465,
+        "total_tokens": 150193,
+        "missing_usage_requests": 0,
+        "notice": "Counts include retries and repairs; tokens are provider-reported only; missing usage is not zero."
+      },
+      "runtime_seconds": 169.20986112579703,
+      "selected": "ewma-alpha02-p2",
+      "provided_knowledge": 14,
+      "cited_knowledge": 9,
+      "provided_experiences": 0,
+      "cited_experiences": 0,
+      "publication_nodes": 9,
+      "candidates": [
+        {
+          "method": "fixed_threshold",
+          "candidate_id": "fixed-threshold-70-p2",
+          "source_paths": [
+            "candidate-01e9959f384714c5db7416055433d2916cd70f0adcdf8522d2fe09f7641f4625/v0.py"
+          ],
+          "checks_per_version": [
+            8
+          ],
+          "passed_per_version": [
+            true
+          ],
+          "dev_precision": 1.0,
+          "dev_recall": 0.3,
+          "dev_f1": 0.46153846153846156,
+          "dev_fbeta": 0.3488372093023256,
+          "beta": 2.0,
+          "source_sha256": [
+            "sha256:9ceaa85724bf25dae0d8a5e0cd379ba48dd1c91886050858518d4759b102e238"
+          ]
+        },
+        {
+          "method": "rolling_mad",
+          "candidate_id": "rolling-mad-default-p2",
+          "source_paths": [
+            "candidate-4e127ce62a49b6442b1eab600031cde172b6032fce733cf6d6fe492b8a96e7a7/v0.py"
+          ],
+          "checks_per_version": [
+            12
+          ],
+          "passed_per_version": [
+            true
+          ],
+          "dev_precision": null,
+          "dev_recall": 0.0,
+          "dev_f1": 0.0,
+          "dev_fbeta": 0.0,
+          "beta": 2.0,
+          "source_sha256": [
+            "sha256:5b3fbb52229b225c2e4ecf57f453d2e37c270631361c000b14282def2ef88d64"
+          ]
+        },
+        {
+          "method": "ewma",
+          "candidate_id": "ewma-alpha02-p2",
+          "source_paths": [
+            "candidate-730de598da96cd05bf2f01f6398f8007cbada30ae9a101664788d60c6dc75c6d/v0.py"
+          ],
+          "checks_per_version": [
+            10
+          ],
+          "passed_per_version": [
+            true
+          ],
+          "dev_precision": 0.8739495798319328,
+          "dev_recall": 0.9454545454545454,
+          "dev_f1": 0.9082969432314411,
+          "dev_fbeta": 0.9302325581395349,
+          "beta": 2.0,
+          "source_sha256": [
+            "sha256:36f522d5c83974e41ed9457961e422d82ade2d6c4caf934030f95755172024cf"
+          ]
+        }
+      ]
+    }
+  },
+  "material_sources": {
+    "01-fields.txt": {
+      "source_checked": false,
+      "checks": [
+        "REJECTED",
+        "REJECTED",
+        "REJECTED"
+      ]
+    },
+    "02-fixed-threshold.txt": {
+      "source_checked": false,
+      "checks": [
+        "REJECTED",
+        "REJECTED",
+        "REJECTED"
+      ]
+    },
+    "03-rolling-mad.txt": {
+      "source_checked": false,
+      "checks": []
+    },
+    "04-evaluation.txt": {
+      "source_checked": true,
+      "checks": [
+        "source_checked"
+      ]
+    },
+    "05-limitations.txt": {
+      "source_checked": true,
+      "checks": [
+        "source_checked"
+      ]
+    },
+    "06-ewma.txt": {
+      "source_checked": false,
+      "checks": [
+        "REJECTED",
+        "REJECTED",
+        "REJECTED"
+      ]
+    },
+    "reference_fixed.py": {
+      "source_checked": false,
+      "checks": [
+        "REJECTED",
+        "REJECTED",
+        "REJECTED",
+        "REJECTED",
+        "REJECTED",
+        "REJECTED"
+      ]
+    },
+    "reference_mad.py": {
+      "source_checked": false,
+      "checks": []
+    }
+  }
+}

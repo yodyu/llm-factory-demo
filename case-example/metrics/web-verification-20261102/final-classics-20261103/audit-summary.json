@@ -1,0 +1,57 @@
+{
+  "checked_at": "2026-11-03T11:05:36.617241+08:00",
+  "source_baseline": "final-classic-source-archive",
+  "completed": 4,
+  "runs": {
+    "cpu": "ui-3dea5cbfa50d4154",
+    "memory": "ui-1deabf9ab9634a9a",
+    "disk": "ui-1a5c876ccd124f53",
+    "repair": "ui-5f4299d229da4349"
+  },
+  "checks_passed": true,
+  "experience_chain": {
+    "memory_task_id": "ui-1deabf9ab9634a9a",
+    "disk_task_id": "ui-1a5c876ccd124f53",
+    "memory_experience_ids": [
+      "experience-2c0a28207a7c66ce05eb6cf3c84bd3ebfa387404e12d6d908a70dd3682306e0c",
+      "experience-3946b9860fbae3a78763063b9c7f1c60d4247661f8e13c51854b41060c43a622",
+      "experience-5a4b92ccb1f88db53c69f3fca6d4fca6f2054db2c7fad5b62a6e86e015aa13f9"
+    ],
+    "provided": [
+      "experience-2c0a28207a7c66ce05eb6cf3c84bd3ebfa387404e12d6d908a70dd3682306e0c",
+      "experience-3946b9860fbae3a78763063b9c7f1c60d4247661f8e13c51854b41060c43a622"
+    ],
+    "cited": [
+      "experience-2c0a28207a7c66ce05eb6cf3c84bd3ebfa387404e12d6d908a70dd3682306e0c",
+      "experience-3946b9860fbae3a78763063b9c7f1c60d4247661f8e13c51854b41060c43a622"
+    ],
+    "disk_code_prompts": [
+      {
+        "call_id": "ui-1a5c876ccd124f53:code-ewma_alpha0.3_p2_upper-v0:format-0",
+        "prompt_sha256": "sha256:cc9f518a209f74857648f2a642b0d935283de9a4460b1a9955e8fe2785611d76",
+        "provided_experience_ids": [
+          "experience-2c0a28207a7c66ce05eb6cf3c84bd3ebfa387404e12d6d908a70dd3682306e0c",
+          "experience-3946b9860fbae3a78763063b9c7f1c60d4247661f8e13c51854b41060c43a622"
+        ],
+        "has_previous_source": false,
+        "has_development_feedback": false
+      },
+      {
+        "call_id": "ui-1a5c876ccd124f53:code-rolling_mad_w30_p2_upper-v0:format-0",
+        "prompt_sha256": "sha256:7175dac95c7b1ace3529d90630bb2baf5b3d2b1b570531be08692f4c9dff3760",
+        "provided_experience_ids": [
+          "experience-3946b9860fbae3a78763063b9c7f1c60d4247661f8e13c51854b41060c43a622",
+          "experience-2c0a28207a7c66ce05eb6cf3c84bd3ebfa387404e12d6d908a70dd3682306e0c"
+        ],
+        "has_previous_source": false,
+        "has_development_feedback": false
+      }
+    ]
+  },
+  "zip_check": {
+    "byte_equal_to_server": true,
+    "entries": 73,
+    "sha256": "sha256:ea735d7b895c1236dc8b523bb914aab46898ba6ff4d24278a346393161651ded"
+  },
+  "other_runs": []
+}

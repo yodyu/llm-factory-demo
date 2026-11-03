@@ -1,0 +1,82 @@
+{
+  "protocol": "metrics-method-check/3",
+  "candidate_id": "ewma",
+  "version": 0,
+  "origin": "mock",
+  "source_sha256": "sha256:44dd23aa0347c6a21a5bdd5ac6cc405385225bd8af67b44d9c95c93cd66a1333",
+  "config": {
+    "method_id": "ewma",
+    "alpha": 0.3,
+    "direction": "upper",
+    "min_history": 3,
+    "quantile": 0.99
+  },
+  "dependency_profile": "metrics-py312-stdlib/1",
+  "checks": [
+    {
+      "check": "static_profile",
+      "passed": true,
+      "layer": "contract"
+    },
+    {
+      "check": "missing_input_contract",
+      "passed": true,
+      "layer": "contract"
+    },
+    {
+      "check": "state_reload",
+      "passed": true,
+      "layer": "contract"
+    },
+    {
+      "check": "reset_repeat_future_invariance",
+      "passed": true,
+      "layer": "contract"
+    },
+    {
+      "check": "ewma_cold_start",
+      "passed": true,
+      "layer": "property",
+      "points": 3
+    },
+    {
+      "check": "ewma_monotonic_step",
+      "passed": true,
+      "layer": "property",
+      "points": 13
+    },
+    {
+      "check": "ewma_missing",
+      "passed": true,
+      "layer": "property",
+      "points": 8
+    },
+    {
+      "check": "ewma_cold_start",
+      "passed": true,
+      "layer": "reference",
+      "points": 3
+    },
+    {
+      "check": "ewma_monotonic_step",
+      "passed": true,
+      "layer": "reference",
+      "points": 13
+    },
+    {
+      "check": "ewma_missing",
+      "passed": true,
+      "layer": "reference",
+      "points": 8
+    }
+  ],
+  "passed": true,
+  "repairable": true,
+  "verification_level": "reference_verified",
+  "capability_version": "1.0.0",
+  "plugin_hashes": {
+    "reference.py": "sha256:44dd23aa0347c6a21a5bdd5ac6cc405385225bd8af67b44d9c95c93cd66a1333",
+    "capability.json": "sha256:34742af2d68e6df5600ee2547d4b0556cb1dff020e7c0fc895587dc4d8a12617",
+    "checks.py": "sha256:025c96a17a67127db78722b0cfefe382b79c1c22eb88f6cea06c3f6c429c58fd"
+  }
+}

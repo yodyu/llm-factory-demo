@@ -1,0 +1,280 @@
+{
+  "business_acceptance": {
+    "checks": [],
+    "status": "NOT_DEFINED"
+  },
+  "calibration": {
+    "binding": {
+      "config": {
+        "direction": "upper",
+        "method_id": "rolling_mad",
+        "min_history": 15,
+        "quantile": 0.99,
+        "window": 30
+      },
+      "dataset": {
+        "image_id": "sha256:ec7e3f613d45080c580bed6c83b6404df77b17a7cb72be69bacc80cce954ed31",
+        "knowledge_snapshot": "sha256:ca4dc787dfb4ddb2ca0d384de36d6e6ee0b6659171df9950d1fc19fac404078e",
+        "labels_sha256": "sha256:6a517b2eb58c8139863a5c9439b37bde43e1e4a4b0486a6d1ae94bc395e24be5",
+        "manifest_sha256": "sha256:fa1285126d0d20c64f69aacafd732f851b54b704de045560cea5cfc11374e285"
+      },
+      "source": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7"
+    },
+    "labels_used": false,
+    "quantile": 0.99,
+    "rule": "nearest-rank",
+    "score_count": 240,
+    "threshold": 2.370236853992631
+  },
+  "calibration_status": "SUCCEEDED",
+  "candidate_id": "mad",
+  "plan": {
+    "candidate_id": "mad",
+    "capability_id": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+    "config": {
+      "direction": "upper",
+      "method_id": "rolling_mad",
+      "min_history": 15,
+      "quantile": 0.99,
+      "window": 30
+    },
+    "knowledge_ids": [
+      "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d"
+    ],
+    "limitations": [
+      "controlled example",
+      "自适应历史窗口可能把持续变化吸收为新基线。"
+    ],
+    "parameter_sources": {
+      "direction": "user_explicit",
+      "min_history": "protocol_default",
+      "quantile": "protocol_default",
+      "window": "protocol_default"
+    },
+    "persistence_points": 2,
+    "selection_reason": "滚动 MAD：自适应历史窗口可能把持续变化吸收为新基线。"
+  },
+  "report": {
+    "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+    "coverage": {
+      "denominator": 240,
+      "null_reason": null,
+      "numerator": 240,
+      "value": 1.0
+    },
+    "effect_status": "MEASURED",
+    "engineering_status": "PASSED",
+    "event": {
+      "f1": {
+        "denominator": 2,
+        "null_reason": null,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "fn": 0,
+      "fp": 0,
+      "pairs": [
+        {
+          "delay_seconds": 60.0,
+          "prediction_id": "pred-0000",
+          "truth_id": "truth-0000"
+        }
+      ],
+      "precision": {
+        "denominator": 1,
+        "null_reason": null,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "recall": {
+        "denominator": 1,
+        "null_reason": null,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "tp": 1,
+      "unmatched_prediction_ids": [],
+      "unmatched_truth_ids": []
+    },
+    "execution_status": "SUCCEEDED",
+    "matched_delay_seconds": {
+      "maximum": 60.0,
+      "median": 60.0,
+      "missed_events": 0,
+      "null_reason": null
+    },
+    "normal_false_alarms_per_host_hour": {
+      "denominator": 10800,
+      "null_reason": null,
+      "numerator": 0,
+      "value": 0.0
+    },
+    "peak_memory_bytes": null,
+    "peak_memory_null_reason": "not_measured",
+    "point": {
+      "abstained_normal": 0,
+      "f1": {
+        "denominator": 74,
+        "null_reason": null,
+        "numerator": 28,
+        "value": 0.3783783783783784
+      },
+      "fn": 46,
+      "fp": 0,
+      "precision": {
+        "denominator": 14,
+        "null_reason": null,
+        "numerator": 14,
+        "value": 1.0
+      },
+      "recall": {
+        "denominator": 60,
+        "null_reason": null,
+        "numerator": 14,
+        "value": 0.23333333333333334
+      },
+      "tn": 180,
+      "total": 240,
+      "tp": 14
+    },
+    "predicted_events": [
+      {
+        "end_at": "2026-01-03T02:55:00Z",
+        "event_id": "pred-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-03T02:41:00Z",
+        "trigger_at": "2026-01-03T02:41:00Z"
+      }
+    ],
+    "protocol": "metrics-evaluation/1",
+    "runtime_seconds": 0.12452151253819466,
+    "truth_events": [
+      {
+        "end_at": "2026-01-03T03:40:00Z",
+        "event_id": "truth-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-03T02:40:00Z",
+        "trigger_at": "2026-01-03T02:40:00Z"
+      }
+    ]
+  },
+  "role": "development",
+  "versions": [
+    {
+      "capability_id": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "capability_version": "1.0.0",
+      "explanation": "Explicit mock response copies the constructed human reference.",
+      "knowledge_ids": [
+        "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666"
+      ],
+      "origin": "mock",
+      "parent_source_sha256": null,
+      "plugin_hashes": {
+        "capability.json": "sha256:39d8d9a00953b367af3f105a356912956a920f26dcc44796dec0346b3b88fb66",
+        "checks.py": "sha256:2ae8cf000dda9f9f86e3c19c993b76d14af181fba24d81d2a020643fdd9e613c",
+        "reference.py": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7"
+      },
+      "source_path": "candidate-a7627b363c8b9db655145f8280b45089de3ec4b089747c5d875ca3b39528e2c3/v0.py",
+      "source_ref": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+      "source_sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+      "specification_sha256": "sha256:1341c8dba78c069e25220a8afe6f80caaf9150384348d3c7f47c3c4e1dce8309",
+      "validation": {
+        "candidate_id": "mad",
+        "capability_version": "1.0.0",
+        "checks": [
+          {
+            "check": "static_profile",
+            "layer": "contract",
+            "passed": true
+          },
+          {
+            "check": "missing_input_contract",
+            "layer": "contract",
+            "passed": true
+          },
+          {
+            "check": "state_reload",
+            "layer": "contract",
+            "passed": true
+          },
+          {
+            "check": "reset_repeat_future_invariance",
+            "layer": "contract",
+            "passed": true
+          },
+          {
+            "check": "mad_past_only",
+            "layer": "property",
+            "passed": true,
+            "points": 17
+          },
+          {
+            "check": "mad_zero_scale",
+            "layer": "property",
+            "passed": true,
+            "points": 33
+          },
+          {
+            "check": "mad_missing_slots",
+            "layer": "property",
+            "passed": true,
+            "points": 50
+          },
+          {
+            "check": "mad_imputed_not_original",
+            "layer": "property",
+            "passed": true,
+            "points": 19
+          },
+          {
+            "check": "mad_past_only",
+            "layer": "reference",
+            "passed": true,
+            "points": 17
+          },
+          {
+            "check": "mad_zero_scale",
+            "layer": "reference",
+            "passed": true,
+            "points": 33
+          },
+          {
+            "check": "mad_missing_slots",
+            "layer": "reference",
+            "passed": true,
+            "points": 50
+          },
+          {
+            "check": "mad_imputed_not_original",
+            "layer": "reference",
+            "passed": true,
+            "points": 19
+          }
+        ],
+        "config": {
+          "direction": "upper",
+          "method_id": "rolling_mad",
+          "min_history": 15,
+          "quantile": 0.99,
+          "window": 30
+        },
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "origin": "mock",
+        "passed": true,
+        "plugin_hashes": {
+          "capability.json": "sha256:39d8d9a00953b367af3f105a356912956a920f26dcc44796dec0346b3b88fb66",
+          "checks.py": "sha256:2ae8cf000dda9f9f86e3c19c993b76d14af181fba24d81d2a020643fdd9e613c",
+          "reference.py": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7"
+        },
+        "protocol": "metrics-method-check/3",
+        "repairable": true,
+        "source_sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+        "verification_level": "reference_verified",
+        "version": 0
+      },
+      "version": 0
+    }
+  ]
+}

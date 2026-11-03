@@ -1,0 +1,3445 @@
+{
+  "tasks": {
+    "ui-96ad0eca55c14f59": {
+      "task_id": "ui-96ad0eca55c14f59",
+      "origin": "llm_api",
+      "status": "COMPLETED",
+      "final": {
+        "execution_status": "SUCCEEDED",
+        "engineering_status": "PASSED",
+        "effect_status": "MEASURED",
+        "point": {
+          "abstained_normal": 0,
+          "f1": {
+            "denominator": 122,
+            "null_reason": null,
+            "numerator": 24,
+            "value": 0.19672131147540983
+          },
+          "fn": 98,
+          "fp": 0,
+          "precision": {
+            "denominator": 12,
+            "null_reason": null,
+            "numerator": 12,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 110,
+            "null_reason": null,
+            "numerator": 12,
+            "value": 0.10909090909090909
+          },
+          "tn": 130,
+          "total": 240,
+          "tp": 12
+        },
+        "event": {
+          "f1": {
+            "denominator": 2,
+            "null_reason": null,
+            "numerator": 2,
+            "value": 1.0
+          },
+          "fn": 0,
+          "fp": 0,
+          "pairs": [
+            {
+              "delay_seconds": 480.0,
+              "prediction_id": "pred-0000",
+              "truth_id": "truth-0000"
+            }
+          ],
+          "precision": {
+            "denominator": 1,
+            "null_reason": null,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 1,
+            "null_reason": null,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "tp": 1,
+          "unmatched_prediction_ids": [],
+          "unmatched_truth_ids": []
+        },
+        "coverage": {
+          "denominator": 240,
+          "null_reason": null,
+          "numerator": 240,
+          "value": 1.0
+        },
+        "matched_delay_seconds": {
+          "maximum": 480.0,
+          "median": 480.0,
+          "missed_events": 0,
+          "null_reason": null
+        },
+        "normal_false_alarms_per_host_hour": {
+          "denominator": 7800,
+          "null_reason": null,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "runtime_seconds": 0.10544322431087494,
+        "selected": "rolling_mad_memory_utilization_upper"
+      },
+      "candidates": [
+        {
+          "method": "fixed_threshold",
+          "candidate_id": "fixed_threshold_memory_utilization_upper",
+          "config": {
+            "direction": "upper",
+            "method_id": "fixed_threshold",
+            "threshold": 90.0
+          },
+          "knowledge_ids": [
+            "capability-072d9134427d852f1072296d9355e9f824235ffe4bf112f626344a6049176de7",
+            "capability-abc4f717d95455231d256fe6ec365f23a937eed9a88018c605b51f7761c52901",
+            "capability-1f3c65fc5d7b3c4f8787520e76f33f52ae9fb6d6fca204e5028600a454ae896c",
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763"
+          ],
+          "versions": [
+            {
+              "version": 0,
+              "passed": true,
+              "level": null,
+              "origin": "llm_api",
+              "source_sha256": "sha256:97bfcdb4a783c86e2f3ad0447edfdea94df7f8471c6761ac02f01ed974a93d9f",
+              "capability_id": null,
+              "capability_version": null,
+              "specification_sha256": null,
+              "knowledge_ids": [
+                "capability-072d9134427d852f1072296d9355e9f824235ffe4bf112f626344a6049176de7",
+                "capability-abc4f717d95455231d256fe6ec365f23a937eed9a88018c605b51f7761c52901",
+                "capability-1f3c65fc5d7b3c4f8787520e76f33f52ae9fb6d6fca204e5028600a454ae896c",
+                "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763"
+              ],
+              "checks": [
+                {
+                  "check": "static_profile",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "fixed_strict_boundary",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "fixed_missing",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "state_reload",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "reset_repeat_future_invariance",
+                  "passed": true,
+                  "error_code": null
+                }
+              ]
+            }
+          ],
+          "development": {
+            "point": {
+              "abstained_normal": 0,
+              "f1": {
+                "denominator": 110,
+                "null_reason": null,
+                "numerator": 0,
+                "value": 0.0
+              },
+              "fn": 110,
+              "fp": 0,
+              "precision": {
+                "denominator": 0,
+                "null_reason": "no_predictions",
+                "numerator": 0,
+                "value": null
+              },
+              "recall": {
+                "denominator": 110,
+                "null_reason": null,
+                "numerator": 0,
+                "value": 0.0
+              },
+              "tn": 130,
+              "total": 240,
+              "tp": 0
+            },
+            "event": {
+              "f1": {
+                "denominator": 1,
+                "null_reason": null,
+                "numerator": 0,
+                "value": 0.0
+              },
+              "fn": 1,
+              "fp": 0,
+              "pairs": [],
+              "precision": {
+                "denominator": 0,
+                "null_reason": "no_predictions",
+                "numerator": 0,
+                "value": null
+              },
+              "recall": {
+                "denominator": 1,
+                "null_reason": null,
+                "numerator": 0,
+                "value": 0.0
+              },
+              "tp": 0,
+              "unmatched_prediction_ids": [],
+              "unmatched_truth_ids": [
+                "truth-0000"
+              ]
+            },
+            "coverage": {
+              "denominator": 240,
+              "null_reason": null,
+              "numerator": 240,
+              "value": 1.0
+            }
+          }
+        },
+        {
+          "method": "rolling_mad",
+          "candidate_id": "rolling_mad_memory_utilization_upper",
+          "config": {
+            "direction": "upper",
+            "method_id": "rolling_mad",
+            "min_history": 15,
+            "quantile": 0.99,
+            "window": 30
+          },
+          "knowledge_ids": [
+            "capability-ff8066d670fa967b64b90e20a6630d5876d662bea456962796dbef42c85353cc",
+            "capability-e454289236bce0b68e39b11fab98c2a8f0414854313045592ebed3a55829f666",
+            "capability-abc4f717d95455231d256fe6ec365f23a937eed9a88018c605b51f7761c52901",
+            "capability-1f3c65fc5d7b3c4f8787520e76f33f52ae9fb6d6fca204e5028600a454ae896c",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57"
+          ],
+          "versions": [
+            {
+              "version": 0,
+              "passed": false,
+              "level": null,
+              "origin": "llm_api",
+              "source_sha256": "sha256:d7d2f3087dc15d59f7f5257e3f560facd0fb6f9050a10347a9d776fee1fa6e69",
+              "capability_id": null,
+              "capability_version": null,
+              "specification_sha256": null,
+              "knowledge_ids": [
+                "capability-abc4f717d95455231d256fe6ec365f23a937eed9a88018c605b51f7761c52901",
+                "capability-ff8066d670fa967b64b90e20a6630d5876d662bea456962796dbef42c85353cc",
+                "capability-e454289236bce0b68e39b11fab98c2a8f0414854313045592ebed3a55829f666",
+                "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57"
+              ],
+              "checks": [
+                {
+                  "check": "static_profile",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "mad_past_only",
+                  "passed": false,
+                  "error_code": "OUTPUT_SCHEMA"
+                }
+              ]
+            },
+            {
+              "version": 1,
+              "passed": true,
+              "level": null,
+              "origin": "llm_api",
+              "source_sha256": "sha256:c7dccaff8d3c49ad9173bf840389d7b88a4c2d05ae518bb6ed05d4755a1705c6",
+              "capability_id": null,
+              "capability_version": null,
+              "specification_sha256": null,
+              "knowledge_ids": [
+                "capability-ff8066d670fa967b64b90e20a6630d5876d662bea456962796dbef42c85353cc",
+                "capability-e454289236bce0b68e39b11fab98c2a8f0414854313045592ebed3a55829f666",
+                "capability-abc4f717d95455231d256fe6ec365f23a937eed9a88018c605b51f7761c52901",
+                "capability-1f3c65fc5d7b3c4f8787520e76f33f52ae9fb6d6fca204e5028600a454ae896c",
+                "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57"
+              ],
+              "checks": [
+                {
+                  "check": "static_profile",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "mad_past_only",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "mad_zero_scale",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "mad_missing_slots",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "mad_imputed_not_original",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "state_reload",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "reset_repeat_future_invariance",
+                  "passed": true,
+                  "error_code": null
+                }
+              ]
+            }
+          ],
+          "development": {
+            "point": {
+              "abstained_normal": 0,
+              "f1": {
+                "denominator": 121,
+                "null_reason": null,
+                "numerator": 22,
+                "value": 0.18181818181818182
+              },
+              "fn": 99,
+              "fp": 0,
+              "precision": {
+                "denominator": 11,
+                "null_reason": null,
+                "numerator": 11,
+                "value": 1.0
+              },
+              "recall": {
+                "denominator": 110,
+                "null_reason": null,
+                "numerator": 11,
+                "value": 0.1
+              },
+              "tn": 130,
+              "total": 240,
+              "tp": 11
+            },
+            "event": {
+              "f1": {
+                "denominator": 3,
+                "null_reason": null,
+                "numerator": 2,
+                "value": 0.6666666666666666
+              },
+              "fn": 0,
+              "fp": 1,
+              "pairs": [
+                {
+                  "delay_seconds": 300.0,
+                  "prediction_id": "pred-0000",
+                  "truth_id": "truth-0000"
+                }
+              ],
+              "precision": {
+                "denominator": 2,
+                "null_reason": null,
+                "numerator": 1,
+                "value": 0.5
+              },
+              "recall": {
+                "denominator": 1,
+                "null_reason": null,
+                "numerator": 1,
+                "value": 1.0
+              },
+              "tp": 1,
+              "unmatched_prediction_ids": [
+                "pred-0001"
+              ],
+              "unmatched_truth_ids": []
+            },
+            "coverage": {
+              "denominator": 240,
+              "null_reason": null,
+              "numerator": 240,
+              "value": 1.0
+            }
+          }
+        }
+      ],
+      "provided_experience_ids": [
+        "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+        "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57"
+      ],
+      "publication_status": "PUBLISHED",
+      "published_nodes": [
+        {
+          "id": "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+          "kind": "Experience",
+          "task_id": "ui-96ad0eca55c14f59",
+          "method_id": "rolling_mad",
+          "implementation_id": "implementation-6d5591deb6ea5a4266f79190aa3b96f300586ee65197843f274e072f4ba11eb3",
+          "validation_id": "validation-fb320d29d814daf7b9fb9b8153778a9a033801ec39b5c2b9872ab753a2f59ec2",
+          "version": null,
+          "source_sha256": null,
+          "capability_id": null,
+          "capability_version": null,
+          "issue": "method_check_failure",
+          "action": "initial_generation"
+        },
+        {
+          "id": "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d",
+          "kind": "Experience",
+          "task_id": "ui-96ad0eca55c14f59",
+          "method_id": "fixed_threshold",
+          "implementation_id": "implementation-8c97fd446c408009c57f9b5ca9f711b09165ba446032e3718e51345a49b99a04",
+          "validation_id": "validation-e3347cffa785be267347bacfd04bed979077a3acc9909d140e1e0b6e2c5513b8",
+          "version": null,
+          "source_sha256": null,
+          "capability_id": null,
+          "capability_version": null,
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation"
+        },
+        {
+          "id": "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+          "kind": "Experience",
+          "task_id": "ui-96ad0eca55c14f59",
+          "method_id": "rolling_mad",
+          "implementation_id": "implementation-12f108c33779c75b96a8175c245220fa44789bae8905e1b1fd1fcc1586384b9a",
+          "validation_id": "validation-51a420f41f9dbf6226362b5947941cd11169c24ef40ec7df5a0ed10666b41ee8",
+          "version": null,
+          "source_sha256": null,
+          "capability_id": null,
+          "capability_version": null,
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "development_difference_repair"
+        },
+        {
+          "id": "implementation-12f108c33779c75b96a8175c245220fa44789bae8905e1b1fd1fcc1586384b9a",
+          "kind": "Implementation",
+          "task_id": "ui-96ad0eca55c14f59",
+          "method_id": null,
+          "implementation_id": null,
+          "validation_id": null,
+          "version": 1,
+          "source_sha256": "sha256:c7dccaff8d3c49ad9173bf840389d7b88a4c2d05ae518bb6ed05d4755a1705c6",
+          "capability_id": null,
+          "capability_version": null,
+          "issue": null,
+          "action": null
+        },
+        {
+          "id": "implementation-6d5591deb6ea5a4266f79190aa3b96f300586ee65197843f274e072f4ba11eb3",
+          "kind": "Implementation",
+          "task_id": "ui-96ad0eca55c14f59",
+          "method_id": null,
+          "implementation_id": null,
+          "validation_id": null,
+          "version": 0,
+          "source_sha256": "sha256:d7d2f3087dc15d59f7f5257e3f560facd0fb6f9050a10347a9d776fee1fa6e69",
+          "capability_id": null,
+          "capability_version": null,
+          "issue": null,
+          "action": null
+        },
+        {
+          "id": "implementation-8c97fd446c408009c57f9b5ca9f711b09165ba446032e3718e51345a49b99a04",
+          "kind": "Implementation",
+          "task_id": "ui-96ad0eca55c14f59",
+          "method_id": null,
+          "implementation_id": null,
+          "validation_id": null,
+          "version": 0,
+          "source_sha256": "sha256:97bfcdb4a783c86e2f3ad0447edfdea94df7f8471c6761ac02f01ed974a93d9f",
+          "capability_id": null,
+          "capability_version": null,
+          "issue": null,
+          "action": null
+        },
+        {
+          "id": "validation-51a420f41f9dbf6226362b5947941cd11169c24ef40ec7df5a0ed10666b41ee8",
+          "kind": "ValidationRun",
+          "task_id": null,
+          "method_id": null,
+          "implementation_id": "implementation-12f108c33779c75b96a8175c245220fa44789bae8905e1b1fd1fcc1586384b9a",
+          "validation_id": null,
+          "version": null,
+          "source_sha256": null,
+          "capability_id": null,
+          "capability_version": null,
+          "issue": null,
+          "action": null
+        },
+        {
+          "id": "validation-e3347cffa785be267347bacfd04bed979077a3acc9909d140e1e0b6e2c5513b8",
+          "kind": "ValidationRun",
+          "task_id": null,
+          "method_id": null,
+          "implementation_id": "implementation-8c97fd446c408009c57f9b5ca9f711b09165ba446032e3718e51345a49b99a04",
+          "validation_id": null,
+          "version": null,
+          "source_sha256": null,
+          "capability_id": null,
+          "capability_version": null,
+          "issue": null,
+          "action": null
+        },
+        {
+          "id": "validation-fb320d29d814daf7b9fb9b8153778a9a033801ec39b5c2b9872ab753a2f59ec2",
+          "kind": "ValidationRun",
+          "task_id": null,
+          "method_id": null,
+          "implementation_id": "implementation-6d5591deb6ea5a4266f79190aa3b96f300586ee65197843f274e072f4ba11eb3",
+          "validation_id": null,
+          "version": null,
+          "source_sha256": null,
+          "capability_id": null,
+          "capability_version": null,
+          "issue": null,
+          "action": null
+        }
+      ],
+      "prompts": [
+        {
+          "prompt_sha256": "sha256:12d577e83e3b21da6f537933432fa3419a78b88ffa9fbdcaebc1fbeb85179eed",
+          "stage": "code-rolling_mad_memory_utilization_upper-v0",
+          "knowledge_ids": [
+            "capability-072d9134427d852f1072296d9355e9f824235ffe4bf112f626344a6049176de7",
+            "capability-1f3c65fc5d7b3c4f8787520e76f33f52ae9fb6d6fca204e5028600a454ae896c",
+            "capability-abc4f717d95455231d256fe6ec365f23a937eed9a88018c605b51f7761c52901",
+            "capability-e454289236bce0b68e39b11fab98c2a8f0414854313045592ebed3a55829f666",
+            "capability-ff8066d670fa967b64b90e20a6630d5876d662bea456962796dbef42c85353cc",
+            "chunk-50df28a0b01f219bc6d8a52fc227814c73da98469a23838fe9c50d66e758e4fd",
+            "chunk-5f6d54b720e14dc69ad159dbbb9a31707ff8866d7940364ced1b76704e4af189",
+            "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+            "chunk-6f7901a37608c1205d444bc404b8098d89e1617f0d1633c73d1c22e0e05ba7ac",
+            "chunk-71056a6f0eba69735041caa3ef8483a2e0f86a9215287c361fa8a6c41de5ba21",
+            "chunk-a9459372dddbdfa7919ab0daae5ff3f659da54554b798f78e620df858b558742",
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57"
+          ],
+          "experience_ids": [
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57"
+          ],
+          "experience_feedback_counts": {
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763": 0,
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57": 0
+          }
+        },
+        {
+          "prompt_sha256": "sha256:26fe36116cd14312f3d31dbe7b36c198e61beec9e3d2dd2b8089f6ae9a5fae67",
+          "stage": "code-rolling_mad_memory_utilization_upper-v1",
+          "knowledge_ids": [
+            "capability-072d9134427d852f1072296d9355e9f824235ffe4bf112f626344a6049176de7",
+            "capability-1f3c65fc5d7b3c4f8787520e76f33f52ae9fb6d6fca204e5028600a454ae896c",
+            "capability-abc4f717d95455231d256fe6ec365f23a937eed9a88018c605b51f7761c52901",
+            "capability-e454289236bce0b68e39b11fab98c2a8f0414854313045592ebed3a55829f666",
+            "capability-ff8066d670fa967b64b90e20a6630d5876d662bea456962796dbef42c85353cc",
+            "chunk-50df28a0b01f219bc6d8a52fc227814c73da98469a23838fe9c50d66e758e4fd",
+            "chunk-5f6d54b720e14dc69ad159dbbb9a31707ff8866d7940364ced1b76704e4af189",
+            "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+            "chunk-6f7901a37608c1205d444bc404b8098d89e1617f0d1633c73d1c22e0e05ba7ac",
+            "chunk-71056a6f0eba69735041caa3ef8483a2e0f86a9215287c361fa8a6c41de5ba21",
+            "chunk-a9459372dddbdfa7919ab0daae5ff3f659da54554b798f78e620df858b558742",
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57"
+          ],
+          "experience_ids": [
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57"
+          ],
+          "experience_feedback_counts": {
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763": 0,
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57": 0
+          }
+        },
+        {
+          "prompt_sha256": "sha256:32d6bc2ffc776ebdaa0ba19ddf54440c2598e610d03d92d062f2eebbf370c1c0",
+          "stage": "plan",
+          "knowledge_ids": [
+            "capability-072d9134427d852f1072296d9355e9f824235ffe4bf112f626344a6049176de7",
+            "capability-1f3c65fc5d7b3c4f8787520e76f33f52ae9fb6d6fca204e5028600a454ae896c",
+            "capability-abc4f717d95455231d256fe6ec365f23a937eed9a88018c605b51f7761c52901",
+            "capability-e454289236bce0b68e39b11fab98c2a8f0414854313045592ebed3a55829f666",
+            "capability-ff8066d670fa967b64b90e20a6630d5876d662bea456962796dbef42c85353cc",
+            "chunk-50df28a0b01f219bc6d8a52fc227814c73da98469a23838fe9c50d66e758e4fd",
+            "chunk-5f6d54b720e14dc69ad159dbbb9a31707ff8866d7940364ced1b76704e4af189",
+            "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+            "chunk-6f7901a37608c1205d444bc404b8098d89e1617f0d1633c73d1c22e0e05ba7ac",
+            "chunk-71056a6f0eba69735041caa3ef8483a2e0f86a9215287c361fa8a6c41de5ba21",
+            "chunk-a9459372dddbdfa7919ab0daae5ff3f659da54554b798f78e620df858b558742",
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57"
+          ],
+          "experience_ids": [
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57"
+          ],
+          "experience_feedback_counts": {
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763": 0,
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57": 0
+          }
+        },
+        {
+          "prompt_sha256": "sha256:cff9a9d7e4489131882e9a1af17a37e4e0d0ccffb98d28481f6e80a1facca6f1",
+          "stage": "code-fixed_threshold_memory_utilization_upper-v0",
+          "knowledge_ids": [
+            "capability-072d9134427d852f1072296d9355e9f824235ffe4bf112f626344a6049176de7",
+            "capability-1f3c65fc5d7b3c4f8787520e76f33f52ae9fb6d6fca204e5028600a454ae896c",
+            "capability-abc4f717d95455231d256fe6ec365f23a937eed9a88018c605b51f7761c52901",
+            "capability-e454289236bce0b68e39b11fab98c2a8f0414854313045592ebed3a55829f666",
+            "capability-ff8066d670fa967b64b90e20a6630d5876d662bea456962796dbef42c85353cc",
+            "chunk-50df28a0b01f219bc6d8a52fc227814c73da98469a23838fe9c50d66e758e4fd",
+            "chunk-5f6d54b720e14dc69ad159dbbb9a31707ff8866d7940364ced1b76704e4af189",
+            "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+            "chunk-6f7901a37608c1205d444bc404b8098d89e1617f0d1633c73d1c22e0e05ba7ac",
+            "chunk-71056a6f0eba69735041caa3ef8483a2e0f86a9215287c361fa8a6c41de5ba21",
+            "chunk-a9459372dddbdfa7919ab0daae5ff3f659da54554b798f78e620df858b558742",
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57"
+          ],
+          "experience_ids": [
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57"
+          ],
+          "experience_feedback_counts": {
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763": 0,
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57": 0
+          }
+        }
+      ],
+      "frozen_evaluation_objective": null,
+      "frozen_selection_policy": "balanced",
+      "selection": {
+        "objective": null,
+        "policy": "balanced",
+        "selected": "rolling_mad_memory_utilization_upper",
+        "ranking": [
+          "rolling_mad_memory_utilization_upper",
+          "fixed_threshold_memory_utilization_upper"
+        ],
+        "rank": null,
+        "reason": "按独立开发集事件 Fβ、覆盖率、正常误报频次、耗时和候选ID依次排序；最终测试不参与选择。",
+        "decisive_field": null
+      },
+      "knowledge_counts": {
+        "supplied": 13,
+        "cited": 7,
+        "supplied_experiences": 2,
+        "cited_experiences": 2,
+        "unprovided_citations": 0
+      },
+      "model_usage": {
+        "kind": "api",
+        "requests": 4,
+        "reservations": 4,
+        "input_tokens": 31111,
+        "output_tokens": 6054,
+        "total_tokens": 37165,
+        "missing_usage_requests": 0
+      },
+      "draft_objective": null,
+      "capabilities": [],
+      "material_references": [
+        {
+          "id": "chunk-a9459372dddbdfa7919ab0daae5ff3f659da54554b798f78e620df858b558742",
+          "source": "01-fields.txt",
+          "start_line": 1,
+          "end_line": 9,
+          "source_sha256": "sha256:fc53ae58c43cbe11cb9b8e8878b73d394f55a14a494f663c03529cc5f855a6b4"
+        },
+        {
+          "id": "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+          "source": "05-limitations.txt",
+          "start_line": 1,
+          "end_line": 8,
+          "source_sha256": "sha256:c1365b562303243f94e0354de3b28cabdb6416170f1778937ac61c87c3fbd0c1"
+        },
+        {
+          "id": "chunk-71056a6f0eba69735041caa3ef8483a2e0f86a9215287c361fa8a6c41de5ba21",
+          "source": "reference_mad.py",
+          "start_line": 1,
+          "end_line": 32,
+          "source_sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7"
+        },
+        {
+          "id": "chunk-5f6d54b720e14dc69ad159dbbb9a31707ff8866d7940364ced1b76704e4af189",
+          "source": "reference_mad.py",
+          "start_line": 33,
+          "end_line": 64,
+          "source_sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7"
+        },
+        {
+          "id": "chunk-6f7901a37608c1205d444bc404b8098d89e1617f0d1633c73d1c22e0e05ba7ac",
+          "source": "03-rolling-mad.txt",
+          "start_line": 1,
+          "end_line": 11,
+          "source_sha256": "sha256:c9b2a8158fe0978e951ec2e8c8141b661112b62cb1ca560ad72bea6d69c791d1"
+        },
+        {
+          "id": "chunk-50df28a0b01f219bc6d8a52fc227814c73da98469a23838fe9c50d66e758e4fd",
+          "source": "04-evaluation.txt",
+          "start_line": 1,
+          "end_line": 10,
+          "source_sha256": "sha256:c90aca46676ee752a5ec8d6eaff44aee60d6d133fdcab8033c2a54fc6f707557"
+        }
+      ],
+      "model_operations": [
+        {
+          "status": "SUCCEEDED",
+          "count": 4
+        }
+      ],
+      "retrieved_experience_origins": [
+        {
+          "id": "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+          "task_id": "ui-f6df92869ebc4cbc",
+          "method_id": "fixed_threshold",
+          "origin": "llm_api",
+          "implementation_id": "implementation-c6b34252a25beaf8354f22d90c9727ac1050d129ee57199759e9c7d2652ff0b3",
+          "validation_id": "validation-bf0370e0e005382504f14a9a78b3fa5e2b6595de56a5ef064a25be09c7205d8b",
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation",
+          "feedback": []
+        },
+        {
+          "id": "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57",
+          "task_id": "ui-f6df92869ebc4cbc",
+          "method_id": "rolling_mad",
+          "origin": "llm_api",
+          "implementation_id": "implementation-4e9e403e48ebc2b03f643432acba2a57bfde9ad80d5ed0fb8a5fdb7576e8e58b",
+          "validation_id": "validation-f339113c86bea1e5b68eda342b16d8e946d85171fdfb71e60ce53ba94e0ba78f",
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation",
+          "feedback": []
+        }
+      ]
+    },
+    "ui-8072f05359334d6e": {
+      "task_id": "ui-8072f05359334d6e",
+      "origin": "llm_api",
+      "status": "COMPLETED",
+      "final": {
+        "execution_status": "SUCCEEDED",
+        "engineering_status": "PASSED",
+        "effect_status": "MEASURED",
+        "point": {
+          "abstained_normal": 0,
+          "f1": {
+            "denominator": 24,
+            "null_reason": null,
+            "numerator": 8,
+            "value": 0.3333333333333333
+          },
+          "fn": 16,
+          "fp": 0,
+          "precision": {
+            "denominator": 4,
+            "null_reason": null,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 20,
+            "null_reason": null,
+            "numerator": 4,
+            "value": 0.2
+          },
+          "tn": 220,
+          "total": 240,
+          "tp": 4
+        },
+        "event": {
+          "f1": {
+            "denominator": 4,
+            "null_reason": null,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "fn": 0,
+          "fp": 0,
+          "pairs": [
+            {
+              "delay_seconds": 480.0,
+              "prediction_id": "pred-0000",
+              "truth_id": "truth-0000"
+            },
+            {
+              "delay_seconds": 480.0,
+              "prediction_id": "pred-0001",
+              "truth_id": "truth-0001"
+            }
+          ],
+          "precision": {
+            "denominator": 2,
+            "null_reason": null,
+            "numerator": 2,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 2,
+            "null_reason": null,
+            "numerator": 2,
+            "value": 1.0
+          },
+          "tp": 2,
+          "unmatched_prediction_ids": [],
+          "unmatched_truth_ids": []
+        },
+        "coverage": {
+          "denominator": 240,
+          "null_reason": null,
+          "numerator": 240,
+          "value": 1.0
+        },
+        "matched_delay_seconds": {
+          "maximum": 480.0,
+          "median": 480.0,
+          "missed_events": 0,
+          "null_reason": null
+        },
+        "normal_false_alarms_per_host_hour": {
+          "denominator": 13200,
+          "null_reason": null,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "runtime_seconds": 0.10923593491315842,
+        "selected": "ewma_alpha0.3_p2"
+      },
+      "candidates": [
+        {
+          "method": "ewma",
+          "candidate_id": "ewma_alpha0.3_p2",
+          "config": {
+            "alpha": 0.3,
+            "direction": "upper",
+            "method_id": "ewma",
+            "min_history": 3,
+            "quantile": 0.99
+          },
+          "knowledge_ids": [
+            "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+            "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+            "chunk-96b8b23d75a52b7582040f893468476eb249c8ec4e3d9091c1572b61e5c0cf7f",
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f",
+            "source-f5e5f8ac42e9fd7f7bb393e7cc89533f14187c96f6d02a17f9fd4374221933b2"
+          ],
+          "versions": [
+            {
+              "version": 0,
+              "passed": true,
+              "level": "reference_verified",
+              "origin": "llm_api",
+              "source_sha256": "sha256:d2479a2d919da504ca1061fb468814a553fb723cc08a8844edaf505399b23236",
+              "capability_id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+              "capability_version": "1.1.0",
+              "specification_sha256": "sha256:53abdca0789200f3681895fdd88b049227e8b5e9587a9cc82d7f1d1bcc70bda2",
+              "knowledge_ids": [
+                "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+                "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd"
+              ],
+              "checks": [
+                {
+                  "check": "static_profile",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "missing_input_contract",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "state_reload",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "reset_repeat_future_invariance",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "ewma_cold_start",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "ewma_monotonic_step",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "ewma_missing",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "ewma_cold_start",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "ewma_monotonic_step",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "ewma_missing",
+                  "passed": true,
+                  "error_code": null
+                }
+              ]
+            }
+          ],
+          "development": {
+            "point": {
+              "abstained_normal": 0,
+              "f1": {
+                "denominator": 23,
+                "null_reason": null,
+                "numerator": 6,
+                "value": 0.2608695652173913
+              },
+              "fn": 17,
+              "fp": 0,
+              "precision": {
+                "denominator": 3,
+                "null_reason": null,
+                "numerator": 3,
+                "value": 1.0
+              },
+              "recall": {
+                "denominator": 20,
+                "null_reason": null,
+                "numerator": 3,
+                "value": 0.15
+              },
+              "tn": 220,
+              "total": 240,
+              "tp": 3
+            },
+            "event": {
+              "f1": {
+                "denominator": 4,
+                "null_reason": null,
+                "numerator": 4,
+                "value": 1.0
+              },
+              "fn": 0,
+              "fp": 0,
+              "pairs": [
+                {
+                  "delay_seconds": 540.0,
+                  "prediction_id": "pred-0000",
+                  "truth_id": "truth-0000"
+                },
+                {
+                  "delay_seconds": 480.0,
+                  "prediction_id": "pred-0001",
+                  "truth_id": "truth-0001"
+                }
+              ],
+              "precision": {
+                "denominator": 2,
+                "null_reason": null,
+                "numerator": 2,
+                "value": 1.0
+              },
+              "recall": {
+                "denominator": 2,
+                "null_reason": null,
+                "numerator": 2,
+                "value": 1.0
+              },
+              "tp": 2,
+              "unmatched_prediction_ids": [],
+              "unmatched_truth_ids": []
+            },
+            "coverage": {
+              "denominator": 240,
+              "null_reason": null,
+              "numerator": 240,
+              "value": 1.0
+            }
+          }
+        },
+        {
+          "method": "rolling_mad",
+          "candidate_id": "rolling_mad_w30_p2",
+          "config": {
+            "direction": "upper",
+            "method_id": "rolling_mad",
+            "min_history": 15,
+            "quantile": 0.99,
+            "window": 30
+          },
+          "knowledge_ids": [
+            "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+            "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+            "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+            "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57",
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+            "source-b87632b829b20184b15b4a9610c028db947eb04a8672c227b3caa14ff39afcd3",
+            "source-ba12995471501af4d22a092ff63e3420003103c0a364a4769ae2afa939fd5cab"
+          ],
+          "versions": [
+            {
+              "version": 0,
+              "passed": true,
+              "level": "reference_verified",
+              "origin": "llm_api",
+              "source_sha256": "sha256:3472299b092c4c73da9dc04c82c3a7e20a1a8c0335d0bed3519365566ff69494",
+              "capability_id": "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+              "capability_version": "1.1.0",
+              "specification_sha256": "sha256:1341c8dba78c069e25220a8afe6f80caaf9150384348d3c7f47c3c4e1dce8309",
+              "knowledge_ids": [
+                "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+                "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+                "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+                "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+                "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57",
+                "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+                "source-b87632b829b20184b15b4a9610c028db947eb04a8672c227b3caa14ff39afcd3",
+                "source-ba12995471501af4d22a092ff63e3420003103c0a364a4769ae2afa939fd5cab"
+              ],
+              "checks": [
+                {
+                  "check": "static_profile",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "missing_input_contract",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "state_reload",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "reset_repeat_future_invariance",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "mad_past_only",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "mad_zero_scale",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "mad_missing_slots",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "mad_imputed_not_original",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "mad_past_only",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "mad_zero_scale",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "mad_missing_slots",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "mad_imputed_not_original",
+                  "passed": true,
+                  "error_code": null
+                }
+              ]
+            }
+          ],
+          "development": {
+            "point": {
+              "abstained_normal": 0,
+              "f1": {
+                "denominator": 20,
+                "null_reason": null,
+                "numerator": 0,
+                "value": 0.0
+              },
+              "fn": 20,
+              "fp": 0,
+              "precision": {
+                "denominator": 0,
+                "null_reason": "no_predictions",
+                "numerator": 0,
+                "value": null
+              },
+              "recall": {
+                "denominator": 20,
+                "null_reason": null,
+                "numerator": 0,
+                "value": 0.0
+              },
+              "tn": 220,
+              "total": 240,
+              "tp": 0
+            },
+            "event": {
+              "f1": {
+                "denominator": 2,
+                "null_reason": null,
+                "numerator": 0,
+                "value": 0.0
+              },
+              "fn": 2,
+              "fp": 0,
+              "pairs": [],
+              "precision": {
+                "denominator": 0,
+                "null_reason": "no_predictions",
+                "numerator": 0,
+                "value": null
+              },
+              "recall": {
+                "denominator": 2,
+                "null_reason": null,
+                "numerator": 0,
+                "value": 0.0
+              },
+              "tp": 0,
+              "unmatched_prediction_ids": [],
+              "unmatched_truth_ids": [
+                "truth-0000",
+                "truth-0001"
+              ]
+            },
+            "coverage": {
+              "denominator": 240,
+              "null_reason": null,
+              "numerator": 240,
+              "value": 1.0
+            }
+          }
+        }
+      ],
+      "provided_experience_ids": [
+        "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed",
+        "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+        "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f",
+        "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+        "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524",
+        "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+        "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57"
+      ],
+      "publication_status": "PUBLISHED",
+      "published_nodes": [
+        {
+          "id": "experience-9b8072428ed1a540dd4087b2cd4a3dda6569590d3737f6091bdf0f7f4cecce37",
+          "kind": "Experience",
+          "task_id": "ui-8072f05359334d6e",
+          "method_id": "ewma",
+          "implementation_id": "implementation-dbe379c56eeddfeb84003e365eb065c6da28cfbb752923a2adf144d00ed49923",
+          "validation_id": "validation-9f9bc56b33eee663cd19c7ccee7c84d3d93968796149878a3b3090a06aee24d1",
+          "version": null,
+          "source_sha256": null,
+          "capability_id": null,
+          "capability_version": null,
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation"
+        },
+        {
+          "id": "experience-fcbdcdad493a450399dc558b7abeb550068588b2d5df01d94e72e16a5a68a476",
+          "kind": "Experience",
+          "task_id": "ui-8072f05359334d6e",
+          "method_id": "rolling_mad",
+          "implementation_id": "implementation-4d3eb0dd0f20e0de39fc4bc21eb998ed07ed7fff31e02ce9239fd7b5ff9efcb8",
+          "validation_id": "validation-69d47842744f05326911c51d669d785003a1b9065e8c20fda27959ed2e2180c8",
+          "version": null,
+          "source_sha256": null,
+          "capability_id": null,
+          "capability_version": null,
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation"
+        },
+        {
+          "id": "implementation-4d3eb0dd0f20e0de39fc4bc21eb998ed07ed7fff31e02ce9239fd7b5ff9efcb8",
+          "kind": "Implementation",
+          "task_id": "ui-8072f05359334d6e",
+          "method_id": null,
+          "implementation_id": null,
+          "validation_id": null,
+          "version": 0,
+          "source_sha256": "sha256:3472299b092c4c73da9dc04c82c3a7e20a1a8c0335d0bed3519365566ff69494",
+          "capability_id": "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+          "capability_version": "1.1.0",
+          "issue": null,
+          "action": null
+        },
+        {
+          "id": "implementation-dbe379c56eeddfeb84003e365eb065c6da28cfbb752923a2adf144d00ed49923",
+          "kind": "Implementation",
+          "task_id": "ui-8072f05359334d6e",
+          "method_id": null,
+          "implementation_id": null,
+          "validation_id": null,
+          "version": 0,
+          "source_sha256": "sha256:d2479a2d919da504ca1061fb468814a553fb723cc08a8844edaf505399b23236",
+          "capability_id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+          "capability_version": "1.1.0",
+          "issue": null,
+          "action": null
+        },
+        {
+          "id": "validation-69d47842744f05326911c51d669d785003a1b9065e8c20fda27959ed2e2180c8",
+          "kind": "ValidationRun",
+          "task_id": null,
+          "method_id": null,
+          "implementation_id": "implementation-4d3eb0dd0f20e0de39fc4bc21eb998ed07ed7fff31e02ce9239fd7b5ff9efcb8",
+          "validation_id": null,
+          "version": null,
+          "source_sha256": null,
+          "capability_id": null,
+          "capability_version": null,
+          "issue": null,
+          "action": null
+        },
+        {
+          "id": "validation-9f9bc56b33eee663cd19c7ccee7c84d3d93968796149878a3b3090a06aee24d1",
+          "kind": "ValidationRun",
+          "task_id": null,
+          "method_id": null,
+          "implementation_id": "implementation-dbe379c56eeddfeb84003e365eb065c6da28cfbb752923a2adf144d00ed49923",
+          "validation_id": null,
+          "version": null,
+          "source_sha256": null,
+          "capability_id": null,
+          "capability_version": null,
+          "issue": null,
+          "action": null
+        }
+      ],
+      "prompts": [
+        {
+          "prompt_sha256": "sha256:3f1baadf8b120211633a9167281a39ee98b5dd0070befd8f503a43227f5b86d3",
+          "stage": "plan",
+          "knowledge_ids": [
+            "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+            "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+            "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+            "chunk-2a02b38d696a28dc91734798fd7d8ff5fa2479449a0aaa3f89e82c5a4838142f",
+            "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+            "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+            "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+            "chunk-96b8b23d75a52b7582040f893468476eb249c8ec4e3d9091c1572b61e5c0cf7f",
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57",
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f",
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed",
+            "source-b87632b829b20184b15b4a9610c028db947eb04a8672c227b3caa14ff39afcd3",
+            "source-ba12995471501af4d22a092ff63e3420003103c0a364a4769ae2afa939fd5cab",
+            "source-f5e5f8ac42e9fd7f7bb393e7cc89533f14187c96f6d02a17f9fd4374221933b2"
+          ],
+          "experience_ids": [
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed",
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f",
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524",
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57"
+          ],
+          "experience_feedback_counts": {
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed": 0,
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1": 0,
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f": 0,
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a": 1,
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524": 0,
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043": 0,
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57": 0
+          }
+        },
+        {
+          "prompt_sha256": "sha256:59301b4e82bdab0203a17fe122e71d61587e9b3ca39e8df63f311dc5d3106bdb",
+          "stage": "code-rolling_mad_w30_p2-v0",
+          "knowledge_ids": [
+            "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+            "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+            "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+            "chunk-2a02b38d696a28dc91734798fd7d8ff5fa2479449a0aaa3f89e82c5a4838142f",
+            "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+            "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+            "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+            "chunk-96b8b23d75a52b7582040f893468476eb249c8ec4e3d9091c1572b61e5c0cf7f",
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57",
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f",
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed",
+            "source-b87632b829b20184b15b4a9610c028db947eb04a8672c227b3caa14ff39afcd3",
+            "source-ba12995471501af4d22a092ff63e3420003103c0a364a4769ae2afa939fd5cab",
+            "source-f5e5f8ac42e9fd7f7bb393e7cc89533f14187c96f6d02a17f9fd4374221933b2"
+          ],
+          "experience_ids": [
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57",
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524",
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f",
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed"
+          ],
+          "experience_feedback_counts": {
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a": 1,
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043": 0,
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57": 0,
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524": 0,
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1": 0,
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f": 0,
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed": 0
+          }
+        },
+        {
+          "prompt_sha256": "sha256:6bf4619ebde9989bb0e748f268950d20355b3e8a238cd854740c2f58f6dd3209",
+          "stage": "code-ewma_alpha0.3_p2-v0",
+          "knowledge_ids": [
+            "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+            "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+            "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+            "chunk-2a02b38d696a28dc91734798fd7d8ff5fa2479449a0aaa3f89e82c5a4838142f",
+            "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+            "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+            "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+            "chunk-96b8b23d75a52b7582040f893468476eb249c8ec4e3d9091c1572b61e5c0cf7f",
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57",
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f",
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed",
+            "source-b87632b829b20184b15b4a9610c028db947eb04a8672c227b3caa14ff39afcd3",
+            "source-ba12995471501af4d22a092ff63e3420003103c0a364a4769ae2afa939fd5cab",
+            "source-f5e5f8ac42e9fd7f7bb393e7cc89533f14187c96f6d02a17f9fd4374221933b2"
+          ],
+          "experience_ids": [
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f",
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed",
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57",
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524"
+          ],
+          "experience_feedback_counts": {
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1": 0,
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f": 0,
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed": 0,
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a": 1,
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043": 0,
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57": 0,
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524": 0
+          }
+        },
+        {
+          "prompt_sha256": "sha256:866f8a687439e4fad46ff02a595e6ba7e3667ce0bcd347d6b5cefc084d64661b",
+          "stage": "plan",
+          "knowledge_ids": [
+            "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+            "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+            "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+            "chunk-2a02b38d696a28dc91734798fd7d8ff5fa2479449a0aaa3f89e82c5a4838142f",
+            "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+            "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+            "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+            "chunk-96b8b23d75a52b7582040f893468476eb249c8ec4e3d9091c1572b61e5c0cf7f",
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57",
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f",
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed",
+            "source-b87632b829b20184b15b4a9610c028db947eb04a8672c227b3caa14ff39afcd3",
+            "source-ba12995471501af4d22a092ff63e3420003103c0a364a4769ae2afa939fd5cab",
+            "source-f5e5f8ac42e9fd7f7bb393e7cc89533f14187c96f6d02a17f9fd4374221933b2"
+          ],
+          "experience_ids": [
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed",
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f",
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524",
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57"
+          ],
+          "experience_feedback_counts": {
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed": 0,
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1": 0,
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f": 0,
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a": 1,
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524": 0,
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043": 0,
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57": 0
+          }
+        }
+      ],
+      "frozen_evaluation_objective": "sustained_coverage",
+      "frozen_selection_policy": "precision",
+      "selection": {
+        "objective": "sustained_coverage",
+        "policy": "precision",
+        "selected": "ewma_alpha0.3_p2",
+        "ranking": [
+          "ewma_alpha0.3_p2",
+          "rolling_mad_w30_p2"
+        ],
+        "rank": null,
+        "reason": "按开发集目标及次级 Fβ、正常误报频次、匹配延迟、覆盖率和候选ID排序；最终测试不参与选择。",
+        "decisive_field": null
+      },
+      "knowledge_counts": {
+        "supplied": 18,
+        "cited": 14,
+        "supplied_experiences": 7,
+        "cited_experiences": 4,
+        "unprovided_citations": 0
+      },
+      "model_usage": {
+        "kind": "api",
+        "requests": 4,
+        "reservations": 4,
+        "input_tokens": 126569,
+        "output_tokens": 8692,
+        "total_tokens": 135261,
+        "missing_usage_requests": 0
+      },
+      "draft_objective": "sustained_coverage",
+      "capabilities": [
+        {
+          "id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+          "method_id": "ewma",
+          "version": "1.1.0",
+          "origin": "reference",
+          "source_status": "registered_card"
+        },
+        {
+          "id": "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+          "method_id": "rolling_mad",
+          "version": "1.1.0",
+          "origin": "reference",
+          "source_status": "registered_card"
+        }
+      ],
+      "material_references": [
+        {
+          "id": "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+          "source": "materials/metrics/06-ewma.txt",
+          "start_line": 2,
+          "end_line": 8,
+          "source_sha256": "sha256:b5f7c12ab2e1ea98e55f6c7d25cbf73ffaa6df42cbbfc42ada8265f23e0092d5"
+        },
+        {
+          "id": "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+          "source": "materials/metrics/03-rolling-mad.txt",
+          "start_line": 3,
+          "end_line": 11,
+          "source_sha256": "sha256:c9b2a8158fe0978e951ec2e8c8141b661112b62cb1ca560ad72bea6d69c791d1"
+        },
+        {
+          "id": "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+          "source": "materials/metrics/reference_mad.py",
+          "start_line": 11,
+          "end_line": 33,
+          "source_sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7"
+        },
+        {
+          "id": "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+          "source": "materials/metrics/reference_mad.py",
+          "start_line": 35,
+          "end_line": 59,
+          "source_sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7"
+        },
+        {
+          "id": "chunk-96b8b23d75a52b7582040f893468476eb249c8ec4e3d9091c1572b61e5c0cf7f",
+          "source": "capabilities/ewma/capability.json",
+          "start_line": 2,
+          "end_line": 2,
+          "source_sha256": "sha256:99e8d1e67f8b4b1fd9df769136a4b0bb3778393bdb266ccb706b1c289755bded"
+        },
+        {
+          "id": "chunk-2a02b38d696a28dc91734798fd7d8ff5fa2479449a0aaa3f89e82c5a4838142f",
+          "source": "capabilities/ewma/capability.json",
+          "start_line": 3,
+          "end_line": 3,
+          "source_sha256": "sha256:99e8d1e67f8b4b1fd9df769136a4b0bb3778393bdb266ccb706b1c289755bded"
+        }
+      ],
+      "model_operations": [
+        {
+          "status": "SUCCEEDED",
+          "count": 4
+        }
+      ],
+      "retrieved_experience_origins": [
+        {
+          "id": "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+          "task_id": "ui-0b1983fcef7c48a6",
+          "method_id": "ewma",
+          "origin": "llm_api",
+          "implementation_id": "implementation-3728e119b2eabc434f315d61a224c3a825acccb011e241a5b00a91a2c51b8919",
+          "validation_id": "validation-118319faf7b84045e464eeea54a5209e8e19c5af6efbdf4d7223a3f85ec6946c",
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation",
+          "feedback": []
+        },
+        {
+          "id": "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+          "task_id": "ui-96ad0eca55c14f59",
+          "method_id": "rolling_mad",
+          "origin": "llm_api",
+          "implementation_id": "implementation-6d5591deb6ea5a4266f79190aa3b96f300586ee65197843f274e072f4ba11eb3",
+          "validation_id": "validation-fb320d29d814daf7b9fb9b8153778a9a033801ec39b5c2b9872ab753a2f59ec2",
+          "issue": "method_check_failure",
+          "action": "initial_generation",
+          "feedback": [
+            {
+              "check": "mad_past_only",
+              "error_code": "OUTPUT_SCHEMA"
+            }
+          ]
+        },
+        {
+          "id": "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524",
+          "task_id": "ui-39b59545cd5d4b96",
+          "method_id": "rolling_mad",
+          "origin": "llm_api",
+          "implementation_id": "implementation-27b631635dbb191922a4feb375dc1ac55a80c4d074491505742183fdc68a1f38",
+          "validation_id": "validation-799ec2a90b005be552f333c424e6348f235e6de3288c97538270eb4c992ca33e",
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation",
+          "feedback": []
+        },
+        {
+          "id": "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57",
+          "task_id": "ui-f6df92869ebc4cbc",
+          "method_id": "rolling_mad",
+          "origin": "llm_api",
+          "implementation_id": "implementation-4e9e403e48ebc2b03f643432acba2a57bfde9ad80d5ed0fb8a5fdb7576e8e58b",
+          "validation_id": "validation-f339113c86bea1e5b68eda342b16d8e946d85171fdfb71e60ce53ba94e0ba78f",
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation",
+          "feedback": []
+        },
+        {
+          "id": "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f",
+          "task_id": "ui-a25079152c7940fa",
+          "method_id": "ewma",
+          "origin": "llm_api",
+          "implementation_id": "implementation-15f89e5fa315049bb6affe972b178f54eaa098a0eacf4c762b095267f3ecd78a",
+          "validation_id": "validation-d1e938f52a338380c3844d7fa05cadfa0c646550c8c2df5c8f2f950a40a6c6f5",
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation",
+          "feedback": []
+        },
+        {
+          "id": "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+          "task_id": "ui-96ad0eca55c14f59",
+          "method_id": "rolling_mad",
+          "origin": "llm_api",
+          "implementation_id": "implementation-12f108c33779c75b96a8175c245220fa44789bae8905e1b1fd1fcc1586384b9a",
+          "validation_id": "validation-51a420f41f9dbf6226362b5947941cd11169c24ef40ec7df5a0ed10666b41ee8",
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "development_difference_repair",
+          "feedback": []
+        },
+        {
+          "id": "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed",
+          "task_id": "ui-b0c4acdd29bc47d9",
+          "method_id": "ewma",
+          "origin": "llm_api",
+          "implementation_id": "implementation-d6f4bd670d1096d5c2da34dcda1819ec0924d4e0983930da5cd66925f094b84e",
+          "validation_id": "validation-843ae60ab94ed4593f84b133d14f501900f5fc3daea76f7440bc95de2f30ab73",
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation",
+          "feedback": []
+        }
+      ]
+    },
+    "ui-061bbc0f5eff41d0": {
+      "task_id": "ui-061bbc0f5eff41d0",
+      "origin": "llm_api",
+      "status": "COMPLETED",
+      "final": {
+        "execution_status": "SUCCEEDED",
+        "engineering_status": "PASSED",
+        "effect_status": "MEASURED",
+        "point": {
+          "abstained_normal": 0,
+          "f1": {
+            "denominator": 233,
+            "null_reason": null,
+            "numerator": 208,
+            "value": 0.8927038626609443
+          },
+          "fn": 6,
+          "fp": 19,
+          "precision": {
+            "denominator": 123,
+            "null_reason": null,
+            "numerator": 104,
+            "value": 0.8455284552845529
+          },
+          "recall": {
+            "denominator": 110,
+            "null_reason": null,
+            "numerator": 104,
+            "value": 0.9454545454545454
+          },
+          "tn": 111,
+          "total": 240,
+          "tp": 104
+        },
+        "event": {
+          "f1": {
+            "denominator": 3,
+            "null_reason": null,
+            "numerator": 2,
+            "value": 0.6666666666666666
+          },
+          "fn": 0,
+          "fp": 1,
+          "pairs": [
+            {
+              "delay_seconds": 360.0,
+              "prediction_id": "pred-0001",
+              "truth_id": "truth-0000"
+            }
+          ],
+          "precision": {
+            "denominator": 2,
+            "null_reason": null,
+            "numerator": 1,
+            "value": 0.5
+          },
+          "recall": {
+            "denominator": 1,
+            "null_reason": null,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "tp": 1,
+          "unmatched_prediction_ids": [
+            "pred-0000"
+          ],
+          "unmatched_truth_ids": []
+        },
+        "coverage": {
+          "denominator": 240,
+          "null_reason": null,
+          "numerator": 240,
+          "value": 1.0
+        },
+        "matched_delay_seconds": {
+          "maximum": 360.0,
+          "median": 360.0,
+          "missed_events": 0,
+          "null_reason": null
+        },
+        "normal_false_alarms_per_host_hour": {
+          "denominator": 7800,
+          "null_reason": null,
+          "numerator": 3600,
+          "value": 0.46153846153846156
+        },
+        "runtime_seconds": 0.1045781783759594,
+        "selected": "ewma-alpha02-p2"
+      },
+      "candidates": [
+        {
+          "method": "fixed_threshold",
+          "candidate_id": "fixed-threshold-70-p2",
+          "config": {
+            "direction": "upper",
+            "method_id": "fixed_threshold",
+            "threshold": 70.0
+          },
+          "knowledge_ids": [
+            "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+            "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+            "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+            "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c",
+            "experience-33fa7893ae906db434b2723d3dd730dde4b784da34beff8ee70a2d4bb403c617"
+          ],
+          "versions": [
+            {
+              "version": 0,
+              "passed": true,
+              "level": "reference_verified",
+              "origin": "llm_api",
+              "source_sha256": "sha256:525f904a445349804cc5d4a7d8d6111d6af764f1ac0cd05880f219e5ac1965a1",
+              "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+              "capability_version": "1.1.0",
+              "specification_sha256": "sha256:d78418b686499b015abb691e10e65fad63592d12ad25bcab36e2ced5af7a2060",
+              "knowledge_ids": [
+                "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+                "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+                "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09"
+              ],
+              "checks": [
+                {
+                  "check": "static_profile",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "missing_input_contract",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "state_reload",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "reset_repeat_future_invariance",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "fixed_strict_boundary",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "fixed_missing",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "fixed_strict_boundary",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "fixed_missing",
+                  "passed": true,
+                  "error_code": null
+                }
+              ]
+            }
+          ],
+          "development": {
+            "point": {
+              "abstained_normal": 0,
+              "f1": {
+                "denominator": 144,
+                "null_reason": null,
+                "numerator": 68,
+                "value": 0.4722222222222222
+              },
+              "fn": 76,
+              "fp": 0,
+              "precision": {
+                "denominator": 34,
+                "null_reason": null,
+                "numerator": 34,
+                "value": 1.0
+              },
+              "recall": {
+                "denominator": 110,
+                "null_reason": null,
+                "numerator": 34,
+                "value": 0.3090909090909091
+              },
+              "tn": 130,
+              "total": 240,
+              "tp": 34
+            },
+            "event": {
+              "f1": {
+                "denominator": 2,
+                "null_reason": null,
+                "numerator": 2,
+                "value": 1.0
+              },
+              "fn": 0,
+              "fp": 0,
+              "pairs": [
+                {
+                  "delay_seconds": 4560.0,
+                  "prediction_id": "pred-0000",
+                  "truth_id": "truth-0000"
+                }
+              ],
+              "precision": {
+                "denominator": 1,
+                "null_reason": null,
+                "numerator": 1,
+                "value": 1.0
+              },
+              "recall": {
+                "denominator": 1,
+                "null_reason": null,
+                "numerator": 1,
+                "value": 1.0
+              },
+              "tp": 1,
+              "unmatched_prediction_ids": [],
+              "unmatched_truth_ids": []
+            },
+            "coverage": {
+              "denominator": 240,
+              "null_reason": null,
+              "numerator": 240,
+              "value": 1.0
+            }
+          }
+        },
+        {
+          "method": "ewma",
+          "candidate_id": "ewma-alpha02-p2",
+          "config": {
+            "alpha": 0.2,
+            "direction": "upper",
+            "method_id": "ewma",
+            "min_history": 3,
+            "quantile": 0.99
+          },
+          "knowledge_ids": [
+            "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+            "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f"
+          ],
+          "versions": [
+            {
+              "version": 0,
+              "passed": true,
+              "level": "reference_verified",
+              "origin": "llm_api",
+              "source_sha256": "sha256:79a8428ef5e388c02ea1c8fc44f10dc710c5a409e7824e6d60f3d5e9c94ac06e",
+              "capability_id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+              "capability_version": "1.1.0",
+              "specification_sha256": "sha256:53abdca0789200f3681895fdd88b049227e8b5e9587a9cc82d7f1d1bcc70bda2",
+              "knowledge_ids": [
+                "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+                "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+                "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+                "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f"
+              ],
+              "checks": [
+                {
+                  "check": "static_profile",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "missing_input_contract",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "state_reload",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "reset_repeat_future_invariance",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "ewma_cold_start",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "ewma_monotonic_step",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "ewma_missing",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "ewma_cold_start",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "ewma_monotonic_step",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "ewma_missing",
+                  "passed": true,
+                  "error_code": null
+                }
+              ]
+            }
+          ],
+          "development": {
+            "point": {
+              "abstained_normal": 0,
+              "f1": {
+                "denominator": 230,
+                "null_reason": null,
+                "numerator": 208,
+                "value": 0.9043478260869565
+              },
+              "fn": 6,
+              "fp": 16,
+              "precision": {
+                "denominator": 120,
+                "null_reason": null,
+                "numerator": 104,
+                "value": 0.8666666666666667
+              },
+              "recall": {
+                "denominator": 110,
+                "null_reason": null,
+                "numerator": 104,
+                "value": 0.9454545454545454
+              },
+              "tn": 114,
+              "total": 240,
+              "tp": 104
+            },
+            "event": {
+              "f1": {
+                "denominator": 2,
+                "null_reason": null,
+                "numerator": 2,
+                "value": 1.0
+              },
+              "fn": 0,
+              "fp": 0,
+              "pairs": [
+                {
+                  "delay_seconds": 360.0,
+                  "prediction_id": "pred-0000",
+                  "truth_id": "truth-0000"
+                }
+              ],
+              "precision": {
+                "denominator": 1,
+                "null_reason": null,
+                "numerator": 1,
+                "value": 1.0
+              },
+              "recall": {
+                "denominator": 1,
+                "null_reason": null,
+                "numerator": 1,
+                "value": 1.0
+              },
+              "tp": 1,
+              "unmatched_prediction_ids": [],
+              "unmatched_truth_ids": []
+            },
+            "coverage": {
+              "denominator": 240,
+              "null_reason": null,
+              "numerator": 240,
+              "value": 1.0
+            }
+          }
+        },
+        {
+          "method": "rolling_mad",
+          "candidate_id": "rolling-mad-default-p2",
+          "config": {
+            "direction": "upper",
+            "method_id": "rolling_mad",
+            "min_history": 15,
+            "quantile": 0.99,
+            "window": 30
+          },
+          "knowledge_ids": [
+            "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+            "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+            "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+            "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57"
+          ],
+          "versions": [
+            {
+              "version": 0,
+              "passed": true,
+              "level": "reference_verified",
+              "origin": "llm_api",
+              "source_sha256": "sha256:f444e5e98e6b51c522a927fb1baa9490970be7d3c07fc4958f19fb5681d34554",
+              "capability_id": "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+              "capability_version": "1.1.0",
+              "specification_sha256": "sha256:1341c8dba78c069e25220a8afe6f80caaf9150384348d3c7f47c3c4e1dce8309",
+              "knowledge_ids": [
+                "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+                "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+                "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+                "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816"
+              ],
+              "checks": [
+                {
+                  "check": "static_profile",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "missing_input_contract",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "state_reload",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "reset_repeat_future_invariance",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "mad_past_only",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "mad_zero_scale",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "mad_missing_slots",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "mad_imputed_not_original",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "mad_past_only",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "mad_zero_scale",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "mad_missing_slots",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "mad_imputed_not_original",
+                  "passed": true,
+                  "error_code": null
+                }
+              ]
+            }
+          ],
+          "development": {
+            "point": {
+              "abstained_normal": 0,
+              "f1": {
+                "denominator": 119,
+                "null_reason": null,
+                "numerator": 18,
+                "value": 0.15126050420168066
+              },
+              "fn": 101,
+              "fp": 0,
+              "precision": {
+                "denominator": 9,
+                "null_reason": null,
+                "numerator": 9,
+                "value": 1.0
+              },
+              "recall": {
+                "denominator": 110,
+                "null_reason": null,
+                "numerator": 9,
+                "value": 0.08181818181818182
+              },
+              "tn": 130,
+              "total": 240,
+              "tp": 9
+            },
+            "event": {
+              "f1": {
+                "denominator": 3,
+                "null_reason": null,
+                "numerator": 2,
+                "value": 0.6666666666666666
+              },
+              "fn": 0,
+              "fp": 1,
+              "pairs": [
+                {
+                  "delay_seconds": 360.0,
+                  "prediction_id": "pred-0000",
+                  "truth_id": "truth-0000"
+                }
+              ],
+              "precision": {
+                "denominator": 2,
+                "null_reason": null,
+                "numerator": 1,
+                "value": 0.5
+              },
+              "recall": {
+                "denominator": 1,
+                "null_reason": null,
+                "numerator": 1,
+                "value": 1.0
+              },
+              "tp": 1,
+              "unmatched_prediction_ids": [
+                "pred-0001"
+              ],
+              "unmatched_truth_ids": []
+            },
+            "coverage": {
+              "denominator": 240,
+              "null_reason": null,
+              "numerator": 240,
+              "value": 1.0
+            }
+          }
+        }
+      ],
+      "provided_experience_ids": [
+        "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed",
+        "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+        "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f",
+        "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+        "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d",
+        "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c",
+        "experience-33fa7893ae906db434b2723d3dd730dde4b784da34beff8ee70a2d4bb403c617",
+        "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+        "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524",
+        "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+        "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57"
+      ],
+      "publication_status": "PUBLISHED",
+      "published_nodes": [
+        {
+          "id": "experience-8236840086e321100c3d952e75b5a676892b3b8fb376899fdf6ac8bb175e754a",
+          "kind": "Experience",
+          "task_id": "ui-061bbc0f5eff41d0",
+          "method_id": "rolling_mad",
+          "implementation_id": "implementation-fbe45669e98348b3965e0bc9d83d4dc85c874b299eaa2c2eb1878e1429537436",
+          "validation_id": "validation-aadf95569c4da8e181e25320d307c2e24a575a371a49e24d8713c9c8a19ba327",
+          "version": null,
+          "source_sha256": null,
+          "capability_id": null,
+          "capability_version": null,
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation"
+        },
+        {
+          "id": "experience-94618e25cc7e025123c868ba915e05d37d501d46d7a25b1583382284ced797b5",
+          "kind": "Experience",
+          "task_id": "ui-061bbc0f5eff41d0",
+          "method_id": "fixed_threshold",
+          "implementation_id": "implementation-544176ef6269564d77c7d0c0641b9bb6491217085c50fa8a31f71009b843087e",
+          "validation_id": "validation-33c7449bf1b32f09b50793a690f451520eec2621325411503d4923803542eb66",
+          "version": null,
+          "source_sha256": null,
+          "capability_id": null,
+          "capability_version": null,
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation"
+        },
+        {
+          "id": "experience-eb429c4fbfb030471112eeeb78e20cfaf4487d1709d48310f957174ca7c39b88",
+          "kind": "Experience",
+          "task_id": "ui-061bbc0f5eff41d0",
+          "method_id": "ewma",
+          "implementation_id": "implementation-007f69fa6faa895d34e3f69d39b7788c025de2c30356dd8b232743775c1515a1",
+          "validation_id": "validation-2eda22c0abf1bb252b8ea022693c2f9b29893e710b02d48e519b15d71c347e37",
+          "version": null,
+          "source_sha256": null,
+          "capability_id": null,
+          "capability_version": null,
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation"
+        },
+        {
+          "id": "implementation-007f69fa6faa895d34e3f69d39b7788c025de2c30356dd8b232743775c1515a1",
+          "kind": "Implementation",
+          "task_id": "ui-061bbc0f5eff41d0",
+          "method_id": null,
+          "implementation_id": null,
+          "validation_id": null,
+          "version": 0,
+          "source_sha256": "sha256:79a8428ef5e388c02ea1c8fc44f10dc710c5a409e7824e6d60f3d5e9c94ac06e",
+          "capability_id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+          "capability_version": "1.1.0",
+          "issue": null,
+          "action": null
+        },
+        {
+          "id": "implementation-544176ef6269564d77c7d0c0641b9bb6491217085c50fa8a31f71009b843087e",
+          "kind": "Implementation",
+          "task_id": "ui-061bbc0f5eff41d0",
+          "method_id": null,
+          "implementation_id": null,
+          "validation_id": null,
+          "version": 0,
+          "source_sha256": "sha256:525f904a445349804cc5d4a7d8d6111d6af764f1ac0cd05880f219e5ac1965a1",
+          "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+          "capability_version": "1.1.0",
+          "issue": null,
+          "action": null
+        },
+        {
+          "id": "implementation-fbe45669e98348b3965e0bc9d83d4dc85c874b299eaa2c2eb1878e1429537436",
+          "kind": "Implementation",
+          "task_id": "ui-061bbc0f5eff41d0",
+          "method_id": null,
+          "implementation_id": null,
+          "validation_id": null,
+          "version": 0,
+          "source_sha256": "sha256:f444e5e98e6b51c522a927fb1baa9490970be7d3c07fc4958f19fb5681d34554",
+          "capability_id": "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+          "capability_version": "1.1.0",
+          "issue": null,
+          "action": null
+        },
+        {
+          "id": "validation-2eda22c0abf1bb252b8ea022693c2f9b29893e710b02d48e519b15d71c347e37",
+          "kind": "ValidationRun",
+          "task_id": null,
+          "method_id": null,
+          "implementation_id": "implementation-007f69fa6faa895d34e3f69d39b7788c025de2c30356dd8b232743775c1515a1",
+          "validation_id": null,
+          "version": null,
+          "source_sha256": null,
+          "capability_id": null,
+          "capability_version": null,
+          "issue": null,
+          "action": null
+        },
+        {
+          "id": "validation-33c7449bf1b32f09b50793a690f451520eec2621325411503d4923803542eb66",
+          "kind": "ValidationRun",
+          "task_id": null,
+          "method_id": null,
+          "implementation_id": "implementation-544176ef6269564d77c7d0c0641b9bb6491217085c50fa8a31f71009b843087e",
+          "validation_id": null,
+          "version": null,
+          "source_sha256": null,
+          "capability_id": null,
+          "capability_version": null,
+          "issue": null,
+          "action": null
+        },
+        {
+          "id": "validation-aadf95569c4da8e181e25320d307c2e24a575a371a49e24d8713c9c8a19ba327",
+          "kind": "ValidationRun",
+          "task_id": null,
+          "method_id": null,
+          "implementation_id": "implementation-fbe45669e98348b3965e0bc9d83d4dc85c874b299eaa2c2eb1878e1429537436",
+          "validation_id": null,
+          "version": null,
+          "source_sha256": null,
+          "capability_id": null,
+          "capability_version": null,
+          "issue": null,
+          "action": null
+        }
+      ],
+      "prompts": [
+        {
+          "prompt_sha256": "sha256:1e1e7f92d62f4c6b637d91c8ba732fa32a7016a1e15a58bebce277c458accb95",
+          "stage": "plan",
+          "knowledge_ids": [
+            "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+            "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+            "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+            "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+            "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+            "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+            "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+            "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+            "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+            "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c",
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+            "experience-33fa7893ae906db434b2723d3dd730dde4b784da34beff8ee70a2d4bb403c617",
+            "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d",
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57",
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f",
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed",
+            "source-77c556c6553d4192078e1bfdf985a4cd89e45754f491b6ee917b9dcc07769438",
+            "source-b87632b829b20184b15b4a9610c028db947eb04a8672c227b3caa14ff39afcd3",
+            "source-ba12995471501af4d22a092ff63e3420003103c0a364a4769ae2afa939fd5cab",
+            "source-c6d85ec31dbd8809fc844451579165bc762b556e94fd925222e0afb96d75a74c",
+            "source-f5e5f8ac42e9fd7f7bb393e7cc89533f14187c96f6d02a17f9fd4374221933b2"
+          ],
+          "experience_ids": [
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed",
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f",
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+            "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d",
+            "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c",
+            "experience-33fa7893ae906db434b2723d3dd730dde4b784da34beff8ee70a2d4bb403c617",
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524",
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57"
+          ],
+          "experience_feedback_counts": {
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed": 0,
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1": 0,
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f": 0,
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763": 0,
+            "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d": 0,
+            "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c": 0,
+            "experience-33fa7893ae906db434b2723d3dd730dde4b784da34beff8ee70a2d4bb403c617": 0,
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a": 1,
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524": 0,
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043": 0,
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57": 0
+          }
+        },
+        {
+          "prompt_sha256": "sha256:5fda5738ee34cd9d232917a4baec7547e8fe0ad465d2684bcc62d7ced3c3c46f",
+          "stage": "code-ewma-alpha02-p2-v0",
+          "knowledge_ids": [
+            "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+            "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+            "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+            "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+            "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+            "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+            "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+            "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+            "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+            "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c",
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+            "experience-33fa7893ae906db434b2723d3dd730dde4b784da34beff8ee70a2d4bb403c617",
+            "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d",
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57",
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f",
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed",
+            "source-77c556c6553d4192078e1bfdf985a4cd89e45754f491b6ee917b9dcc07769438",
+            "source-b87632b829b20184b15b4a9610c028db947eb04a8672c227b3caa14ff39afcd3",
+            "source-ba12995471501af4d22a092ff63e3420003103c0a364a4769ae2afa939fd5cab",
+            "source-c6d85ec31dbd8809fc844451579165bc762b556e94fd925222e0afb96d75a74c",
+            "source-f5e5f8ac42e9fd7f7bb393e7cc89533f14187c96f6d02a17f9fd4374221933b2"
+          ],
+          "experience_ids": [
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f",
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed",
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+            "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c",
+            "experience-33fa7893ae906db434b2723d3dd730dde4b784da34beff8ee70a2d4bb403c617",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57",
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+            "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d",
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524"
+          ],
+          "experience_feedback_counts": {
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1": 0,
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f": 0,
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed": 0,
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a": 1,
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043": 0,
+            "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c": 0,
+            "experience-33fa7893ae906db434b2723d3dd730dde4b784da34beff8ee70a2d4bb403c617": 0,
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57": 0,
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763": 0,
+            "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d": 0,
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524": 0
+          }
+        },
+        {
+          "prompt_sha256": "sha256:7cf5797cf41fb27a0fe1abb5a762c4ed32f0e155000dac6e2d80ddb52c7705ac",
+          "stage": "code-rolling-mad-default-p2-v0",
+          "knowledge_ids": [
+            "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+            "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+            "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+            "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+            "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+            "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+            "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+            "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+            "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+            "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c",
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+            "experience-33fa7893ae906db434b2723d3dd730dde4b784da34beff8ee70a2d4bb403c617",
+            "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d",
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57",
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f",
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed",
+            "source-77c556c6553d4192078e1bfdf985a4cd89e45754f491b6ee917b9dcc07769438",
+            "source-b87632b829b20184b15b4a9610c028db947eb04a8672c227b3caa14ff39afcd3",
+            "source-ba12995471501af4d22a092ff63e3420003103c0a364a4769ae2afa939fd5cab",
+            "source-c6d85ec31dbd8809fc844451579165bc762b556e94fd925222e0afb96d75a74c",
+            "source-f5e5f8ac42e9fd7f7bb393e7cc89533f14187c96f6d02a17f9fd4374221933b2"
+          ],
+          "experience_ids": [
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57",
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524",
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f",
+            "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c",
+            "experience-33fa7893ae906db434b2723d3dd730dde4b784da34beff8ee70a2d4bb403c617",
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed",
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+            "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d"
+          ],
+          "experience_feedback_counts": {
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a": 1,
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043": 0,
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57": 0,
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524": 0,
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1": 0,
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f": 0,
+            "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c": 0,
+            "experience-33fa7893ae906db434b2723d3dd730dde4b784da34beff8ee70a2d4bb403c617": 0,
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed": 0,
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763": 0,
+            "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d": 0
+          }
+        },
+        {
+          "prompt_sha256": "sha256:8141e370bef217301a73080749ea658f6009dc002a84a2767a072c08c4cdd12d",
+          "stage": "code-fixed-threshold-70-p2-v0",
+          "knowledge_ids": [
+            "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+            "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+            "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+            "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+            "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+            "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+            "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+            "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+            "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+            "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c",
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+            "experience-33fa7893ae906db434b2723d3dd730dde4b784da34beff8ee70a2d4bb403c617",
+            "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d",
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57",
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f",
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed",
+            "source-77c556c6553d4192078e1bfdf985a4cd89e45754f491b6ee917b9dcc07769438",
+            "source-b87632b829b20184b15b4a9610c028db947eb04a8672c227b3caa14ff39afcd3",
+            "source-ba12995471501af4d22a092ff63e3420003103c0a364a4769ae2afa939fd5cab",
+            "source-c6d85ec31dbd8809fc844451579165bc762b556e94fd925222e0afb96d75a74c",
+            "source-f5e5f8ac42e9fd7f7bb393e7cc89533f14187c96f6d02a17f9fd4374221933b2"
+          ],
+          "experience_ids": [
+            "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c",
+            "experience-33fa7893ae906db434b2723d3dd730dde4b784da34beff8ee70a2d4bb403c617",
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+            "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d",
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f",
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57",
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed",
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524"
+          ],
+          "experience_feedback_counts": {
+            "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c": 0,
+            "experience-33fa7893ae906db434b2723d3dd730dde4b784da34beff8ee70a2d4bb403c617": 0,
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763": 0,
+            "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d": 0,
+            "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a": 1,
+            "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043": 0,
+            "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1": 0,
+            "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f": 0,
+            "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57": 0,
+            "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed": 0,
+            "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524": 0
+          }
+        }
+      ],
+      "frozen_evaluation_objective": "sustained_coverage",
+      "frozen_selection_policy": "recall",
+      "selection": {
+        "objective": "sustained_coverage",
+        "policy": "recall",
+        "selected": "ewma-alpha02-p2",
+        "ranking": [
+          "ewma-alpha02-p2",
+          "fixed-threshold-70-p2",
+          "rolling-mad-default-p2"
+        ],
+        "rank": null,
+        "reason": "按开发集目标及次级 Fβ、正常误报频次、匹配延迟、覆盖率和候选ID排序；最终测试不参与选择。",
+        "decisive_field": null
+      },
+      "knowledge_counts": {
+        "supplied": 25,
+        "cited": 15,
+        "supplied_experiences": 11,
+        "cited_experiences": 6,
+        "unprovided_citations": 0
+      },
+      "model_usage": {
+        "kind": "api",
+        "requests": 4,
+        "reservations": 4,
+        "input_tokens": 164872,
+        "output_tokens": 8323,
+        "total_tokens": 173195,
+        "missing_usage_requests": 0
+      },
+      "draft_objective": "sustained_coverage",
+      "capabilities": [
+        {
+          "id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+          "method_id": "ewma",
+          "version": "1.1.0",
+          "origin": "reference",
+          "source_status": "registered_card"
+        },
+        {
+          "id": "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+          "method_id": "rolling_mad",
+          "version": "1.1.0",
+          "origin": "reference",
+          "source_status": "registered_card"
+        },
+        {
+          "id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+          "method_id": "fixed_threshold",
+          "version": "1.1.0",
+          "origin": "reference",
+          "source_status": "registered_card"
+        }
+      ],
+      "material_references": [
+        {
+          "id": "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+          "source": "materials/metrics/06-ewma.txt",
+          "start_line": 2,
+          "end_line": 8,
+          "source_sha256": "sha256:b5f7c12ab2e1ea98e55f6c7d25cbf73ffaa6df42cbbfc42ada8265f23e0092d5"
+        },
+        {
+          "id": "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+          "source": "materials/metrics/03-rolling-mad.txt",
+          "start_line": 3,
+          "end_line": 11,
+          "source_sha256": "sha256:c9b2a8158fe0978e951ec2e8c8141b661112b62cb1ca560ad72bea6d69c791d1"
+        },
+        {
+          "id": "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+          "source": "materials/metrics/reference_mad.py",
+          "start_line": 11,
+          "end_line": 33,
+          "source_sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7"
+        },
+        {
+          "id": "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+          "source": "materials/metrics/reference_mad.py",
+          "start_line": 35,
+          "end_line": 59,
+          "source_sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7"
+        },
+        {
+          "id": "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+          "source": "materials/metrics/02-fixed-threshold.txt",
+          "start_line": 3,
+          "end_line": 7,
+          "source_sha256": "sha256:dc91558e86cf108f1796ad3f1ab2c5826c11517f8a443f9315d918f410ab5a3f"
+        },
+        {
+          "id": "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+          "source": "materials/metrics/reference_fixed.py",
+          "start_line": 13,
+          "end_line": 19,
+          "source_sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70"
+        }
+      ],
+      "model_operations": [
+        {
+          "status": "SUCCEEDED",
+          "count": 4
+        }
+      ],
+      "retrieved_experience_origins": [
+        {
+          "id": "experience-1c01ec544fe4ed022f7c0aa08d6a37575e8fce61c82466e8d733096bb98873a1",
+          "task_id": "ui-0b1983fcef7c48a6",
+          "method_id": "ewma",
+          "origin": "llm_api",
+          "implementation_id": "implementation-3728e119b2eabc434f315d61a224c3a825acccb011e241a5b00a91a2c51b8919",
+          "validation_id": "validation-118319faf7b84045e464eeea54a5209e8e19c5af6efbdf4d7223a3f85ec6946c",
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation",
+          "feedback": []
+        },
+        {
+          "id": "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+          "task_id": "ui-f6df92869ebc4cbc",
+          "method_id": "fixed_threshold",
+          "origin": "llm_api",
+          "implementation_id": "implementation-c6b34252a25beaf8354f22d90c9727ac1050d129ee57199759e9c7d2652ff0b3",
+          "validation_id": "validation-bf0370e0e005382504f14a9a78b3fa5e2b6595de56a5ef064a25be09c7205d8b",
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation",
+          "feedback": []
+        },
+        {
+          "id": "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c",
+          "task_id": "ui-39b59545cd5d4b96",
+          "method_id": "fixed_threshold",
+          "origin": "llm_api",
+          "implementation_id": "implementation-9371307889488dfb205c51bb9dfd33fe4f6032b44b0a5179460c603b69473be5",
+          "validation_id": "validation-dee29f9bb1b4c842820f2ba2ab6b226025e0231d6501078bd457bf6b41e14e69",
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation",
+          "feedback": []
+        },
+        {
+          "id": "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+          "task_id": "ui-96ad0eca55c14f59",
+          "method_id": "rolling_mad",
+          "origin": "llm_api",
+          "implementation_id": "implementation-6d5591deb6ea5a4266f79190aa3b96f300586ee65197843f274e072f4ba11eb3",
+          "validation_id": "validation-fb320d29d814daf7b9fb9b8153778a9a033801ec39b5c2b9872ab753a2f59ec2",
+          "issue": "method_check_failure",
+          "action": "initial_generation",
+          "feedback": [
+            {
+              "check": "mad_past_only",
+              "error_code": "OUTPUT_SCHEMA"
+            }
+          ]
+        },
+        {
+          "id": "experience-33fa7893ae906db434b2723d3dd730dde4b784da34beff8ee70a2d4bb403c617",
+          "task_id": "ui-ac5fa8e7cab64a6d",
+          "method_id": "fixed_threshold",
+          "origin": "llm_api",
+          "implementation_id": "implementation-e7bc81a101bbf9b1c2128038746f001bb735a6edeb54e2f45813ca3e101954fd",
+          "validation_id": "validation-3d4bf2dd4e74116cd5326c75e124deda3d8fab484141c7638e2edb7db228ecc8",
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation",
+          "feedback": []
+        },
+        {
+          "id": "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d",
+          "task_id": "ui-96ad0eca55c14f59",
+          "method_id": "fixed_threshold",
+          "origin": "llm_api",
+          "implementation_id": "implementation-8c97fd446c408009c57f9b5ca9f711b09165ba446032e3718e51345a49b99a04",
+          "validation_id": "validation-e3347cffa785be267347bacfd04bed979077a3acc9909d140e1e0b6e2c5513b8",
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation",
+          "feedback": []
+        },
+        {
+          "id": "experience-43f37966b34bf5450076b055209fa18b97637e3a30367b329d71fef4ea51e524",
+          "task_id": "ui-39b59545cd5d4b96",
+          "method_id": "rolling_mad",
+          "origin": "llm_api",
+          "implementation_id": "implementation-27b631635dbb191922a4feb375dc1ac55a80c4d074491505742183fdc68a1f38",
+          "validation_id": "validation-799ec2a90b005be552f333c424e6348f235e6de3288c97538270eb4c992ca33e",
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation",
+          "feedback": []
+        },
+        {
+          "id": "experience-543467b32767398ec086360c72e9efefa966593db69d80fd2b2d8b4a96631f57",
+          "task_id": "ui-f6df92869ebc4cbc",
+          "method_id": "rolling_mad",
+          "origin": "llm_api",
+          "implementation_id": "implementation-4e9e403e48ebc2b03f643432acba2a57bfde9ad80d5ed0fb8a5fdb7576e8e58b",
+          "validation_id": "validation-f339113c86bea1e5b68eda342b16d8e946d85171fdfb71e60ce53ba94e0ba78f",
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation",
+          "feedback": []
+        },
+        {
+          "id": "experience-8f1fac026b3c5bb63119f3881048a74168f6082fd8f10934fb1746667c42299f",
+          "task_id": "ui-a25079152c7940fa",
+          "method_id": "ewma",
+          "origin": "llm_api",
+          "implementation_id": "implementation-15f89e5fa315049bb6affe972b178f54eaa098a0eacf4c762b095267f3ecd78a",
+          "validation_id": "validation-d1e938f52a338380c3844d7fa05cadfa0c646550c8c2df5c8f2f950a40a6c6f5",
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation",
+          "feedback": []
+        },
+        {
+          "id": "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+          "task_id": "ui-96ad0eca55c14f59",
+          "method_id": "rolling_mad",
+          "origin": "llm_api",
+          "implementation_id": "implementation-12f108c33779c75b96a8175c245220fa44789bae8905e1b1fd1fcc1586384b9a",
+          "validation_id": "validation-51a420f41f9dbf6226362b5947941cd11169c24ef40ec7df5a0ed10666b41ee8",
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "development_difference_repair",
+          "feedback": []
+        },
+        {
+          "id": "experience-d3dcceb1ccd5f4a5154690aed28175ded5799c75cfca113b52708cfa1dbf14ed",
+          "task_id": "ui-b0c4acdd29bc47d9",
+          "method_id": "ewma",
+          "origin": "llm_api",
+          "implementation_id": "implementation-d6f4bd670d1096d5c2da34dcda1819ec0924d4e0983930da5cd66925f094b84e",
+          "validation_id": "validation-843ae60ab94ed4593f84b133d14f501900f5fc3daea76f7440bc95de2f30ab73",
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation",
+          "feedback": []
+        }
+      ]
+    },
+    "ui-ac5fa8e7cab64a6d": {
+      "task_id": "ui-ac5fa8e7cab64a6d",
+      "origin": "llm_api",
+      "status": "COMPLETED",
+      "final": {
+        "execution_status": "SUCCEEDED",
+        "engineering_status": "PASSED",
+        "effect_status": "MEASURED",
+        "point": {
+          "abstained_normal": 0,
+          "f1": {
+            "denominator": 13,
+            "null_reason": null,
+            "numerator": 8,
+            "value": 0.6153846153846154
+          },
+          "fn": 5,
+          "fp": 0,
+          "precision": {
+            "denominator": 4,
+            "null_reason": null,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 9,
+            "null_reason": null,
+            "numerator": 4,
+            "value": 0.4444444444444444
+          },
+          "tn": 231,
+          "total": 240,
+          "tp": 4
+        },
+        "event": {
+          "f1": {
+            "denominator": 5,
+            "null_reason": null,
+            "numerator": 4,
+            "value": 0.8
+          },
+          "fn": 1,
+          "fp": 0,
+          "pairs": [
+            {
+              "delay_seconds": 120.0,
+              "prediction_id": "pred-0000",
+              "truth_id": "truth-0000"
+            },
+            {
+              "delay_seconds": 120.0,
+              "prediction_id": "pred-0001",
+              "truth_id": "truth-0002"
+            }
+          ],
+          "precision": {
+            "denominator": 2,
+            "null_reason": null,
+            "numerator": 2,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 3,
+            "null_reason": null,
+            "numerator": 2,
+            "value": 0.6666666666666666
+          },
+          "tp": 2,
+          "unmatched_prediction_ids": [],
+          "unmatched_truth_ids": [
+            "truth-0001"
+          ]
+        },
+        "coverage": {
+          "denominator": 240,
+          "null_reason": null,
+          "numerator": 240,
+          "value": 1.0
+        },
+        "matched_delay_seconds": {
+          "maximum": 120.0,
+          "median": 120.0,
+          "missed_events": 1,
+          "null_reason": null
+        },
+        "normal_false_alarms_per_host_hour": {
+          "denominator": 13860,
+          "null_reason": null,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "runtime_seconds": 0.10621576756238937,
+        "selected": "fixed_threshold_cpu_upper_90_p3"
+      },
+      "candidates": [
+        {
+          "method": "fixed_threshold",
+          "candidate_id": "fixed_threshold_cpu_upper_90_p3",
+          "config": {
+            "direction": "upper",
+            "method_id": "fixed_threshold",
+            "threshold": 90.0
+          },
+          "knowledge_ids": [
+            "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+            "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+            "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+            "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+            "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c"
+          ],
+          "versions": [
+            {
+              "version": 0,
+              "passed": true,
+              "level": "reference_verified",
+              "origin": "llm_api",
+              "source_sha256": "sha256:7d52100586dc9817fc4a6370ffd19276cdc4c12f4ec2a29e5a30b16489ac0131",
+              "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+              "capability_version": "1.1.0",
+              "specification_sha256": "sha256:d78418b686499b015abb691e10e65fad63592d12ad25bcab36e2ced5af7a2060",
+              "knowledge_ids": [
+                "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+                "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+                "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+                "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+                "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c"
+              ],
+              "checks": [
+                {
+                  "check": "static_profile",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "missing_input_contract",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "state_reload",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "reset_repeat_future_invariance",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "fixed_strict_boundary",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "fixed_missing",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "fixed_strict_boundary",
+                  "passed": true,
+                  "error_code": null
+                },
+                {
+                  "check": "fixed_missing",
+                  "passed": true,
+                  "error_code": null
+                }
+              ]
+            }
+          ],
+          "development": {
+            "point": {
+              "abstained_normal": 0,
+              "f1": {
+                "denominator": 13,
+                "null_reason": null,
+                "numerator": 8,
+                "value": 0.6153846153846154
+              },
+              "fn": 5,
+              "fp": 0,
+              "precision": {
+                "denominator": 4,
+                "null_reason": null,
+                "numerator": 4,
+                "value": 1.0
+              },
+              "recall": {
+                "denominator": 9,
+                "null_reason": null,
+                "numerator": 4,
+                "value": 0.4444444444444444
+              },
+              "tn": 231,
+              "total": 240,
+              "tp": 4
+            },
+            "event": {
+              "f1": {
+                "denominator": 5,
+                "null_reason": null,
+                "numerator": 4,
+                "value": 0.8
+              },
+              "fn": 1,
+              "fp": 0,
+              "pairs": [
+                {
+                  "delay_seconds": 120.0,
+                  "prediction_id": "pred-0000",
+                  "truth_id": "truth-0000"
+                },
+                {
+                  "delay_seconds": 120.0,
+                  "prediction_id": "pred-0001",
+                  "truth_id": "truth-0002"
+                }
+              ],
+              "precision": {
+                "denominator": 2,
+                "null_reason": null,
+                "numerator": 2,
+                "value": 1.0
+              },
+              "recall": {
+                "denominator": 3,
+                "null_reason": null,
+                "numerator": 2,
+                "value": 0.6666666666666666
+              },
+              "tp": 2,
+              "unmatched_prediction_ids": [],
+              "unmatched_truth_ids": [
+                "truth-0001"
+              ]
+            },
+            "coverage": {
+              "denominator": 240,
+              "null_reason": null,
+              "numerator": 240,
+              "value": 1.0
+            }
+          }
+        }
+      ],
+      "provided_experience_ids": [
+        "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+        "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d",
+        "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c"
+      ],
+      "publication_status": "PUBLISHED",
+      "published_nodes": [
+        {
+          "id": "experience-33fa7893ae906db434b2723d3dd730dde4b784da34beff8ee70a2d4bb403c617",
+          "kind": "Experience",
+          "task_id": "ui-ac5fa8e7cab64a6d",
+          "method_id": "fixed_threshold",
+          "implementation_id": "implementation-e7bc81a101bbf9b1c2128038746f001bb735a6edeb54e2f45813ca3e101954fd",
+          "validation_id": "validation-3d4bf2dd4e74116cd5326c75e124deda3d8fab484141c7638e2edb7db228ecc8",
+          "version": null,
+          "source_sha256": null,
+          "capability_id": null,
+          "capability_version": null,
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation"
+        },
+        {
+          "id": "implementation-e7bc81a101bbf9b1c2128038746f001bb735a6edeb54e2f45813ca3e101954fd",
+          "kind": "Implementation",
+          "task_id": "ui-ac5fa8e7cab64a6d",
+          "method_id": null,
+          "implementation_id": null,
+          "validation_id": null,
+          "version": 0,
+          "source_sha256": "sha256:7d52100586dc9817fc4a6370ffd19276cdc4c12f4ec2a29e5a30b16489ac0131",
+          "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+          "capability_version": "1.1.0",
+          "issue": null,
+          "action": null
+        },
+        {
+          "id": "validation-3d4bf2dd4e74116cd5326c75e124deda3d8fab484141c7638e2edb7db228ecc8",
+          "kind": "ValidationRun",
+          "task_id": null,
+          "method_id": null,
+          "implementation_id": "implementation-e7bc81a101bbf9b1c2128038746f001bb735a6edeb54e2f45813ca3e101954fd",
+          "validation_id": null,
+          "version": null,
+          "source_sha256": null,
+          "capability_id": null,
+          "capability_version": null,
+          "issue": null,
+          "action": null
+        }
+      ],
+      "prompts": [
+        {
+          "prompt_sha256": "sha256:1266205b28a21ac6d075dfd705563ccc7f7167c927247152c28e7ef5b6111b55",
+          "stage": "code-fixed_threshold_cpu_upper_90_p3-v0",
+          "knowledge_ids": [
+            "capability-4dbbcc65b31bdbd6222bbdf15511b607ef84d871ebb086247d175ec394908f20",
+            "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+            "chunk-2d0ddc000c30e78b533d4f4dda1c0eb1c252a479521febd8fd65f31dbf399938",
+            "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+            "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+            "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+            "chunk-7ac5e3104c65ea345ed16051fd2dfa6aeb1588f1584dc99ac7a53dec3b632191",
+            "chunk-cc6f404da734a520b42e2665491dfb48ef7799eaa117e5236e7b5370623beebd",
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+            "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c",
+            "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d",
+            "source-77c556c6553d4192078e1bfdf985a4cd89e45754f491b6ee917b9dcc07769438",
+            "source-c6d85ec31dbd8809fc844451579165bc762b556e94fd925222e0afb96d75a74c"
+          ],
+          "experience_ids": [
+            "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c",
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+            "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d"
+          ],
+          "experience_feedback_counts": {
+            "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c": 0,
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763": 0,
+            "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d": 0
+          }
+        },
+        {
+          "prompt_sha256": "sha256:c05b8c81b49267141d7cc264e5d7b0351039f90400477e6a65c44da23cbec563",
+          "stage": "plan",
+          "knowledge_ids": [
+            "capability-4dbbcc65b31bdbd6222bbdf15511b607ef84d871ebb086247d175ec394908f20",
+            "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+            "chunk-2d0ddc000c30e78b533d4f4dda1c0eb1c252a479521febd8fd65f31dbf399938",
+            "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+            "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+            "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+            "chunk-7ac5e3104c65ea345ed16051fd2dfa6aeb1588f1584dc99ac7a53dec3b632191",
+            "chunk-cc6f404da734a520b42e2665491dfb48ef7799eaa117e5236e7b5370623beebd",
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+            "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c",
+            "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d",
+            "source-77c556c6553d4192078e1bfdf985a4cd89e45754f491b6ee917b9dcc07769438",
+            "source-c6d85ec31dbd8809fc844451579165bc762b556e94fd925222e0afb96d75a74c"
+          ],
+          "experience_ids": [
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+            "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d",
+            "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c"
+          ],
+          "experience_feedback_counts": {
+            "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763": 0,
+            "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d": 0,
+            "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c": 0
+          }
+        }
+      ],
+      "frozen_evaluation_objective": "event_detection",
+      "frozen_selection_policy": "balanced",
+      "selection": {
+        "objective": "event_detection",
+        "policy": "balanced",
+        "selected": "fixed_threshold_cpu_upper_90_p3",
+        "ranking": [
+          "fixed_threshold_cpu_upper_90_p3"
+        ],
+        "rank": null,
+        "reason": "按开发集目标及次级 Fβ、正常误报频次、匹配延迟、覆盖率和候选ID排序；最终测试不参与选择。",
+        "decisive_field": null
+      },
+      "knowledge_counts": {
+        "supplied": 13,
+        "cited": 5,
+        "supplied_experiences": 3,
+        "cited_experiences": 1,
+        "unprovided_citations": 0
+      },
+      "model_usage": {
+        "kind": "api",
+        "requests": 2,
+        "reservations": 2,
+        "input_tokens": 32215,
+        "output_tokens": 2520,
+        "total_tokens": 34735,
+        "missing_usage_requests": 0
+      },
+      "draft_objective": "event_detection",
+      "capabilities": [
+        {
+          "id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+          "method_id": "fixed_threshold",
+          "version": "1.1.0",
+          "origin": "reference",
+          "source_status": "registered_card"
+        }
+      ],
+      "material_references": [
+        {
+          "id": "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+          "source": "materials/metrics/02-fixed-threshold.txt",
+          "start_line": 3,
+          "end_line": 7,
+          "source_sha256": "sha256:dc91558e86cf108f1796ad3f1ab2c5826c11517f8a443f9315d918f410ab5a3f"
+        },
+        {
+          "id": "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+          "source": "materials/metrics/reference_fixed.py",
+          "start_line": 13,
+          "end_line": 19,
+          "source_sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70"
+        },
+        {
+          "id": "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+          "source": "05-limitations.txt",
+          "start_line": 1,
+          "end_line": 8,
+          "source_sha256": "sha256:c1365b562303243f94e0354de3b28cabdb6416170f1778937ac61c87c3fbd0c1"
+        },
+        {
+          "id": "chunk-2d0ddc000c30e78b533d4f4dda1c0eb1c252a479521febd8fd65f31dbf399938",
+          "source": "capabilities/fixed_threshold/capability.json",
+          "start_line": 2,
+          "end_line": 2,
+          "source_sha256": "sha256:a19217ef27bff5c0726e6be8d4dc123a509bfe2d34c6fe8b63b0f2cd6c5ef045"
+        },
+        {
+          "id": "chunk-cc6f404da734a520b42e2665491dfb48ef7799eaa117e5236e7b5370623beebd",
+          "source": "capabilities/fixed_threshold/capability.json",
+          "start_line": 3,
+          "end_line": 3,
+          "source_sha256": "sha256:a19217ef27bff5c0726e6be8d4dc123a509bfe2d34c6fe8b63b0f2cd6c5ef045"
+        },
+        {
+          "id": "chunk-7ac5e3104c65ea345ed16051fd2dfa6aeb1588f1584dc99ac7a53dec3b632191",
+          "source": "capabilities/fixed_threshold/capability.json",
+          "start_line": 4,
+          "end_line": 25,
+          "source_sha256": "sha256:a19217ef27bff5c0726e6be8d4dc123a509bfe2d34c6fe8b63b0f2cd6c5ef045"
+        }
+      ],
+      "model_operations": [
+        {
+          "status": "SUCCEEDED",
+          "count": 2
+        }
+      ],
+      "retrieved_experience_origins": [
+        {
+          "id": "experience-221b3a4139274b9f8218e89bb748fbfe3ce4e89d6f78ca67c534f22e5c193763",
+          "task_id": "ui-f6df92869ebc4cbc",
+          "method_id": "fixed_threshold",
+          "origin": "llm_api",
+          "implementation_id": "implementation-c6b34252a25beaf8354f22d90c9727ac1050d129ee57199759e9c7d2652ff0b3",
+          "validation_id": "validation-bf0370e0e005382504f14a9a78b3fa5e2b6595de56a5ef064a25be09c7205d8b",
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation",
+          "feedback": []
+        },
+        {
+          "id": "experience-22877150b32e637ce433b3f8df3a2e5b3c21dd2400503cf198e06c156382319c",
+          "task_id": "ui-39b59545cd5d4b96",
+          "method_id": "fixed_threshold",
+          "origin": "llm_api",
+          "implementation_id": "implementation-9371307889488dfb205c51bb9dfd33fe4f6032b44b0a5179460c603b69473be5",
+          "validation_id": "validation-dee29f9bb1b4c842820f2ba2ab6b226025e0231d6501078bd457bf6b41e14e69",
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation",
+          "feedback": []
+        },
+        {
+          "id": "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d",
+          "task_id": "ui-96ad0eca55c14f59",
+          "method_id": "fixed_threshold",
+          "origin": "llm_api",
+          "implementation_id": "implementation-8c97fd446c408009c57f9b5ca9f711b09165ba446032e3718e51345a49b99a04",
+          "validation_id": "validation-e3347cffa785be267347bacfd04bed979077a3acc9909d140e1e0b6e2c5513b8",
+          "issue": "verified_method_requires_new_input_evaluation",
+          "action": "initial_generation",
+          "feedback": []
+        }
+      ]
+    }
+  },
+  "interpretation_operations": {
+    "understand-b19ac24463794ad8": [
+      {
+        "status": "SUCCEEDED",
+        "count": 1
+      }
+    ],
+    "understand-1c34132d8008413a": [
+      {
+        "status": "SUCCEEDED",
+        "count": 1
+      }
+    ]
+  },
+  "published_relations": [
+    {
+      "source": "capability-072d9134427d852f1072296d9355e9f824235ffe4bf112f626344a6049176de7",
+      "relation": "IMPLEMENTED_BY",
+      "target": "implementation-8c97fd446c408009c57f9b5ca9f711b09165ba446032e3718e51345a49b99a04"
+    },
+    {
+      "source": "capability-1f3c65fc5d7b3c4f8787520e76f33f52ae9fb6d6fca204e5028600a454ae896c",
+      "relation": "IMPLEMENTED_BY",
+      "target": "implementation-12f108c33779c75b96a8175c245220fa44789bae8905e1b1fd1fcc1586384b9a"
+    },
+    {
+      "source": "capability-1f3c65fc5d7b3c4f8787520e76f33f52ae9fb6d6fca204e5028600a454ae896c",
+      "relation": "IMPLEMENTED_BY",
+      "target": "implementation-6d5591deb6ea5a4266f79190aa3b96f300586ee65197843f274e072f4ba11eb3"
+    },
+    {
+      "source": "capability-1f3c65fc5d7b3c4f8787520e76f33f52ae9fb6d6fca204e5028600a454ae896c",
+      "relation": "IMPLEMENTED_BY",
+      "target": "implementation-8c97fd446c408009c57f9b5ca9f711b09165ba446032e3718e51345a49b99a04"
+    },
+    {
+      "source": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "relation": "IMPLEMENTED_BY",
+      "target": "implementation-007f69fa6faa895d34e3f69d39b7788c025de2c30356dd8b232743775c1515a1"
+    },
+    {
+      "source": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "relation": "IMPLEMENTED_BY",
+      "target": "implementation-dbe379c56eeddfeb84003e365eb065c6da28cfbb752923a2adf144d00ed49923"
+    },
+    {
+      "source": "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+      "relation": "IMPLEMENTED_BY",
+      "target": "implementation-4d3eb0dd0f20e0de39fc4bc21eb998ed07ed7fff31e02ce9239fd7b5ff9efcb8"
+    },
+    {
+      "source": "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+      "relation": "IMPLEMENTED_BY",
+      "target": "implementation-fbe45669e98348b3965e0bc9d83d4dc85c874b299eaa2c2eb1878e1429537436"
+    },
+    {
+      "source": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "relation": "IMPLEMENTED_BY",
+      "target": "implementation-544176ef6269564d77c7d0c0641b9bb6491217085c50fa8a31f71009b843087e"
+    },
+    {
+      "source": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "relation": "IMPLEMENTED_BY",
+      "target": "implementation-e7bc81a101bbf9b1c2128038746f001bb735a6edeb54e2f45813ca3e101954fd"
+    },
+    {
+      "source": "capability-abc4f717d95455231d256fe6ec365f23a937eed9a88018c605b51f7761c52901",
+      "relation": "IMPLEMENTED_BY",
+      "target": "implementation-12f108c33779c75b96a8175c245220fa44789bae8905e1b1fd1fcc1586384b9a"
+    },
+    {
+      "source": "capability-abc4f717d95455231d256fe6ec365f23a937eed9a88018c605b51f7761c52901",
+      "relation": "IMPLEMENTED_BY",
+      "target": "implementation-6d5591deb6ea5a4266f79190aa3b96f300586ee65197843f274e072f4ba11eb3"
+    },
+    {
+      "source": "capability-abc4f717d95455231d256fe6ec365f23a937eed9a88018c605b51f7761c52901",
+      "relation": "IMPLEMENTED_BY",
+      "target": "implementation-8c97fd446c408009c57f9b5ca9f711b09165ba446032e3718e51345a49b99a04"
+    },
+    {
+      "source": "capability-e454289236bce0b68e39b11fab98c2a8f0414854313045592ebed3a55829f666",
+      "relation": "IMPLEMENTED_BY",
+      "target": "implementation-12f108c33779c75b96a8175c245220fa44789bae8905e1b1fd1fcc1586384b9a"
+    },
+    {
+      "source": "capability-e454289236bce0b68e39b11fab98c2a8f0414854313045592ebed3a55829f666",
+      "relation": "IMPLEMENTED_BY",
+      "target": "implementation-6d5591deb6ea5a4266f79190aa3b96f300586ee65197843f274e072f4ba11eb3"
+    },
+    {
+      "source": "capability-ff8066d670fa967b64b90e20a6630d5876d662bea456962796dbef42c85353cc",
+      "relation": "IMPLEMENTED_BY",
+      "target": "implementation-12f108c33779c75b96a8175c245220fa44789bae8905e1b1fd1fcc1586384b9a"
+    },
+    {
+      "source": "capability-ff8066d670fa967b64b90e20a6630d5876d662bea456962796dbef42c85353cc",
+      "relation": "IMPLEMENTED_BY",
+      "target": "implementation-6d5591deb6ea5a4266f79190aa3b96f300586ee65197843f274e072f4ba11eb3"
+    },
+    {
+      "source": "experience-28261ff5036418de4931b95a7979e8c83bd1a79520de9c5ec3d0e31a86cf384a",
+      "relation": "LEARNED_FROM",
+      "target": "validation-fb320d29d814daf7b9fb9b8153778a9a033801ec39b5c2b9872ab753a2f59ec2"
+    },
+    {
+      "source": "experience-33fa7893ae906db434b2723d3dd730dde4b784da34beff8ee70a2d4bb403c617",
+      "relation": "LEARNED_FROM",
+      "target": "validation-3d4bf2dd4e74116cd5326c75e124deda3d8fab484141c7638e2edb7db228ecc8"
+    },
+    {
+      "source": "experience-348f942f9a704ce2227f6b23c426c51c5bcd8b4b55f9f4b73bb03c745f94b03d",
+      "relation": "LEARNED_FROM",
+      "target": "validation-e3347cffa785be267347bacfd04bed979077a3acc9909d140e1e0b6e2c5513b8"
+    },
+    {
+      "source": "experience-8236840086e321100c3d952e75b5a676892b3b8fb376899fdf6ac8bb175e754a",
+      "relation": "LEARNED_FROM",
+      "target": "validation-aadf95569c4da8e181e25320d307c2e24a575a371a49e24d8713c9c8a19ba327"
+    },
+    {
+      "source": "experience-94618e25cc7e025123c868ba915e05d37d501d46d7a25b1583382284ced797b5",
+      "relation": "LEARNED_FROM",
+      "target": "validation-33c7449bf1b32f09b50793a690f451520eec2621325411503d4923803542eb66"
+    },
+    {
+      "source": "experience-9b8072428ed1a540dd4087b2cd4a3dda6569590d3737f6091bdf0f7f4cecce37",
+      "relation": "LEARNED_FROM",
+      "target": "validation-9f9bc56b33eee663cd19c7ccee7c84d3d93968796149878a3b3090a06aee24d1"
+    },
+    {
+      "source": "experience-b18de1d9a778bd799b9ce281e6b1d7de93bb68451610df9da00e4a0dcabcc043",
+      "relation": "LEARNED_FROM",
+      "target": "validation-51a420f41f9dbf6226362b5947941cd11169c24ef40ec7df5a0ed10666b41ee8"
+    },
+    {
+      "source": "experience-eb429c4fbfb030471112eeeb78e20cfaf4487d1709d48310f957174ca7c39b88",
+      "relation": "LEARNED_FROM",
+      "target": "validation-2eda22c0abf1bb252b8ea022693c2f9b29893e710b02d48e519b15d71c347e37"
+    },
+    {
+      "source": "experience-fcbdcdad493a450399dc558b7abeb550068588b2d5df01d94e72e16a5a68a476",
+      "relation": "LEARNED_FROM",
+      "target": "validation-69d47842744f05326911c51d669d785003a1b9065e8c20fda27959ed2e2180c8"
+    },
+    {
+      "source": "implementation-007f69fa6faa895d34e3f69d39b7788c025de2c30356dd8b232743775c1515a1",
+      "relation": "EVALUATED_BY",
+      "target": "validation-2eda22c0abf1bb252b8ea022693c2f9b29893e710b02d48e519b15d71c347e37"
+    },
+    {
+      "source": "implementation-12f108c33779c75b96a8175c245220fa44789bae8905e1b1fd1fcc1586384b9a",
+      "relation": "EVALUATED_BY",
+      "target": "validation-51a420f41f9dbf6226362b5947941cd11169c24ef40ec7df5a0ed10666b41ee8"
+    },
+    {
+      "source": "implementation-4d3eb0dd0f20e0de39fc4bc21eb998ed07ed7fff31e02ce9239fd7b5ff9efcb8",
+      "relation": "EVALUATED_BY",
+      "target": "validation-69d47842744f05326911c51d669d785003a1b9065e8c20fda27959ed2e2180c8"
+    },
+    {
+      "source": "implementation-544176ef6269564d77c7d0c0641b9bb6491217085c50fa8a31f71009b843087e",
+      "relation": "EVALUATED_BY",
+      "target": "validation-33c7449bf1b32f09b50793a690f451520eec2621325411503d4923803542eb66"
+    },
+    {
+      "source": "implementation-6d5591deb6ea5a4266f79190aa3b96f300586ee65197843f274e072f4ba11eb3",
+      "relation": "EVALUATED_BY",
+      "target": "validation-fb320d29d814daf7b9fb9b8153778a9a033801ec39b5c2b9872ab753a2f59ec2"
+    },
+    {
+      "source": "implementation-8c97fd446c408009c57f9b5ca9f711b09165ba446032e3718e51345a49b99a04",
+      "relation": "EVALUATED_BY",
+      "target": "validation-e3347cffa785be267347bacfd04bed979077a3acc9909d140e1e0b6e2c5513b8"
+    },
+    {
+      "source": "implementation-dbe379c56eeddfeb84003e365eb065c6da28cfbb752923a2adf144d00ed49923",
+      "relation": "EVALUATED_BY",
+      "target": "validation-9f9bc56b33eee663cd19c7ccee7c84d3d93968796149878a3b3090a06aee24d1"
+    },
+    {
+      "source": "implementation-e7bc81a101bbf9b1c2128038746f001bb735a6edeb54e2f45813ca3e101954fd",
+      "relation": "EVALUATED_BY",
+      "target": "validation-3d4bf2dd4e74116cd5326c75e124deda3d8fab484141c7638e2edb7db228ecc8"
+    },
+    {
+      "source": "implementation-fbe45669e98348b3965e0bc9d83d4dc85c874b299eaa2c2eb1878e1429537436",
+      "relation": "EVALUATED_BY",
+      "target": "validation-aadf95569c4da8e181e25320d307c2e24a575a371a49e24d8713c9c8a19ba327"
+    }
+  ],
+  "verification_scope": {
+    "new_execution_task_ids": [
+      "ui-061bbc0f5eff41d0",
+      "ui-8072f05359334d6e"
+    ],
+    "retained_cpu_example": "ui-ac5fa8e7cab64a6d",
+    "historical_feedback_example": "ui-96ad0eca55c14f59",
+    "new_model_requests": 10,
+    "budget_before": 44,
+    "budget_after": 54,
+    "budget_limit": 60
+  }
+}

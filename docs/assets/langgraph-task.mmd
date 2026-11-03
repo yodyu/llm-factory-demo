@@ -1,0 +1,63 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	preflight(preflight)
+	freeze_knowledge(freeze_knowledge)
+	initialize_task(initialize_task)
+	bind_inputs(bind_inputs)
+	retrieve_knowledge(retrieve_knowledge)
+	plan_candidates(plan_candidates)
+	next_candidate(next_candidate)
+	run_candidate(run_candidate)
+	record_candidate(record_candidate)
+	select_candidate(select_candidate)
+	freeze_selection(freeze_selection)
+	final_evaluate(final_evaluate)
+	resolve_outcome(resolve_outcome)
+	record_failure(record_failure)
+	cleanup(cleanup)
+	write_report(write_report)
+	publish(publish)
+	export(export)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> preflight;
+	bind_inputs -. &nbsp;failure&nbsp; .-> record_failure;
+	bind_inputs -. &nbsp;next&nbsp; .-> retrieve_knowledge;
+	cleanup --> write_report;
+	final_evaluate -. &nbsp;failure&nbsp; .-> record_failure;
+	final_evaluate -. &nbsp;next&nbsp; .-> resolve_outcome;
+	freeze_knowledge -. &nbsp;next&nbsp; .-> initialize_task;
+	freeze_knowledge -. &nbsp;failure&nbsp; .-> record_failure;
+	freeze_selection -. &nbsp;next&nbsp; .-> final_evaluate;
+	freeze_selection -. &nbsp;failure&nbsp; .-> record_failure;
+	initialize_task -. &nbsp;next&nbsp; .-> bind_inputs;
+	initialize_task -. &nbsp;failure&nbsp; .-> record_failure;
+	next_candidate -. &nbsp;failure&nbsp; .-> record_failure;
+	next_candidate -. &nbsp;candidate&nbsp; .-> run_candidate;
+	next_candidate -. &nbsp;select&nbsp; .-> select_candidate;
+	plan_candidates -. &nbsp;next&nbsp; .-> next_candidate;
+	plan_candidates -. &nbsp;failure&nbsp; .-> record_failure;
+	preflight -. &nbsp;next&nbsp; .-> freeze_knowledge;
+	preflight -. &nbsp;failure&nbsp; .-> record_failure;
+	publish -. &nbsp;done&nbsp; .-> __end__;
+	publish -.-> export;
+	record_candidate -. &nbsp;next&nbsp; .-> next_candidate;
+	record_candidate -. &nbsp;failure&nbsp; .-> record_failure;
+	record_failure --> cleanup;
+	resolve_outcome -. &nbsp;next&nbsp; .-> cleanup;
+	resolve_outcome -. &nbsp;failure&nbsp; .-> record_failure;
+	retrieve_knowledge -. &nbsp;next&nbsp; .-> plan_candidates;
+	retrieve_knowledge -. &nbsp;failure&nbsp; .-> record_failure;
+	run_candidate -. &nbsp;next&nbsp; .-> record_candidate;
+	run_candidate -. &nbsp;failure&nbsp; .-> record_failure;
+	select_candidate -. &nbsp;next&nbsp; .-> freeze_selection;
+	select_candidate -. &nbsp;failure&nbsp; .-> record_failure;
+	write_report --> publish;
+	export --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc

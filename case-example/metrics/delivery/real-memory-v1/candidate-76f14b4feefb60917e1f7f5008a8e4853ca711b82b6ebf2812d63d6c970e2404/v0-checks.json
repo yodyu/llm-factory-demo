@@ -1,0 +1,39 @@
+{
+  "protocol": "metrics-method-check/1",
+  "candidate_id": "memory_utilization_fixed_u85_p2",
+  "version": 0,
+  "origin": "llm_api",
+  "source_sha256": "sha256:3c34f4831f3df6320976858d129869127782c219154017e0f739dd98abddaa57",
+  "config": {
+    "method_id": "fixed_threshold",
+    "threshold": 85.0,
+    "direction": "upper"
+  },
+  "dependency_profile": "metrics-py312-stdlib/1",
+  "checks": [
+    {
+      "check": "static_profile",
+      "passed": true
+    },
+    {
+      "check": "fixed_strict_boundary",
+      "passed": true,
+      "points": 3
+    },
+    {
+      "check": "fixed_missing",
+      "passed": true,
+      "points": 6
+    },
+    {
+      "check": "state_reload",
+      "passed": true
+    },
+    {
+      "check": "reset_repeat_future_invariance",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "repairable": true
+}

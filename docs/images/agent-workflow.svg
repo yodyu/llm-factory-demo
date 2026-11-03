@@ -1,0 +1,132 @@
+<svg id="flow-diagram" xmlns="http://www.w3.org/2000/svg" width="1440" height="1640" viewBox="0 0 1440 1640" role="img" aria-labelledby="flow-title flow-desc">
+<title id="flow-title">Agent 工作流：任务主图与候选子图</title>
+<desc id="flow-desc">提交前完成需求核对、材料导入与专家插件注册。检索相关度不足时直接进入失败收尾，不进入规划和生成。任务主图检索、规划、顺序调度候选子图、选优和最终评价；候选子图从冻结规格生成代码，结合同方法开发经验，完成分层验证、有限修复、按插件决定的校准和开发评价。正常结果与已注册任务的失败均进入清理和报告收尾。</desc>
+<defs>
+<marker id="flow-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 7 3.5 0 7" fill="none" stroke="#7b8a94" stroke-width="1.3"/></marker>
+<marker id="flow-data-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 7 3.5 0 7" fill="none" stroke="#238679" stroke-width="1.3"/></marker>
+<style>
+#flow-diagram text{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;fill:#223845}
+#flow-diagram .heading{font-size:28px;font-weight:650;letter-spacing:-.6px}
+#flow-diagram .name{font-size:22px;font-weight:600}
+#flow-diagram .note{font-size:16px;fill:#70838c}
+#flow-diagram .zone{font-size:17px;fill:#5a727d;font-weight:600}
+#flow-diagram .tiny{font-size:14px;fill:#70838c}
+#flow-diagram .normal{fill:#fff;stroke:#d6e1e5;stroke-width:1.2}
+#flow-diagram .model{fill:#e3f2ed;stroke:#78b5a8;stroke-width:1.4}
+#flow-diagram .failure{fill:#fff0ed;stroke:#d5a397;stroke-width:1.2}
+#flow-diagram .wire{fill:none;stroke:#7b8a94;stroke-width:1.7;marker-end:url(#flow-arrow)}
+#flow-diagram .data{fill:none;stroke:#238679;stroke-width:1.7;stroke-dasharray:6 4;marker-end:url(#flow-data-arrow)}
+</style></defs>
+<rect width="1440" height="1640" rx="20" fill="#fafcfd"/>
+<rect x="40" y="36" width="4" height="30" rx="2" fill="#208777"/>
+
+<text x="58" y="61" class="heading" text-anchor="start">Agent 工作流</text>
+<text x="58" y="94" class="note" text-anchor="start">LangGraph 组织任务调度与候选验证，保留代码、知识和评价证据</text>
+<rect x="750" y="43" width="26" height="18" rx="4" class="model"/>
+<text x="788" y="59" class="tiny" text-anchor="start">模型规划、生成与修复</text>
+<rect x="750" y="78" width="26" height="18" rx="4" class="failure"/>
+<text x="788" y="94" class="tiny" text-anchor="start">失败记录分支</text>
+<path d="M 1000 53 H 1034" class="wire"/>
+<text x="1046" y="59" class="tiny" text-anchor="start">执行</text>
+<path d="M 1130 53 H 1164" class="data"/>
+<text x="1176" y="59" class="tiny" text-anchor="start">知识引用</text>
+<rect x="40" y="350" width="700" height="1140" rx="16" fill="#f0f5f6" stroke="#dce6e9"/>
+<rect x="790" y="350" width="610" height="1020" rx="16" fill="#f0f5f6" stroke="#dce6e9"/>
+<rect x="40" y="124" width="1360" height="170" rx="16" fill="#f3f3f8" stroke="#e0e2eb"/>
+<text x="64" y="154" class="zone" text-anchor="start">提交前准备 · 独立于检测任务图</text>
+<rect x="96" y="180" width="500" height="78" rx="12" class="normal"/>
+<text x="346.0" y="212" class="name" text-anchor="middle">理解并确认需求与数据</text>
+<text x="346.0" y="238" class="note" text-anchor="middle">人工核对 · 模拟数据 / CSV · 形成结构化任务</text>
+<rect x="840" y="180" width="500" height="78" rx="12" class="normal"/>
+<text x="1090.0" y="212" class="name" text-anchor="middle">材料导入与能力注册</text>
+<text x="1090.0" y="238" class="note" text-anchor="middle">CLI 导入文档 / Python 源码 · 注册可信插件</text>
+<path d="M346 258 V410" class="wire"/>
+<text x="360" y="325" class="tiny" text-anchor="start">Web 后台任务 / CLI 提交</text>
+
+<text x="64" y="383" class="zone" text-anchor="start">任务主图 · 调度与收尾</text>
+<rect x="96" y="410" width="500" height="78" rx="12" class="normal"/>
+<text x="346.0" y="442" class="name" text-anchor="middle">预检与任务初始化</text>
+<text x="346.0" y="468" class="note" text-anchor="middle">冻结知识快照 · 注册任务 · 绑定输入</text>
+<path d="M346 488 V530" class="wire"/>
+<rect x="96" y="530" width="500" height="78" rx="12" class="normal"/>
+<text x="346.0" y="562" class="name" text-anchor="middle">检索相关知识</text>
+<text x="346.0" y="588" class="note" text-anchor="middle">相关度门槛 · 冻结引用 · 筛选开发经验</text>
+<path d="M1090 258 V316 H710 V569 H596" class="data"/>
+<text x="722" y="450" class="tiny" text-anchor="end">快照 / 检索</text>
+<path d="M346 608 V650" class="wire"/>
+<path d="M96 569 H48 V1329 H96" fill="none" stroke="#b77767" stroke-width="1.7" marker-end="url(#flow-arrow)"/>
+<text x="29" y="955" class="tiny" style="fill:#a46253" text-anchor="middle" transform="rotate(-90 29 955)">NO_RELEVANT_CAPABILITY · 不进入规划或生成</text>
+<rect x="96" y="650" width="500" height="78" rx="12" class="model"/>
+<text x="346.0" y="682" class="name" text-anchor="middle">规划候选方案</text>
+<text x="346.0" y="708" class="note" text-anchor="middle">1～预算上限个 · 引用能力 ID 与选择理由</text>
+<path d="M346 728 V770" class="wire"/>
+<rect x="96" y="770" width="500" height="78" rx="12" class="normal"/>
+<text x="346.0" y="802" class="name" text-anchor="middle">取下一个候选</text>
+<text x="346.0" y="828" class="note" text-anchor="middle">按顺序调用候选子图 · 当前不并行</text>
+<path d="M596 809 H765 V639 H840" class="wire"/>
+<text x="767" y="574" class="tiny" text-anchor="middle">有候选</text>
+<rect x="96" y="900" width="500" height="78" rx="12" class="normal"/>
+<text x="346.0" y="932" class="name" text-anchor="middle">记录候选结果</text>
+<text x="346.0" y="958" class="note" text-anchor="middle">保留成功 / 失败记录 · 推进候选游标</text>
+<path d="M96 939 H70 V809 H96" class="wire"/>
+<text x="83" y="878" class="tiny" text-anchor="start">继续</text>
+<path d="M596 835 H670 V1069 H596" class="wire"/>
+<text x="658" y="1005" class="tiny" text-anchor="end">候选遍历完毕</text>
+<rect x="96" y="1030" width="500" height="78" rx="12" class="normal"/>
+<text x="346.0" y="1062" class="name" text-anchor="middle">比较选优并冻结方案</text>
+<text x="346.0" y="1088" class="note" text-anchor="middle">依据开发集结果及验收条件选定代码与参数</text>
+<path d="M346 1108 V1150" class="wire"/>
+<rect x="96" y="1150" width="500" height="78" rx="12" class="normal"/>
+<text x="346.0" y="1182" class="name" text-anchor="middle">最终评价与结果判定</text>
+<text x="346.0" y="1208" class="note" text-anchor="middle">独立测试数据 · 不再修复、调参或重选</text>
+<path d="M96 1069 H60 V1329 H96" class="wire"/>
+<text x="82" y="1251" class="tiny" text-anchor="start">没有可选方案</text>
+<rect x="96" y="1290" width="500" height="78" rx="12" class="failure"/>
+<text x="346.0" y="1322" class="name" text-anchor="middle">记录任务失败 / 待补充输入</text>
+<text x="346.0" y="1348" class="note" text-anchor="middle">其他业务错误、额度耗尽、超时等也转入此分支</text>
+<text x="96" y="1410" class="tiny" text-anchor="start">普通候选失败可继续；致命错误终止候选遍历。</text>
+<text x="96" y="1440" class="tiny" text-anchor="start">输入不完整时返回补充提示，不启动算法生成。</text>
+
+<text x="814" y="383" class="zone" text-anchor="start">候选子图 · 生成与验证</text>
+<text x="814" y="414" class="note" text-anchor="start">逐个执行候选方案</text>
+<text x="814" y="444" class="tiny" text-anchor="start">保留每版代码与验证反馈；异常进入失败记录</text>
+<text x="814" y="474" class="tiny" text-anchor="start">缺冻结规格 → NEEDS_KNOWLEDGE，不调用生成模型</text>
+<rect x="840" y="600" width="330" height="78" rx="12" class="model"/>
+<text x="1005.0" y="632" class="name" text-anchor="middle">准备并生成代码</text>
+<text x="1005.0" y="658" class="note" text-anchor="middle">冻结规格 + 同方法开发经验</text>
+<path d="M1005 678 V720" class="wire"/>
+
+<rect x="840" y="720" width="330" height="78" rx="12" class="normal"/>
+<text x="1005.0" y="752" class="name" text-anchor="middle">隔离运行并验证</text>
+<text x="1005.0" y="778" class="note" text-anchor="middle">通用契约 → 属性 → 可选参考</text>
+<rect x="1210" y="720" width="160" height="78" rx="12" class="model"/>
+<text x="1290.0" y="752" class="name" text-anchor="middle">检查修复额度</text>
+<text x="1290.0" y="778" class="note" text-anchor="middle">需额度 · 最多两轮</text>
+<path d="M1170 759 H1210" class="wire"/>
+<text x="1190" y="698" class="tiny" text-anchor="middle">可修复且未达上限</text>
+<path d="M1290 720 V510 H1005 V600" class="wire"/>
+<text x="1110" y="498" class="tiny" text-anchor="middle">带入上一版代码与反馈</text>
+<path d="M1005 798 V860" class="wire"/>
+<text x="1019" y="835" class="tiny" text-anchor="start">验证通过</text>
+<rect x="840" y="860" width="330" height="78" rx="12" class="normal"/>
+<text x="1005.0" y="892" class="name" text-anchor="middle">校准与开发集评价</text>
+<text x="1005.0" y="918" class="note" text-anchor="middle">按插件决定校准 · 使用开发集评价</text>
+<path d="M1005 938 V980" class="wire"/>
+<rect x="840" y="980" width="330" height="78" rx="12" class="normal"/>
+<text x="1005.0" y="1012" class="name" text-anchor="middle">完成候选</text>
+<text x="1005.0" y="1038" class="note" text-anchor="middle">保存候选结果与验收情况</text>
+<rect x="840" y="1150" width="480" height="78" rx="12" class="failure"/>
+<text x="1080.0" y="1182" class="name" text-anchor="middle">记录候选失败</text>
+<text x="1080.0" y="1208" class="note" text-anchor="middle">缺规格 / 不可修复 / 额度用完 / 执行异常</text>
+<path d="M840 759 H812 V1189 H840" class="wire"/>
+<text x="826" y="1090" class="tiny" text-anchor="start">验证未通过且不能继续修复</text>
+<path d="M1170 1019 H1355 V1260 H765 V939 H596" class="wire"/>
+<path d="M1080 1228 V1260" class="wire"/>
+<text x="1090" y="1293" class="tiny" text-anchor="middle">返回主图记录候选结果</text>
+
+<path d="M596 1189 H700 V1510" class="wire"/>
+<path d="M346 1368 V1510" class="wire"/>
+<rect x="96" y="1510" width="1248" height="94" rx="12" class="normal"/>
+<text x="720.0" y="1542" class="name" text-anchor="middle">统一收尾：清理 → 保存报告 → 回写知识 → 导出交付包</text>
+<text x="720.0" y="1568" class="note" text-anchor="middle">保存 orchestration.json 节点事件及摘要 · 发布失败保留待重试状态 · 导出按调用配置执行</text>
+</svg>

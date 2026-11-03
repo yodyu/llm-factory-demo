@@ -1,0 +1,35 @@
+{
+  "schema_version": "metrics-dataset/1",
+  "dataset_id": "sim-disk_peaks-v1",
+  "host_id": "sim-host-a",
+  "metric": "disk_latency",
+  "unit": "ms",
+  "metric_kind": "gauge",
+  "sampling_seconds": 60,
+  "valid_range": [
+    0.0,
+    1000.0
+  ],
+  "roles": {
+    "train": {
+      "path": "train.csv",
+      "sha256": "sha256:aae32799a207777779169ed758c368a8cd2c6f489c24db56b858c56a2480cb69",
+      "prefix_points": 60
+    },
+    "calibration": {
+      "path": "calibration.csv",
+      "sha256": "sha256:477550f0380243df90bd643ad60477c6085ffe8624c09598ff7d9fc20235cc47",
+      "prefix_points": 60
+    },
+    "development": {
+      "path": "development.csv",
+      "sha256": "sha256:ebe1739689829b4f8ee824e13951fe359c02cf76d6d6fed23e348b85e31a5391",
+      "prefix_points": 60
+    },
+    "test": {
+      "path": "test.csv",
+      "sha256": "sha256:ee896583a7c7b1b1e8b76c5e1adb3d3ad544b1e38aeba8809a6c1a9e8b33be66",
+      "prefix_points": 60
+    }
+  }
+}

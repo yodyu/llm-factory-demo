@@ -1,0 +1,226 @@
+[
+  {
+    "operation_id": "ingest-bugfix-20261103-1:extract-0:format-0",
+    "task_id": "ingest-bugfix-20261103-1",
+    "resource": "model",
+    "status": "SUCCEEDED",
+    "metadata": "{\"actual_model\":\"doubao-seed-2-1-pro-260915\",\"elapsed_seconds\":13.128187075257301,\"failure_code\":null,\"input_tokens\":2200,\"output_tokens\":858,\"profile_id\":\"metrics-c9a0036e73b91ba3\"}",
+    "result_ref": "sha256:193e7b4e63b68e095943d5a26984a266a3219f6a83d746b15116db7d46b46200"
+  },
+  {
+    "operation_id": "ingest-bugfix-20261103-1:extract-1:format-0",
+    "task_id": "ingest-bugfix-20261103-1",
+    "resource": "model",
+    "status": "SUCCEEDED",
+    "metadata": "{\"actual_model\":\"doubao-seed-2-1-pro-260915\",\"elapsed_seconds\":15.546425882726908,\"failure_code\":null,\"input_tokens\":2200,\"output_tokens\":868,\"profile_id\":\"metrics-c9a0036e73b91ba3\"}",
+    "result_ref": "sha256:a4bc9e34c0467c66f396daa41f67c40aa6ca0e91c167e010908b9a13b1c2ba1e"
+  },
+  {
+    "operation_id": "ingest-bugfix-20261103-1:extract-2:format-0",
+    "task_id": "ingest-bugfix-20261103-1",
+    "resource": "model",
+    "status": "SUCCEEDED",
+    "metadata": "{\"actual_model\":\"doubao-seed-2-1-pro-260915\",\"elapsed_seconds\":21.91979229450226,\"failure_code\":null,\"input_tokens\":2337,\"output_tokens\":978,\"profile_id\":\"metrics-c9a0036e73b91ba3\"}",
+    "result_ref": "sha256:1d0afc8c7252582dadc7d118d1e84b272e92df2327a85bb544dd5c751785bfa2"
+  },
+  {
+    "operation_id": "ingest-bugfix-20261103-1:extract-3:format-0",
+    "task_id": "ingest-bugfix-20261103-1",
+    "resource": "model",
+    "status": "SUCCEEDED",
+    "metadata": "{\"actual_model\":\"doubao-seed-2-1-pro-260915\",\"elapsed_seconds\":31.07493918016553,\"failure_code\":null,\"input_tokens\":2226,\"output_tokens\":1450,\"profile_id\":\"metrics-c9a0036e73b91ba3\"}",
+    "result_ref": "sha256:5d3e1f1f8f256e814284b393f9f2ca3419bedd9d2e5966dce0407b57e10d5fa0"
+  },
+  {
+    "operation_id": "ingest-bugfix-20261103-1:extract-3:format-1",
+    "task_id": "ingest-bugfix-20261103-1",
+    "resource": "model",
+    "status": "SUCCEEDED",
+    "metadata": "{\"actual_model\":\"doubao-seed-2-1-pro-260915\",\"elapsed_seconds\":25.041123535484076,\"failure_code\":null,\"input_tokens\":3799,\"output_tokens\":1367,\"profile_id\":\"metrics-c9a0036e73b91ba3\"}",
+    "result_ref": "sha256:d60b996d3ffc39736d2d97ad7ec184acd84c8756bbcf4d3be8ba1f416c5e9d67"
+  },
+  {
+    "operation_id": "ingest-bugfix-20261103-1:extract-4:format-0",
+    "task_id": "ingest-bugfix-20261103-1",
+    "resource": "model",
+    "status": "SUCCEEDED",
+    "metadata": "{\"actual_model\":\"doubao-seed-2-1-pro-260915\",\"elapsed_seconds\":30.029791589826345,\"failure_code\":null,\"input_tokens\":2192,\"output_tokens\":1468,\"profile_id\":\"metrics-c9a0036e73b91ba3\"}",
+    "result_ref": "sha256:3c0929180105c4e942738fa7cd81fbdf13ac72d5e17fc496bb65f96bc11507a6"
+  },
+  {
+    "operation_id": "ingest-bugfix-20261103-1:extract-5:format-0",
+    "task_id": "ingest-bugfix-20261103-1",
+    "resource": "model",
+    "status": "SUCCEEDED",
+    "metadata": "{\"actual_model\":\"doubao-seed-2-1-pro-260915\",\"elapsed_seconds\":28.3066413551569,\"failure_code\":null,\"input_tokens\":2448,\"output_tokens\":1673,\"profile_id\":\"metrics-c9a0036e73b91ba3\"}",
+    "result_ref": "sha256:a98d076863a313d71f34431ce7a8312b6f5159dec204802c9dacfe6677010074"
+  },
+  {
+    "operation_id": "ingest-bugfix-20261103-1:extract-6:format-0",
+    "task_id": "ingest-bugfix-20261103-1",
+    "resource": "model",
+    "status": "SUCCEEDED",
+    "metadata": "{\"actual_model\":\"doubao-seed-2-1-pro-260915\",\"elapsed_seconds\":30.52203243225813,\"failure_code\":null,\"input_tokens\":4362,\"output_tokens\":1573,\"profile_id\":\"metrics-c9a0036e73b91ba3\"}",
+    "result_ref": "sha256:62b2a62ac1d445defbafcb9f6716bffec3d7ec27b06cd8681bd3ba68a9b152f4"
+  },
+  {
+    "operation_id": "ingest-bugfix-20261103-1:extract-7:format-0",
+    "task_id": "ingest-bugfix-20261103-1",
+    "resource": "model",
+    "status": "SUCCEEDED",
+    "metadata": "{\"actual_model\":\"doubao-seed-2-1-pro-260915\",\"elapsed_seconds\":27.479464657604694,\"failure_code\":null,\"input_tokens\":5680,\"output_tokens\":1183,\"profile_id\":\"metrics-c9a0036e73b91ba3\"}",
+    "result_ref": "sha256:c732d5a7df00722f34fba1c0fc24bf9347a5e4b63037ea516c73b5d07e203d28"
+  },
+  {
+    "operation_id": "understand-c63e8a497e3d48f3:understand-0:format-0",
+    "task_id": "understand-c63e8a497e3d48f3",
+    "resource": "model",
+    "status": "SUCCEEDED",
+    "metadata": "{\"actual_model\":\"controlled\",\"elapsed_seconds\":0.036245133727788925,\"failure_code\":null,\"input_tokens\":0,\"output_tokens\":0,\"profile_id\":\"metrics-mock-v1\"}",
+    "result_ref": "sha256:a0ecb5b49cf9f6f3de40b690c8cba440cf890f336381ad334d06539c65fcaf49"
+  },
+  {
+    "operation_id": "understand-f08c36f47ec5497c:understand-0:format-0",
+    "task_id": "understand-f08c36f47ec5497c",
+    "resource": "model",
+    "status": "SUCCEEDED",
+    "metadata": "{\"actual_model\":\"doubao-seed-2-1-pro-260915\",\"elapsed_seconds\":5.140739753842354,\"failure_code\":null,\"input_tokens\":970,\"output_tokens\":112,\"profile_id\":\"metrics-c9a0036e73b91ba3\"}",
+    "result_ref": "sha256:aac3324e15d79b850da49d2f3a7848933732a508c54dbfce82479418e45aa8e4"
+  },
+  {
+    "operation_id": "ui-176b9b949a214571:plan:format-0",
+    "task_id": "ui-176b9b949a214571",
+    "resource": "model",
+    "status": "SUCCEEDED",
+    "metadata": "{\"actual_model\":\"doubao-seed-2-1-pro-260915\",\"elapsed_seconds\":48.174940545111895,\"failure_code\":null,\"input_tokens\":36345,\"output_tokens\":2413,\"profile_id\":\"metrics-c9a0036e73b91ba3\"}",
+    "result_ref": "sha256:1820c1aad15ea9f911b2f5f5aba522de447fc0fb956cfc6c8831a6d8dd87ade5"
+  },
+  {
+    "operation_id": "ui-176b9b949a214571:code-ewma_alpha0p3_q99_p2-v0:format-0",
+    "task_id": "ui-176b9b949a214571",
+    "resource": "model",
+    "status": "SUCCEEDED",
+    "metadata": "{\"actual_model\":\"doubao-seed-2-1-pro-260915\",\"elapsed_seconds\":34.44110284000635,\"failure_code\":null,\"input_tokens\":44162,\"output_tokens\":1945,\"profile_id\":\"metrics-c9a0036e73b91ba3\"}",
+    "result_ref": "sha256:64d4d2c16f288325da73c1a9034c427f4ec6795f1469d6b06edd85816d9a3e52"
+  },
+  {
+    "operation_id": "ui-176b9b949a214571:check-ewma_alpha0p3_q99_p2-v0",
+    "task_id": "ui-176b9b949a214571",
+    "resource": "metrics-code",
+    "status": "SUCCEEDED",
+    "metadata": "{}",
+    "result_ref": "sha256:1722078a632e268e43cee33516efa6f44c016d63dad35e839944de4989b53ef2"
+  },
+  {
+    "operation_id": "ui-176b9b949a214571:calibrate-ewma_alpha0p3_q99_p2",
+    "task_id": "ui-176b9b949a214571",
+    "resource": "metrics-code",
+    "status": "SUCCEEDED",
+    "metadata": "{}",
+    "result_ref": "sha256:32066c7252c233c84ee848403cf99a7d6a1cb0d80b9fbaf5591b1454c42df8b5"
+  },
+  {
+    "operation_id": "ui-176b9b949a214571:development-ewma_alpha0p3_q99_p2",
+    "task_id": "ui-176b9b949a214571",
+    "resource": "metrics-code",
+    "status": "SUCCEEDED",
+    "metadata": "{}",
+    "result_ref": "sha256:f775ed113faa2a371808d0b67cd6a8558802511abac2dd90cfca815b973af784"
+  },
+  {
+    "operation_id": "ui-176b9b949a214571:code-fixed_threshold_85_p2-v0:format-0",
+    "task_id": "ui-176b9b949a214571",
+    "resource": "model",
+    "status": "SUCCEEDED",
+    "metadata": "{\"actual_model\":\"doubao-seed-2-1-pro-260915\",\"elapsed_seconds\":24.79186636582017,\"failure_code\":null,\"input_tokens\":43064,\"output_tokens\":1230,\"profile_id\":\"metrics-c9a0036e73b91ba3\"}",
+    "result_ref": "sha256:91832557b062a7b613290fe88bdbca781d91f88cb94e1bec0c612bf58ad74d1b"
+  },
+  {
+    "operation_id": "ui-176b9b949a214571:check-fixed_threshold_85_p2-v0",
+    "task_id": "ui-176b9b949a214571",
+    "resource": "metrics-code",
+    "status": "SUCCEEDED",
+    "metadata": "{}",
+    "result_ref": "sha256:e6758b9c587a1cb08fa752929cf00d0fb261e042a4f3bb1d3187957fc32f5a7e"
+  },
+  {
+    "operation_id": "ui-176b9b949a214571:development-fixed_threshold_85_p2",
+    "task_id": "ui-176b9b949a214571",
+    "resource": "metrics-code",
+    "status": "SUCCEEDED",
+    "metadata": "{}",
+    "result_ref": "sha256:5b6df86233648b556fc841160cf6a7b21ae25759fde69721c68c9cc44a8c67b7"
+  },
+  {
+    "operation_id": "ui-176b9b949a214571:code-rolling_mad_w30_q99_p2-v0:format-0",
+    "task_id": "ui-176b9b949a214571",
+    "resource": "model",
+    "status": "SUCCEEDED",
+    "metadata": "{\"actual_model\":\"doubao-seed-2-1-pro-260915\",\"elapsed_seconds\":50.28650289028883,\"failure_code\":null,\"input_tokens\":46087,\"output_tokens\":2053,\"profile_id\":\"metrics-c9a0036e73b91ba3\"}",
+    "result_ref": "sha256:b9b1b818d4364835324c85a918309cd21025cc3190d41cbcd1d4c26ebad059fa"
+  },
+  {
+    "operation_id": "ui-176b9b949a214571:check-rolling_mad_w30_q99_p2-v0",
+    "task_id": "ui-176b9b949a214571",
+    "resource": "metrics-code",
+    "status": "SUCCEEDED",
+    "metadata": "{}",
+    "result_ref": "sha256:3f3fd62eab24ee45f089c36447a19fa8d555f98c94c4c43f6e8cd2b1a1f5e0c5"
+  },
+  {
+    "operation_id": "ui-176b9b949a214571:calibrate-rolling_mad_w30_q99_p2",
+    "task_id": "ui-176b9b949a214571",
+    "resource": "metrics-code",
+    "status": "SUCCEEDED",
+    "metadata": "{}",
+    "result_ref": "sha256:6b252a41ae5b2f989624fd73f215a56d4d686080e4f33ca27efd961db6dc9559"
+  },
+  {
+    "operation_id": "ui-176b9b949a214571:development-rolling_mad_w30_q99_p2",
+    "task_id": "ui-176b9b949a214571",
+    "resource": "metrics-code",
+    "status": "SUCCEEDED",
+    "metadata": "{}",
+    "result_ref": "sha256:1798c41e2ef8f99486aefc6255a4159bc0665a3a62c722617d57b21fc67da58c"
+  },
+  {
+    "operation_id": "ui-176b9b949a214571:code-threshold_probe_85_p2-v0:format-0",
+    "task_id": "ui-176b9b949a214571",
+    "resource": "model",
+    "status": "SUCCEEDED",
+    "metadata": "{\"actual_model\":\"doubao-seed-2-1-pro-260915\",\"elapsed_seconds\":25.861413080245256,\"failure_code\":null,\"input_tokens\":43291,\"output_tokens\":1453,\"profile_id\":\"metrics-c9a0036e73b91ba3\"}",
+    "result_ref": "sha256:c4ebb5d5fa28a2ff947d329094279608b070c55c67b4a4476b5bd4adf8244ed5"
+  },
+  {
+    "operation_id": "ui-176b9b949a214571:check-threshold_probe_85_p2-v0",
+    "task_id": "ui-176b9b949a214571",
+    "resource": "metrics-code",
+    "status": "SUCCEEDED",
+    "metadata": "{}",
+    "result_ref": "sha256:e0641dcb9cf97163cb21c4a066878fb6239e18eecaa3d802f29832077684c4eb"
+  },
+  {
+    "operation_id": "ui-176b9b949a214571:development-threshold_probe_85_p2",
+    "task_id": "ui-176b9b949a214571",
+    "resource": "metrics-code",
+    "status": "SUCCEEDED",
+    "metadata": "{}",
+    "result_ref": "sha256:8353aec6e8e70a1af210354b9d5806df700f2028a7f5c5e216228684ee2f4e85"
+  },
+  {
+    "operation_id": "ui-176b9b949a214571:final-test",
+    "task_id": "ui-176b9b949a214571",
+    "resource": "metrics-code",
+    "status": "SUCCEEDED",
+    "metadata": "{}",
+    "result_ref": "sha256:f17d56ab6fce571d62da9857d09323f238e2dfcab011c8c04b6bdaf77658a69c"
+  },
+  {
+    "operation_id": "ui-176b9b949a214571:knowledge:publication-2f3a15d5f8999d8956aab9e1dd1c279a09f158bba89c98772be47a980bd67701",
+    "task_id": "ui-176b9b949a214571",
+    "resource": "knowledge-publication",
+    "status": "SUCCEEDED",
+    "metadata": "{\"payload_ref\":\"sha256:088dbda652e262b59174b7f2cfc8aeded4b66dce4b884355f11f5706c86e8747\",\"publication_id\":\"publication-2f3a15d5f8999d8956aab9e1dd1c279a09f158bba89c98772be47a980bd67701\"}",
+    "result_ref": "sha256:11c113d49983d8938f99807036438c61392758c515aa537887f89154f7124306"
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "status": "SUCCEEDED",
+  "output": "/path/to/llm-factory/real-web-revalidation-20261102/demo/.runtime/poc/runs/task-6722d84bc08972e97291236bacfab63d4c8ac2097b4ef3e7e851bcc246d651c5/delivery.zip",
+  "files": 113,
+  "sha256": "sha256:6886d6cb7a8f29f8db7fdf626026ac0319c044ca5e0c0fccd3ce13a9ecaa6ec2"
+}

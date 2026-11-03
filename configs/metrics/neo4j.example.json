@@ -1,0 +1,6 @@
+{
+  "uri": "bolt://127.0.0.1:7688",
+  "database": "neo4j",
+  "namespace": "metrics-review-CHANGE-ME",
+  "auth_file": "/server-only/secrets/neo4j-auth"
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "metrics-dataset/1",
+  "dataset_id": "sim-memory_drift-v1",
+  "host_id": "sim-host-a",
+  "metric": "memory_utilization",
+  "unit": "percent",
+  "metric_kind": "gauge",
+  "sampling_seconds": 60,
+  "valid_range": [
+    0.0,
+    100.0
+  ],
+  "roles": {
+    "train": {
+      "path": "train.csv",
+      "sha256": "sha256:1e1c3406801619d67705c204c71e4f4ffc9c03a54aca68ff45492be9da50067f",
+      "prefix_points": 60
+    },
+    "calibration": {
+      "path": "calibration.csv",
+      "sha256": "sha256:dd5683fae7ae52783bb6b5088384c991f270ae2a35f2567af10e479feebc90e0",
+      "prefix_points": 60
+    },
+    "development": {
+      "path": "development.csv",
+      "sha256": "sha256:1a692e5a7c8b5fed5c163c50f293b259027acd61b914ba92564702be4d5872e7",
+      "prefix_points": 60
+    },
+    "test": {
+      "path": "test.csv",
+      "sha256": "sha256:a975804d8e3d9adc4d2402627e2aefed45ca2f69544b19f9d9009a7d8a65af53",
+      "prefix_points": 60
+    }
+  }
+}

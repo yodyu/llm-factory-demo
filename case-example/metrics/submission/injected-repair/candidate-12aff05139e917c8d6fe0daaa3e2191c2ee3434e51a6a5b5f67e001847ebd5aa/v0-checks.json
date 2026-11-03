@@ -1,0 +1,57 @@
+{
+  "protocol": "metrics-method-check/2",
+  "candidate_id": "fixed",
+  "version": 0,
+  "origin": "fault_injection",
+  "source_sha256": "sha256:bcf932327a916ae98e2507fdaef47d3f707260c813c1e39428da141d61e089f5",
+  "config": {
+    "method_id": "fixed_threshold",
+    "threshold": 85.0,
+    "direction": "upper"
+  },
+  "dependency_profile": "metrics-py312-stdlib/1",
+  "checks": [
+    {
+      "check": "static_profile",
+      "passed": true
+    },
+    {
+      "check": "fixed_strict_boundary",
+      "passed": false,
+      "point_index": 0,
+      "development_input": [
+        {
+          "timestamp": "2026-01-01T00:00:00Z",
+          "host_id": "validation-host",
+          "value": 84.0
+        }
+      ],
+      "difference": {
+        "code": "METHOD_DIFFERENCE",
+        "line": null,
+        "expected": {
+          "timestamp": "2026-01-01T00:00:00Z",
+          "host_id": "validation-host",
+          "status": "ok",
+          "score": -1.0,
+          "evidence": {
+            "threshold": 85.0
+          }
+        },
+        "actual": {
+          "timestamp": "2026-01-01T00:00:00Z",
+          "host_id": "validation-host",
+          "status": "ok",
+          "score": 0.0,
+          "evidence": {
+            "threshold": 85.0
+          }
+        },
+        "message": "method status, score or baseline evidence differs"
+      },
+      "allowed_changes": "candidate source only; keep frozen config and interface"
+    }
+  ],
+  "passed": false,
+  "repairable": true
+}

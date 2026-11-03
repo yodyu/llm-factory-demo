@@ -1,0 +1,128 @@
+[
+  {
+    "task_id": "ingest-a7c70fdd71834cb1",
+    "status": "FAILED",
+    "phase": "CREATED",
+    "started_at": 1793630240.5274875
+  },
+  {
+    "task_id": "ingest-dbea48297fac4140",
+    "status": "FAILED",
+    "phase": "CREATED",
+    "started_at": 1793630624.7270558
+  },
+  {
+    "task_id": "ingest-4cfb40a8b85b49bb",
+    "status": "FAILED",
+    "phase": "CREATED",
+    "started_at": 1793630890.9991848
+  },
+  {
+    "task_id": "understand-343cee7162864ae0",
+    "status": "SUCCEEDED",
+    "phase": "CREATED",
+    "started_at": 1793630947.9936829
+  },
+  {
+    "task_id": "ui-34a756c1b4ac490b",
+    "status": "SUCCEEDED",
+    "phase": "COMPLETED",
+    "started_at": 1793630989.1270897
+  },
+  {
+    "task_id": "ingest-0d126567388444da",
+    "status": "FAILED",
+    "phase": "CREATED",
+    "started_at": 1793631000.886827
+  },
+  {
+    "task_id": "understand-f02931632f904eee",
+    "status": "SUCCEEDED",
+    "phase": "CREATED",
+    "started_at": 1793631009.0231032
+  },
+  {
+    "task_id": "ui-15e8770de18747f7",
+    "status": "SUCCEEDED",
+    "phase": "COMPLETED",
+    "started_at": 1793631050.4765902
+  },
+  {
+    "task_id": "ingest-88565d0642c34b10",
+    "status": "SUCCEEDED",
+    "phase": "CREATED",
+    "started_at": 1793631077.1326892
+  },
+  {
+    "task_id": "ingest-9aaf8fcc248843c2",
+    "status": "SUCCEEDED",
+    "phase": "CREATED",
+    "started_at": 1793631131.748098
+  },
+  {
+    "task_id": "ingest-86544c9097e94945",
+    "status": "FAILED",
+    "phase": "CREATED",
+    "started_at": 1793631174.2489753
+  },
+  {
+    "task_id": "ingest-5415a764bd8c4da7",
+    "status": "FAILED",
+    "phase": "CREATED",
+    "started_at": 1793631282.9509697
+  },
+  {
+    "task_id": "ingest-add14a6dab57452f",
+    "status": "FAILED",
+    "phase": "CREATED",
+    "started_at": 1793631345.248514
+  },
+  {
+    "task_id": "ingest-6de9a836864a48b2",
+    "status": "FAILED",
+    "phase": "CREATED",
+    "started_at": 1793631456.7937224
+  },
+  {
+    "task_id": "ingest-27fc8f22ed51451c",
+    "status": "FAILED",
+    "phase": "CREATED",
+    "started_at": 1793631545.0419385
+  },
+  {
+    "task_id": "ingest-394f40cd2a974d52",
+    "status": "FAILED",
+    "phase": "CREATED",
+    "started_at": 1793631607.3459673
+  },
+  {
+    "task_id": "understand-2a42d25be14747bb",
+    "status": "SUCCEEDED",
+    "phase": "CREATED",
+    "started_at": 1793669028.645545
+  },
+  {
+    "task_id": "ui-e6121958cd5a44b7",
+    "status": "FAILED",
+    "phase": "FAILED",
+    "started_at": 1793669079.4479628
+  },
+  {
+    "task_id": "understand-6f3869593653402d",
+    "status": "SUCCEEDED",
+    "phase": "CREATED",
+    "started_at": 1793669158.6092882
+  },
+  {
+    "task_id": "ui-74cc4a21520a4e1b",
+    "status": "SUCCEEDED",
+    "phase": "COMPLETED",
+    "started_at": 1793669229.6269283
+  },
+  {
+    "task_id": "ui-da4c1f50a3504008",
+    "status": "SUCCEEDED",
+    "phase": "COMPLETED",
+    "started_at": 1793669269.3257473
+  }
+]

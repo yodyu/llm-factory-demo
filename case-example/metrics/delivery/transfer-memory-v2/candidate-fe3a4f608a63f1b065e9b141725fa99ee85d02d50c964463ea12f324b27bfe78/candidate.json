@@ -1,0 +1,200 @@
+{
+  "candidate_id": "memory_utilization_fixed_upper_85_p2",
+  "role": "development",
+  "plan": {
+    "candidate_id": "memory_utilization_fixed_upper_85_p2",
+    "config": {
+      "method_id": "fixed_threshold",
+      "threshold": 85.0,
+      "direction": "upper"
+    },
+    "persistence_points": 2,
+    "parameter_sources": {
+      "threshold": "user_explicit",
+      "direction": "user_explicit",
+      "persistence_points": "user_explicit"
+    },
+    "knowledge_ids": [
+      "capability-2f9b9c51210dd4b46886b148774a4cc017e5d07556179c5a93de016cb324a285",
+      "capability-ff2da84a0b44f7f1063cae4146983682f938c59bb8e3c600125a53757d206a3b",
+      "capability-106fc5025f92d2dfec9698b99161e17a6e35a65509b48320d43e5828858adb0f",
+      "chunk-b65a19c4f2a26deb5a0d6d8a588af6f29a3b5bb2b4931befdfdbcb31083a7e13",
+      "chunk-2843fb878551f6a5bc7ff28064829f9bf3f6966c84efaf7e5f9cc057d04ef24f",
+      "chunk-9fdc4618934c65208b705044487750899a698cf00f1e25e52554832504313804"
+    ],
+    "limitations": [
+      "仅当value>85时分数为正；value=85不触发单点异常。",
+      "该绝对阈值可能漏掉未达到85 percent但相对历史持续升高的内存异常。",
+      "正常业务高峰超过85 percent时可能产生误报；检测器不判定根因。"
+    ]
+  },
+  "versions": [
+    {
+      "version": 0,
+      "origin": "llm_api",
+      "source_path": "candidate-fe3a4f608a63f1b065e9b141725fa99ee85d02d50c964463ea12f324b27bfe78/v0.py",
+      "source_sha256": "sha256:3e30abadd7478cbbaba19a4369999cd4607df043f52f8a39d73dd911cda16b17",
+      "source_ref": "sha256:3e30abadd7478cbbaba19a4369999cd4607df043f52f8a39d73dd911cda16b17",
+      "parent_source_sha256": null,
+      "knowledge_ids": [
+        "capability-2f9b9c51210dd4b46886b148774a4cc017e5d07556179c5a93de016cb324a285",
+        "capability-ff2da84a0b44f7f1063cae4146983682f938c59bb8e3c600125a53757d206a3b",
+        "capability-106fc5025f92d2dfec9698b99161e17a6e35a65509b48320d43e5828858adb0f",
+        "chunk-b65a19c4f2a26deb5a0d6d8a588af6f29a3b5bb2b4931befdfdbcb31083a7e13",
+        "chunk-2843fb878551f6a5bc7ff28064829f9bf3f6966c84efaf7e5f9cc057d04ef24f",
+        "chunk-9fdc4618934c65208b705044487750899a698cf00f1e25e52554832504313804"
+      ],
+      "explanation": "实现用户明确指定的 fixed_threshold 上界检测：阈值85 percent，upper 分数为 value-85，因此仅 value>85 时为正；等于85得0。检测器只输出单点分数，连续两点、缺失处理策略和事件合并由可信侧负责。",
+      "validation": {
+        "protocol": "metrics-method-check/1",
+        "candidate_id": "memory_utilization_fixed_upper_85_p2",
+        "version": 0,
+        "origin": "llm_api",
+        "source_sha256": "sha256:3e30abadd7478cbbaba19a4369999cd4607df043f52f8a39d73dd911cda16b17",
+        "config": {
+          "method_id": "fixed_threshold",
+          "threshold": 85.0,
+          "direction": "upper"
+        },
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "checks": [
+          {
+            "check": "static_profile",
+            "passed": true
+          },
+          {
+            "check": "fixed_strict_boundary",
+            "passed": true,
+            "points": 3
+          },
+          {
+            "check": "fixed_missing",
+            "passed": true,
+            "points": 6
+          },
+          {
+            "check": "state_reload",
+            "passed": true
+          },
+          {
+            "check": "reset_repeat_future_invariance",
+            "passed": true
+          }
+        ],
+        "passed": true,
+        "repairable": true
+      }
+    }
+  ],
+  "calibration": {
+    "threshold": 0.0,
+    "rule": "fixed_parameter_unchanged",
+    "labels_used": false
+  },
+  "report": {
+    "protocol": "metrics-evaluation/1",
+    "execution_status": "SUCCEEDED",
+    "engineering_status": "PASSED",
+    "effect_status": "MEASURED",
+    "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+    "point": {
+      "tp": 59,
+      "fp": 0,
+      "fn": 1,
+      "tn": 180,
+      "abstained_normal": 0,
+      "total": 240,
+      "precision": {
+        "value": 1.0,
+        "numerator": 59,
+        "denominator": 59,
+        "null_reason": null
+      },
+      "recall": {
+        "value": 0.9833333333333333,
+        "numerator": 59,
+        "denominator": 60,
+        "null_reason": null
+      },
+      "f1": {
+        "value": 0.9915966386554622,
+        "numerator": 118,
+        "denominator": 119,
+        "null_reason": null
+      }
+    },
+    "event": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "pairs": [
+        {
+          "truth_id": "truth-0000",
+          "prediction_id": "pred-0000",
+          "delay_seconds": 60.0
+        }
+      ],
+      "unmatched_truth_ids": [],
+      "unmatched_prediction_ids": [],
+      "precision": {
+        "value": 1.0,
+        "numerator": 1,
+        "denominator": 1,
+        "null_reason": null
+      },
+      "recall": {
+        "value": 1.0,
+        "numerator": 1,
+        "denominator": 1,
+        "null_reason": null
+      },
+      "f1": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "null_reason": null
+      }
+    },
+    "coverage": {
+      "value": 1.0,
+      "numerator": 240,
+      "denominator": 240,
+      "null_reason": null
+    },
+    "normal_false_alarms_per_host_hour": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 10800,
+      "null_reason": null
+    },
+    "matched_delay_seconds": {
+      "median": 60.0,
+      "maximum": 60.0,
+      "null_reason": null,
+      "missed_events": 0
+    },
+    "runtime_seconds": 0.09655847772955894,
+    "peak_memory_bytes": null,
+    "peak_memory_null_reason": "not_measured",
+    "predicted_events": [
+      {
+        "event_id": "pred-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-03T02:41:00Z",
+        "end_at": "2026-01-03T03:40:00Z",
+        "trigger_at": "2026-01-03T02:41:00Z"
+      }
+    ],
+    "truth_events": [
+      {
+        "event_id": "truth-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-03T02:40:00Z",
+        "end_at": "2026-01-03T03:40:00Z",
+        "trigger_at": "2026-01-03T02:40:00Z"
+      }
+    ]
+  }
+}

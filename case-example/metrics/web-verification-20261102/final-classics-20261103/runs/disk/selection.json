@@ -1,0 +1,75 @@
+{
+  "task_sha256": "sha256:0275f6c36f89d8837bb45d6fd9ce71b99ed9d31b9837f6b6369ccd640747b052",
+  "bindings": {
+    "image_id": "sha256:ec7e3f613d45080c580bed6c83b6404df77b17a7cb72be69bacc80cce954ed31",
+    "knowledge_snapshot": "sha256:18e70f9d7791f976732d864a50889aff1174173183e9c879a6555e276fcf6d1e",
+    "labels_sha256": "sha256:bc8c6f901bbf330d9d072f405227bc2f71f3cfc8415a8d3dc8837d7b38327ea4",
+    "manifest_sha256": "sha256:5ee8cbeec6a5d93e514a86d562acef46e8219ad4ce5d8dd6b30968df69b52e13"
+  },
+  "selected": "ewma_alpha0.3_p2_upper",
+  "plan": {
+    "candidate_id": "ewma_alpha0.3_p2_upper",
+    "capability_id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+    "config": {
+      "alpha": 0.3,
+      "direction": "upper",
+      "method_id": "ewma",
+      "min_history": 3,
+      "quantile": 0.99
+    },
+    "knowledge_ids": [
+      "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+      "chunk-4db59015de2d3096a11f2a685e496b8d2b008ede2cbad59b387b8e83f5862904",
+      "chunk-96b8b23d75a52b7582040f893468476eb249c8ec4e3d9091c1572b61e5c0cf7f",
+      "experience-2c0a28207a7c66ce05eb6cf3c84bd3ebfa387404e12d6d908a70dd3682306e0c",
+      "source-f5e5f8ac42e9fd7f7bb393e7cc89533f14187c96f6d02a17f9fd4374221933b2"
+    ],
+    "limitations": [
+      "固定 baseline 会保留长期业务或环境变化造成的水平偏移；若训练后正常负载长期上升，可能增加误报。",
+      "alpha=0.3 相对平滑，极短尖峰可能被削弱，检测延迟与灵敏度需在验证报告中评估。",
+      "quantile=0.99 尚不是用户给定业务阈值，需要校准支持。"
+    ],
+    "parameter_sources": {
+      "alpha": "user_explicit",
+      "direction": "user_explicit",
+      "min_history": "protocol_default",
+      "persistence_points": "user_explicit",
+      "quantile": "protocol_default"
+    },
+    "persistence_points": 2,
+    "selection_reason": "EWMA 支持 upper 方向和 gauge 指标，使用固定训练 baseline 与训练总体标准差，适合检测磁盘延迟相对训练水平的持续升高；用户明确指定 alpha=0.3，且连续两个异常点才报警可减少瞬时尖点造成的误报。假设训练数据能代表正常磁盘 I/O 水平，异常主要表现为平滑值相对固定 baseline 的上移；min_history=3 和 quantile=0.99 先采用协议默认，后续应基于无标签校准分数确认阈值。"
+  },
+  "source_path": "candidate-4e5d989937b55224b97743f8b09a349fda30852848a985bc48edabf7db76c7d0/v0.py",
+  "source_sha256": "sha256:d93c75209cb88f1215463c2e46ca612685cb8d72809ed132ede40f666435235d",
+  "threshold": 3.2411878645538414,
+  "selection": {
+    "basis": "labelled_development",
+    "beta": 0.5,
+    "criteria": [
+      "point_fbeta_desc",
+      "event_fbeta_desc",
+      "false_alarm_rate_asc",
+      "matched_delay_asc",
+      "coverage_desc",
+      "candidate_id"
+    ],
+    "objective": "sustained_coverage",
+    "policy": "precision",
+    "protocol": "metrics-selection/2",
+    "ranking": [
+      "ewma_alpha0.3_p2_upper",
+      "rolling_mad_w30_p2_upper"
+    ],
+    "reason": "按开发集目标及次级 Fβ、正常误报频次、匹配延迟、覆盖率和候选ID排序；最终测试不参与选择。",
+    "requested_policy": "precision",
+    "selected": "ewma_alpha0.3_p2_upper",
+    "status": "SELECTED",
+    "tie_broken_by": "point_fbeta",
+    "warnings": [
+      "LOW_EVENT_COUNT: 真实事件少于5个，事件F1不足以支持统计结论。"
+    ]
+  },
+  "protocol": "metrics-evaluation/1",
+  "selection_sha256": "sha256:5436ee2540df1f2cc992063d1bc3c9dabcd04a85e830a29e591c247f2e17bd54"
+}

@@ -1,0 +1,12 @@
+{
+  "finished_at": "2026-11-03T09:57:02.183341+08:00",
+  "web_child_pids_stopped": [
+    2462042,
+    3668475
+  ],
+  "acceptance_neo4j_stopped": true,
+  "data_volume_and_evidence_retained": true,
+  "instrumentation_restored": true,
+  "baseline_source_files_unchanged_after_restore": 116,
+  "existing_neo4j_identity_unchanged": true
+}

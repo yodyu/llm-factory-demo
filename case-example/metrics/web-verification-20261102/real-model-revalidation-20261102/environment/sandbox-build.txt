@@ -1,0 +1,26 @@
+.venv/bin/python scripts/metrics_bootstrap.py sandbox
+#0 building with "default" instance using docker driver
+
+#1 [internal] load .dockerignore
+#1 transferring context: 62B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile.sandbox
+#2 transferring dockerfile: 434B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.12.10-slim-bookworm@sha256:fd95fa221297a88e1cf49c55ec1828edd7c5a428187e67b5d1805692d11588db
+#3 DONE 0.0s
+
+#4 [1/2] FROM docker.io/library/python:3.12.10-slim-bookworm@sha256:fd95fa221297a88e1cf49c55ec1828edd7c5a428187e67b5d1805692d11588db
+#4 DONE 0.0s
+
+#5 [2/2] WORKDIR /tmp
+#5 CACHED
+
+#6 exporting to image
+#6 exporting layers done
+#6 writing image sha256:ec7e3f613d45080c580bed6c83b6404df77b17a7cb72be69bacc80cce954ed31 done
+#6 naming to docker.io/library/llm-factory-metrics-sandbox done
+#6 DONE 0.0s
+sha256:ec7e3f613d45080c580bed6c83b6404df77b17a7cb72be69bacc80cce954ed31

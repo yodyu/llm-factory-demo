@@ -1,0 +1,10 @@
+EWMA 单主机数值指标异常检测（专家编写规格，不是模型实验结果）
+任务类型：time_series_anomaly_detection；输入 gauge 或已换算的 rate，输出 timestamp、host_id、status、score、evidence 字典。
+训练有效值的均值为固定 baseline，scale=max(1e-9,训练有效值的总体标准差)。角色开始 reset 时 smooth=baseline，原始有效点计数 count=0。
+参数 alpha 默认0.3，0<alpha<=1；min_history 默认3，1到600；direction 为 upper/lower/two_sided；quantile 默认0.99，由可信侧在无标签校准集计算。
+当前可用值 x（包括前向插补值）到来，先更新 smooth=alpha*x+(1-alpha)*smooth；只有 original_present=True 时 count 加1。
+count<min_history 输出 insufficient_history，score=None，evidence={}；足够历史后 upper=(smooth-baseline)/scale，lower 为其相反数，two_sided 为绝对值。
+足够历史时 evidence 包含 ewma、baseline、scale。value=None 输出 missing_input、score=None、evidence={}，不更新计数或平滑值。
+fit 不能保留训练角色的滑动状态；reset 保留训练 baseline/scale，清空计数并恢复 smooth。save_state/load_state 保留配置及全部统计状态。
+适合持续升高、降低及渐变趋势；alpha 越小越平滑、响应越慢。固定训练基线不会像适应性滚动窗口一样把持续变化完全吸收为新正常。
+适用评价：事件F1、点级F1、正常误报频次、匹配延迟。依赖仅 Python 3.12 标准库；不访问文件、网络或标签。模拟数据的事件很少，不能证明生产效果。

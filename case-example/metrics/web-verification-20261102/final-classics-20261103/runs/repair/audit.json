@@ -1,0 +1,775 @@
+{
+  "label": "repair",
+  "task_id": "ui-5f4299d229da4349",
+  "status": "COMPLETED",
+  "origin": "fault_injection",
+  "task": {
+    "acceptance_criteria": {
+      "max_false_alarms_per_hour": null,
+      "min_event_f1": null,
+      "min_event_recall": null
+    },
+    "allowed_methods": [
+      "fixed_threshold"
+    ],
+    "anomaly_target": "upper",
+    "budgets": {
+      "candidates": 1,
+      "model_calls": 16,
+      "repair_rounds": 2,
+      "wall_seconds": 900
+    },
+    "dataset_id": "sim-memory_shift-v1",
+    "evaluation_objective": "sustained_coverage",
+    "explicit_constraints": {
+      "direction": "upper",
+      "persistence_points": 2.0,
+      "threshold": 85.0
+    },
+    "knowledge_snapshot": "sha256:9bb94b5e6a37ddc26f472653b398cce33b9f5c175c49cee6bb9706938581dcca",
+    "metric": "memory_utilization",
+    "model_mode": "api",
+    "model_profile_id": "metrics-c9a0036e73b91ba3",
+    "ranking_preferences": [],
+    "requirement": "用模拟数据检测单主机内存利用率持续升高，只使用固定阈值，阈值 85%，连续两点告警，输出检测代码和验证报告。",
+    "requirement_draft": {
+      "binding": "sha256:c88bce773bbe960f65427a41408be94787c4acd54d1ecc30c4b88094f76ef515",
+      "defaults": [
+        "选优偏好：balanced",
+        "模拟数据：每 60 秒一点，独立四段；允许最多前向填补 3 点。",
+        "未明确变化形态：CPU默认突增、内存默认阶跃模拟场景；模拟结果不代表生产效果。"
+      ],
+      "evidence": {
+        "data_source": {
+          "origin": "user_explicit",
+          "quote": "模拟",
+          "turn": 1
+        },
+        "direction": {
+          "origin": "user_explicit",
+          "quote": "用模拟数据检测单主机内存利用率持续升高，只使用固定阈值，阈值 85%，连续两点告警，输出检测代码和验证报告。",
+          "turn": 1
+        },
+        "evaluation_objective": {
+          "origin": "user_explicit",
+          "quote": "用模拟数据检测单主机内存利用率持续升高，只使用固定阈值，阈值 85%，连续两点告警，输出检测代码和验证报告。",
+          "turn": 1
+        },
+        "methods": {
+          "origin": "user_explicit",
+          "quote": "用模拟数据检测单主机内存利用率持续升高，只使用固定阈值，阈值 85%，连续两点告警，输出检测代码和验证报告。",
+          "turn": 1
+        },
+        "persistence_points": {
+          "origin": "user_explicit",
+          "quote": "连续两点",
+          "turn": 1
+        },
+        "scenario": {
+          "origin": "user_explicit",
+          "quote": "用模拟数据检测单主机内存利用率持续升高，只使用固定阈值，阈值 85%，连续两点告警，输出检测代码和验证报告。",
+          "turn": 1
+        },
+        "selection_policy": {
+          "origin": "protocol_default",
+          "quote": "协议默认值",
+          "turn": 0
+        },
+        "threshold": {
+          "origin": "user_explicit",
+          "quote": "阈值 85%",
+          "turn": 1
+        }
+      },
+      "issues": [],
+      "model_mode": "api",
+      "model_usage": {
+        "input_tokens": 968,
+        "kind": "api",
+        "missing_usage_requests": 0,
+        "notice": "Counts include retries and repairs; tokens are provider-reported only; missing usage is not zero.",
+        "output_tokens": 126,
+        "requests": 1,
+        "reservations": 1,
+        "total_tokens": 1094
+      },
+      "parse_task_id": "understand-5351dd1f60b04e7d",
+      "revision": 1,
+      "schema_version": "metrics-requirement-draft/1",
+      "turns": [
+        "用模拟数据检测单主机内存利用率持续升高，只使用固定阈值，阈值 85%，连续两点告警，输出检测代码和验证报告。"
+      ],
+      "values": {
+        "data_source": "simulation",
+        "direction": "upper",
+        "evaluation_objective": "sustained_coverage",
+        "methods": [
+          "fixed_threshold"
+        ],
+        "persistence_points": 2,
+        "scenario": "memory_shift",
+        "selection_policy": "balanced",
+        "threshold": 85.0
+      }
+    },
+    "schema_version": "metrics-task/1",
+    "selection_policy": "balanced",
+    "task_id": "ui-5f4299d229da4349",
+    "validation_protocol": "metrics-evaluation/1"
+  },
+  "requirement": "用模拟数据检测单主机内存利用率持续升高，只使用固定阈值，阈值 85%，连续两点告警，输出检测代码和验证报告。",
+  "usage": {
+    "kind": "api",
+    "requests": 3,
+    "reservations": 3,
+    "input_tokens": 49669,
+    "output_tokens": 3926,
+    "total_tokens": 53595,
+    "missing_usage_requests": 0,
+    "notice": "Counts include retries and repairs; tokens are provider-reported only; missing usage is not zero."
+  },
+  "knowledge_usage": {
+    "supplied": [
+      "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "chunk-2d0ddc000c30e78b533d4f4dda1c0eb1c252a479521febd8fd65f31dbf399938",
+      "chunk-3478558ca578b2421a9eafa4318746e1999211f4102a9c0c15c0327f07b4cdc8",
+      "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+      "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+      "chunk-7ac5e3104c65ea345ed16051fd2dfa6aeb1588f1584dc99ac7a53dec3b632191",
+      "chunk-cc6f404da734a520b42e2665491dfb48ef7799eaa117e5236e7b5370623beebd",
+      "source-77c556c6553d4192078e1bfdf985a4cd89e45754f491b6ee917b9dcc07769438",
+      "source-c6d85ec31dbd8809fc844451579165bc762b556e94fd925222e0afb96d75a74c"
+    ],
+    "cited": [
+      "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+      "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952"
+    ],
+    "references": [
+      {
+        "候选": "fixed_threshold_upper_85_p2",
+        "阶段": "方案",
+        "知识ID": [
+          "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+          "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+          "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09"
+        ]
+      },
+      {
+        "候选": "fixed_threshold_upper_85_p2",
+        "阶段": "代码 v0",
+        "知识ID": [
+          "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+          "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+          "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09"
+        ]
+      },
+      {
+        "候选": "fixed_threshold_upper_85_p2",
+        "阶段": "代码 v1",
+        "知识ID": [
+          "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+          "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+          "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09"
+        ]
+      }
+    ],
+    "unprovided_citations": [],
+    "supplied_experiences": [],
+    "cited_experiences": []
+  },
+  "prompts": [
+    {
+      "call_id": "ui-5f4299d229da4349:plan:format-0",
+      "prompt_sha256": "sha256:0c1e7e22477e005f667600fe5e89c4a28050c68b5242560cf08f0e058cf7fc12",
+      "provided_experience_ids": [],
+      "has_previous_source": false,
+      "has_development_feedback": false
+    },
+    {
+      "call_id": "ui-5f4299d229da4349:code-fixed_threshold_upper_85_p2-v0:format-0",
+      "prompt_sha256": "sha256:281f0eb19624689287272eba9aa894ce17744a552fb20a0c15acce329f88d456",
+      "provided_experience_ids": [],
+      "has_previous_source": false,
+      "has_development_feedback": false
+    },
+    {
+      "call_id": "ui-5f4299d229da4349:code-fixed_threshold_upper_85_p2-v1:format-0",
+      "prompt_sha256": "sha256:a729c85883e40412de5fd2eecb2a85ba0f98bc69ae8c7f9191fe5ff37251e6d5",
+      "provided_experience_ids": [],
+      "has_previous_source": true,
+      "has_development_feedback": true
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "fixed_threshold_upper_85_p2",
+      "config": {
+        "direction": "upper",
+        "method_id": "fixed_threshold",
+        "threshold": 85.0
+      },
+      "development": {
+        "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+        "coverage": {
+          "denominator": 240,
+          "null_reason": null,
+          "numerator": 240,
+          "value": 1.0
+        },
+        "effect_status": "MEASURED",
+        "engineering_status": "PASSED",
+        "event": {
+          "f1": {
+            "denominator": 2,
+            "null_reason": null,
+            "numerator": 2,
+            "value": 1.0
+          },
+          "fn": 0,
+          "fp": 0,
+          "pairs": [
+            {
+              "delay_seconds": 60.0,
+              "prediction_id": "pred-0000",
+              "truth_id": "truth-0000"
+            }
+          ],
+          "precision": {
+            "denominator": 1,
+            "null_reason": null,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 1,
+            "null_reason": null,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "tp": 1,
+          "unmatched_prediction_ids": [],
+          "unmatched_truth_ids": []
+        },
+        "execution_status": "SUCCEEDED",
+        "matched_delay_seconds": {
+          "maximum": 60.0,
+          "median": 60.0,
+          "missed_events": 0,
+          "null_reason": null
+        },
+        "normal_false_alarms_per_host_hour": {
+          "denominator": 10800,
+          "null_reason": null,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "peak_memory_bytes": null,
+        "peak_memory_null_reason": "not_measured",
+        "point": {
+          "abstained_normal": 0,
+          "f1": {
+            "denominator": 119,
+            "null_reason": null,
+            "numerator": 118,
+            "value": 0.9915966386554622
+          },
+          "fn": 1,
+          "fp": 0,
+          "precision": {
+            "denominator": 59,
+            "null_reason": null,
+            "numerator": 59,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 60,
+            "null_reason": null,
+            "numerator": 59,
+            "value": 0.9833333333333333
+          },
+          "tn": 180,
+          "total": 240,
+          "tp": 59
+        },
+        "predicted_events": [
+          {
+            "end_at": "2026-01-03T03:40:00Z",
+            "event_id": "pred-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T02:41:00Z",
+            "trigger_at": "2026-01-03T02:41:00Z"
+          }
+        ],
+        "protocol": "metrics-evaluation/1",
+        "runtime_seconds": 0.11219774931669235,
+        "truth_events": [
+          {
+            "end_at": "2026-01-03T03:40:00Z",
+            "event_id": "truth-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T02:40:00Z",
+            "trigger_at": "2026-01-03T02:40:00Z"
+          }
+        ]
+      },
+      "versions": [
+        {
+          "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+          "capability_version": "1.1.0",
+          "explanation": "实现用户明确指定的固定阈值检测：direction=upper、threshold=85.0。评分公式为 value-85.0；value=85.0 时 score=0，仅严格大于0作为异常候选。连续两点由可信告警器处理，检测器本身不维护连续状态；缺失输入返回 missing_input，非有限数值返回 invalid_input。fit 只确认训练数据中存在有效值，reset 不保留历史状态。",
+          "knowledge_ids": [
+            "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+            "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+            "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09"
+          ],
+          "origin": "fault_injection",
+          "parent_source_sha256": null,
+          "plugin_hashes": {
+            "capability.json": "sha256:a19217ef27bff5c0726e6be8d4dc123a509bfe2d34c6fe8b63b0f2cd6c5ef045",
+            "checks.py": "sha256:009933701326684689fb100d585f4bb44d596016fa7d9278147f6999566e9427",
+            "reference.py": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70"
+          },
+          "source_path": "candidate-7e28edc5e837ce161ffe7d64866aa375ca7913b2249e6f7f02ed1e4a7b302edb/v0.py",
+          "source_ref": "sha256:7a98ec933b66a656e2c63c3875bf461298c1796dbdf7b687987673b5a2711ac1",
+          "source_sha256": "sha256:7a98ec933b66a656e2c63c3875bf461298c1796dbdf7b687987673b5a2711ac1",
+          "specification_sha256": "sha256:d78418b686499b015abb691e10e65fad63592d12ad25bcab36e2ced5af7a2060",
+          "validation": {
+            "candidate_id": "fixed_threshold_upper_85_p2",
+            "capability_version": "1.1.0",
+            "checks": [
+              {
+                "check": "static_profile",
+                "layer": "contract",
+                "passed": true
+              },
+              {
+                "check": "missing_input_contract",
+                "layer": "contract",
+                "passed": true
+              },
+              {
+                "check": "state_reload",
+                "layer": "contract",
+                "passed": true
+              },
+              {
+                "check": "reset_repeat_future_invariance",
+                "layer": "contract",
+                "passed": true
+              },
+              {
+                "allowed_changes": "candidate source only; keep frozen config and interface",
+                "check": "fixed_strict_boundary",
+                "development_input": [
+                  {
+                    "host_id": "validation-host",
+                    "timestamp": "2026-01-01T00:00:00Z",
+                    "value": 84.0
+                  },
+                  {
+                    "host_id": "validation-host",
+                    "timestamp": "2026-01-01T00:01:00Z",
+                    "value": 85.0
+                  },
+                  {
+                    "host_id": "validation-host",
+                    "timestamp": "2026-01-01T00:02:00Z",
+                    "value": 86.0
+                  }
+                ],
+                "difference": {
+                  "actual": [
+                    {
+                      "evidence": {
+                        "direction": "upper",
+                        "threshold": 85.0
+                      },
+                      "host_id": "validation-host",
+                      "score": 0.0,
+                      "status": "ok",
+                      "timestamp": "2026-01-01T00:00:00Z"
+                    },
+                    {
+                      "evidence": {
+                        "direction": "upper",
+                        "threshold": 85.0
+                      },
+                      "host_id": "validation-host",
+                      "score": 1.0,
+                      "status": "ok",
+                      "timestamp": "2026-01-01T00:01:00Z"
+                    },
+                    {
+                      "evidence": {
+                        "direction": "upper",
+                        "threshold": 85.0
+                      },
+                      "host_id": "validation-host",
+                      "score": 2.0,
+                      "status": "ok",
+                      "timestamp": "2026-01-01T00:02:00Z"
+                    }
+                  ],
+                  "code": "METHOD_DIFFERENCE",
+                  "expected": {
+                    "passed": true,
+                    "property": "fixed_strict_boundary"
+                  },
+                  "message": "capability property failed"
+                },
+                "passed": false,
+                "point_index": 2
+              }
+            ],
+            "config": {
+              "direction": "upper",
+              "method_id": "fixed_threshold",
+              "threshold": 85.0
+            },
+            "dependency_profile": "metrics-py312-stdlib/1",
+            "origin": "fault_injection",
+            "passed": false,
+            "plugin_hashes": {
+              "capability.json": "sha256:a19217ef27bff5c0726e6be8d4dc123a509bfe2d34c6fe8b63b0f2cd6c5ef045",
+              "checks.py": "sha256:009933701326684689fb100d585f4bb44d596016fa7d9278147f6999566e9427",
+              "reference.py": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70"
+            },
+            "protocol": "metrics-method-check/3",
+            "repairable": true,
+            "source_sha256": "sha256:7a98ec933b66a656e2c63c3875bf461298c1796dbdf7b687987673b5a2711ac1",
+            "verification_level": "contract_only",
+            "version": 0
+          },
+          "version": 0,
+          "passed": false,
+          "implementation_id": "implementation-d1b9c166f047026eb3f1121c8598873a6c25ba313c89703c827fae730f7749b5"
+        },
+        {
+          "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+          "capability_version": "1.1.0",
+          "explanation": "实现固定阈值检测器：upper 分数为 value-85，lower 分数为 85-value；严格大于0才是候选，等于阈值为0。缺失值返回 missing_input，非有限数值返回 invalid_input；fit 仅确认至少有一个有效训练值，reset 不保留历史状态。已移除上次源码中的测试故障注入和代理包装，确保边界分数不被加1。",
+          "knowledge_ids": [
+            "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+            "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+            "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09"
+          ],
+          "origin": "llm_api",
+          "parent_source_sha256": "sha256:7a98ec933b66a656e2c63c3875bf461298c1796dbdf7b687987673b5a2711ac1",
+          "plugin_hashes": {
+            "capability.json": "sha256:a19217ef27bff5c0726e6be8d4dc123a509bfe2d34c6fe8b63b0f2cd6c5ef045",
+            "checks.py": "sha256:009933701326684689fb100d585f4bb44d596016fa7d9278147f6999566e9427",
+            "reference.py": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70"
+          },
+          "source_path": "candidate-7e28edc5e837ce161ffe7d64866aa375ca7913b2249e6f7f02ed1e4a7b302edb/v1.py",
+          "source_ref": "sha256:f56a81ffa8338afd2b507701483a353caac6870dc67bd180c6e61ad5a36e90fb",
+          "source_sha256": "sha256:f56a81ffa8338afd2b507701483a353caac6870dc67bd180c6e61ad5a36e90fb",
+          "specification_sha256": "sha256:d78418b686499b015abb691e10e65fad63592d12ad25bcab36e2ced5af7a2060",
+          "validation": {
+            "candidate_id": "fixed_threshold_upper_85_p2",
+            "capability_version": "1.1.0",
+            "checks": [
+              {
+                "check": "static_profile",
+                "layer": "contract",
+                "passed": true
+              },
+              {
+                "check": "missing_input_contract",
+                "layer": "contract",
+                "passed": true
+              },
+              {
+                "check": "state_reload",
+                "layer": "contract",
+                "passed": true
+              },
+              {
+                "check": "reset_repeat_future_invariance",
+                "layer": "contract",
+                "passed": true
+              },
+              {
+                "check": "fixed_strict_boundary",
+                "layer": "property",
+                "passed": true,
+                "points": 3
+              },
+              {
+                "check": "fixed_missing",
+                "layer": "property",
+                "passed": true,
+                "points": 6
+              },
+              {
+                "check": "fixed_strict_boundary",
+                "layer": "reference",
+                "passed": true,
+                "points": 3
+              },
+              {
+                "check": "fixed_missing",
+                "layer": "reference",
+                "passed": true,
+                "points": 6
+              }
+            ],
+            "config": {
+              "direction": "upper",
+              "method_id": "fixed_threshold",
+              "threshold": 85.0
+            },
+            "dependency_profile": "metrics-py312-stdlib/1",
+            "origin": "llm_api",
+            "passed": true,
+            "plugin_hashes": {
+              "capability.json": "sha256:a19217ef27bff5c0726e6be8d4dc123a509bfe2d34c6fe8b63b0f2cd6c5ef045",
+              "checks.py": "sha256:009933701326684689fb100d585f4bb44d596016fa7d9278147f6999566e9427",
+              "reference.py": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70"
+            },
+            "protocol": "metrics-method-check/3",
+            "repairable": true,
+            "source_sha256": "sha256:f56a81ffa8338afd2b507701483a353caac6870dc67bd180c6e61ad5a36e90fb",
+            "verification_level": "reference_verified",
+            "version": 1
+          },
+          "version": 1,
+          "passed": true,
+          "implementation_id": "implementation-317b4ee1809ae4211707f1310c812793db9da54946a2d88329b5d94796936698"
+        }
+      ]
+    }
+  ],
+  "selection": {
+    "basis": "labelled_development",
+    "beta": 1.0,
+    "criteria": [
+      "point_f1_desc",
+      "event_f1_desc",
+      "false_alarm_rate_asc",
+      "matched_delay_asc",
+      "coverage_desc",
+      "candidate_id"
+    ],
+    "objective": "sustained_coverage",
+    "policy": "balanced",
+    "protocol": "metrics-selection/2",
+    "ranking": [
+      "fixed_threshold_upper_85_p2"
+    ],
+    "reason": "按开发集目标及次级 Fβ、正常误报频次、匹配延迟、覆盖率和候选ID排序；最终测试不参与选择。",
+    "requested_policy": "balanced",
+    "selected": "fixed_threshold_upper_85_p2",
+    "status": "SELECTED",
+    "tie_broken_by": "only_eligible_candidate",
+    "warnings": [
+      "LOW_EVENT_COUNT: 真实事件少于5个，事件F1不足以支持统计结论。"
+    ]
+  },
+  "final": {
+    "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+    "coverage": {
+      "denominator": 240,
+      "null_reason": null,
+      "numerator": 240,
+      "value": 1.0
+    },
+    "effect_status": "MEASURED",
+    "engineering_status": "PASSED",
+    "event": {
+      "f1": {
+        "denominator": 2,
+        "null_reason": null,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "fn": 0,
+      "fp": 0,
+      "pairs": [
+        {
+          "delay_seconds": 60.0,
+          "prediction_id": "pred-0000",
+          "truth_id": "truth-0000"
+        }
+      ],
+      "precision": {
+        "denominator": 1,
+        "null_reason": null,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "recall": {
+        "denominator": 1,
+        "null_reason": null,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "tp": 1,
+      "unmatched_prediction_ids": [],
+      "unmatched_truth_ids": []
+    },
+    "execution_status": "SUCCEEDED",
+    "matched_delay_seconds": {
+      "maximum": 60.0,
+      "median": 60.0,
+      "missed_events": 0,
+      "null_reason": null
+    },
+    "normal_false_alarms_per_host_hour": {
+      "denominator": 10800,
+      "null_reason": null,
+      "numerator": 0,
+      "value": 0.0
+    },
+    "peak_memory_bytes": null,
+    "peak_memory_null_reason": "not_measured",
+    "phase": "test",
+    "point": {
+      "abstained_normal": 0,
+      "f1": {
+        "denominator": 119,
+        "null_reason": null,
+        "numerator": 118,
+        "value": 0.9915966386554622
+      },
+      "fn": 1,
+      "fp": 0,
+      "precision": {
+        "denominator": 59,
+        "null_reason": null,
+        "numerator": 59,
+        "value": 1.0
+      },
+      "recall": {
+        "denominator": 60,
+        "null_reason": null,
+        "numerator": 59,
+        "value": 0.9833333333333333
+      },
+      "tn": 180,
+      "total": 240,
+      "tp": 59
+    },
+    "predicted_events": [
+      {
+        "end_at": "2026-01-04T03:40:00Z",
+        "event_id": "pred-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-04T02:41:00Z",
+        "trigger_at": "2026-01-04T02:41:00Z"
+      }
+    ],
+    "protocol": "metrics-evaluation/1",
+    "runtime_seconds": 0.10070554167032242,
+    "selected": "fixed_threshold_upper_85_p2",
+    "selection_sha256": "sha256:e0defc1aae11d61c792619312c0d38f1e89ebc396db183c0bfcce18806671366",
+    "test_execution_started": true,
+    "truth_events": [
+      {
+        "end_at": "2026-01-04T03:40:00Z",
+        "event_id": "truth-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-04T02:40:00Z",
+        "trigger_at": "2026-01-04T02:40:00Z"
+      }
+    ]
+  },
+  "publication": {
+    "publication_id": "publication-46005e3a1e537ba3913bc8e9c49874af201e48c218905cd5330202eb4448697f",
+    "node_ids": [
+      "experience-3de9433acd48043a49a1b1314b7e51346c72b7e75e1aaed10c8aa15707116865",
+      "experience-cc6ed74d8d223c2f42130eee08387c85c1c684adc0fa3fbc46a59644ce934c0a",
+      "implementation-317b4ee1809ae4211707f1310c812793db9da54946a2d88329b5d94796936698",
+      "implementation-d1b9c166f047026eb3f1121c8598873a6c25ba313c89703c827fae730f7749b5",
+      "validation-ab94ee25bf5b33a0d833034cd4916298e847d593aaf2f371c7d4a561f319eddf",
+      "validation-e7546327b816b5c867e9cd69922d69ff6f2d1b54f6163312d0b93b72c75f3691"
+    ],
+    "status": "PUBLISHED"
+  },
+  "workflow_runtime_seconds": 115.35369843244553,
+  "operations": [
+    {
+      "operation_id": "ui-5f4299d229da4349:plan:format-0",
+      "resource": "model",
+      "status": "SUCCEEDED",
+      "metadata": {
+        "actual_model": "doubao-seed-2-1-pro-260915",
+        "elapsed_seconds": 32.456180702894926,
+        "failure_code": null,
+        "input_tokens": 11342,
+        "output_tokens": 903,
+        "profile_id": "metrics-c9a0036e73b91ba3"
+      }
+    },
+    {
+      "operation_id": "ui-5f4299d229da4349:code-fixed_threshold_upper_85_p2-v0:format-0",
+      "resource": "model",
+      "status": "SUCCEEDED",
+      "metadata": {
+        "actual_model": "doubao-seed-2-1-pro-260915",
+        "elapsed_seconds": 31.289946764707565,
+        "failure_code": null,
+        "input_tokens": 18210,
+        "output_tokens": 1450,
+        "profile_id": "metrics-c9a0036e73b91ba3"
+      }
+    },
+    {
+      "operation_id": "ui-5f4299d229da4349:check-fixed_threshold_upper_85_p2-v0",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-5f4299d229da4349:repair:fixed_threshold_upper_85_p2:1",
+      "resource": "repair",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-5f4299d229da4349:code-fixed_threshold_upper_85_p2-v1:format-0",
+      "resource": "model",
+      "status": "SUCCEEDED",
+      "metadata": {
+        "actual_model": "doubao-seed-2-1-pro-260915",
+        "elapsed_seconds": 39.45472136512399,
+        "failure_code": null,
+        "input_tokens": 20117,
+        "output_tokens": 1573,
+        "profile_id": "metrics-c9a0036e73b91ba3"
+      }
+    },
+    {
+      "operation_id": "ui-5f4299d229da4349:check-fixed_threshold_upper_85_p2-v1",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-5f4299d229da4349:development-fixed_threshold_upper_85_p2",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-5f4299d229da4349:final-test",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-5f4299d229da4349:knowledge:publication-46005e3a1e537ba3913bc8e9c49874af201e48c218905cd5330202eb4448697f",
+      "resource": "knowledge-publication",
+      "status": "SUCCEEDED",
+      "metadata": {
+        "payload_ref": "sha256:9e240d0b6dee14f5f7ffc5694e2964ba363cff975a7751acbf072eb0c6fd7dfd",
+        "publication_id": "publication-46005e3a1e537ba3913bc8e9c49874af201e48c218905cd5330202eb4448697f"
+      }
+    }
+  ],
+  "browser_download_matches_server": true
+}

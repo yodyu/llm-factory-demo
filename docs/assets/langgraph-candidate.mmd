@@ -1,0 +1,40 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	prepare_candidate(prepare_candidate)
+	generate_version(generate_version)
+	persist_version(persist_version)
+	validate_version(validate_version)
+	reserve_repair(reserve_repair)
+	calibrate_candidate(calibrate_candidate)
+	evaluate_development(evaluate_development)
+	finish_candidate(finish_candidate)
+	fail_candidate(fail_candidate)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> prepare_candidate;
+	calibrate_candidate -. &nbsp;development&nbsp; .-> evaluate_development;
+	calibrate_candidate -. &nbsp;fail&nbsp; .-> fail_candidate;
+	calibrate_candidate -. &nbsp;finish&nbsp; .-> finish_candidate;
+	evaluate_development -. &nbsp;fail&nbsp; .-> fail_candidate;
+	evaluate_development -. &nbsp;next&nbsp; .-> finish_candidate;
+	finish_candidate -. &nbsp;done&nbsp; .-> __end__;
+	finish_candidate -. &nbsp;fail&nbsp; .-> fail_candidate;
+	generate_version -. &nbsp;fail&nbsp; .-> fail_candidate;
+	generate_version -. &nbsp;next&nbsp; .-> persist_version;
+	persist_version -. &nbsp;fail&nbsp; .-> fail_candidate;
+	persist_version -. &nbsp;next&nbsp; .-> validate_version;
+	prepare_candidate -. &nbsp;fail&nbsp; .-> fail_candidate;
+	prepare_candidate -. &nbsp;next&nbsp; .-> generate_version;
+	reserve_repair -. &nbsp;fail&nbsp; .-> fail_candidate;
+	reserve_repair -. &nbsp;next&nbsp; .-> generate_version;
+	validate_version -. &nbsp;calibrate&nbsp; .-> calibrate_candidate;
+	validate_version -. &nbsp;fail&nbsp; .-> fail_candidate;
+	validate_version -. &nbsp;repair&nbsp; .-> reserve_repair;
+	fail_candidate --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc

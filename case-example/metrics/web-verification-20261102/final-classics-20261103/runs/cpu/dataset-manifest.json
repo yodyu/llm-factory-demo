@@ -1,0 +1,35 @@
+{
+  "schema_version": "metrics-dataset/1",
+  "dataset_id": "sim-cpu_spike-v1",
+  "host_id": "sim-host-a",
+  "metric": "cpu_utilization",
+  "unit": "percent",
+  "metric_kind": "gauge",
+  "sampling_seconds": 60,
+  "valid_range": [
+    0.0,
+    100.0
+  ],
+  "roles": {
+    "train": {
+      "path": "train.csv",
+      "sha256": "sha256:018d3d5f0dff7c423c6a998a28f41434b34b6993b0955243a777b30bf523da67",
+      "prefix_points": 60
+    },
+    "calibration": {
+      "path": "calibration.csv",
+      "sha256": "sha256:27a190fdb6fc43c4df21bb942e78a94f91b9c11507520e4d9f9b35630d2d8c9c",
+      "prefix_points": 60
+    },
+    "development": {
+      "path": "development.csv",
+      "sha256": "sha256:768084780526b7c955dd32a94fadef2e7c7215d8b2392924b80a517a6b8de629",
+      "prefix_points": 60
+    },
+    "test": {
+      "path": "test.csv",
+      "sha256": "sha256:04f05afad8d4426665a61b61329e6f505945c9a7848ca82a9ad9101b4181d988",
+      "prefix_points": 60
+    }
+  }
+}

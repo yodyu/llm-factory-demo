@@ -1,0 +1,268 @@
+{
+  "business_acceptance": {
+    "checks": [],
+    "status": "NOT_DEFINED"
+  },
+  "calibration": {
+    "binding": {
+      "config": {
+        "alpha": 0.3,
+        "direction": "upper",
+        "method_id": "ewma",
+        "min_history": 3,
+        "quantile": 0.99
+      },
+      "dataset": {
+        "image_id": "sha256:ec7e3f613d45080c580bed6c83b6404df77b17a7cb72be69bacc80cce954ed31",
+        "knowledge_snapshot": "sha256:ca4dc787dfb4ddb2ca0d384de36d6e6ee0b6659171df9950d1fc19fac404078e",
+        "labels_sha256": "sha256:6a517b2eb58c8139863a5c9439b37bde43e1e4a4b0486a6d1ae94bc395e24be5",
+        "manifest_sha256": "sha256:fa1285126d0d20c64f69aacafd732f851b54b704de045560cea5cfc11374e285"
+      },
+      "source": "sha256:44dd23aa0347c6a21a5bdd5ac6cc405385225bd8af67b44d9c95c93cd66a1333"
+    },
+    "labels_used": false,
+    "quantile": 0.99,
+    "rule": "nearest-rank",
+    "score_count": 240,
+    "threshold": 0.8980130927676739
+  },
+  "calibration_status": "SUCCEEDED",
+  "candidate_id": "ewma",
+  "plan": {
+    "candidate_id": "ewma",
+    "capability_id": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+    "config": {
+      "alpha": 0.3,
+      "direction": "upper",
+      "method_id": "ewma",
+      "min_history": 3,
+      "quantile": 0.99
+    },
+    "knowledge_ids": [
+      "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666"
+    ],
+    "limitations": [
+      "controlled example",
+      "适于持续变化；固定训练基线保留长期偏移，较小alpha会降低响应速度。"
+    ],
+    "parameter_sources": {
+      "alpha": "protocol_default",
+      "direction": "user_explicit",
+      "min_history": "protocol_default",
+      "quantile": "protocol_default"
+    },
+    "persistence_points": 2,
+    "selection_reason": "EWMA：适于持续变化；固定训练基线保留长期偏移，较小alpha会降低响应速度。"
+  },
+  "report": {
+    "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+    "coverage": {
+      "denominator": 240,
+      "null_reason": null,
+      "numerator": 240,
+      "value": 1.0
+    },
+    "effect_status": "MEASURED",
+    "engineering_status": "PASSED",
+    "event": {
+      "f1": {
+        "denominator": 2,
+        "null_reason": null,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "fn": 0,
+      "fp": 0,
+      "pairs": [
+        {
+          "delay_seconds": 60.0,
+          "prediction_id": "pred-0000",
+          "truth_id": "truth-0000"
+        }
+      ],
+      "precision": {
+        "denominator": 1,
+        "null_reason": null,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "recall": {
+        "denominator": 1,
+        "null_reason": null,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "tp": 1,
+      "unmatched_prediction_ids": [],
+      "unmatched_truth_ids": []
+    },
+    "execution_status": "SUCCEEDED",
+    "matched_delay_seconds": {
+      "maximum": 60.0,
+      "median": 60.0,
+      "missed_events": 0,
+      "null_reason": null
+    },
+    "normal_false_alarms_per_host_hour": {
+      "denominator": 10800,
+      "null_reason": null,
+      "numerator": 0,
+      "value": 0.0
+    },
+    "peak_memory_bytes": null,
+    "peak_memory_null_reason": "not_measured",
+    "point": {
+      "abstained_normal": 0,
+      "f1": {
+        "denominator": 129,
+        "null_reason": null,
+        "numerator": 118,
+        "value": 0.9147286821705426
+      },
+      "fn": 1,
+      "fp": 10,
+      "precision": {
+        "denominator": 69,
+        "null_reason": null,
+        "numerator": 59,
+        "value": 0.855072463768116
+      },
+      "recall": {
+        "denominator": 60,
+        "null_reason": null,
+        "numerator": 59,
+        "value": 0.9833333333333333
+      },
+      "tn": 170,
+      "total": 240,
+      "tp": 59
+    },
+    "predicted_events": [
+      {
+        "end_at": "2026-01-03T03:50:00Z",
+        "event_id": "pred-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-03T02:41:00Z",
+        "trigger_at": "2026-01-03T02:41:00Z"
+      }
+    ],
+    "protocol": "metrics-evaluation/1",
+    "runtime_seconds": 0.11995832249522209,
+    "truth_events": [
+      {
+        "end_at": "2026-01-03T03:40:00Z",
+        "event_id": "truth-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-03T02:40:00Z",
+        "trigger_at": "2026-01-03T02:40:00Z"
+      }
+    ]
+  },
+  "role": "development",
+  "versions": [
+    {
+      "capability_id": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "capability_version": "1.0.0",
+      "explanation": "Explicit mock response copies the constructed human reference.",
+      "knowledge_ids": [
+        "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666"
+      ],
+      "origin": "mock",
+      "parent_source_sha256": null,
+      "plugin_hashes": {
+        "capability.json": "sha256:34742af2d68e6df5600ee2547d4b0556cb1dff020e7c0fc895587dc4d8a12617",
+        "checks.py": "sha256:025c96a17a67127db78722b0cfefe382b79c1c22eb88f6cea06c3f6c429c58fd",
+        "reference.py": "sha256:44dd23aa0347c6a21a5bdd5ac6cc405385225bd8af67b44d9c95c93cd66a1333"
+      },
+      "source_path": "candidate-efb3912a92d56be58be551ee0b4717ae7250bd96e87d5df6c3c819b4767cfa15/v0.py",
+      "source_ref": "sha256:44dd23aa0347c6a21a5bdd5ac6cc405385225bd8af67b44d9c95c93cd66a1333",
+      "source_sha256": "sha256:44dd23aa0347c6a21a5bdd5ac6cc405385225bd8af67b44d9c95c93cd66a1333",
+      "specification_sha256": "sha256:53abdca0789200f3681895fdd88b049227e8b5e9587a9cc82d7f1d1bcc70bda2",
+      "validation": {
+        "candidate_id": "ewma",
+        "capability_version": "1.0.0",
+        "checks": [
+          {
+            "check": "static_profile",
+            "layer": "contract",
+            "passed": true
+          },
+          {
+            "check": "missing_input_contract",
+            "layer": "contract",
+            "passed": true
+          },
+          {
+            "check": "state_reload",
+            "layer": "contract",
+            "passed": true
+          },
+          {
+            "check": "reset_repeat_future_invariance",
+            "layer": "contract",
+            "passed": true
+          },
+          {
+            "check": "ewma_cold_start",
+            "layer": "property",
+            "passed": true,
+            "points": 3
+          },
+          {
+            "check": "ewma_monotonic_step",
+            "layer": "property",
+            "passed": true,
+            "points": 13
+          },
+          {
+            "check": "ewma_missing",
+            "layer": "property",
+            "passed": true,
+            "points": 8
+          },
+          {
+            "check": "ewma_cold_start",
+            "layer": "reference",
+            "passed": true,
+            "points": 3
+          },
+          {
+            "check": "ewma_monotonic_step",
+            "layer": "reference",
+            "passed": true,
+            "points": 13
+          },
+          {
+            "check": "ewma_missing",
+            "layer": "reference",
+            "passed": true,
+            "points": 8
+          }
+        ],
+        "config": {
+          "alpha": 0.3,
+          "direction": "upper",
+          "method_id": "ewma",
+          "min_history": 3,
+          "quantile": 0.99
+        },
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "origin": "mock",
+        "passed": true,
+        "plugin_hashes": {
+          "capability.json": "sha256:34742af2d68e6df5600ee2547d4b0556cb1dff020e7c0fc895587dc4d8a12617",
+          "checks.py": "sha256:025c96a17a67127db78722b0cfefe382b79c1c22eb88f6cea06c3f6c429c58fd",
+          "reference.py": "sha256:44dd23aa0347c6a21a5bdd5ac6cc405385225bd8af67b44d9c95c93cd66a1333"
+        },
+        "protocol": "metrics-method-check/3",
+        "repairable": true,
+        "source_sha256": "sha256:44dd23aa0347c6a21a5bdd5ac6cc405385225bd8af67b44d9c95c93cd66a1333",
+        "verification_level": "reference_verified",
+        "version": 0
+      },
+      "version": 0
+    }
+  ]
+}

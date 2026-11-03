@@ -1,0 +1,126 @@
+{
+  "version": "1.0.0",
+  "task_type": "time_series_anomaly_detection",
+  "inputs": {
+    "type": "object",
+    "required": [
+      "timestamp",
+      "host_id",
+      "value"
+    ],
+    "properties": {
+      "timestamp": {
+        "type": "string"
+      },
+      "host_id": {
+        "type": "string"
+      },
+      "value": {
+        "type": [
+          "number",
+          "null"
+        ]
+      }
+    }
+  },
+  "outputs": {
+    "type": "object",
+    "required": [
+      "timestamp",
+      "host_id",
+      "status",
+      "score",
+      "evidence"
+    ],
+    "properties": {
+      "status": {
+        "enum": [
+          "ok",
+          "insufficient_history",
+          "missing_input",
+          "invalid_input"
+        ]
+      },
+      "evidence": {
+        "type": "object"
+      },
+      "score": {
+        "type": [
+          "number",
+          "null"
+        ]
+      }
+    }
+  },
+  "metric_kinds": [
+    "gauge",
+    "rate"
+  ],
+  "evaluation_metrics": [
+    "event_f1",
+    "point_f1",
+    "normal_false_alarms_per_host_hour",
+    "matched_delay_seconds"
+  ],
+  "dependency_profile": "metrics-py312-stdlib/1",
+  "verification": "reference",
+  "default_candidate": false,
+  "method_id": "threshold_probe",
+  "display_name": "阈值探针",
+  "supported_directions": [
+    "upper",
+    "lower"
+  ],
+  "min_history": 0,
+  "calibration": "fixed",
+  "defaults": {
+    "threshold": 85.0,
+    "direction": "upper"
+  },
+  "aliases": [
+    "阈值探针",
+    "threshold_probe"
+  ],
+  "assumptions": [
+    "业务阈值须由用户确认；未指定值只是候选假设。"
+  ],
+  "config_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "threshold",
+      "direction"
+    ],
+    "properties": {
+      "threshold": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 100
+      },
+      "direction": {
+        "enum": [
+          "upper",
+          "lower"
+        ]
+      }
+    }
+  },
+  "algorithm_spec": "固定阈值：upper=x-T，lower=T-x，evidence包含threshold；缺失value时missing_input。等于阈值时分数为0，只有严格大于0才告警。fit仅确认存在有效训练值；reset无历史状态。",
+  "candidate_name": "probe",
+  "spec_sources": [
+    {
+      "path": "materials/metrics/02-fixed-threshold.txt",
+      "sha256": "sha256:dc91558e86cf108f1796ad3f1ab2c5826c11517f8a443f9315d918f410ab5a3f",
+      "start_line": 3,
+      "end_line": 7,
+      "quote": "适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1，不需要历史基线。\nupper 分数为 x-T，lower 分数为 T-x。严格 score>0 才是异常候选；等号不触发。\n业务阈值必须来自用户明确值或有引用的业务材料；假设阈值要标为 candidate_assumption。\n本材料没有给定任何指标的业务阈值；禁止虚构业务达标保证。\ncalibration 不改变固定阈值 T；共享可信告警器处理连续点数和事件合并。"
+    },
+    {
+      "path": "materials/metrics/reference_fixed.py",
+      "sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+      "start_line": 13,
+      "end_line": 19,
+      "quote": "    def fit(self, train_points):\n        if not any(point[\"value\"] is not None for point in train_points):\n            raise ValueError(\"no valid training observations\")\n        self.reset()\n\n    def reset(self):\n        pass"
+    }
+  ]
+}

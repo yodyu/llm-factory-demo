@@ -1,0 +1,75 @@
+{
+  "task_sha256": "sha256:e2c0582aa18b5d78e8c3822e44d7fcccb9235bb316df177fb7df0566dd3fd45c",
+  "bindings": {
+    "image_id": "sha256:ec7e3f613d45080c580bed6c83b6404df77b17a7cb72be69bacc80cce954ed31",
+    "knowledge_snapshot": "sha256:e056a78ec83a7f6dfcd06d3d50d4e6e336d422975cc18551ea0e48ffac0d4f2c",
+    "labels_sha256": "sha256:bc8c6f901bbf330d9d072f405227bc2f71f3cfc8415a8d3dc8837d7b38327ea4",
+    "manifest_sha256": "sha256:965d5c5fd28d9486302614920bad9f1c7605313ba21e7beebfdea0a0de724b2d"
+  },
+  "selected": "ewma_alpha0.3_upper_p2",
+  "plan": {
+    "candidate_id": "ewma_alpha0.3_upper_p2",
+    "capability_id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+    "config": {
+      "alpha": 0.3,
+      "direction": "upper",
+      "method_id": "ewma",
+      "min_history": 3,
+      "quantile": 0.99
+    },
+    "knowledge_ids": [
+      "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+      "experience-1a45af64c9486f459f33d134feaea09ec6cfd61ba346b46f6dcd8df062f8002a",
+      "experience-8994fbe8622595cad805f1388c2ffd8746b76ce1809cdea8020c5866f76a10f4"
+    ],
+    "limitations": [
+      "固定baseline会保留长期水位偏移；若模拟基线本身随时间非异常迁移，可能产生误报。",
+      "alpha=0.3由用户明确指定，不能在候选中更改；较小alpha可能降低对快速升高的响应速度。",
+      "quantile=0.99为协议默认，不代表本次业务阈值；上线前需用无标签校准集计算阈值。",
+      "历史经验包含一次MODEL_TIMEOUT风险提示；后续代码应避免外部模型调用和高延迟依赖。"
+    ],
+    "parameter_sources": {
+      "alpha": "user_explicit",
+      "direction": "user_explicit",
+      "method_id": "knowledge:capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "min_history": "protocol_default",
+      "persistence_points": "user_explicit",
+      "quantile": "protocol_default"
+    },
+    "persistence_points": 2,
+    "selection_reason": "EWMA支持upper方向和gauge指标，适用于持续变化；固定训练baseline配合平滑值可检测相对训练期的持续升高。用户明确指定alpha=0.3、direction=upper，并要求连续两点报警，因此persistence_points=2。min_history=3和quantile=0.99来自已注册方法默认配置；假设模拟数据中存在可用于fit的训练段，且异常升高会在平滑值上维持至少两个采样点。该候选能抑制单点尖峰，但对非常缓慢漂移的响应可能较慢。"
+  },
+  "source_path": "candidate-e5cb6ef0d6cb8bf298407d01a5a5015f2b48b802f6fb4497604ceb2f8249b91a/v0.py",
+  "source_sha256": "sha256:2235ac3aea50af4e99c77d4b7729621f3190b568e4ce9385a6aa4b498ccbd54b",
+  "threshold": 3.247366811985249,
+  "selection": {
+    "basis": "labelled_development",
+    "beta": 0.5,
+    "criteria": [
+      "point_fbeta_desc",
+      "event_fbeta_desc",
+      "false_alarm_rate_asc",
+      "matched_delay_asc",
+      "coverage_desc",
+      "candidate_id"
+    ],
+    "objective": "sustained_coverage",
+    "policy": "precision",
+    "protocol": "metrics-selection/2",
+    "ranking": [
+      "ewma_alpha0.3_upper_p2",
+      "rolling_mad_w30_upper_p2"
+    ],
+    "reason": "按开发集目标及次级 Fβ、正常误报频次、匹配延迟、覆盖率和候选ID排序；最终测试不参与选择。",
+    "requested_policy": "precision",
+    "selected": "ewma_alpha0.3_upper_p2",
+    "status": "SELECTED",
+    "tie_broken_by": "point_fbeta",
+    "warnings": [
+      "LOW_EVENT_COUNT: 真实事件少于5个，事件F1不足以支持统计结论。"
+    ]
+  },
+  "protocol": "metrics-evaluation/1",
+  "selection_sha256": "sha256:d1fcdf8c5622ea2a9817511eaf47630508b3645f3619c08fcf530edf2e1508ba"
+}

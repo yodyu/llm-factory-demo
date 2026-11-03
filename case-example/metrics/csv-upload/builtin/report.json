@@ -1,0 +1,1810 @@
+{
+  "schema_version": "metrics-run/1",
+  "task": {
+    "schema_version": "metrics-task/1",
+    "task_id": "builtin",
+    "requirement": "检测内存持续升高，明确业务阈值85，连续两点告警",
+    "dataset_id": "sim-memory_shift-v1",
+    "metric": "memory_utilization",
+    "anomaly_target": "upper",
+    "explicit_constraints": {
+      "threshold": 85.0,
+      "direction": "upper",
+      "persistence_points": 2.0
+    },
+    "ranking_preferences": [],
+    "allowed_methods": [
+      "fixed_threshold",
+      "rolling_mad"
+    ],
+    "knowledge_snapshot": "sha256:326f233ed3c437ad47d291f9f04e4c78c850350e4b3d7e202d7fca80fdb0cefd",
+    "validation_protocol": "metrics-evaluation/1",
+    "budgets": {
+      "model_calls": 16,
+      "repair_rounds": 2,
+      "candidates": 2,
+      "wall_seconds": 900
+    },
+    "model_mode": "mock",
+    "model_profile_id": "metrics-mock-v1"
+  },
+  "origin": "mock",
+  "knowledge_snapshot": {
+    "schema_version": "metrics-knowledge/1",
+    "nodes": [
+      {
+        "id": "capability-10ae25e3348a01de76dccd8b39b48b876303cddaa2f2780fd1d270e2dc03c9d1",
+        "kind": "Capability",
+        "payload": {
+          "citations": [
+            {
+              "chunk_id": "chunk-50df28a0b01f219bc6d8a52fc227814c73da98469a23838fe9c50d66e758e4fd",
+              "quote": "# 构造评价材料",
+              "symbol": null
+            }
+          ],
+          "conditions_status": "evidenced",
+          "constraints": [
+            "单主机单指标"
+          ],
+          "dependency_profile": "metrics-py312-stdlib/1",
+          "implementation_verified": false,
+          "knowledge_status": "extracted_unverified",
+          "limitations": [
+            "mock extraction"
+          ],
+          "local_id": "controlled",
+          "method_id": null,
+          "metric_kinds": [
+            "gauge",
+            "rate"
+          ],
+          "min_history": 0,
+          "name": "04-evaluation.txt",
+          "origin": "mock",
+          "response_evidence": {
+            "prompt_version": "metrics-prompts/3",
+            "stage": "extract-3",
+            "task_id": "upload-review-ingest"
+          },
+          "single_host": true,
+          "source_id": "source-36277c70704daf757a36cf1cee2546aeabfd1ca59c2f1a9085ae277f62640958",
+          "source_status": "source_checked",
+          "summary": "受控抽取示例：04-evaluation.txt"
+        }
+      },
+      {
+        "id": "capability-342b4d0dd973754dfb5f39620b6ad06603530eaa0e2d39c36166e009ad1804d1",
+        "kind": "Capability",
+        "payload": {
+          "citations": [
+            {
+              "chunk_id": "chunk-a2ff1b5a07f2f1603e5f212d49f5d60b7f21b9df5a5bcb891ecaef90586a07a4",
+              "quote": "# 构造专家材料：fixed_threshold",
+              "symbol": null
+            }
+          ],
+          "conditions_status": "evidenced",
+          "constraints": [
+            "单主机单指标"
+          ],
+          "dependency_profile": "metrics-py312-stdlib/1",
+          "implementation_verified": false,
+          "knowledge_status": "extracted_unverified",
+          "limitations": [
+            "mock extraction"
+          ],
+          "local_id": "controlled",
+          "method_id": "fixed_threshold",
+          "metric_kinds": [
+            "gauge",
+            "rate"
+          ],
+          "min_history": 0,
+          "name": "02-fixed-threshold.txt",
+          "origin": "mock",
+          "response_evidence": {
+            "prompt_version": "metrics-prompts/3",
+            "stage": "extract-1",
+            "task_id": "upload-review-ingest"
+          },
+          "single_host": true,
+          "source_id": "source-8aa09fc385453bbbccd68b26e083b14040147c7d4c48028ce969f50cd7c0ae01",
+          "source_status": "source_checked",
+          "summary": "受控抽取示例：02-fixed-threshold.txt"
+        }
+      },
+      {
+        "id": "capability-43e9fdd84e646c7ecd29db6b7774bf2fb802c5e72ced84bfc4b441ef9e74d84b",
+        "kind": "Capability",
+        "payload": {
+          "citations": [
+            {
+              "chunk_id": "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+              "quote": "# 构造业务材料：正常高峰与异常",
+              "symbol": null
+            }
+          ],
+          "conditions_status": "evidenced",
+          "constraints": [
+            "单主机单指标"
+          ],
+          "dependency_profile": "metrics-py312-stdlib/1",
+          "implementation_verified": false,
+          "knowledge_status": "extracted_unverified",
+          "limitations": [
+            "mock extraction"
+          ],
+          "local_id": "controlled",
+          "method_id": null,
+          "metric_kinds": [
+            "gauge",
+            "rate"
+          ],
+          "min_history": 0,
+          "name": "05-limitations.txt",
+          "origin": "mock",
+          "response_evidence": {
+            "prompt_version": "metrics-prompts/3",
+            "stage": "extract-4",
+            "task_id": "upload-review-ingest"
+          },
+          "single_host": true,
+          "source_id": "source-97a77ad30f7a0b8cffe235cf0e976b80038afc54b52f87f2ae18117ce4506b0d",
+          "source_status": "source_checked",
+          "summary": "受控抽取示例：05-limitations.txt"
+        }
+      },
+      {
+        "id": "capability-519c835bd34beaa0026f58de81145ee47a044bcfd849de966f109a37b0e42ed5",
+        "kind": "Capability",
+        "payload": {
+          "citations": [
+            {
+              "chunk_id": "chunk-71056a6f0eba69735041caa3ef8483a2e0f86a9215287c361fa8a6c41de5ba21",
+              "quote": "\"\"\"Constructed human reference (origin=reference), not generated model code.",
+              "symbol": null
+            }
+          ],
+          "conditions_status": "evidenced",
+          "constraints": [
+            "单主机单指标"
+          ],
+          "dependency_profile": "metrics-py312-stdlib/1",
+          "implementation_verified": false,
+          "knowledge_status": "extracted_unverified",
+          "limitations": [
+            "mock extraction"
+          ],
+          "local_id": "controlled",
+          "method_id": "rolling_mad",
+          "metric_kinds": [
+            "gauge",
+            "rate"
+          ],
+          "min_history": 15,
+          "name": "reference_mad.py",
+          "origin": "mock",
+          "response_evidence": {
+            "prompt_version": "metrics-prompts/3",
+            "stage": "extract-6",
+            "task_id": "upload-review-ingest"
+          },
+          "single_host": true,
+          "source_id": "source-0171abfd70df5882656c9ab08fa844aa9bf67787cb99e22c619c3f8718217281",
+          "source_status": "source_checked",
+          "summary": "受控抽取示例：reference_mad.py"
+        }
+      },
+      {
+        "id": "capability-5ca60d8f88a3dbf16cd6bc6eb30e61328b275e1d818d507326e988e6ac104b14",
+        "kind": "Capability",
+        "payload": {
+          "citations": [
+            {
+              "chunk_id": "chunk-9fdc4618934c65208b705044487750899a698cf00f1e25e52554832504313804",
+              "quote": "\"\"\"Constructed human reference (origin=reference), never an LLM-generated result.",
+              "symbol": null
+            }
+          ],
+          "conditions_status": "evidenced",
+          "constraints": [
+            "单主机单指标"
+          ],
+          "dependency_profile": "metrics-py312-stdlib/1",
+          "implementation_verified": false,
+          "knowledge_status": "extracted_unverified",
+          "limitations": [
+            "mock extraction"
+          ],
+          "local_id": "controlled",
+          "method_id": "fixed_threshold",
+          "metric_kinds": [
+            "gauge",
+            "rate"
+          ],
+          "min_history": 0,
+          "name": "reference_fixed.py",
+          "origin": "mock",
+          "response_evidence": {
+            "prompt_version": "metrics-prompts/3",
+            "stage": "extract-5",
+            "task_id": "upload-review-ingest"
+          },
+          "single_host": true,
+          "source_id": "source-74b5788c8efcc29ca5dcbbf4b608c0d755fb6b5a7cee57c53850b53fa5041193",
+          "source_status": "source_checked",
+          "summary": "受控抽取示例：reference_fixed.py"
+        }
+      },
+      {
+        "id": "capability-5e0830953bd4cb960d53fe37f87268bc260928855cf5df53b90d2324c51c90c3",
+        "kind": "Capability",
+        "payload": {
+          "citations": [
+            {
+              "chunk_id": "chunk-6f7901a37608c1205d444bc404b8098d89e1617f0d1633c73d1c22e0e05ba7ac",
+              "quote": "# 构造专家材料：rolling_mad",
+              "symbol": null
+            }
+          ],
+          "conditions_status": "evidenced",
+          "constraints": [
+            "单主机单指标"
+          ],
+          "dependency_profile": "metrics-py312-stdlib/1",
+          "implementation_verified": false,
+          "knowledge_status": "extracted_unverified",
+          "limitations": [
+            "mock extraction"
+          ],
+          "local_id": "controlled",
+          "method_id": "rolling_mad",
+          "metric_kinds": [
+            "gauge",
+            "rate"
+          ],
+          "min_history": 15,
+          "name": "03-rolling-mad.txt",
+          "origin": "mock",
+          "response_evidence": {
+            "prompt_version": "metrics-prompts/3",
+            "stage": "extract-2",
+            "task_id": "upload-review-ingest"
+          },
+          "single_host": true,
+          "source_id": "source-9b329ea3663d980d9ae702252a5e380b40f9d2efc3801882d1b9019744038bd3",
+          "source_status": "source_checked",
+          "summary": "受控抽取示例：03-rolling-mad.txt"
+        }
+      },
+      {
+        "id": "capability-810e3aa775f557f91112f9a13c8c7c4b4e9837a2e56011d73831621370ad10e0",
+        "kind": "Capability",
+        "payload": {
+          "citations": [
+            {
+              "chunk_id": "chunk-a9459372dddbdfa7919ab0daae5ff3f659da54554b798f78e620df858b558742",
+              "quote": "# 构造材料：单主机指标字段规范",
+              "symbol": null
+            }
+          ],
+          "conditions_status": "evidenced",
+          "constraints": [
+            "单主机单指标"
+          ],
+          "dependency_profile": "metrics-py312-stdlib/1",
+          "implementation_verified": false,
+          "knowledge_status": "extracted_unverified",
+          "limitations": [
+            "mock extraction"
+          ],
+          "local_id": "controlled",
+          "method_id": null,
+          "metric_kinds": [
+            "gauge",
+            "rate"
+          ],
+          "min_history": 0,
+          "name": "01-fields.txt",
+          "origin": "mock",
+          "response_evidence": {
+            "prompt_version": "metrics-prompts/3",
+            "stage": "extract-0",
+            "task_id": "upload-review-ingest"
+          },
+          "single_host": true,
+          "source_id": "source-cf538ad1148ef947276baa133928fc6fa78fcdabd3a6206c7718b8b1fbddd646",
+          "source_status": "source_checked",
+          "summary": "受控抽取示例：01-fields.txt"
+        }
+      },
+      {
+        "id": "chunk-50df28a0b01f219bc6d8a52fc227814c73da98469a23838fe9c50d66e758e4fd",
+        "kind": "Chunk",
+        "payload": {
+          "end_line": 10,
+          "sha256": "sha256:1becbc87f0a2ad16e7bc7cd4d92343bacdc1f4bc7c2eb4674cc1ce33ca434860",
+          "source_id": "source-36277c70704daf757a36cf1cee2546aeabfd1ca59c2f1a9085ae277f62640958",
+          "start_line": 1,
+          "text": "# 构造评价材料\n\ntrain、calibration、development、test 四种角色独立初始化。前缀暖机，不计分。\n校准只用 calibration 无标签分数，选择只用 development；冻结后只测试胜出候选一次。\n最终测试不得用于代码修复、调参或换选候选；没有业务门槛只能报告实测。\n默认连续两点超阈值，从第二点告警，不向前补记；非超阈值或不可判断重置计数。\n点对应半开时间单元，连续告警合并事件，trigger 必须落在真实事件内，一对一匹配。\n正类弃权计 FN，正常弃权另列，不计 TN；覆盖率包含全部计分点。\nPrecision 无预测时为空，Recall 无真实异常时为空；禁止 point adjustment。\n方法语义检查、效果测量、业务达标分别报告。效果标签来自独立模拟注入，不由检测器决定。"
+        }
+      },
+      {
+        "id": "chunk-5f6d54b720e14dc69ad159dbbb9a31707ff8866d7940364ced1b76704e4af189",
+        "kind": "Chunk",
+        "payload": {
+          "end_line": 64,
+          "sha256": "sha256:72444d9aa3d816a119b23a394640a897cf13f030b5ce5010ea2724fa5840e31e",
+          "source_id": "source-0171abfd70df5882656c9ab08fa844aa9bf67787cb99e22c619c3f8718217281",
+          "start_line": 33,
+          "text": "        self.history = []\n\n    def score_one(self, point):\n        if self.floor is None:\n            raise ValueError(\"fit required\")\n        value, evidence = point[\"value\"], {}\n        score, status = None, \"ok\"\n        if value is None:\n            status = \"missing_input\"\n        elif sum(slot[1] for slot in self.history) < self.config[\"min_history\"]:\n            status = \"insufficient_history\"\n        else:\n            values = [slot[0] for slot in self.history if slot[0] is not None]\n            center = median(values)\n            mad = median([abs(x - center) for x in values])\n            scale = max(1.4826 * mad, self.floor)\n            delta = value - center\n            if self.config[\"direction\"] == \"lower\":\n                delta = -delta\n            elif self.config[\"direction\"] == \"two_sided\":\n                delta = abs(delta)\n            score = delta / scale\n            evidence = {\"median\": center, \"mad\": mad, \"scale\": scale}\n        self.history.append([value, point[\"original_present\"]])\n        self.history = self.history[-self.config[\"window\"]:]\n        return {\"timestamp\": point[\"timestamp\"], \"host_id\": point[\"host_id\"],\n                \"status\": status, \"score\": score, \"evidence\": evidence}\n\n    def save_state(self):\n        return json.dumps({\"config\": self.config, \"floor\": self.floor, \"history\": self.history}, allow_nan=False)\n\n    def load_state(self, raw):"
+        }
+      },
+      {
+        "id": "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+        "kind": "Chunk",
+        "payload": {
+          "end_line": 8,
+          "sha256": "sha256:b2cceceb866b5eda5662b41cb0bffe117e408bd8a0fa447edbb802672f690618",
+          "source_id": "source-97a77ad30f7a0b8cffe235cf0e976b80038afc54b52f87f2ae18117ce4506b0d",
+          "start_line": 1,
+          "text": "# 构造业务材料：正常高峰与异常\n\n单主机 CPU、内存、磁盘延迟、网络速率可出现正常业务高峰，与异常数值区间重叠。\nfixed_threshold 和 rolling_mad 都不能仅靠该数值判定故障根因。\nMAD 适合检测相对历史偏离，固定阈值适合已有清晰绝对上/下界的需求。\n周期波动、缓慢漂移、长期缺失是必须保留的困难样本，不能从评价分母删除。\n历史实现即使工程通过，也必须在新输入上重新验证；失败实现只能作为风险经验。\n本材料只支持 gauge/rate、单主机单指标，不支持日志语义、Isolation Forest 或季节模型。"
+        }
+      },
+      {
+        "id": "chunk-6ea94804be639006f4a4e9a76956bcefea95398a78279e19ab1de5361f32d779",
+        "kind": "Chunk",
+        "payload": {
+          "end_line": 39,
+          "sha256": "sha256:da48f788bf72108e88804dd30653278f80a87ab2514723c2246936a9f4810bdd",
+          "source_id": "source-74b5788c8efcc29ca5dcbbf4b608c0d755fb6b5a7cee57c53850b53fa5041193",
+          "start_line": 33,
+          "text": "    def load_state(self, raw):\n        if json.loads(raw) != {\"config\": self.config}:\n            raise ValueError(\"state config mismatch\")\n\n\ndef create_detector(config):\n    return Detector(config)"
+        }
+      },
+      {
+        "id": "chunk-6f7901a37608c1205d444bc404b8098d89e1617f0d1633c73d1c22e0e05ba7ac",
+        "kind": "Chunk",
+        "payload": {
+          "end_line": 11,
+          "sha256": "sha256:4d21e32573560e325bfff9bbb5528c607f1017660f11f9fac911448d0812b09a",
+          "source_id": "source-9b329ea3663d980d9ae702252a5e380b40f9d2efc3801882d1b9019744038bd3",
+          "start_line": 1,
+          "text": "# 构造专家材料：rolling_mad\n\n适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1。\nW 默认 30 个时间槽，min_history 默认 15 个真实观测，且 min_history<=W。\n仅用当前点之前最近 W 个槽；统计可用观测含短缺失插补值，但插补不增加真实历史数。\nm=历史中位数，MAD=|历史-m| 的中位数，scale=max(1.4826*MAD, scale_floor)。\n训练原始有效值的 R7 IQR 决定 scale_floor=max(1e-9,IQR*1e-6)。\nupper=(x-m)/scale，lower=(m-x)/scale，two_sided=|x-m|/scale。\n先评分再追加当前点；不可用点也占历史时间槽，历史不足返回 insufficient_history 和空分数。\ncalibration 的可判断计分分数至少 100 个，nearest-rank 0.99 分位阈值；不使用标签。\n严格 score>阈值，所有可用点（含异常）均更新窗口，长漂移可能被吸收，周期模式可能误报。"
+        }
+      },
+      {
+        "id": "chunk-71056a6f0eba69735041caa3ef8483a2e0f86a9215287c361fa8a6c41de5ba21",
+        "kind": "Chunk",
+        "payload": {
+          "end_line": 32,
+          "sha256": "sha256:dddb3df36bd4a17ed7fd89c1245403cc345ada9618a4ca571eeafb4c91a0ae48",
+          "source_id": "source-0171abfd70df5882656c9ab08fa844aa9bf67787cb99e22c619c3f8718217281",
+          "start_line": 1,
+          "text": "\"\"\"Constructed human reference (origin=reference), not generated model code.\n\nUse previous W time slots. Only original observations count for min_history;\nforward-filled values may affect median/MAD. Update history AFTER scoring.\nThe training R7 IQR sets the numerical floor; no labels are used.\n\"\"\"\nimport json\nfrom statistics import median\n\n\ndef quantile(values, q):\n    values = sorted(values)\n    pos = (len(values) - 1) * q\n    lo = int(pos)\n    hi = min(lo + 1, len(values) - 1)\n    return values[lo] + (values[hi] - values[lo]) * (pos - lo)\n\n\nclass Detector:\n    def __init__(self, config):\n        self.config = dict(config)\n        self.floor = None\n        self.history = []\n\n    def fit(self, train_points):\n        values = [p[\"value\"] for p in train_points if p[\"value\"] is not None]\n        if not values:\n            raise ValueError(\"no valid training observations\")\n        self.floor = max(1e-9, (quantile(values, 0.75) - quantile(values, 0.25)) * 1e-6)\n        self.reset()\n\n    def reset(self):"
+        }
+      },
+      {
+        "id": "chunk-9fdc4618934c65208b705044487750899a698cf00f1e25e52554832504313804",
+        "kind": "Chunk",
+        "payload": {
+          "end_line": 32,
+          "sha256": "sha256:981904a2f34cebbf0f3a970ea60e576e2c34c653ac71801cef777d6b2c28f218",
+          "source_id": "source-74b5788c8efcc29ca5dcbbf4b608c0d755fb6b5a7cee57c53850b53fa5041193",
+          "start_line": 1,
+          "text": "\"\"\"Constructed human reference (origin=reference), never an LLM-generated result.\n\nUpper score=x-T, lower score=T-x. Equality is not an alert. The trusted driver\nowns preprocessing, persistence and labels; the detector only emits scores.\n\"\"\"\nimport json\n\n\nclass Detector:\n    def __init__(self, config):\n        self.config = dict(config)\n\n    def fit(self, train_points):\n        if not any(point[\"value\"] is not None for point in train_points):\n            raise ValueError(\"no valid training observations\")\n        self.reset()\n\n    def reset(self):\n        pass\n\n    def score_one(self, point):\n        value = point[\"value\"]\n        delta = None if value is None else value - self.config[\"threshold\"]\n        if delta is not None and self.config[\"direction\"] == \"lower\":\n            delta = -delta\n        return {\"timestamp\": point[\"timestamp\"], \"host_id\": point[\"host_id\"],\n                \"status\": \"missing_input\" if value is None else \"ok\", \"score\": delta,\n                \"evidence\": {\"threshold\": self.config[\"threshold\"]}}\n\n    def save_state(self):\n        return json.dumps({\"config\": self.config}, allow_nan=False)\n"
+        }
+      },
+      {
+        "id": "chunk-a2ff1b5a07f2f1603e5f212d49f5d60b7f21b9df5a5bcb891ecaef90586a07a4",
+        "kind": "Chunk",
+        "payload": {
+          "end_line": 8,
+          "sha256": "sha256:6215d6ee955e2f0144f85b7c6858dead4a04f7702c1d415412e8ea136d901a1b",
+          "source_id": "source-8aa09fc385453bbbccd68b26e083b14040147c7d4c48028ce969f50cd7c0ae01",
+          "start_line": 1,
+          "text": "# 构造专家材料：fixed_threshold\n\n适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1，不需要历史基线。\nupper 分数为 x-T，lower 分数为 T-x。严格 score>0 才是异常候选；等号不触发。\n业务阈值必须来自用户明确值或有引用的业务材料；假设阈值要标为 candidate_assumption。\n本材料没有给定任何指标的业务阈值；禁止虚构业务达标保证。\ncalibration 不改变固定阈值 T；共享可信告警器处理连续点数和事件合并。\n绝对阈值可能漏掉低基线主机的相对变化，也可能对正常业务高峰误报。"
+        }
+      },
+      {
+        "id": "chunk-a9459372dddbdfa7919ab0daae5ff3f659da54554b798f78e620df858b558742",
+        "kind": "Chunk",
+        "payload": {
+          "end_line": 9,
+          "sha256": "sha256:9fe4a4a687ecaa772af8d6f9eb202a1cdc5234dbb2eb1d4377c392a1b2c1194e",
+          "source_id": "source-cf538ad1148ef947276baa133928fc6fa78fcdabd3a6206c7718b8b1fbddd646",
+          "start_line": 1,
+          "text": "# 构造材料：单主机指标字段规范\n\n本文件是模拟业务专家材料，不是生产经验。\n输入为单主机、单指标，字段 timestamp、host_id、value；时间为 UTC，固定采样间隔。\nmetric_kind 仅允许 gauge 或已换算的 rate，原始 counter 不支持。\nCPU、内存以 percent 为单位，磁盘延迟以 ms 为单位，网络速率以 bytes/s 为单位。\n缺少 value 保留时间槽，不能删除行。重复、乱序、无穷值和物理范围外值拒绝。\n向前填充最多三点，无历史或超过三点时 missing_input；不能把缺失当正常。\n两种算法都支持 gauge/rate，不执行根因定位或多主机联合检测。"
+        }
+      },
+      {
+        "id": "chunk-d8caad78b7a2aadb19b9dc03a9c71319f15076d3b7f3d5c668ba22c932bc9487",
+        "kind": "Chunk",
+        "payload": {
+          "end_line": 72,
+          "sha256": "sha256:d471cc29f307f234335c5cd50c28ba3cf3e9edb392e7ce5b644a80155e314855",
+          "source_id": "source-0171abfd70df5882656c9ab08fa844aa9bf67787cb99e22c619c3f8718217281",
+          "start_line": 65,
+          "text": "        state = json.loads(raw)\n        if state[\"config\"] != self.config or len(state[\"history\"]) > self.config[\"window\"]:\n            raise ValueError(\"state config/history mismatch\")\n        self.floor, self.history = state[\"floor\"], state[\"history\"]\n\n\ndef create_detector(config):\n    return Detector(config)"
+        }
+      },
+      {
+        "id": "constraint-011b13eddda36cec26713b1acacda8a81edac49d2432b2e3689f9d86379ade10",
+        "kind": "Constraint",
+        "payload": {
+          "citations": [
+            {
+              "chunk_id": "chunk-6f7901a37608c1205d444bc404b8098d89e1617f0d1633c73d1c22e0e05ba7ac",
+              "quote": "# 构造专家材料：rolling_mad",
+              "symbol": null
+            }
+          ],
+          "conditions_status": "evidenced",
+          "description": "单主机单指标",
+          "knowledge_status": "extracted_unverified"
+        }
+      },
+      {
+        "id": "constraint-1108f2cc405ed4fb948c1451b4b440ffc6eb13f918932891508a951ee3f7d9c4",
+        "kind": "Constraint",
+        "payload": {
+          "citations": [
+            {
+              "chunk_id": "chunk-71056a6f0eba69735041caa3ef8483a2e0f86a9215287c361fa8a6c41de5ba21",
+              "quote": "\"\"\"Constructed human reference (origin=reference), not generated model code.",
+              "symbol": null
+            }
+          ],
+          "conditions_status": "evidenced",
+          "description": "单主机单指标",
+          "knowledge_status": "extracted_unverified"
+        }
+      },
+      {
+        "id": "constraint-4064a940de70e9b14f21c0f5129299c03920a11e8cceefda64620540d0e69bda",
+        "kind": "Constraint",
+        "payload": {
+          "citations": [
+            {
+              "chunk_id": "chunk-a2ff1b5a07f2f1603e5f212d49f5d60b7f21b9df5a5bcb891ecaef90586a07a4",
+              "quote": "# 构造专家材料：fixed_threshold",
+              "symbol": null
+            }
+          ],
+          "conditions_status": "evidenced",
+          "description": "单主机单指标",
+          "knowledge_status": "extracted_unverified"
+        }
+      },
+      {
+        "id": "constraint-80699ecfc23d9717f53eb74a10740de3dce9a2c5939d6276491f75e3d02c5e28",
+        "kind": "Constraint",
+        "payload": {
+          "citations": [
+            {
+              "chunk_id": "chunk-50df28a0b01f219bc6d8a52fc227814c73da98469a23838fe9c50d66e758e4fd",
+              "quote": "# 构造评价材料",
+              "symbol": null
+            }
+          ],
+          "conditions_status": "evidenced",
+          "description": "单主机单指标",
+          "knowledge_status": "extracted_unverified"
+        }
+      },
+      {
+        "id": "constraint-8cdc9728490e69c3c5fa77c3dccbc75c436ea867dd38147afc35db06980c1a25",
+        "kind": "Constraint",
+        "payload": {
+          "citations": [
+            {
+              "chunk_id": "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+              "quote": "# 构造业务材料：正常高峰与异常",
+              "symbol": null
+            }
+          ],
+          "conditions_status": "evidenced",
+          "description": "单主机单指标",
+          "knowledge_status": "extracted_unverified"
+        }
+      },
+      {
+        "id": "constraint-aca20fc51086a843e0d0d7e23367027c418b8eaab46299203a74248043a7e6ad",
+        "kind": "Constraint",
+        "payload": {
+          "citations": [
+            {
+              "chunk_id": "chunk-9fdc4618934c65208b705044487750899a698cf00f1e25e52554832504313804",
+              "quote": "\"\"\"Constructed human reference (origin=reference), never an LLM-generated result.",
+              "symbol": null
+            }
+          ],
+          "conditions_status": "evidenced",
+          "description": "单主机单指标",
+          "knowledge_status": "extracted_unverified"
+        }
+      },
+      {
+        "id": "constraint-f583eb4e9038c32ac9d019eede19440ef9782c62d24769f700673a0c13cda57d",
+        "kind": "Constraint",
+        "payload": {
+          "citations": [
+            {
+              "chunk_id": "chunk-a9459372dddbdfa7919ab0daae5ff3f659da54554b798f78e620df858b558742",
+              "quote": "# 构造材料：单主机指标字段规范",
+              "symbol": null
+            }
+          ],
+          "conditions_status": "evidenced",
+          "description": "单主机单指标",
+          "knowledge_status": "extracted_unverified"
+        }
+      },
+      {
+        "id": "source-0171abfd70df5882656c9ab08fa844aa9bf67787cb99e22c619c3f8718217281",
+        "kind": "Source",
+        "payload": {
+          "imports": [
+            "json",
+            "statistics"
+          ],
+          "material_type": "py",
+          "origin": "constructed_reference",
+          "path": "reference_mad.py",
+          "sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+          "symbols": [
+            {
+              "docstring": null,
+              "end_line": 16,
+              "line": 11,
+              "name": "quantile",
+              "qualified_name": "quantile",
+              "signature": "values, q"
+            },
+            {
+              "docstring": null,
+              "end_line": 68,
+              "line": 19,
+              "name": "Detector",
+              "qualified_name": "Detector",
+              "signature": null
+            },
+            {
+              "docstring": null,
+              "end_line": 72,
+              "line": 71,
+              "name": "create_detector",
+              "qualified_name": "create_detector",
+              "signature": "config"
+            },
+            {
+              "docstring": null,
+              "end_line": 23,
+              "line": 20,
+              "name": "__init__",
+              "qualified_name": "Detector.__init__",
+              "signature": "self, config"
+            },
+            {
+              "docstring": null,
+              "end_line": 30,
+              "line": 25,
+              "name": "fit",
+              "qualified_name": "Detector.fit",
+              "signature": "self, train_points"
+            },
+            {
+              "docstring": null,
+              "end_line": 33,
+              "line": 32,
+              "name": "reset",
+              "qualified_name": "Detector.reset",
+              "signature": "self"
+            },
+            {
+              "docstring": null,
+              "end_line": 59,
+              "line": 35,
+              "name": "score_one",
+              "qualified_name": "Detector.score_one",
+              "signature": "self, point"
+            },
+            {
+              "docstring": null,
+              "end_line": 62,
+              "line": 61,
+              "name": "save_state",
+              "qualified_name": "Detector.save_state",
+              "signature": "self"
+            },
+            {
+              "docstring": null,
+              "end_line": 68,
+              "line": 64,
+              "name": "load_state",
+              "qualified_name": "Detector.load_state",
+              "signature": "self, raw"
+            }
+          ]
+        }
+      },
+      {
+        "id": "source-36277c70704daf757a36cf1cee2546aeabfd1ca59c2f1a9085ae277f62640958",
+        "kind": "Source",
+        "payload": {
+          "imports": [],
+          "material_type": "txt",
+          "origin": "constructed_material",
+          "path": "04-evaluation.txt",
+          "sha256": "sha256:c90aca46676ee752a5ec8d6eaff44aee60d6d133fdcab8033c2a54fc6f707557",
+          "symbols": []
+        }
+      },
+      {
+        "id": "source-74b5788c8efcc29ca5dcbbf4b608c0d755fb6b5a7cee57c53850b53fa5041193",
+        "kind": "Source",
+        "payload": {
+          "imports": [
+            "json"
+          ],
+          "material_type": "py",
+          "origin": "constructed_reference",
+          "path": "reference_fixed.py",
+          "sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+          "symbols": [
+            {
+              "docstring": null,
+              "end_line": 35,
+              "line": 9,
+              "name": "Detector",
+              "qualified_name": "Detector",
+              "signature": null
+            },
+            {
+              "docstring": null,
+              "end_line": 39,
+              "line": 38,
+              "name": "create_detector",
+              "qualified_name": "create_detector",
+              "signature": "config"
+            },
+            {
+              "docstring": null,
+              "end_line": 11,
+              "line": 10,
+              "name": "__init__",
+              "qualified_name": "Detector.__init__",
+              "signature": "self, config"
+            },
+            {
+              "docstring": null,
+              "end_line": 16,
+              "line": 13,
+              "name": "fit",
+              "qualified_name": "Detector.fit",
+              "signature": "self, train_points"
+            },
+            {
+              "docstring": null,
+              "end_line": 19,
+              "line": 18,
+              "name": "reset",
+              "qualified_name": "Detector.reset",
+              "signature": "self"
+            },
+            {
+              "docstring": null,
+              "end_line": 28,
+              "line": 21,
+              "name": "score_one",
+              "qualified_name": "Detector.score_one",
+              "signature": "self, point"
+            },
+            {
+              "docstring": null,
+              "end_line": 31,
+              "line": 30,
+              "name": "save_state",
+              "qualified_name": "Detector.save_state",
+              "signature": "self"
+            },
+            {
+              "docstring": null,
+              "end_line": 35,
+              "line": 33,
+              "name": "load_state",
+              "qualified_name": "Detector.load_state",
+              "signature": "self, raw"
+            }
+          ]
+        }
+      },
+      {
+        "id": "source-8aa09fc385453bbbccd68b26e083b14040147c7d4c48028ce969f50cd7c0ae01",
+        "kind": "Source",
+        "payload": {
+          "imports": [],
+          "material_type": "txt",
+          "origin": "constructed_material",
+          "path": "02-fixed-threshold.txt",
+          "sha256": "sha256:dc91558e86cf108f1796ad3f1ab2c5826c11517f8a443f9315d918f410ab5a3f",
+          "symbols": []
+        }
+      },
+      {
+        "id": "source-97a77ad30f7a0b8cffe235cf0e976b80038afc54b52f87f2ae18117ce4506b0d",
+        "kind": "Source",
+        "payload": {
+          "imports": [],
+          "material_type": "txt",
+          "origin": "constructed_material",
+          "path": "05-limitations.txt",
+          "sha256": "sha256:c1365b562303243f94e0354de3b28cabdb6416170f1778937ac61c87c3fbd0c1",
+          "symbols": []
+        }
+      },
+      {
+        "id": "source-9b329ea3663d980d9ae702252a5e380b40f9d2efc3801882d1b9019744038bd3",
+        "kind": "Source",
+        "payload": {
+          "imports": [],
+          "material_type": "txt",
+          "origin": "constructed_material",
+          "path": "03-rolling-mad.txt",
+          "sha256": "sha256:c9b2a8158fe0978e951ec2e8c8141b661112b62cb1ca560ad72bea6d69c791d1",
+          "symbols": []
+        }
+      },
+      {
+        "id": "source-cf538ad1148ef947276baa133928fc6fa78fcdabd3a6206c7718b8b1fbddd646",
+        "kind": "Source",
+        "payload": {
+          "imports": [],
+          "material_type": "txt",
+          "origin": "constructed_material",
+          "path": "01-fields.txt",
+          "sha256": "sha256:fc53ae58c43cbe11cb9b8e8878b73d394f55a14a494f663c03529cc5f855a6b4",
+          "symbols": []
+        }
+      }
+    ],
+    "relations": [
+      {
+        "source": "capability-10ae25e3348a01de76dccd8b39b48b876303cddaa2f2780fd1d270e2dc03c9d1",
+        "relation": "DERIVED_FROM",
+        "target": "chunk-50df28a0b01f219bc6d8a52fc227814c73da98469a23838fe9c50d66e758e4fd",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-3",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "capability-10ae25e3348a01de76dccd8b39b48b876303cddaa2f2780fd1d270e2dc03c9d1",
+        "relation": "REQUIRES",
+        "target": "constraint-80699ecfc23d9717f53eb74a10740de3dce9a2c5939d6276491f75e3d02c5e28",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-3",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "capability-342b4d0dd973754dfb5f39620b6ad06603530eaa0e2d39c36166e009ad1804d1",
+        "relation": "DERIVED_FROM",
+        "target": "chunk-a2ff1b5a07f2f1603e5f212d49f5d60b7f21b9df5a5bcb891ecaef90586a07a4",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-1",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "capability-342b4d0dd973754dfb5f39620b6ad06603530eaa0e2d39c36166e009ad1804d1",
+        "relation": "REQUIRES",
+        "target": "constraint-4064a940de70e9b14f21c0f5129299c03920a11e8cceefda64620540d0e69bda",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-1",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "capability-43e9fdd84e646c7ecd29db6b7774bf2fb802c5e72ced84bfc4b441ef9e74d84b",
+        "relation": "DERIVED_FROM",
+        "target": "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-4",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "capability-43e9fdd84e646c7ecd29db6b7774bf2fb802c5e72ced84bfc4b441ef9e74d84b",
+        "relation": "REQUIRES",
+        "target": "constraint-8cdc9728490e69c3c5fa77c3dccbc75c436ea867dd38147afc35db06980c1a25",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-4",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "capability-519c835bd34beaa0026f58de81145ee47a044bcfd849de966f109a37b0e42ed5",
+        "relation": "DERIVED_FROM",
+        "target": "chunk-71056a6f0eba69735041caa3ef8483a2e0f86a9215287c361fa8a6c41de5ba21",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-6",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "capability-519c835bd34beaa0026f58de81145ee47a044bcfd849de966f109a37b0e42ed5",
+        "relation": "REQUIRES",
+        "target": "constraint-1108f2cc405ed4fb948c1451b4b440ffc6eb13f918932891508a951ee3f7d9c4",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-6",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "capability-5ca60d8f88a3dbf16cd6bc6eb30e61328b275e1d818d507326e988e6ac104b14",
+        "relation": "DERIVED_FROM",
+        "target": "chunk-9fdc4618934c65208b705044487750899a698cf00f1e25e52554832504313804",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-5",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "capability-5ca60d8f88a3dbf16cd6bc6eb30e61328b275e1d818d507326e988e6ac104b14",
+        "relation": "REQUIRES",
+        "target": "constraint-aca20fc51086a843e0d0d7e23367027c418b8eaab46299203a74248043a7e6ad",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-5",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "capability-5e0830953bd4cb960d53fe37f87268bc260928855cf5df53b90d2324c51c90c3",
+        "relation": "DERIVED_FROM",
+        "target": "chunk-6f7901a37608c1205d444bc404b8098d89e1617f0d1633c73d1c22e0e05ba7ac",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-2",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "capability-5e0830953bd4cb960d53fe37f87268bc260928855cf5df53b90d2324c51c90c3",
+        "relation": "REQUIRES",
+        "target": "constraint-011b13eddda36cec26713b1acacda8a81edac49d2432b2e3689f9d86379ade10",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-2",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "capability-810e3aa775f557f91112f9a13c8c7c4b4e9837a2e56011d73831621370ad10e0",
+        "relation": "DERIVED_FROM",
+        "target": "chunk-a9459372dddbdfa7919ab0daae5ff3f659da54554b798f78e620df858b558742",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-0",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "capability-810e3aa775f557f91112f9a13c8c7c4b4e9837a2e56011d73831621370ad10e0",
+        "relation": "REQUIRES",
+        "target": "constraint-f583eb4e9038c32ac9d019eede19440ef9782c62d24769f700673a0c13cda57d",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-0",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "chunk-50df28a0b01f219bc6d8a52fc227814c73da98469a23838fe9c50d66e758e4fd",
+        "relation": "DERIVED_FROM",
+        "target": "source-36277c70704daf757a36cf1cee2546aeabfd1ca59c2f1a9085ae277f62640958",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-3",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "chunk-5f6d54b720e14dc69ad159dbbb9a31707ff8866d7940364ced1b76704e4af189",
+        "relation": "DERIVED_FROM",
+        "target": "source-0171abfd70df5882656c9ab08fa844aa9bf67787cb99e22c619c3f8718217281",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-6",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+        "relation": "DERIVED_FROM",
+        "target": "source-97a77ad30f7a0b8cffe235cf0e976b80038afc54b52f87f2ae18117ce4506b0d",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-4",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "chunk-6ea94804be639006f4a4e9a76956bcefea95398a78279e19ab1de5361f32d779",
+        "relation": "DERIVED_FROM",
+        "target": "source-74b5788c8efcc29ca5dcbbf4b608c0d755fb6b5a7cee57c53850b53fa5041193",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-5",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "chunk-6f7901a37608c1205d444bc404b8098d89e1617f0d1633c73d1c22e0e05ba7ac",
+        "relation": "DERIVED_FROM",
+        "target": "source-9b329ea3663d980d9ae702252a5e380b40f9d2efc3801882d1b9019744038bd3",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-2",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "chunk-71056a6f0eba69735041caa3ef8483a2e0f86a9215287c361fa8a6c41de5ba21",
+        "relation": "DERIVED_FROM",
+        "target": "source-0171abfd70df5882656c9ab08fa844aa9bf67787cb99e22c619c3f8718217281",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-6",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "chunk-9fdc4618934c65208b705044487750899a698cf00f1e25e52554832504313804",
+        "relation": "DERIVED_FROM",
+        "target": "source-74b5788c8efcc29ca5dcbbf4b608c0d755fb6b5a7cee57c53850b53fa5041193",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-5",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "chunk-a2ff1b5a07f2f1603e5f212d49f5d60b7f21b9df5a5bcb891ecaef90586a07a4",
+        "relation": "DERIVED_FROM",
+        "target": "source-8aa09fc385453bbbccd68b26e083b14040147c7d4c48028ce969f50cd7c0ae01",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-1",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "chunk-a9459372dddbdfa7919ab0daae5ff3f659da54554b798f78e620df858b558742",
+        "relation": "DERIVED_FROM",
+        "target": "source-cf538ad1148ef947276baa133928fc6fa78fcdabd3a6206c7718b8b1fbddd646",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-0",
+          "task_id": "upload-review-ingest"
+        }
+      },
+      {
+        "source": "chunk-d8caad78b7a2aadb19b9dc03a9c71319f15076d3b7f3d5c668ba22c932bc9487",
+        "relation": "DERIVED_FROM",
+        "target": "source-0171abfd70df5882656c9ab08fa844aa9bf67787cb99e22c619c3f8718217281",
+        "provenance": {
+          "prompt_version": "metrics-prompts/3",
+          "stage": "extract-6",
+          "task_id": "upload-review-ingest"
+        }
+      }
+    ],
+    "snapshot_id": "sha256:326f233ed3c437ad47d291f9f04e4c78c850350e4b3d7e202d7fca80fdb0cefd"
+  },
+  "retrieval_mode": "structured",
+  "candidates": [
+    {
+      "candidate_id": "fixed",
+      "role": "development",
+      "plan": {
+        "candidate_id": "fixed",
+        "config": {
+          "method_id": "fixed_threshold",
+          "threshold": 85.0,
+          "direction": "upper"
+        },
+        "persistence_points": 2,
+        "parameter_sources": {
+          "threshold": "user_explicit"
+        },
+        "knowledge_ids": [
+          "capability-10ae25e3348a01de76dccd8b39b48b876303cddaa2f2780fd1d270e2dc03c9d1"
+        ],
+        "limitations": [
+          "controlled example"
+        ]
+      },
+      "versions": [
+        {
+          "version": 0,
+          "origin": "mock",
+          "source_path": "candidate-12aff05139e917c8d6fe0daaa3e2191c2ee3434e51a6a5b5f67e001847ebd5aa/v0.py",
+          "source_sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+          "source_ref": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+          "parent_source_sha256": null,
+          "knowledge_ids": [
+            "capability-10ae25e3348a01de76dccd8b39b48b876303cddaa2f2780fd1d270e2dc03c9d1"
+          ],
+          "explanation": "Explicit mock response copies the constructed human reference.",
+          "validation": {
+            "protocol": "metrics-method-check/2",
+            "candidate_id": "fixed",
+            "version": 0,
+            "origin": "mock",
+            "source_sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+            "config": {
+              "method_id": "fixed_threshold",
+              "threshold": 85.0,
+              "direction": "upper"
+            },
+            "dependency_profile": "metrics-py312-stdlib/1",
+            "checks": [
+              {
+                "check": "static_profile",
+                "passed": true
+              },
+              {
+                "check": "fixed_strict_boundary",
+                "passed": true,
+                "points": 3
+              },
+              {
+                "check": "fixed_missing",
+                "passed": true,
+                "points": 6
+              },
+              {
+                "check": "state_reload",
+                "passed": true
+              },
+              {
+                "check": "reset_repeat_future_invariance",
+                "passed": true
+              }
+            ],
+            "passed": true,
+            "repairable": true
+          }
+        }
+      ],
+      "calibration": {
+        "threshold": 0.0,
+        "rule": "fixed_parameter_unchanged",
+        "labels_used": false,
+        "binding": {
+          "source": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+          "config": {
+            "method_id": "fixed_threshold",
+            "threshold": 85.0,
+            "direction": "upper"
+          },
+          "dataset": {
+            "manifest_sha256": "sha256:fa1285126d0d20c64f69aacafd732f851b54b704de045560cea5cfc11374e285",
+            "knowledge_snapshot": "sha256:326f233ed3c437ad47d291f9f04e4c78c850350e4b3d7e202d7fca80fdb0cefd",
+            "image_id": "sha256:4ac57c88b37dae806e1542718e900f497dca56f3d8030bd4211d16193108162c",
+            "labels_sha256": "sha256:6a517b2eb58c8139863a5c9439b37bde43e1e4a4b0486a6d1ae94bc395e24be5"
+          }
+        }
+      },
+      "calibration_status": "SUCCEEDED",
+      "report": {
+        "protocol": "metrics-evaluation/1",
+        "execution_status": "SUCCEEDED",
+        "engineering_status": "PASSED",
+        "effect_status": "MEASURED",
+        "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+        "point": {
+          "tp": 59,
+          "fp": 0,
+          "fn": 1,
+          "tn": 180,
+          "abstained_normal": 0,
+          "total": 240,
+          "precision": {
+            "value": 1.0,
+            "numerator": 59,
+            "denominator": 59,
+            "null_reason": null
+          },
+          "recall": {
+            "value": 0.9833333333333333,
+            "numerator": 59,
+            "denominator": 60,
+            "null_reason": null
+          },
+          "f1": {
+            "value": 0.9915966386554622,
+            "numerator": 118,
+            "denominator": 119,
+            "null_reason": null
+          }
+        },
+        "event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pairs": [
+            {
+              "truth_id": "truth-0000",
+              "prediction_id": "pred-0000",
+              "delay_seconds": 60.0
+            }
+          ],
+          "unmatched_truth_ids": [],
+          "unmatched_prediction_ids": [],
+          "precision": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "null_reason": null
+          },
+          "recall": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "null_reason": null
+          },
+          "f1": {
+            "value": 1.0,
+            "numerator": 2,
+            "denominator": 2,
+            "null_reason": null
+          }
+        },
+        "coverage": {
+          "value": 1.0,
+          "numerator": 240,
+          "denominator": 240,
+          "null_reason": null
+        },
+        "normal_false_alarms_per_host_hour": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 10800,
+          "null_reason": null
+        },
+        "matched_delay_seconds": {
+          "median": 60.0,
+          "maximum": 60.0,
+          "null_reason": null,
+          "missed_events": 0
+        },
+        "runtime_seconds": 0.09602605551481247,
+        "peak_memory_bytes": null,
+        "peak_memory_null_reason": "not_measured",
+        "predicted_events": [
+          {
+            "event_id": "pred-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T02:41:00Z",
+            "end_at": "2026-01-03T03:40:00Z",
+            "trigger_at": "2026-01-03T02:41:00Z"
+          }
+        ],
+        "truth_events": [
+          {
+            "event_id": "truth-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T02:40:00Z",
+            "end_at": "2026-01-03T03:40:00Z",
+            "trigger_at": "2026-01-03T02:40:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "candidate_id": "mad",
+      "role": "development",
+      "plan": {
+        "candidate_id": "mad",
+        "config": {
+          "method_id": "rolling_mad",
+          "window": 30,
+          "min_history": 15,
+          "direction": "upper",
+          "quantile": 0.99
+        },
+        "persistence_points": 2,
+        "parameter_sources": {
+          "window": "protocol_default"
+        },
+        "knowledge_ids": [
+          "capability-10ae25e3348a01de76dccd8b39b48b876303cddaa2f2780fd1d270e2dc03c9d1"
+        ],
+        "limitations": [
+          "controlled example"
+        ]
+      },
+      "versions": [
+        {
+          "version": 0,
+          "origin": "mock",
+          "source_path": "candidate-a7627b363c8b9db655145f8280b45089de3ec4b089747c5d875ca3b39528e2c3/v0.py",
+          "source_sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+          "source_ref": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+          "parent_source_sha256": null,
+          "knowledge_ids": [
+            "capability-10ae25e3348a01de76dccd8b39b48b876303cddaa2f2780fd1d270e2dc03c9d1"
+          ],
+          "explanation": "Explicit mock response copies the constructed human reference.",
+          "validation": {
+            "protocol": "metrics-method-check/2",
+            "candidate_id": "mad",
+            "version": 0,
+            "origin": "mock",
+            "source_sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+            "config": {
+              "method_id": "rolling_mad",
+              "window": 30,
+              "min_history": 15,
+              "direction": "upper",
+              "quantile": 0.99
+            },
+            "dependency_profile": "metrics-py312-stdlib/1",
+            "checks": [
+              {
+                "check": "static_profile",
+                "passed": true
+              },
+              {
+                "check": "mad_past_only",
+                "passed": true,
+                "points": 17
+              },
+              {
+                "check": "mad_zero_scale",
+                "passed": true,
+                "points": 33
+              },
+              {
+                "check": "mad_missing_slots",
+                "passed": true,
+                "points": 50
+              },
+              {
+                "check": "mad_imputed_not_original",
+                "passed": true,
+                "points": 19
+              },
+              {
+                "check": "state_reload",
+                "passed": true
+              },
+              {
+                "check": "reset_repeat_future_invariance",
+                "passed": true
+              }
+            ],
+            "passed": true,
+            "repairable": true
+          }
+        }
+      ],
+      "calibration": {
+        "threshold": 2.370236853992631,
+        "quantile": 0.99,
+        "score_count": 240,
+        "rule": "nearest-rank",
+        "labels_used": false,
+        "binding": {
+          "source": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+          "config": {
+            "method_id": "rolling_mad",
+            "window": 30,
+            "min_history": 15,
+            "direction": "upper",
+            "quantile": 0.99
+          },
+          "dataset": {
+            "manifest_sha256": "sha256:fa1285126d0d20c64f69aacafd732f851b54b704de045560cea5cfc11374e285",
+            "knowledge_snapshot": "sha256:326f233ed3c437ad47d291f9f04e4c78c850350e4b3d7e202d7fca80fdb0cefd",
+            "image_id": "sha256:4ac57c88b37dae806e1542718e900f497dca56f3d8030bd4211d16193108162c",
+            "labels_sha256": "sha256:6a517b2eb58c8139863a5c9439b37bde43e1e4a4b0486a6d1ae94bc395e24be5"
+          }
+        }
+      },
+      "calibration_status": "SUCCEEDED",
+      "report": {
+        "protocol": "metrics-evaluation/1",
+        "execution_status": "SUCCEEDED",
+        "engineering_status": "PASSED",
+        "effect_status": "MEASURED",
+        "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+        "point": {
+          "tp": 14,
+          "fp": 0,
+          "fn": 46,
+          "tn": 180,
+          "abstained_normal": 0,
+          "total": 240,
+          "precision": {
+            "value": 1.0,
+            "numerator": 14,
+            "denominator": 14,
+            "null_reason": null
+          },
+          "recall": {
+            "value": 0.23333333333333334,
+            "numerator": 14,
+            "denominator": 60,
+            "null_reason": null
+          },
+          "f1": {
+            "value": 0.3783783783783784,
+            "numerator": 28,
+            "denominator": 74,
+            "null_reason": null
+          }
+        },
+        "event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pairs": [
+            {
+              "truth_id": "truth-0000",
+              "prediction_id": "pred-0000",
+              "delay_seconds": 60.0
+            }
+          ],
+          "unmatched_truth_ids": [],
+          "unmatched_prediction_ids": [],
+          "precision": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "null_reason": null
+          },
+          "recall": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "null_reason": null
+          },
+          "f1": {
+            "value": 1.0,
+            "numerator": 2,
+            "denominator": 2,
+            "null_reason": null
+          }
+        },
+        "coverage": {
+          "value": 1.0,
+          "numerator": 240,
+          "denominator": 240,
+          "null_reason": null
+        },
+        "normal_false_alarms_per_host_hour": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 10800,
+          "null_reason": null
+        },
+        "matched_delay_seconds": {
+          "median": 60.0,
+          "maximum": 60.0,
+          "null_reason": null,
+          "missed_events": 0
+        },
+        "runtime_seconds": 0.13505660742521286,
+        "peak_memory_bytes": null,
+        "peak_memory_null_reason": "not_measured",
+        "predicted_events": [
+          {
+            "event_id": "pred-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T02:41:00Z",
+            "end_at": "2026-01-03T02:55:00Z",
+            "trigger_at": "2026-01-03T02:41:00Z"
+          }
+        ],
+        "truth_events": [
+          {
+            "event_id": "truth-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T02:40:00Z",
+            "end_at": "2026-01-03T03:40:00Z",
+            "trigger_at": "2026-01-03T02:40:00Z"
+          }
+        ]
+      }
+    }
+  ],
+  "prompt_version": "metrics-prompts/3",
+  "dataset_public": {
+    "metric": "memory_utilization",
+    "unit": "percent",
+    "metric_kind": "gauge"
+  },
+  "bindings": {
+    "manifest_sha256": "sha256:fa1285126d0d20c64f69aacafd732f851b54b704de045560cea5cfc11374e285",
+    "knowledge_snapshot": "sha256:326f233ed3c437ad47d291f9f04e4c78c850350e4b3d7e202d7fca80fdb0cefd",
+    "image_id": "sha256:4ac57c88b37dae806e1542718e900f497dca56f3d8030bd4211d16193108162c",
+    "labels_sha256": "sha256:6a517b2eb58c8139863a5c9439b37bde43e1e4a4b0486a6d1ae94bc395e24be5"
+  },
+  "dependency_profile": "metrics-py312-stdlib/1",
+  "final_test_executed": true,
+  "status": "COMPLETED",
+  "runtime_scope": "scoring loop including causal preprocessing, IPC and output collection; prefix excluded",
+  "limitations": [
+    "synthetic data only",
+    "no business acceptance gates; unknown explicit constraints rejected"
+  ],
+  "data_source": {
+    "type": "builtin_simulation",
+    "display_name": "sim-memory_shift-v1",
+    "host_id": "sim-host-a",
+    "metric": "memory_utilization",
+    "unit": "percent",
+    "sampling_seconds": 60,
+    "roles": {
+      "train": {
+        "path": "train.csv",
+        "sha256": "sha256:872961e0a74fc3f72e1100475738576597ffe9b2f900c79b4023060dedd26049",
+        "prefix_points": 60
+      },
+      "calibration": {
+        "path": "calibration.csv",
+        "sha256": "sha256:ec215bc11f1129f7703cf641743c06b9df71b041c6d69b67762f66a888e05ce1",
+        "prefix_points": 60
+      },
+      "development": {
+        "path": "development.csv",
+        "sha256": "sha256:9a389eb7d0487c4bd127a4b354e144b83b1819f7b98dcfbd2da1ce548f2b6709",
+        "prefix_points": 60
+      },
+      "test": {
+        "path": "test.csv",
+        "sha256": "sha256:7b47fe2b64d82c86dfb2609cc930d4edf2deff11a2a2f80fd739934b2926e464",
+        "prefix_points": 60
+      }
+    },
+    "points": 300,
+    "start_at": "2026-01-04T00:00:00+00:00",
+    "end_at_inclusive": "2026-01-04T04:59:00+00:00",
+    "missing_points": 1
+  },
+  "retrieval": {
+    "snapshot_id": "sha256:326f233ed3c437ad47d291f9f04e4c78c850350e4b3d7e202d7fca80fdb0cefd",
+    "mode": "structured",
+    "knowledge_ids": [
+      "capability-10ae25e3348a01de76dccd8b39b48b876303cddaa2f2780fd1d270e2dc03c9d1",
+      "capability-342b4d0dd973754dfb5f39620b6ad06603530eaa0e2d39c36166e009ad1804d1",
+      "capability-43e9fdd84e646c7ecd29db6b7774bf2fb802c5e72ced84bfc4b441ef9e74d84b",
+      "capability-519c835bd34beaa0026f58de81145ee47a044bcfd849de966f109a37b0e42ed5",
+      "capability-5ca60d8f88a3dbf16cd6bc6eb30e61328b275e1d818d507326e988e6ac104b14",
+      "capability-5e0830953bd4cb960d53fe37f87268bc260928855cf5df53b90d2324c51c90c3",
+      "chunk-50df28a0b01f219bc6d8a52fc227814c73da98469a23838fe9c50d66e758e4fd",
+      "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+      "chunk-6f7901a37608c1205d444bc404b8098d89e1617f0d1633c73d1c22e0e05ba7ac",
+      "chunk-71056a6f0eba69735041caa3ef8483a2e0f86a9215287c361fa8a6c41de5ba21",
+      "chunk-9fdc4618934c65208b705044487750899a698cf00f1e25e52554832504313804",
+      "chunk-a2ff1b5a07f2f1603e5f212d49f5d60b7f21b9df5a5bcb891ecaef90586a07a4"
+    ],
+    "chunks": [
+      {
+        "id": "chunk-a2ff1b5a07f2f1603e5f212d49f5d60b7f21b9df5a5bcb891ecaef90586a07a4",
+        "end_line": 8,
+        "sha256": "sha256:6215d6ee955e2f0144f85b7c6858dead4a04f7702c1d415412e8ea136d901a1b",
+        "source_id": "source-8aa09fc385453bbbccd68b26e083b14040147c7d4c48028ce969f50cd7c0ae01",
+        "start_line": 1,
+        "text": "# 构造专家材料：fixed_threshold\n\n适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1，不需要历史基线。\nupper 分数为 x-T，lower 分数为 T-x。严格 score>0 才是异常候选；等号不触发。\n业务阈值必须来自用户明确值或有引用的业务材料；假设阈值要标为 candidate_assumption。\n本材料没有给定任何指标的业务阈值；禁止虚构业务达标保证。\ncalibration 不改变固定阈值 T；共享可信告警器处理连续点数和事件合并。\n绝对阈值可能漏掉低基线主机的相对变化，也可能对正常业务高峰误报。",
+        "source": "02-fixed-threshold.txt",
+        "source_sha256": "sha256:dc91558e86cf108f1796ad3f1ab2c5826c11517f8a443f9315d918f410ab5a3f",
+        "capability_id": "capability-342b4d0dd973754dfb5f39620b6ad06603530eaa0e2d39c36166e009ad1804d1",
+        "summary": "受控抽取示例：02-fixed-threshold.txt",
+        "conditions_status": "evidenced",
+        "knowledge_status": "extracted_unverified"
+      },
+      {
+        "id": "chunk-9fdc4618934c65208b705044487750899a698cf00f1e25e52554832504313804",
+        "end_line": 32,
+        "sha256": "sha256:981904a2f34cebbf0f3a970ea60e576e2c34c653ac71801cef777d6b2c28f218",
+        "source_id": "source-74b5788c8efcc29ca5dcbbf4b608c0d755fb6b5a7cee57c53850b53fa5041193",
+        "start_line": 1,
+        "text": "\"\"\"Constructed human reference (origin=reference), never an LLM-generated result.\n\nUpper score=x-T, lower score=T-x. Equality is not an alert. The trusted driver\nowns preprocessing, persistence and labels; the detector only emits scores.\n\"\"\"\nimport json\n\n\nclass Detector:\n    def __init__(self, config):\n        self.config = dict(config)\n\n    def fit(self, train_points):\n        if not any(point[\"value\"] is not None for point in train_points):\n            raise ValueError(\"no valid training observations\")\n        self.reset()\n\n    def reset(self):\n        pass\n\n    def score_one(self, point):\n        value = point[\"value\"]\n        delta = None if value is None else value - self.config[\"threshold\"]\n        if delta is not None and self.config[\"direction\"] == \"lower\":\n            delta = -delta\n        return {\"timestamp\": point[\"timestamp\"], \"host_id\": point[\"host_id\"],\n                \"status\": \"missing_input\" if value is None else \"ok\", \"score\": delta,\n                \"evidence\": {\"threshold\": self.config[\"threshold\"]}}\n\n    def save_state(self):\n        return json.dumps({\"config\": self.config}, allow_nan=False)\n",
+        "source": "reference_fixed.py",
+        "source_sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+        "capability_id": "capability-5ca60d8f88a3dbf16cd6bc6eb30e61328b275e1d818d507326e988e6ac104b14",
+        "summary": "受控抽取示例：reference_fixed.py",
+        "conditions_status": "evidenced",
+        "knowledge_status": "extracted_unverified"
+      },
+      {
+        "id": "chunk-50df28a0b01f219bc6d8a52fc227814c73da98469a23838fe9c50d66e758e4fd",
+        "end_line": 10,
+        "sha256": "sha256:1becbc87f0a2ad16e7bc7cd4d92343bacdc1f4bc7c2eb4674cc1ce33ca434860",
+        "source_id": "source-36277c70704daf757a36cf1cee2546aeabfd1ca59c2f1a9085ae277f62640958",
+        "start_line": 1,
+        "text": "# 构造评价材料\n\ntrain、calibration、development、test 四种角色独立初始化。前缀暖机，不计分。\n校准只用 calibration 无标签分数，选择只用 development；冻结后只测试胜出候选一次。\n最终测试不得用于代码修复、调参或换选候选；没有业务门槛只能报告实测。\n默认连续两点超阈值，从第二点告警，不向前补记；非超阈值或不可判断重置计数。\n点对应半开时间单元，连续告警合并事件，trigger 必须落在真实事件内，一对一匹配。\n正类弃权计 FN，正常弃权另列，不计 TN；覆盖率包含全部计分点。\nPrecision 无预测时为空，Recall 无真实异常时为空；禁止 point adjustment。\n方法语义检查、效果测量、业务达标分别报告。效果标签来自独立模拟注入，不由检测器决定。",
+        "source": "04-evaluation.txt",
+        "source_sha256": "sha256:c90aca46676ee752a5ec8d6eaff44aee60d6d133fdcab8033c2a54fc6f707557",
+        "capability_id": "capability-10ae25e3348a01de76dccd8b39b48b876303cddaa2f2780fd1d270e2dc03c9d1",
+        "summary": "受控抽取示例：04-evaluation.txt",
+        "conditions_status": "evidenced",
+        "knowledge_status": "extracted_unverified"
+      },
+      {
+        "id": "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+        "end_line": 8,
+        "sha256": "sha256:b2cceceb866b5eda5662b41cb0bffe117e408bd8a0fa447edbb802672f690618",
+        "source_id": "source-97a77ad30f7a0b8cffe235cf0e976b80038afc54b52f87f2ae18117ce4506b0d",
+        "start_line": 1,
+        "text": "# 构造业务材料：正常高峰与异常\n\n单主机 CPU、内存、磁盘延迟、网络速率可出现正常业务高峰，与异常数值区间重叠。\nfixed_threshold 和 rolling_mad 都不能仅靠该数值判定故障根因。\nMAD 适合检测相对历史偏离，固定阈值适合已有清晰绝对上/下界的需求。\n周期波动、缓慢漂移、长期缺失是必须保留的困难样本，不能从评价分母删除。\n历史实现即使工程通过，也必须在新输入上重新验证；失败实现只能作为风险经验。\n本材料只支持 gauge/rate、单主机单指标，不支持日志语义、Isolation Forest 或季节模型。",
+        "source": "05-limitations.txt",
+        "source_sha256": "sha256:c1365b562303243f94e0354de3b28cabdb6416170f1778937ac61c87c3fbd0c1",
+        "capability_id": "capability-43e9fdd84e646c7ecd29db6b7774bf2fb802c5e72ced84bfc4b441ef9e74d84b",
+        "summary": "受控抽取示例：05-limitations.txt",
+        "conditions_status": "evidenced",
+        "knowledge_status": "extracted_unverified"
+      },
+      {
+        "id": "chunk-71056a6f0eba69735041caa3ef8483a2e0f86a9215287c361fa8a6c41de5ba21",
+        "end_line": 32,
+        "sha256": "sha256:dddb3df36bd4a17ed7fd89c1245403cc345ada9618a4ca571eeafb4c91a0ae48",
+        "source_id": "source-0171abfd70df5882656c9ab08fa844aa9bf67787cb99e22c619c3f8718217281",
+        "start_line": 1,
+        "text": "\"\"\"Constructed human reference (origin=reference), not generated model code.\n\nUse previous W time slots. Only original observations count for min_history;\nforward-filled values may affect median/MAD. Update history AFTER scoring.\nThe training R7 IQR sets the numerical floor; no labels are used.\n\"\"\"\nimport json\nfrom statistics import median\n\n\ndef quantile(values, q):\n    values = sorted(values)\n    pos = (len(values) - 1) * q\n    lo = int(pos)\n    hi = min(lo + 1, len(values) - 1)\n    return values[lo] + (values[hi] - values[lo]) * (pos - lo)\n\n\nclass Detector:\n    def __init__(self, config):\n        self.config = dict(config)\n        self.floor = None\n        self.history = []\n\n    def fit(self, train_points):\n        values = [p[\"value\"] for p in train_points if p[\"value\"] is not None]\n        if not values:\n            raise ValueError(\"no valid training observations\")\n        self.floor = max(1e-9, (quantile(values, 0.75) - quantile(values, 0.25)) * 1e-6)\n        self.reset()\n\n    def reset(self):",
+        "source": "reference_mad.py",
+        "source_sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+        "capability_id": "capability-519c835bd34beaa0026f58de81145ee47a044bcfd849de966f109a37b0e42ed5",
+        "summary": "受控抽取示例：reference_mad.py",
+        "conditions_status": "evidenced",
+        "knowledge_status": "extracted_unverified"
+      },
+      {
+        "id": "chunk-6f7901a37608c1205d444bc404b8098d89e1617f0d1633c73d1c22e0e05ba7ac",
+        "end_line": 11,
+        "sha256": "sha256:4d21e32573560e325bfff9bbb5528c607f1017660f11f9fac911448d0812b09a",
+        "source_id": "source-9b329ea3663d980d9ae702252a5e380b40f9d2efc3801882d1b9019744038bd3",
+        "start_line": 1,
+        "text": "# 构造专家材料：rolling_mad\n\n适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1。\nW 默认 30 个时间槽，min_history 默认 15 个真实观测，且 min_history<=W。\n仅用当前点之前最近 W 个槽；统计可用观测含短缺失插补值，但插补不增加真实历史数。\nm=历史中位数，MAD=|历史-m| 的中位数，scale=max(1.4826*MAD, scale_floor)。\n训练原始有效值的 R7 IQR 决定 scale_floor=max(1e-9,IQR*1e-6)。\nupper=(x-m)/scale，lower=(m-x)/scale，two_sided=|x-m|/scale。\n先评分再追加当前点；不可用点也占历史时间槽，历史不足返回 insufficient_history 和空分数。\ncalibration 的可判断计分分数至少 100 个，nearest-rank 0.99 分位阈值；不使用标签。\n严格 score>阈值，所有可用点（含异常）均更新窗口，长漂移可能被吸收，周期模式可能误报。",
+        "source": "03-rolling-mad.txt",
+        "source_sha256": "sha256:c9b2a8158fe0978e951ec2e8c8141b661112b62cb1ca560ad72bea6d69c791d1",
+        "capability_id": "capability-5e0830953bd4cb960d53fe37f87268bc260928855cf5df53b90d2324c51c90c3",
+        "summary": "受控抽取示例：03-rolling-mad.txt",
+        "conditions_status": "evidenced",
+        "knowledge_status": "extracted_unverified"
+      }
+    ],
+    "experiences": [],
+    "excluded": [],
+    "conditions_notice": "extracted applicability claims are source-linked, not implementation verification"
+  },
+  "planning": {
+    "supported": true,
+    "understanding": "受控单指标示例",
+    "anomaly_target": "upper",
+    "limitations": [
+      "mock"
+    ],
+    "candidates": [
+      {
+        "candidate_id": "fixed",
+        "config": {
+          "method_id": "fixed_threshold",
+          "threshold": 85.0,
+          "direction": "upper"
+        },
+        "persistence_points": 2,
+        "parameter_sources": {
+          "threshold": "user_explicit"
+        },
+        "knowledge_ids": [
+          "capability-10ae25e3348a01de76dccd8b39b48b876303cddaa2f2780fd1d270e2dc03c9d1"
+        ],
+        "limitations": [
+          "controlled example"
+        ]
+      },
+      {
+        "candidate_id": "mad",
+        "config": {
+          "method_id": "rolling_mad",
+          "window": 30,
+          "min_history": 15,
+          "direction": "upper",
+          "quantile": 0.99
+        },
+        "persistence_points": 2,
+        "parameter_sources": {
+          "window": "protocol_default"
+        },
+        "knowledge_ids": [
+          "capability-10ae25e3348a01de76dccd8b39b48b876303cddaa2f2780fd1d270e2dc03c9d1"
+        ],
+        "limitations": [
+          "controlled example"
+        ]
+      }
+    ]
+  },
+  "selection": {
+    "status": "SELECTED",
+    "ranking": [
+      "fixed",
+      "mad"
+    ],
+    "selected": "fixed"
+  },
+  "final": {
+    "protocol": "metrics-evaluation/1",
+    "execution_status": "SUCCEEDED",
+    "engineering_status": "PASSED",
+    "effect_status": "MEASURED",
+    "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+    "point": {
+      "tp": 59,
+      "fp": 0,
+      "fn": 1,
+      "tn": 180,
+      "abstained_normal": 0,
+      "total": 240,
+      "precision": {
+        "value": 1.0,
+        "numerator": 59,
+        "denominator": 59,
+        "null_reason": null
+      },
+      "recall": {
+        "value": 0.9833333333333333,
+        "numerator": 59,
+        "denominator": 60,
+        "null_reason": null
+      },
+      "f1": {
+        "value": 0.9915966386554622,
+        "numerator": 118,
+        "denominator": 119,
+        "null_reason": null
+      }
+    },
+    "event": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "pairs": [
+        {
+          "truth_id": "truth-0000",
+          "prediction_id": "pred-0000",
+          "delay_seconds": 60.0
+        }
+      ],
+      "unmatched_truth_ids": [],
+      "unmatched_prediction_ids": [],
+      "precision": {
+        "value": 1.0,
+        "numerator": 1,
+        "denominator": 1,
+        "null_reason": null
+      },
+      "recall": {
+        "value": 1.0,
+        "numerator": 1,
+        "denominator": 1,
+        "null_reason": null
+      },
+      "f1": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "null_reason": null
+      }
+    },
+    "coverage": {
+      "value": 1.0,
+      "numerator": 240,
+      "denominator": 240,
+      "null_reason": null
+    },
+    "normal_false_alarms_per_host_hour": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 10800,
+      "null_reason": null
+    },
+    "matched_delay_seconds": {
+      "median": 60.0,
+      "maximum": 60.0,
+      "null_reason": null,
+      "missed_events": 0
+    },
+    "runtime_seconds": 0.09178175032138824,
+    "peak_memory_bytes": null,
+    "peak_memory_null_reason": "not_measured",
+    "predicted_events": [
+      {
+        "event_id": "pred-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-04T02:41:00Z",
+        "end_at": "2026-01-04T03:40:00Z",
+        "trigger_at": "2026-01-04T02:41:00Z"
+      }
+    ],
+    "truth_events": [
+      {
+        "event_id": "truth-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-04T02:40:00Z",
+        "end_at": "2026-01-04T03:40:00Z",
+        "trigger_at": "2026-01-04T02:40:00Z"
+      }
+    ],
+    "selection_sha256": "sha256:4a955d753c99a50e7387e8f4fa29c0ed6d60de716c40d2f382674ea855503036",
+    "selected": "fixed",
+    "phase": "test",
+    "test_execution_started": true
+  },
+  "curves": {
+    "detection": {
+      "path": "detection-curve.json",
+      "sha256": "sha256:e9cddaa3223e9134e780c23821b362a5e6cc25d7a15c60449ee03b96b6a74182",
+      "downloads": {
+        "detection-points.csv": "sha256:90a8130ff80a77ab0f0ab673dabe4acd84b3e24e00dae81cc5d97db5f52e97ba",
+        "detection-events.json": "sha256:b149d3ac5f984bad77504f8a26789145657268aa79cd40940894d53075e4aec2"
+      }
+    }
+  },
+  "final_evaluation_attempted": true,
+  "stage_status": {
+    "engineering": "PASSED",
+    "detection": "SUCCEEDED",
+    "benchmark": "NOT_APPLICABLE"
+  },
+  "completion_status": "COMPLETED",
+  "workflow_runtime_seconds": 15.716989144682884,
+  "resource_measurement": {
+    "peak_memory_bytes": null,
+    "cpu_seconds": null,
+    "reason": "not_measured; sandbox limits are not measurements"
+  },
+  "campaign_budget": null,
+  "model_operations": [
+    {
+      "operation_id": "builtin:plan:format-0",
+      "status": "SUCCEEDED",
+      "result_ref": "sha256:f6fd85309da661b89efbb5aeb3e9067a118d1d27d6e4a79398f4bf1218a8dce7",
+      "metadata": "{\"actual_model\":\"controlled\",\"elapsed_seconds\":0.0008956827223300934,\"failure_code\":null,\"input_tokens\":0,\"output_tokens\":0,\"profile_id\":\"metrics-mock-v1\"}"
+    },
+    {
+      "operation_id": "builtin:code-fixed-v0:format-0",
+      "status": "SUCCEEDED",
+      "result_ref": "sha256:8c554bd719870828455544bef6ca16b08ac5305f06e8ba7fd79d8f1e80ae050e",
+      "metadata": "{\"actual_model\":\"controlled\",\"elapsed_seconds\":0.0008289255201816559,\"failure_code\":null,\"input_tokens\":0,\"output_tokens\":0,\"profile_id\":\"metrics-mock-v1\"}"
+    },
+    {
+      "operation_id": "builtin:code-mad-v0:format-0",
+      "status": "SUCCEEDED",
+      "result_ref": "sha256:0710fd4e64065854dbe5734ba641884b80e20a72c5f1a7b93dd57b35a140feda",
+      "metadata": "{\"actual_model\":\"controlled\",\"elapsed_seconds\":0.0009601525962352753,\"failure_code\":null,\"input_tokens\":0,\"output_tokens\":0,\"profile_id\":\"metrics-mock-v1\"}"
+    }
+  ]
+}

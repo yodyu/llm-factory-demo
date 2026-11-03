@@ -1,0 +1,12 @@
+{
+  "state": ".runtime/poc",
+  "service": "llm-factory-metrics.service",
+  "new_model_calls": 0,
+  "historical_records_modified": false,
+  "health": "ok",
+  "campaign_calls": 44,
+  "source_reports_unchanged": [
+    "ui-a25079152c7940fa",
+    "ui-b0c4acdd29bc47d9"
+  ]
+}

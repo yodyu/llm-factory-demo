@@ -1,0 +1,28 @@
+--- baseline/src/factory/metrics/creation.py
++++ acceptance/src/factory/metrics/creation.py
+@@ -1,6 +1,7 @@
+ """Language-first creation page. Browsing never calls a model or executes code."""
+ from factory.metrics.capability_registry import registry
+ import asyncio
++import os
+ import csv
+ from pathlib import Path
+ from types import SimpleNamespace
+@@ -84,6 +85,8 @@
+     from factory.metrics.ui_settings import configured_model_id
+     from factory.metrics.upload import simple_upload_options, inspect_upload, label_flags, prepare_upload, upload_example
+     mode, retrieval = settings['model_mode'], 'structured'
++    if os.environ.get('FACTORY_ACCEPTANCE_FAULT_INJECTION') == '1':
++        st.warning('验收专用：真实模型初版将注入明确标记的分数偏移错误，再由真实模型修复；不计自然错误修复率。')
+     profile = configured_model_id(env_file) or ''
+     api_ready = bool(profile and campaign and budget and budget['remaining'] > 0)
+     parse_ready = mode == 'mock' or api_ready
+@@ -257,7 +260,7 @@
+             write_json(request_file, request.model_dump(mode='json'))
+             args = SimpleNamespace(state=state, mode=mode, campaign=Path(campaign) if campaign else None,
+                 env_file=Path(env_file) if env_file else None, task_id=task_id, task=request_file, dataset=data,
+-                snapshot=snapshot_path, knowledge=knowledge_path, image=image, retrieval=retrieval, fault_injection=False)
++                snapshot=snapshot_path, knowledge=knowledge_path, image=image, retrieval=retrieval, fault_injection=os.environ.get('FACTORY_ACCEPTANCE_FAULT_INJECTION') == '1')
+             from factory.metrics.background import submit
+             result = submit(args)
+             st.session_state['last_metrics_run'] = result

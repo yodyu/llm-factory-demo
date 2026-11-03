@@ -1,0 +1,40 @@
+{
+  "supported": true,
+  "understanding": "针对单主机 gauge 类型 CPU 使用率（单位：%）设计仅使用 fixed_threshold 的异常检测：检测方向为 upper，阈值使用用户明确给出的 90.0；单点分数按 value-threshold 计算，严格大于 0 才是越界候选，连续 3 个 60 秒采样点越界才触发报警。训练摘要仅用于确认存在有效观测；不会根据训练均值或最大值改变阈值。",
+  "anomaly_target": "upper",
+  "limitations": [
+    "当前规划接入范围仅包含 fixed_threshold 能力；连续点数与事件合并由共享可信告警逻辑处理，不属于 fixed_threshold 的 config_schema 参数。",
+    "能力卡片为专家编写且验证级别为 contract_only，implementation_verified=false；后续代码和验证报告应通过模拟数据验证严格大于阈值、等于阈值不触发、缺失输入以及连续 3 点规则。"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "fixed_upper_cpu_90_p3",
+      "config": {
+        "method_id": "fixed_threshold",
+        "threshold": 90.0,
+        "direction": "upper"
+      },
+      "persistence_points": 3,
+      "parameter_sources": {
+        "method_id": "user_explicit",
+        "threshold": "user_explicit",
+        "direction": "user_explicit",
+        "persistence_points": "user_explicit"
+      },
+      "knowledge_ids": [
+        "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+        "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+        "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+        "chunk-7ac5e3104c65ea345ed16051fd2dfa6aeb1588f1584dc99ac7a53dec3b632191",
+        "chunk-3478558ca578b2421a9eafa4318746e1999211f4102a9c0c15c0327f07b4cdc8"
+      ],
+      "limitations": [
+        "阈值 90.0 和连续 3 点来自用户明确需求；不使用默认 85.0，也不根据训练数据校准。",
+        "训练数据最大值远低于 90.0，因此 fit 只能确认存在有效训练观测，不能由该训练摘要证明阈值的业务效果。",
+        "演示纠正：已移除未提供的知识引用，相关参数不再标记为知识依据。"
+      ],
+      "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "selection_reason": "该能力支持 time_series_anomaly_detection、gauge/rate、upper 方向和单主机单指标场景，min_history=0，适合无需历史基线的 CPU 使用率固定阈值监控。用户明确要求“只使用固定阈值”、超过 90% 且连续 3 个采样点报警，因此采用 threshold=90.0、direction=upper、persistence_points=3。假设输入字段包含 timestamp、host_id、value，且 value 为 0 到 100 的百分数数值或 null；value=90 时分数为 0，不报警。"
+    }
+  ]
+}

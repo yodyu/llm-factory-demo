@@ -1,0 +1,950 @@
+{
+  "label": "disk",
+  "task_id": "ui-da4c1f50a3504008",
+  "status": "COMPLETED",
+  "origin": "llm_api",
+  "requirement": "用模拟数据检测单主机磁盘 I/O 延迟持续升高，比较 EWMA 和滚动 MAD；EWMA 的 alpha 为 0.3，连续两点异常才报警，尽量减少误报，输出检测代码和验证报告。",
+  "task": {
+    "acceptance_criteria": {
+      "max_false_alarms_per_hour": null,
+      "min_event_f1": null,
+      "min_event_recall": null
+    },
+    "allowed_methods": [
+      "ewma",
+      "rolling_mad"
+    ],
+    "anomaly_target": "upper",
+    "budgets": {
+      "candidates": 2,
+      "model_calls": 16,
+      "repair_rounds": 2,
+      "wall_seconds": 900
+    },
+    "dataset_id": "sim-disk_peaks-v1",
+    "evaluation_objective": "sustained_coverage",
+    "explicit_constraints": {
+      "alpha": 0.3,
+      "direction": "upper",
+      "persistence_points": 2.0
+    },
+    "knowledge_snapshot": "sha256:e056a78ec83a7f6dfcd06d3d50d4e6e336d422975cc18551ea0e48ffac0d4f2c",
+    "metric": "disk_latency",
+    "model_mode": "api",
+    "model_profile_id": "metrics-c9a0036e73b91ba3",
+    "ranking_preferences": [],
+    "requirement": "用模拟数据检测单主机磁盘 I/O 延迟持续升高，比较 EWMA 和滚动 MAD；EWMA 的 alpha 为 0.3，连续两点异常才报警，尽量减少误报，输出检测代码和验证报告。",
+    "requirement_draft": {
+      "binding": "sha256:78f7d9214ddcadf10fd4f0cb8caf25071cb16e1b16c1bdff3037375d800968e3",
+      "defaults": [
+        "模拟数据：每 60 秒一点，独立四段；允许最多前向填补 3 点。"
+      ],
+      "evidence": {
+        "alpha": {
+          "origin": "user_explicit",
+          "quote": "alpha 为 0.3",
+          "turn": 1
+        },
+        "data_source": {
+          "origin": "user_explicit",
+          "quote": "模拟",
+          "turn": 1
+        },
+        "direction": {
+          "origin": "user_explicit",
+          "quote": "用模拟数据检测单主机磁盘 I/O 延迟持续升高，比较 EWMA 和滚动 MAD；EWMA 的 alpha 为 0.3，连续两点异常才报警，尽量减少误报，输出检测代码和验证报告。",
+          "turn": 1
+        },
+        "evaluation_objective": {
+          "origin": "user_explicit",
+          "quote": "用模拟数据检测单主机磁盘 I/O 延迟持续升高，比较 EWMA 和滚动 MAD；EWMA 的 alpha 为 0.3，连续两点异常才报警，尽量减少误报，输出检测代码和验证报告。",
+          "turn": 1
+        },
+        "methods": {
+          "origin": "user_explicit",
+          "quote": "用模拟数据检测单主机磁盘 I/O 延迟持续升高，比较 EWMA 和滚动 MAD；EWMA 的 alpha 为 0.3，连续两点异常才报警，尽量减少误报，输出检测代码和验证报告。",
+          "turn": 1
+        },
+        "persistence_points": {
+          "origin": "user_explicit",
+          "quote": "连续两点",
+          "turn": 1
+        },
+        "scenario": {
+          "origin": "user_explicit",
+          "quote": "用模拟数据检测单主机磁盘 I/O 延迟持续升高，比较 EWMA 和滚动 MAD；EWMA 的 alpha 为 0.3，连续两点异常才报警，尽量减少误报，输出检测代码和验证报告。",
+          "turn": 1
+        },
+        "selection_policy": {
+          "origin": "user_explicit",
+          "quote": "用模拟数据检测单主机磁盘 I/O 延迟持续升高，比较 EWMA 和滚动 MAD；EWMA 的 alpha 为 0.3，连续两点异常才报警，尽量减少误报，输出检测代码和验证报告。",
+          "turn": 1
+        }
+      },
+      "issues": [],
+      "model_mode": "api",
+      "model_usage": {
+        "input_tokens": 986,
+        "kind": "api",
+        "missing_usage_requests": 0,
+        "notice": "Counts include retries and repairs; tokens are provider-reported only; missing usage is not zero.",
+        "output_tokens": 183,
+        "requests": 1,
+        "reservations": 1,
+        "total_tokens": 1169
+      },
+      "parse_task_id": "understand-2a42d25be14747bb",
+      "revision": 1,
+      "schema_version": "metrics-requirement-draft/1",
+      "turns": [
+        "用模拟数据检测单主机磁盘 I/O 延迟持续升高，比较 EWMA 和滚动 MAD；EWMA 的 alpha 为 0.3，连续两点异常才报警，尽量减少误报，输出检测代码和验证报告。"
+      ],
+      "values": {
+        "alpha": 0.3,
+        "data_source": "simulation",
+        "direction": "upper",
+        "evaluation_objective": "sustained_coverage",
+        "methods": [
+          "ewma",
+          "rolling_mad"
+        ],
+        "persistence_points": 2,
+        "scenario": "disk_peaks",
+        "selection_policy": "precision"
+      }
+    },
+    "schema_version": "metrics-task/1",
+    "selection_policy": "precision",
+    "task_id": "ui-da4c1f50a3504008",
+    "validation_protocol": "metrics-evaluation/1"
+  },
+  "usage": {
+    "kind": "api",
+    "requests": 3,
+    "reservations": 3,
+    "input_tokens": 88681,
+    "output_tokens": 6117,
+    "total_tokens": 94798,
+    "missing_usage_requests": 0,
+    "notice": "Counts include retries and repairs; tokens are provider-reported only; missing usage is not zero."
+  },
+  "knowledge_usage": {
+    "supplied": [
+      "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+      "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+      "chunk-2a02b38d696a28dc91734798fd7d8ff5fa2479449a0aaa3f89e82c5a4838142f",
+      "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+      "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+      "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+      "chunk-96b8b23d75a52b7582040f893468476eb249c8ec4e3d9091c1572b61e5c0cf7f",
+      "experience-1a45af64c9486f459f33d134feaea09ec6cfd61ba346b46f6dcd8df062f8002a",
+      "experience-3c400aad5437cbffcfb4c026c178eb8a77e87e62d45cf0f1d19685c28d666b0a",
+      "experience-8994fbe8622595cad805f1388c2ffd8746b76ce1809cdea8020c5866f76a10f4",
+      "source-b87632b829b20184b15b4a9610c028db947eb04a8672c227b3caa14ff39afcd3",
+      "source-ba12995471501af4d22a092ff63e3420003103c0a364a4769ae2afa939fd5cab",
+      "source-f5e5f8ac42e9fd7f7bb393e7cc89533f14187c96f6d02a17f9fd4374221933b2"
+    ],
+    "cited": [
+      "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+      "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+      "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+      "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+      "experience-1a45af64c9486f459f33d134feaea09ec6cfd61ba346b46f6dcd8df062f8002a",
+      "experience-3c400aad5437cbffcfb4c026c178eb8a77e87e62d45cf0f1d19685c28d666b0a",
+      "experience-8994fbe8622595cad805f1388c2ffd8746b76ce1809cdea8020c5866f76a10f4"
+    ],
+    "references": [
+      {
+        "候选": "ewma_alpha0.3_upper_p2",
+        "阶段": "方案",
+        "知识ID": [
+          "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+          "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+          "experience-1a45af64c9486f459f33d134feaea09ec6cfd61ba346b46f6dcd8df062f8002a",
+          "experience-8994fbe8622595cad805f1388c2ffd8746b76ce1809cdea8020c5866f76a10f4"
+        ]
+      },
+      {
+        "候选": "ewma_alpha0.3_upper_p2",
+        "阶段": "代码 v0",
+        "知识ID": [
+          "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+          "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+          "experience-1a45af64c9486f459f33d134feaea09ec6cfd61ba346b46f6dcd8df062f8002a",
+          "experience-8994fbe8622595cad805f1388c2ffd8746b76ce1809cdea8020c5866f76a10f4"
+        ]
+      },
+      {
+        "候选": "rolling_mad_w30_upper_p2",
+        "阶段": "方案",
+        "知识ID": [
+          "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+          "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+          "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+          "experience-3c400aad5437cbffcfb4c026c178eb8a77e87e62d45cf0f1d19685c28d666b0a"
+        ]
+      },
+      {
+        "候选": "rolling_mad_w30_upper_p2",
+        "阶段": "代码 v0",
+        "知识ID": [
+          "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+          "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+          "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+          "experience-3c400aad5437cbffcfb4c026c178eb8a77e87e62d45cf0f1d19685c28d666b0a"
+        ]
+      }
+    ],
+    "unprovided_citations": [],
+    "supplied_experiences": [
+      "experience-1a45af64c9486f459f33d134feaea09ec6cfd61ba346b46f6dcd8df062f8002a",
+      "experience-3c400aad5437cbffcfb4c026c178eb8a77e87e62d45cf0f1d19685c28d666b0a",
+      "experience-8994fbe8622595cad805f1388c2ffd8746b76ce1809cdea8020c5866f76a10f4"
+    ],
+    "cited_experiences": [
+      "experience-1a45af64c9486f459f33d134feaea09ec6cfd61ba346b46f6dcd8df062f8002a",
+      "experience-3c400aad5437cbffcfb4c026c178eb8a77e87e62d45cf0f1d19685c28d666b0a",
+      "experience-8994fbe8622595cad805f1388c2ffd8746b76ce1809cdea8020c5866f76a10f4"
+    ]
+  },
+  "prompts": [
+    {
+      "call_id": "ui-da4c1f50a3504008:plan:format-0",
+      "prompt_sha256": "sha256:78b4b7711939a5fb4f25bec51e933da60f20a3690c1c62528e8451350f9d09db",
+      "provided_experience_ids": [
+        "experience-1a45af64c9486f459f33d134feaea09ec6cfd61ba346b46f6dcd8df062f8002a",
+        "experience-8994fbe8622595cad805f1388c2ffd8746b76ce1809cdea8020c5866f76a10f4",
+        "experience-3c400aad5437cbffcfb4c026c178eb8a77e87e62d45cf0f1d19685c28d666b0a"
+      ],
+      "has_previous_source": false,
+      "has_development_feedback": false
+    },
+    {
+      "call_id": "ui-da4c1f50a3504008:code-ewma_alpha0.3_upper_p2-v0:format-0",
+      "prompt_sha256": "sha256:334c662a40e38727acadc8a4d7d99804eaf81e4d8657ba0e1ab13f2346940a5b",
+      "provided_experience_ids": [
+        "experience-8994fbe8622595cad805f1388c2ffd8746b76ce1809cdea8020c5866f76a10f4",
+        "experience-1a45af64c9486f459f33d134feaea09ec6cfd61ba346b46f6dcd8df062f8002a",
+        "experience-3c400aad5437cbffcfb4c026c178eb8a77e87e62d45cf0f1d19685c28d666b0a"
+      ],
+      "has_previous_source": false,
+      "has_development_feedback": false
+    },
+    {
+      "call_id": "ui-da4c1f50a3504008:code-rolling_mad_w30_upper_p2-v0:format-0",
+      "prompt_sha256": "sha256:5c02908f4ab4ef23a14aa3b97f35597af4ba49ba644aea566cba16cece36d0af",
+      "provided_experience_ids": [
+        "experience-3c400aad5437cbffcfb4c026c178eb8a77e87e62d45cf0f1d19685c28d666b0a",
+        "experience-8994fbe8622595cad805f1388c2ffd8746b76ce1809cdea8020c5866f76a10f4",
+        "experience-1a45af64c9486f459f33d134feaea09ec6cfd61ba346b46f6dcd8df062f8002a"
+      ],
+      "has_previous_source": false,
+      "has_development_feedback": false
+    }
+  ],
+  "operations": [
+    {
+      "operation_id": "ui-da4c1f50a3504008:plan:format-0",
+      "resource": "model",
+      "status": "SUCCEEDED",
+      "metadata": {
+        "actual_model": "doubao-seed-2-1-pro-260915",
+        "elapsed_seconds": 46.14208011329174,
+        "failure_code": null,
+        "input_tokens": 23625,
+        "output_tokens": 1784,
+        "profile_id": "metrics-c9a0036e73b91ba3"
+      }
+    },
+    {
+      "operation_id": "ui-da4c1f50a3504008:code-ewma_alpha0.3_upper_p2-v0:format-0",
+      "resource": "model",
+      "status": "SUCCEEDED",
+      "metadata": {
+        "actual_model": "doubao-seed-2-1-pro-260915",
+        "elapsed_seconds": 30.707181472331285,
+        "failure_code": null,
+        "input_tokens": 31639,
+        "output_tokens": 2219,
+        "profile_id": "metrics-c9a0036e73b91ba3"
+      }
+    },
+    {
+      "operation_id": "ui-da4c1f50a3504008:check-ewma_alpha0.3_upper_p2-v0",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-da4c1f50a3504008:calibrate-ewma_alpha0.3_upper_p2",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-da4c1f50a3504008:development-ewma_alpha0.3_upper_p2",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-da4c1f50a3504008:code-rolling_mad_w30_upper_p2-v0:format-0",
+      "resource": "model",
+      "status": "SUCCEEDED",
+      "metadata": {
+        "actual_model": "doubao-seed-2-1-pro-260915",
+        "elapsed_seconds": 34.85750775039196,
+        "failure_code": null,
+        "input_tokens": 33417,
+        "output_tokens": 2114,
+        "profile_id": "metrics-c9a0036e73b91ba3"
+      }
+    },
+    {
+      "operation_id": "ui-da4c1f50a3504008:check-rolling_mad_w30_upper_p2-v0",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-da4c1f50a3504008:calibrate-rolling_mad_w30_upper_p2",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-da4c1f50a3504008:development-rolling_mad_w30_upper_p2",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-da4c1f50a3504008:final-test",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-da4c1f50a3504008:knowledge:publication-79d9a4c079eebf7e0dc00246997d4bc93914b9db3675091e3da0362344a5fd79",
+      "resource": "knowledge-publication",
+      "status": "SUCCEEDED",
+      "metadata": {
+        "payload_ref": "sha256:d386bfcf425cd7e1f18fe5f4424a6064fc6a14a3422ed7a4d9cd29868efcc868",
+        "publication_id": "publication-79d9a4c079eebf7e0dc00246997d4bc93914b9db3675091e3da0362344a5fd79"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "ewma_alpha0.3_upper_p2",
+      "config": {
+        "alpha": 0.3,
+        "direction": "upper",
+        "method_id": "ewma",
+        "min_history": 3,
+        "quantile": 0.99
+      },
+      "development": {
+        "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+        "coverage": {
+          "denominator": 240,
+          "null_reason": null,
+          "numerator": 240,
+          "value": 1.0
+        },
+        "effect_status": "MEASURED",
+        "engineering_status": "PASSED",
+        "event": {
+          "f1": {
+            "denominator": 4,
+            "null_reason": null,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "fn": 0,
+          "fp": 0,
+          "pairs": [
+            {
+              "delay_seconds": 480.0,
+              "prediction_id": "pred-0000",
+              "truth_id": "truth-0000"
+            },
+            {
+              "delay_seconds": 480.0,
+              "prediction_id": "pred-0001",
+              "truth_id": "truth-0001"
+            }
+          ],
+          "precision": {
+            "denominator": 2,
+            "null_reason": null,
+            "numerator": 2,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 2,
+            "null_reason": null,
+            "numerator": 2,
+            "value": 1.0
+          },
+          "tp": 2,
+          "unmatched_prediction_ids": [],
+          "unmatched_truth_ids": []
+        },
+        "execution_status": "SUCCEEDED",
+        "matched_delay_seconds": {
+          "maximum": 480.0,
+          "median": 480.0,
+          "missed_events": 0,
+          "null_reason": null
+        },
+        "normal_false_alarms_per_host_hour": {
+          "denominator": 13200,
+          "null_reason": null,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "peak_memory_bytes": null,
+        "peak_memory_null_reason": "not_measured",
+        "point": {
+          "abstained_normal": 0,
+          "f1": {
+            "denominator": 24,
+            "null_reason": null,
+            "numerator": 8,
+            "value": 0.3333333333333333
+          },
+          "fn": 16,
+          "fp": 0,
+          "precision": {
+            "denominator": 4,
+            "null_reason": null,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 20,
+            "null_reason": null,
+            "numerator": 4,
+            "value": 0.2
+          },
+          "tn": 220,
+          "total": 240,
+          "tp": 4
+        },
+        "predicted_events": [
+          {
+            "end_at": "2026-01-03T02:50:00Z",
+            "event_id": "pred-0000",
+            "host_id": "sim-host-a",
+            "metric": "disk_latency",
+            "start_at": "2026-01-03T02:48:00Z",
+            "trigger_at": "2026-01-03T02:48:00Z"
+          },
+          {
+            "end_at": "2026-01-03T04:10:00Z",
+            "event_id": "pred-0001",
+            "host_id": "sim-host-a",
+            "metric": "disk_latency",
+            "start_at": "2026-01-03T04:08:00Z",
+            "trigger_at": "2026-01-03T04:08:00Z"
+          }
+        ],
+        "protocol": "metrics-evaluation/1",
+        "runtime_seconds": 0.10944801196455956,
+        "truth_events": [
+          {
+            "end_at": "2026-01-03T02:50:00Z",
+            "event_id": "truth-0000",
+            "host_id": "sim-host-a",
+            "metric": "disk_latency",
+            "start_at": "2026-01-03T02:40:00Z",
+            "trigger_at": "2026-01-03T02:40:00Z"
+          },
+          {
+            "end_at": "2026-01-03T04:10:00Z",
+            "event_id": "truth-0001",
+            "host_id": "sim-host-a",
+            "metric": "disk_latency",
+            "start_at": "2026-01-03T04:00:00Z",
+            "trigger_at": "2026-01-03T04:00:00Z"
+          }
+        ]
+      },
+      "versions": [
+        {
+          "version": 0,
+          "origin": "llm_api",
+          "source_path": "candidate-e5cb6ef0d6cb8bf298407d01a5a5015f2b48b802f6fb4497604ceb2f8249b91a/v0.py",
+          "source_sha256": "sha256:2235ac3aea50af4e99c77d4b7729621f3190b568e4ce9385a6aa4b498ccbd54b",
+          "parent_source_sha256": null,
+          "capability_id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+          "capability_version": "1.1.0",
+          "specification_sha256": "sha256:53abdca0789200f3681895fdd88b049227e8b5e9587a9cc82d7f1d1bcc70bda2",
+          "knowledge_ids": [
+            "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+            "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+            "experience-1a45af64c9486f459f33d134feaea09ec6cfd61ba346b46f6dcd8df062f8002a",
+            "experience-8994fbe8622595cad805f1388c2ffd8746b76ce1809cdea8020c5866f76a10f4"
+          ],
+          "passed": true,
+          "verification_level": "reference_verified",
+          "checks": [
+            {
+              "check": "static_profile",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "missing_input_contract",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "state_reload",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "reset_repeat_future_invariance",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "ewma_cold_start",
+              "layer": "property",
+              "passed": true,
+              "points": 3
+            },
+            {
+              "check": "ewma_monotonic_step",
+              "layer": "property",
+              "passed": true,
+              "points": 13
+            },
+            {
+              "check": "ewma_missing",
+              "layer": "property",
+              "passed": true,
+              "points": 8
+            },
+            {
+              "check": "ewma_cold_start",
+              "layer": "reference",
+              "passed": true,
+              "points": 3
+            },
+            {
+              "check": "ewma_monotonic_step",
+              "layer": "reference",
+              "passed": true,
+              "points": 13
+            },
+            {
+              "check": "ewma_missing",
+              "layer": "reference",
+              "passed": true,
+              "points": 8
+            }
+          ],
+          "implementation_ids": [
+            "implementation-efcf435c8baa720d2bb0e61bfec808c14140999b108ff264b78153c500e239a1"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "rolling_mad_w30_upper_p2",
+      "config": {
+        "direction": "upper",
+        "method_id": "rolling_mad",
+        "min_history": 15,
+        "quantile": 0.99,
+        "window": 30
+      },
+      "development": {
+        "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+        "coverage": {
+          "denominator": 240,
+          "null_reason": null,
+          "numerator": 240,
+          "value": 1.0
+        },
+        "effect_status": "MEASURED",
+        "engineering_status": "PASSED",
+        "event": {
+          "f1": {
+            "denominator": 3,
+            "null_reason": null,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fn": 2,
+          "fp": 1,
+          "pairs": [],
+          "precision": {
+            "denominator": 1,
+            "null_reason": null,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "recall": {
+            "denominator": 2,
+            "null_reason": null,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "tp": 0,
+          "unmatched_prediction_ids": [
+            "pred-0000"
+          ],
+          "unmatched_truth_ids": [
+            "truth-0000",
+            "truth-0001"
+          ]
+        },
+        "execution_status": "SUCCEEDED",
+        "matched_delay_seconds": {
+          "maximum": null,
+          "median": null,
+          "missed_events": 2,
+          "null_reason": "no_matched_events"
+        },
+        "normal_false_alarms_per_host_hour": {
+          "denominator": 13200,
+          "null_reason": null,
+          "numerator": 3600,
+          "value": 0.2727272727272727
+        },
+        "peak_memory_bytes": null,
+        "peak_memory_null_reason": "not_measured",
+        "point": {
+          "abstained_normal": 0,
+          "f1": {
+            "denominator": 25,
+            "null_reason": null,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fn": 20,
+          "fp": 5,
+          "precision": {
+            "denominator": 5,
+            "null_reason": null,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "recall": {
+            "denominator": 20,
+            "null_reason": null,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "tn": 215,
+          "total": 240,
+          "tp": 0
+        },
+        "predicted_events": [
+          {
+            "end_at": "2026-01-03T01:46:00Z",
+            "event_id": "pred-0000",
+            "host_id": "sim-host-a",
+            "metric": "disk_latency",
+            "start_at": "2026-01-03T01:41:00Z",
+            "trigger_at": "2026-01-03T01:41:00Z"
+          }
+        ],
+        "protocol": "metrics-evaluation/1",
+        "runtime_seconds": 0.10254741832613945,
+        "truth_events": [
+          {
+            "end_at": "2026-01-03T02:50:00Z",
+            "event_id": "truth-0000",
+            "host_id": "sim-host-a",
+            "metric": "disk_latency",
+            "start_at": "2026-01-03T02:40:00Z",
+            "trigger_at": "2026-01-03T02:40:00Z"
+          },
+          {
+            "end_at": "2026-01-03T04:10:00Z",
+            "event_id": "truth-0001",
+            "host_id": "sim-host-a",
+            "metric": "disk_latency",
+            "start_at": "2026-01-03T04:00:00Z",
+            "trigger_at": "2026-01-03T04:00:00Z"
+          }
+        ]
+      },
+      "versions": [
+        {
+          "version": 0,
+          "origin": "llm_api",
+          "source_path": "candidate-dd3e36e6bb22a4876e220b192c017fb7a3a41a3bd0b0c0a4cb5581e9174e8b4c/v0.py",
+          "source_sha256": "sha256:372736fa28b321bba196fa245c0973c037593230b854af7e8a1bbe1e42e8b39f",
+          "parent_source_sha256": null,
+          "capability_id": "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+          "capability_version": "1.1.0",
+          "specification_sha256": "sha256:1341c8dba78c069e25220a8afe6f80caaf9150384348d3c7f47c3c4e1dce8309",
+          "knowledge_ids": [
+            "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+            "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+            "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+            "experience-3c400aad5437cbffcfb4c026c178eb8a77e87e62d45cf0f1d19685c28d666b0a"
+          ],
+          "passed": true,
+          "verification_level": "reference_verified",
+          "checks": [
+            {
+              "check": "static_profile",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "missing_input_contract",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "state_reload",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "reset_repeat_future_invariance",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "mad_past_only",
+              "layer": "property",
+              "passed": true,
+              "points": 17
+            },
+            {
+              "check": "mad_zero_scale",
+              "layer": "property",
+              "passed": true,
+              "points": 33
+            },
+            {
+              "check": "mad_missing_slots",
+              "layer": "property",
+              "passed": true,
+              "points": 50
+            },
+            {
+              "check": "mad_imputed_not_original",
+              "layer": "property",
+              "passed": true,
+              "points": 19
+            },
+            {
+              "check": "mad_past_only",
+              "layer": "reference",
+              "passed": true,
+              "points": 17
+            },
+            {
+              "check": "mad_zero_scale",
+              "layer": "reference",
+              "passed": true,
+              "points": 33
+            },
+            {
+              "check": "mad_missing_slots",
+              "layer": "reference",
+              "passed": true,
+              "points": 50
+            },
+            {
+              "check": "mad_imputed_not_original",
+              "layer": "reference",
+              "passed": true,
+              "points": 19
+            }
+          ],
+          "implementation_ids": [
+            "implementation-096334cebad4cf826c00b591b23b3c832fd632d7d28579e029d246be3bd86025"
+          ]
+        }
+      ]
+    }
+  ],
+  "selection": {
+    "basis": "labelled_development",
+    "beta": 0.5,
+    "criteria": [
+      "point_fbeta_desc",
+      "event_fbeta_desc",
+      "false_alarm_rate_asc",
+      "matched_delay_asc",
+      "coverage_desc",
+      "candidate_id"
+    ],
+    "objective": "sustained_coverage",
+    "policy": "precision",
+    "protocol": "metrics-selection/2",
+    "ranking": [
+      "ewma_alpha0.3_upper_p2",
+      "rolling_mad_w30_upper_p2"
+    ],
+    "reason": "按开发集目标及次级 Fβ、正常误报频次、匹配延迟、覆盖率和候选ID排序；最终测试不参与选择。",
+    "requested_policy": "precision",
+    "selected": "ewma_alpha0.3_upper_p2",
+    "status": "SELECTED",
+    "tie_broken_by": "point_fbeta",
+    "warnings": [
+      "LOW_EVENT_COUNT: 真实事件少于5个，事件F1不足以支持统计结论。"
+    ]
+  },
+  "final": {
+    "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+    "coverage": {
+      "denominator": 240,
+      "null_reason": null,
+      "numerator": 240,
+      "value": 1.0
+    },
+    "effect_status": "MEASURED",
+    "engineering_status": "PASSED",
+    "event": {
+      "f1": {
+        "denominator": 4,
+        "null_reason": null,
+        "numerator": 4,
+        "value": 1.0
+      },
+      "fn": 0,
+      "fp": 0,
+      "pairs": [
+        {
+          "delay_seconds": 480.0,
+          "prediction_id": "pred-0000",
+          "truth_id": "truth-0000"
+        },
+        {
+          "delay_seconds": 480.0,
+          "prediction_id": "pred-0001",
+          "truth_id": "truth-0001"
+        }
+      ],
+      "precision": {
+        "denominator": 2,
+        "null_reason": null,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "recall": {
+        "denominator": 2,
+        "null_reason": null,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "tp": 2,
+      "unmatched_prediction_ids": [],
+      "unmatched_truth_ids": []
+    },
+    "execution_status": "SUCCEEDED",
+    "matched_delay_seconds": {
+      "maximum": 480.0,
+      "median": 480.0,
+      "missed_events": 0,
+      "null_reason": null
+    },
+    "normal_false_alarms_per_host_hour": {
+      "denominator": 13200,
+      "null_reason": null,
+      "numerator": 0,
+      "value": 0.0
+    },
+    "peak_memory_bytes": null,
+    "peak_memory_null_reason": "not_measured",
+    "phase": "test",
+    "point": {
+      "abstained_normal": 0,
+      "f1": {
+        "denominator": 24,
+        "null_reason": null,
+        "numerator": 8,
+        "value": 0.3333333333333333
+      },
+      "fn": 16,
+      "fp": 0,
+      "precision": {
+        "denominator": 4,
+        "null_reason": null,
+        "numerator": 4,
+        "value": 1.0
+      },
+      "recall": {
+        "denominator": 20,
+        "null_reason": null,
+        "numerator": 4,
+        "value": 0.2
+      },
+      "tn": 220,
+      "total": 240,
+      "tp": 4
+    },
+    "predicted_events": [
+      {
+        "end_at": "2026-01-04T02:50:00Z",
+        "event_id": "pred-0000",
+        "host_id": "sim-host-a",
+        "metric": "disk_latency",
+        "start_at": "2026-01-04T02:48:00Z",
+        "trigger_at": "2026-01-04T02:48:00Z"
+      },
+      {
+        "end_at": "2026-01-04T04:10:00Z",
+        "event_id": "pred-0001",
+        "host_id": "sim-host-a",
+        "metric": "disk_latency",
+        "start_at": "2026-01-04T04:08:00Z",
+        "trigger_at": "2026-01-04T04:08:00Z"
+      }
+    ],
+    "protocol": "metrics-evaluation/1",
+    "runtime_seconds": 0.10290909186005592,
+    "selected": "ewma_alpha0.3_upper_p2",
+    "selection_sha256": "sha256:d1fcdf8c5622ea2a9817511eaf47630508b3645f3619c08fcf530edf2e1508ba",
+    "test_execution_started": true,
+    "truth_events": [
+      {
+        "end_at": "2026-01-04T02:50:00Z",
+        "event_id": "truth-0000",
+        "host_id": "sim-host-a",
+        "metric": "disk_latency",
+        "start_at": "2026-01-04T02:40:00Z",
+        "trigger_at": "2026-01-04T02:40:00Z"
+      },
+      {
+        "end_at": "2026-01-04T04:10:00Z",
+        "event_id": "truth-0001",
+        "host_id": "sim-host-a",
+        "metric": "disk_latency",
+        "start_at": "2026-01-04T04:00:00Z",
+        "trigger_at": "2026-01-04T04:00:00Z"
+      }
+    ]
+  },
+  "publication": {
+    "publication_id": "publication-79d9a4c079eebf7e0dc00246997d4bc93914b9db3675091e3da0362344a5fd79",
+    "node_ids": [
+      "experience-1f2881bde9629c37a0909d4d04daa29d9810b83a2fbcdfe3fc36c401f7b2793b",
+      "experience-346544bbc0e853710e7f0b2d33ee408175babbe60dea7d4e0cc4ababa8fbdb05",
+      "implementation-096334cebad4cf826c00b591b23b3c832fd632d7d28579e029d246be3bd86025",
+      "implementation-efcf435c8baa720d2bb0e61bfec808c14140999b108ff264b78153c500e239a1",
+      "validation-38d021ef3934a7212bc26719b298660a9ede994e8ffe18a9a87c443ab015742b",
+      "validation-71d956e090feec57855f9854d3514e6360a4ea4bd30d53e63b438544541c3e41"
+    ],
+    "status": "PUBLISHED"
+  },
+  "failure": null,
+  "workflow_runtime_seconds": 132.13974445313215,
+  "browser_download_checked": false,
+  "download_matches_server": null,
+  "page_capture_limitation": "Saved browser permission blocked final disk page capture"
+}

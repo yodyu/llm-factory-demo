@@ -1,0 +1,59 @@
+.venv/bin/python -m pytest -q
+.......sss........................s..................................... [ 12%]
+.............................................sss...........s..s........s [ 25%]
+..ssss..............sssss.sss.ssss.....sssssssss.sssssss................ [ 38%]
+........................................................................ [ 51%]
+........................................................s............... [ 64%]
+....................ssssssss.sss..............................s.....ss.. [ 77%]
+.....................sss.sssss.ssssss................................... [ 90%]
+.......................................................                  [100%]
+=========================== short test summary info ============================
+SKIPPED [3] tests/metrics/test_app.py:28: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_capability_plugins.py:171: 需要设置 FACTORY_METRICS_IMAGE 以验证无参考插件的真实沙箱
+SKIPPED [2] tests/metrics/test_demo_resilience.py:94: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_demo_resilience.py:136: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_experience_retrieval.py:97: 需要设置 FACTORY_NEO4J_CONFIG 以验证 Neo4j 后端契约
+SKIPPED [1] tests/metrics/test_experiment.py:41: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_knowledge_backends.py:34: 需要设置 FACTORY_NEO4J_CONFIG 以验证 Neo4j 后端契约
+SKIPPED [1] tests/metrics/test_knowledge_backends.py:66: 需要设置 FACTORY_NEO4J_CONFIG 以验证 Neo4j 后端契约
+SKIPPED [3] tests/metrics/test_language_workflow.py:20: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_neo4j.py:43: 需要设置 FACTORY_NEO4J_CONFIG
+SKIPPED [1] tests/metrics/test_neo4j.py:63: 需要设置 FACTORY_NEO4J_CONFIG
+SKIPPED [1] tests/metrics/test_neo4j.py:84: 需要设置 FACTORY_NEO4J_CONFIG
+SKIPPED [2] tests/metrics/test_neo4j.py:101: 需要设置 FACTORY_NEO4J_CONFIG
+SKIPPED [1] tests/metrics/test_neo4j.py:142: 需要设置 FACTORY_NEO4J_CONFIG
+SKIPPED [1] tests/metrics/test_neo4j.py:162: 需要设置 FACTORY_NEO4J_CONFIG
+SKIPPED [1] tests/metrics/test_neo4j.py:186: 需要设置 FACTORY_NEO4J_CONFIG
+SKIPPED [1] tests/metrics/test_neo4j.py:221: 需要设置 FACTORY_NEO4J_CONFIG
+SKIPPED [1] tests/metrics/test_neo4j.py:236: 需要设置 FACTORY_NEO4J_CONFIG
+SKIPPED [1] tests/metrics/test_neo4j.py:243: 需要设置 FACTORY_NEO4J_CONFIG
+SKIPPED [1] tests/metrics/test_neo4j.py:254: 需要设置 FACTORY_NEO4J_CONFIG
+SKIPPED [2] tests/metrics/test_normalized_inputs.py:91: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [5] tests/metrics/test_normalized_inputs.py:158: 需要设置 FACTORY_METRICS_IMAGE；模型为 mock
+SKIPPED [2] tests/metrics/test_normalized_inputs.py:214: 需要设置 FACTORY_METRICS_IMAGE；使用受控源码
+SKIPPED [1] tests/metrics/test_orchestration.py:38: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_orchestration.py:63: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_orchestration.py:80: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_orchestration.py:93: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_orchestration.py:109: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_orchestration.py:122: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_orchestration.py:138: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_retrieval_small.py:90: 需要设置 FACTORY_NEO4J_CONFIG 以验证 Neo4j 后端契约
+SKIPPED [2] tests/metrics/test_sandbox.py:66: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_sandbox.py:99: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [2] tests/metrics/test_sandbox.py:112: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_sandbox.py:137: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [2] tests/metrics/test_sandbox.py:153: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [3] tests/metrics/test_sandbox.py:200: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_spec_sources.py:82: 需要设置 FACTORY_NEO4J_CONFIG 以验证 Neo4j 后端契约
+SKIPPED [1] tests/metrics/test_spec_sources.py:143: 需要设置 FACTORY_NEO4J_CONFIG 以验证 Neo4j 后端契约
+SKIPPED [1] tests/metrics/test_spec_sources.py:167: 需要设置 FACTORY_METRICS_IMAGE 以验证材料溯源后的真实沙箱闭环
+SKIPPED [7] tests/metrics/test_upload.py:83: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_upload.py:174: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_workflow.py:40: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_workflow.py:83: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_workflow.py:95: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_workflow.py:122: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_workflow.py:148: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_workflow.py:167: 需要设置 FACTORY_METRICS_IMAGE
+488 passed, 71 skipped in 77.58s (0:01:17)

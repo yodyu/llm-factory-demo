@@ -1,0 +1,4229 @@
+{
+  "schema_version": "metrics-knowledge/2",
+  "nodes": [
+    {
+      "id": "capability-20e27b389b6dc00f2fcd647b8328bff3004c51f002f1feffa2bcf4ada293baee",
+      "kind": "Capability",
+      "payload": {
+        "algorithm_spec": null,
+        "citations": [
+          {
+            "chunk_id": "chunk-3b4197c7b19b95c260f53fe81f5e3791d1fc50872a85db49623187c531cc0019",
+            "quote": "\"\"\"Constructed human reference (origin=reference), not generated model code.",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "constraints": [
+          "单主机单指标"
+        ],
+        "defaults": null,
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "evaluation_metrics": null,
+        "field_evidence": null,
+        "implementation_verified": false,
+        "inputs": null,
+        "knowledge_status": "extracted_unverified",
+        "limitations": [
+          "mock extraction"
+        ],
+        "local_id": "controlled",
+        "method_id": "rolling_mad",
+        "metric_kinds": [
+          "gauge",
+          "rate"
+        ],
+        "min_history": 15,
+        "name": "reference_mad.py",
+        "origin": "mock",
+        "outputs": null,
+        "parameters": null,
+        "required_imports": [],
+        "response_evidence": {
+          "extraction_protocol": "metrics-extraction/2",
+          "prompt_version": "metrics-prompts/5",
+          "stage": "extract-7",
+          "task_id": "ewma-plugin-ingest"
+        },
+        "single_host": true,
+        "source_id": "source-9c6653aee67c954e52e57c3962225be1e5f7497639792f51057c2074c662ce0d",
+        "source_status": "source_checked",
+        "summary": "受控抽取示例：reference_mad.py",
+        "supported_directions": null,
+        "task_type": null,
+        "verification_level": null,
+        "version": null
+      }
+    },
+    {
+      "id": "capability-55a4e15e984ccb50beaa7eff61012fecf2c9229c353dc1463cce0047475a3987",
+      "kind": "Capability",
+      "payload": {
+        "algorithm_spec": null,
+        "citations": [
+          {
+            "chunk_id": "chunk-4db59015de2d3096a11f2a685e496b8d2b008ede2cbad59b387b8e83f5862904",
+            "quote": "EWMA 单主机数值指标异常检测（专家编写规格，不是模型实验结果）",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "constraints": [
+          "单主机单指标"
+        ],
+        "defaults": null,
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "evaluation_metrics": null,
+        "field_evidence": null,
+        "implementation_verified": false,
+        "inputs": null,
+        "knowledge_status": "extracted_unverified",
+        "limitations": [
+          "mock extraction"
+        ],
+        "local_id": "controlled",
+        "method_id": "ewma",
+        "metric_kinds": [
+          "gauge",
+          "rate"
+        ],
+        "min_history": 3,
+        "name": "06-ewma.txt",
+        "origin": "mock",
+        "outputs": null,
+        "parameters": null,
+        "required_imports": [],
+        "response_evidence": {
+          "extraction_protocol": "metrics-extraction/2",
+          "prompt_version": "metrics-prompts/5",
+          "stage": "extract-5",
+          "task_id": "ewma-plugin-ingest"
+        },
+        "single_host": true,
+        "source_id": "source-dc53e0f1b175e147db3a4be83973613aceb0e145b59d213bbba5b5c9c9f8afb4",
+        "source_status": "source_checked",
+        "summary": "受控抽取示例：06-ewma.txt",
+        "supported_directions": null,
+        "task_type": null,
+        "verification_level": null,
+        "version": null
+      }
+    },
+    {
+      "id": "capability-5fc379e8f3525b8d5793490836c059cd1ade9e1b9511fcf1af84360522e72738",
+      "kind": "Capability",
+      "payload": {
+        "algorithm_spec": null,
+        "citations": [
+          {
+            "chunk_id": "chunk-46b8606cbf02aa1c7858ad10d74e1f32d4c8831a0d06d3712e6ad9929d9baa2c",
+            "quote": "\"\"\"Constructed human reference (origin=reference), never an LLM-generated result.",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "constraints": [
+          "单主机单指标"
+        ],
+        "defaults": null,
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "evaluation_metrics": null,
+        "field_evidence": null,
+        "implementation_verified": false,
+        "inputs": null,
+        "knowledge_status": "extracted_unverified",
+        "limitations": [
+          "mock extraction"
+        ],
+        "local_id": "controlled",
+        "method_id": "fixed_threshold",
+        "metric_kinds": [
+          "gauge",
+          "rate"
+        ],
+        "min_history": 0,
+        "name": "reference_fixed.py",
+        "origin": "mock",
+        "outputs": null,
+        "parameters": null,
+        "required_imports": [],
+        "response_evidence": {
+          "extraction_protocol": "metrics-extraction/2",
+          "prompt_version": "metrics-prompts/5",
+          "stage": "extract-6",
+          "task_id": "ewma-plugin-ingest"
+        },
+        "single_host": true,
+        "source_id": "source-c2c0cc97448d2d6a89f4868617d05db95ad6f4d584694a0a79f62a06b9f0bf7d",
+        "source_status": "source_checked",
+        "summary": "受控抽取示例：reference_fixed.py",
+        "supported_directions": null,
+        "task_type": null,
+        "verification_level": null,
+        "version": null
+      }
+    },
+    {
+      "id": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "kind": "Capability",
+      "payload": {
+        "algorithm_spec": "训练有效值均值为固定baseline，scale=max(1e-9,训练总体标准差)。reset令smooth=baseline,count=0。可用当前值x先更新smooth=alpha*x+(1-alpha)*smooth，只有original_present=True才count+=1。count<min_history时insufficient_history，score=None,evidence={}。否则upper=(smooth-baseline)/scale，lower取反，two_sided取绝对值；evidence含ewma、baseline、scale。value=None时missing_input、score=None、evidence={}，不更新平滑值或计数。fit不得留下角色滚动状态，save/load必须保留全部配置和统计量。",
+        "citations": [
+          {
+            "chunk_id": "chunk-83a6878d98017898ddcfad7e0d93581ff41cb27654f2cf3c26e583f785fc863c",
+            "quote": "\"version\": \"1.0.0\"",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-0deb5042792109e5c639173d6c044600fbd567542fe8e1910410d8125b5b5ad5",
+            "quote": "\"task_type\": \"time_series_anomaly_detection\"",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-73d537a53c349caf76da241b87a8a57e9db0d9a01bc77d8896d2d9329fdbfe77",
+            "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-2379bcae86e82ff164898f48b252ca44144c3a8674d4a7c3efb73cc11cd007ce",
+            "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-77f4f8a90b99d2333e89dcc2fd366dfec789e464e1923b484bb7c40c8d0b1ed0",
+            "quote": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"alpha\",\n      \"min_history\",\n      \"direction\",\n      \"quantile\"\n    ],\n    \"properties\": {\n      \"alpha\": {\n        \"type\": \"number\",\n        \"exclusiveMinimum\": 0,\n        \"maximum\": 1\n      },\n      \"min_history\": {\n        \"type\": \"integer\",\n        \"minimum\": 1,\n        \"maximum\": 600\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\",\n          \"two_sided\"\n        ]\n      },\n      \"quantile\": {\n        \"type\": \"number\",\n        \"exclusiveMinimum\": 0,\n        \"maximum\": 1\n      }\n    }\n  }",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-aa7d289008f87fa9437752c4ad624a684d9370ecc1a3f83d652818d73bf8f3ab",
+            "quote": "\"defaults\": {\n    \"alpha\": 0.3,\n    \"min_history\": 3,\n    \"direction\": \"upper\",\n    \"quantile\": 0.99\n  }",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-5c597877c1f103ce268081bc4dce46457181649b908badbd1ce59127fc71e145",
+            "quote": "\"algorithm_spec\": \"训练有效值均值为固定baseline，scale=max(1e-9,训练总体标准差)。reset令smooth=baseline,count=0。可用当前值x先更新smooth=alpha*x+(1-alpha)*smooth，只有original_present=True才count+=1。count<min_history时insufficient_history，score=None,evidence={}。否则upper=(smooth-baseline)/scale，lower取反，two_sided取绝对值；evidence含ewma、baseline、scale。value=None时missing_input、score=None、evidence={}，不更新平滑值或计数。fit不得留下角色滚动状态，save/load必须保留全部配置和统计量。\"",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-a4cd59e50c07aeb12e7195bd33bd8d5a5422d7ff85d5c330dd19aca557e7f199",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-714b69d7938bbb7fe21caaf43cbe9c7059ef034817c123a4b1b7c2287bc999a8",
+            "quote": "\"supported_directions\": [\n    \"upper\",\n    \"lower\",\n    \"two_sided\"\n  ]",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-5ffe089ae2ed6456634258840b1a66d92485a91a90ff7aeb76650d5819277802",
+            "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-e220dfccabf488aa60d4c329a99bdaf0a919ad8f64d56fa29063b89243b56f62",
+            "quote": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-410ee6d014de562a66e470502fe864cff47b72ed510e2610e076010b56e1bc26",
+            "quote": "\"min_history\": 3",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "constraints": [
+          "适于持续变化；固定训练基线保留长期偏移，较小alpha会降低响应速度。"
+        ],
+        "defaults": {
+          "alpha": 0.3,
+          "direction": "upper",
+          "min_history": 3,
+          "quantile": 0.99
+        },
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "evaluation_metrics": [
+          "event_f1",
+          "point_f1",
+          "normal_false_alarms_per_host_hour",
+          "matched_delay_seconds"
+        ],
+        "field_evidence": {
+          "algorithm_spec": {
+            "chunk_id": "chunk-5c597877c1f103ce268081bc4dce46457181649b908badbd1ce59127fc71e145",
+            "quote": "\"algorithm_spec\": \"训练有效值均值为固定baseline，scale=max(1e-9,训练总体标准差)。reset令smooth=baseline,count=0。可用当前值x先更新smooth=alpha*x+(1-alpha)*smooth，只有original_present=True才count+=1。count<min_history时insufficient_history，score=None,evidence={}。否则upper=(smooth-baseline)/scale，lower取反，two_sided取绝对值；evidence含ewma、baseline、scale。value=None时missing_input、score=None、evidence={}，不更新平滑值或计数。fit不得留下角色滚动状态，save/load必须保留全部配置和统计量。\"",
+            "symbol": null
+          },
+          "defaults": {
+            "chunk_id": "chunk-aa7d289008f87fa9437752c4ad624a684d9370ecc1a3f83d652818d73bf8f3ab",
+            "quote": "\"defaults\": {\n    \"alpha\": 0.3,\n    \"min_history\": 3,\n    \"direction\": \"upper\",\n    \"quantile\": 0.99\n  }",
+            "symbol": null
+          },
+          "dependency_profile": {
+            "chunk_id": "chunk-5ffe089ae2ed6456634258840b1a66d92485a91a90ff7aeb76650d5819277802",
+            "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+            "symbol": null
+          },
+          "evaluation_metrics": {
+            "chunk_id": "chunk-a4cd59e50c07aeb12e7195bd33bd8d5a5422d7ff85d5c330dd19aca557e7f199",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          },
+          "inputs": {
+            "chunk_id": "chunk-73d537a53c349caf76da241b87a8a57e9db0d9a01bc77d8896d2d9329fdbfe77",
+            "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          "metric_kinds": {
+            "chunk_id": "chunk-e220dfccabf488aa60d4c329a99bdaf0a919ad8f64d56fa29063b89243b56f62",
+            "quote": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]",
+            "symbol": null
+          },
+          "min_history": {
+            "chunk_id": "chunk-410ee6d014de562a66e470502fe864cff47b72ed510e2610e076010b56e1bc26",
+            "quote": "\"min_history\": 3",
+            "symbol": null
+          },
+          "outputs": {
+            "chunk_id": "chunk-2379bcae86e82ff164898f48b252ca44144c3a8674d4a7c3efb73cc11cd007ce",
+            "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          "parameters": {
+            "chunk_id": "chunk-77f4f8a90b99d2333e89dcc2fd366dfec789e464e1923b484bb7c40c8d0b1ed0",
+            "quote": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"alpha\",\n      \"min_history\",\n      \"direction\",\n      \"quantile\"\n    ],\n    \"properties\": {\n      \"alpha\": {\n        \"type\": \"number\",\n        \"exclusiveMinimum\": 0,\n        \"maximum\": 1\n      },\n      \"min_history\": {\n        \"type\": \"integer\",\n        \"minimum\": 1,\n        \"maximum\": 600\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\",\n          \"two_sided\"\n        ]\n      },\n      \"quantile\": {\n        \"type\": \"number\",\n        \"exclusiveMinimum\": 0,\n        \"maximum\": 1\n      }\n    }\n  }",
+            "symbol": null
+          },
+          "supported_directions": {
+            "chunk_id": "chunk-714b69d7938bbb7fe21caaf43cbe9c7059ef034817c123a4b1b7c2287bc999a8",
+            "quote": "\"supported_directions\": [\n    \"upper\",\n    \"lower\",\n    \"two_sided\"\n  ]",
+            "symbol": null
+          },
+          "task_type": {
+            "chunk_id": "chunk-0deb5042792109e5c639173d6c044600fbd567542fe8e1910410d8125b5b5ad5",
+            "quote": "\"task_type\": \"time_series_anomaly_detection\"",
+            "symbol": null
+          },
+          "version": {
+            "chunk_id": "chunk-83a6878d98017898ddcfad7e0d93581ff41cb27654f2cf3c26e583f785fc863c",
+            "quote": "\"version\": \"1.0.0\"",
+            "symbol": null
+          }
+        },
+        "implementation_verified": false,
+        "inputs": {
+          "properties": {
+            "host_id": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            },
+            "value": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "timestamp",
+            "host_id",
+            "value"
+          ],
+          "type": "object"
+        },
+        "knowledge_status": "source_checked",
+        "limitations": [
+          "expert authored plugin card; not model extraction"
+        ],
+        "local_id": "ewma",
+        "method_id": "ewma",
+        "metric_kinds": [
+          "gauge",
+          "rate"
+        ],
+        "min_history": 3,
+        "name": "EWMA",
+        "origin": "reference",
+        "outputs": {
+          "properties": {
+            "evidence": {
+              "type": "object"
+            },
+            "score": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "status": {
+              "enum": [
+                "ok",
+                "insufficient_history",
+                "missing_input",
+                "invalid_input"
+              ]
+            }
+          },
+          "required": [
+            "timestamp",
+            "host_id",
+            "status",
+            "score",
+            "evidence"
+          ],
+          "type": "object"
+        },
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "alpha": {
+              "exclusiveMinimum": 0,
+              "maximum": 1,
+              "type": "number"
+            },
+            "direction": {
+              "enum": [
+                "upper",
+                "lower",
+                "two_sided"
+              ]
+            },
+            "min_history": {
+              "maximum": 600,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "quantile": {
+              "exclusiveMinimum": 0,
+              "maximum": 1,
+              "type": "number"
+            }
+          },
+          "required": [
+            "alpha",
+            "min_history",
+            "direction",
+            "quantile"
+          ],
+          "type": "object"
+        },
+        "plugin_hashes": {
+          "capability.json": "sha256:34742af2d68e6df5600ee2547d4b0556cb1dff020e7c0fc895587dc4d8a12617",
+          "checks.py": "sha256:025c96a17a67127db78722b0cfefe382b79c1c22eb88f6cea06c3f6c429c58fd",
+          "reference.py": "sha256:44dd23aa0347c6a21a5bdd5ac6cc405385225bd8af67b44d9c95c93cd66a1333"
+        },
+        "response_evidence": {
+          "origin": "reference",
+          "source_sha256": "sha256:34742af2d68e6df5600ee2547d4b0556cb1dff020e7c0fc895587dc4d8a12617"
+        },
+        "single_host": true,
+        "source_id": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+        "source_status": "registered_card",
+        "specification_sha256": "sha256:53abdca0789200f3681895fdd88b049227e8b5e9587a9cc82d7f1d1bcc70bda2",
+        "summary": "EWMA；适于持续变化；固定训练基线保留长期偏移，较小alpha会降低响应速度。",
+        "supported_directions": [
+          "upper",
+          "lower",
+          "two_sided"
+        ],
+        "task_type": "time_series_anomaly_detection",
+        "verification": "reference",
+        "verification_level": "contract_only",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "capability-6f3af6e59cae8f44a27b56ef673f9f89d7dcfd810242ebd5dc1ea4b1d8ca8083",
+      "kind": "Capability",
+      "payload": {
+        "algorithm_spec": null,
+        "citations": [
+          {
+            "chunk_id": "chunk-6f7901a37608c1205d444bc404b8098d89e1617f0d1633c73d1c22e0e05ba7ac",
+            "quote": "# 构造专家材料：rolling_mad",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "constraints": [
+          "单主机单指标"
+        ],
+        "defaults": null,
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "evaluation_metrics": null,
+        "field_evidence": null,
+        "implementation_verified": false,
+        "inputs": null,
+        "knowledge_status": "extracted_unverified",
+        "limitations": [
+          "mock extraction"
+        ],
+        "local_id": "controlled",
+        "method_id": "rolling_mad",
+        "metric_kinds": [
+          "gauge",
+          "rate"
+        ],
+        "min_history": 15,
+        "name": "03-rolling-mad.txt",
+        "origin": "mock",
+        "outputs": null,
+        "parameters": null,
+        "required_imports": [],
+        "response_evidence": {
+          "extraction_protocol": "metrics-extraction/2",
+          "prompt_version": "metrics-prompts/5",
+          "stage": "extract-2",
+          "task_id": "ewma-plugin-ingest"
+        },
+        "single_host": true,
+        "source_id": "source-9b329ea3663d980d9ae702252a5e380b40f9d2efc3801882d1b9019744038bd3",
+        "source_status": "source_checked",
+        "summary": "受控抽取示例：03-rolling-mad.txt",
+        "supported_directions": null,
+        "task_type": null,
+        "verification_level": null,
+        "version": null
+      }
+    },
+    {
+      "id": "capability-728400369614a3518acdf96edc3b6bd20a5a39716598d7ebda22b4205a70984f",
+      "kind": "Capability",
+      "payload": {
+        "algorithm_spec": null,
+        "citations": [
+          {
+            "chunk_id": "chunk-a2ff1b5a07f2f1603e5f212d49f5d60b7f21b9df5a5bcb891ecaef90586a07a4",
+            "quote": "# 构造专家材料：fixed_threshold",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "constraints": [
+          "单主机单指标"
+        ],
+        "defaults": null,
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "evaluation_metrics": null,
+        "field_evidence": null,
+        "implementation_verified": false,
+        "inputs": null,
+        "knowledge_status": "extracted_unverified",
+        "limitations": [
+          "mock extraction"
+        ],
+        "local_id": "controlled",
+        "method_id": "fixed_threshold",
+        "metric_kinds": [
+          "gauge",
+          "rate"
+        ],
+        "min_history": 0,
+        "name": "02-fixed-threshold.txt",
+        "origin": "mock",
+        "outputs": null,
+        "parameters": null,
+        "required_imports": [],
+        "response_evidence": {
+          "extraction_protocol": "metrics-extraction/2",
+          "prompt_version": "metrics-prompts/5",
+          "stage": "extract-1",
+          "task_id": "ewma-plugin-ingest"
+        },
+        "single_host": true,
+        "source_id": "source-8aa09fc385453bbbccd68b26e083b14040147c7d4c48028ce969f50cd7c0ae01",
+        "source_status": "source_checked",
+        "summary": "受控抽取示例：02-fixed-threshold.txt",
+        "supported_directions": null,
+        "task_type": null,
+        "verification_level": null,
+        "version": null
+      }
+    },
+    {
+      "id": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "kind": "Capability",
+      "payload": {
+        "algorithm_spec": "仅使用当前点前最近window时间槽（包含None槽）；只有original_present=True的历史点计min_history。可用插补值参与median/MAD，但不计真实历史数。value=None时missing_input；真实历史不足时insufficient_history。m=median(有效历史)，mad=median(abs(v-m))，s=max(1.4826*mad,scale_floor)。upper=(x-m)/s，lower=(m-x)/s，two_sided=abs(x-m)/s。evidence含median,mad,scale。训练有效原始值R7分位数（位置(n-1)*q线性插值）的IQR确定scale_floor=max(1e-9,IQR*1e-6)。先评分，再把当前点追加到历史，包括异常点、插补和不可用None槽，保留最近window槽。min_history不得超过window。fit不能把训练点留作角色历史。",
+        "citations": [
+          {
+            "chunk_id": "chunk-0b516360aec4a9148bd2c165332e9111e45a56d3318d181faa2cbcff1f7b096c",
+            "quote": "\"version\": \"1.0.0\"",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-2928ae6a19ba934c1b3859e41baece5606612be022c5ed25a6c32a3f64595fdd",
+            "quote": "\"task_type\": \"time_series_anomaly_detection\"",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-09022a7111f743df3d7844f918179ee0d228d2dd44239e4d5e50aab98a0c264d",
+            "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-e84cfa9df228fa0e710ed136ca89cdc4ee436e0db3c87b3ece79600015c9c86d",
+            "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-c2f758e721e2cdda0b05b4ee66ae063dca0629e83aac9e11465530ada19dd7ba",
+            "quote": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"window\",\n      \"min_history\",\n      \"direction\",\n      \"quantile\"\n    ],\n    \"properties\": {\n      \"window\": {\n        \"type\": \"integer\",\n        \"minimum\": 1,\n        \"maximum\": 600\n      },\n      \"min_history\": {\n        \"type\": \"integer\",\n        \"minimum\": 1,\n        \"maximum\": 600\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\",\n          \"two_sided\"\n        ]\n      },\n      \"quantile\": {\n        \"type\": \"number\",\n        \"exclusiveMinimum\": 0,\n        \"maximum\": 1\n      }\n    }\n  }",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-6aca82a3edc887a5b49c78e6d6df3fc988d1756b12543c30daee85c085fb715c",
+            "quote": "\"defaults\": {\n    \"window\": 30,\n    \"min_history\": 15,\n    \"direction\": \"upper\",\n    \"quantile\": 0.99\n  }",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-0d878bf874bd6951417f6908a83ef749e38a361c7c3f2dd300f9151465c83c73",
+            "quote": "\"algorithm_spec\": \"仅使用当前点前最近window时间槽（包含None槽）；只有original_present=True的历史点计min_history。可用插补值参与median/MAD，但不计真实历史数。value=None时missing_input；真实历史不足时insufficient_history。m=median(有效历史)，mad=median(abs(v-m))，s=max(1.4826*mad,scale_floor)。upper=(x-m)/s，lower=(m-x)/s，two_sided=abs(x-m)/s。evidence含median,mad,scale。训练有效原始值R7分位数（位置(n-1)*q线性插值）的IQR确定scale_floor=max(1e-9,IQR*1e-6)。先评分，再把当前点追加到历史，包括异常点、插补和不可用None槽，保留最近window槽。min_history不得超过window。fit不能把训练点留作角色历史。\"",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-8f809a1ed9e8925e96f3e2cf160bb965f342c60888b1951d4fc9e08379f21a30",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-eb9ac948739aac19f159c0c152c476c801b194eb4180b6b75addfabc8f42fd1b",
+            "quote": "\"supported_directions\": [\n    \"upper\",\n    \"lower\",\n    \"two_sided\"\n  ]",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-60f4ba882a6e906ac92c7a728e70c997db9ddd5128c03b1d74ae52744e9dbc81",
+            "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-49124181af1a04806d7ed2ef192df695f8de572706f3ecbc7ae59d7ab398f6e4",
+            "quote": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-e43c152870db39923f6cb217da7ab7d523b915b9a54619ee286ee4e94cb90157",
+            "quote": "\"min_history\": 15",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "constraints": [
+          "自适应历史窗口可能把持续变化吸收为新基线。"
+        ],
+        "defaults": {
+          "direction": "upper",
+          "min_history": 15,
+          "quantile": 0.99,
+          "window": 30
+        },
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "evaluation_metrics": [
+          "event_f1",
+          "point_f1",
+          "normal_false_alarms_per_host_hour",
+          "matched_delay_seconds"
+        ],
+        "field_evidence": {
+          "algorithm_spec": {
+            "chunk_id": "chunk-0d878bf874bd6951417f6908a83ef749e38a361c7c3f2dd300f9151465c83c73",
+            "quote": "\"algorithm_spec\": \"仅使用当前点前最近window时间槽（包含None槽）；只有original_present=True的历史点计min_history。可用插补值参与median/MAD，但不计真实历史数。value=None时missing_input；真实历史不足时insufficient_history。m=median(有效历史)，mad=median(abs(v-m))，s=max(1.4826*mad,scale_floor)。upper=(x-m)/s，lower=(m-x)/s，two_sided=abs(x-m)/s。evidence含median,mad,scale。训练有效原始值R7分位数（位置(n-1)*q线性插值）的IQR确定scale_floor=max(1e-9,IQR*1e-6)。先评分，再把当前点追加到历史，包括异常点、插补和不可用None槽，保留最近window槽。min_history不得超过window。fit不能把训练点留作角色历史。\"",
+            "symbol": null
+          },
+          "defaults": {
+            "chunk_id": "chunk-6aca82a3edc887a5b49c78e6d6df3fc988d1756b12543c30daee85c085fb715c",
+            "quote": "\"defaults\": {\n    \"window\": 30,\n    \"min_history\": 15,\n    \"direction\": \"upper\",\n    \"quantile\": 0.99\n  }",
+            "symbol": null
+          },
+          "dependency_profile": {
+            "chunk_id": "chunk-60f4ba882a6e906ac92c7a728e70c997db9ddd5128c03b1d74ae52744e9dbc81",
+            "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+            "symbol": null
+          },
+          "evaluation_metrics": {
+            "chunk_id": "chunk-8f809a1ed9e8925e96f3e2cf160bb965f342c60888b1951d4fc9e08379f21a30",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          },
+          "inputs": {
+            "chunk_id": "chunk-09022a7111f743df3d7844f918179ee0d228d2dd44239e4d5e50aab98a0c264d",
+            "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          "metric_kinds": {
+            "chunk_id": "chunk-49124181af1a04806d7ed2ef192df695f8de572706f3ecbc7ae59d7ab398f6e4",
+            "quote": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]",
+            "symbol": null
+          },
+          "min_history": {
+            "chunk_id": "chunk-e43c152870db39923f6cb217da7ab7d523b915b9a54619ee286ee4e94cb90157",
+            "quote": "\"min_history\": 15",
+            "symbol": null
+          },
+          "outputs": {
+            "chunk_id": "chunk-e84cfa9df228fa0e710ed136ca89cdc4ee436e0db3c87b3ece79600015c9c86d",
+            "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          "parameters": {
+            "chunk_id": "chunk-c2f758e721e2cdda0b05b4ee66ae063dca0629e83aac9e11465530ada19dd7ba",
+            "quote": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"window\",\n      \"min_history\",\n      \"direction\",\n      \"quantile\"\n    ],\n    \"properties\": {\n      \"window\": {\n        \"type\": \"integer\",\n        \"minimum\": 1,\n        \"maximum\": 600\n      },\n      \"min_history\": {\n        \"type\": \"integer\",\n        \"minimum\": 1,\n        \"maximum\": 600\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\",\n          \"two_sided\"\n        ]\n      },\n      \"quantile\": {\n        \"type\": \"number\",\n        \"exclusiveMinimum\": 0,\n        \"maximum\": 1\n      }\n    }\n  }",
+            "symbol": null
+          },
+          "supported_directions": {
+            "chunk_id": "chunk-eb9ac948739aac19f159c0c152c476c801b194eb4180b6b75addfabc8f42fd1b",
+            "quote": "\"supported_directions\": [\n    \"upper\",\n    \"lower\",\n    \"two_sided\"\n  ]",
+            "symbol": null
+          },
+          "task_type": {
+            "chunk_id": "chunk-2928ae6a19ba934c1b3859e41baece5606612be022c5ed25a6c32a3f64595fdd",
+            "quote": "\"task_type\": \"time_series_anomaly_detection\"",
+            "symbol": null
+          },
+          "version": {
+            "chunk_id": "chunk-0b516360aec4a9148bd2c165332e9111e45a56d3318d181faa2cbcff1f7b096c",
+            "quote": "\"version\": \"1.0.0\"",
+            "symbol": null
+          }
+        },
+        "implementation_verified": false,
+        "inputs": {
+          "properties": {
+            "host_id": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            },
+            "value": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "timestamp",
+            "host_id",
+            "value"
+          ],
+          "type": "object"
+        },
+        "knowledge_status": "source_checked",
+        "limitations": [
+          "expert authored plugin card; not model extraction"
+        ],
+        "local_id": "rolling_mad",
+        "method_id": "rolling_mad",
+        "metric_kinds": [
+          "gauge",
+          "rate"
+        ],
+        "min_history": 15,
+        "name": "滚动 MAD",
+        "origin": "reference",
+        "outputs": {
+          "properties": {
+            "evidence": {
+              "type": "object"
+            },
+            "score": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "status": {
+              "enum": [
+                "ok",
+                "insufficient_history",
+                "missing_input",
+                "invalid_input"
+              ]
+            }
+          },
+          "required": [
+            "timestamp",
+            "host_id",
+            "status",
+            "score",
+            "evidence"
+          ],
+          "type": "object"
+        },
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "direction": {
+              "enum": [
+                "upper",
+                "lower",
+                "two_sided"
+              ]
+            },
+            "min_history": {
+              "maximum": 600,
+              "minimum": 1,
+              "type": "integer"
+            },
+            "quantile": {
+              "exclusiveMinimum": 0,
+              "maximum": 1,
+              "type": "number"
+            },
+            "window": {
+              "maximum": 600,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "window",
+            "min_history",
+            "direction",
+            "quantile"
+          ],
+          "type": "object"
+        },
+        "plugin_hashes": {
+          "capability.json": "sha256:39d8d9a00953b367af3f105a356912956a920f26dcc44796dec0346b3b88fb66",
+          "checks.py": "sha256:2ae8cf000dda9f9f86e3c19c993b76d14af181fba24d81d2a020643fdd9e613c",
+          "reference.py": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7"
+        },
+        "response_evidence": {
+          "origin": "reference",
+          "source_sha256": "sha256:39d8d9a00953b367af3f105a356912956a920f26dcc44796dec0346b3b88fb66"
+        },
+        "single_host": true,
+        "source_id": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+        "source_status": "registered_card",
+        "specification_sha256": "sha256:1341c8dba78c069e25220a8afe6f80caaf9150384348d3c7f47c3c4e1dce8309",
+        "summary": "滚动 MAD；自适应历史窗口可能把持续变化吸收为新基线。",
+        "supported_directions": [
+          "upper",
+          "lower",
+          "two_sided"
+        ],
+        "task_type": "time_series_anomaly_detection",
+        "verification": "reference",
+        "verification_level": "contract_only",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "kind": "Capability",
+      "payload": {
+        "algorithm_spec": "固定阈值：upper=x-T，lower=T-x，evidence包含threshold；缺失value时missing_input。等于阈值时分数为0，只有严格大于0才告警。fit仅确认存在有效训练值；reset无历史状态。",
+        "citations": [
+          {
+            "chunk_id": "chunk-6e7fae869f7aad267994a1afd3c97f25f0697f8c3ec12c4df88744753482fc0d",
+            "quote": "\"version\": \"1.0.0\"",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-3468d6e4829e7139c4279b39afd49019191a59790c6aea0152305b723f59b59b",
+            "quote": "\"task_type\": \"time_series_anomaly_detection\"",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-d2fb16758b4fcba337e46f2b42447010933bf28b1f57628fcec2177be172755c",
+            "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-b5ea51765d3f826596c7d2bd1caf1af4716cb70cce8bb79a7c173232be68ddc7",
+            "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-d01f0e8178ca740013afc701f866bdd2b9b20cb117cb9e14c11cc9fd31473307",
+            "quote": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"threshold\",\n      \"direction\"\n    ],\n    \"properties\": {\n      \"threshold\": {\n        \"type\": \"number\"\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-d1f08156b088f3d37d8d5611dde9710218e03197a5e529b80a6f746bc9fd526d",
+            "quote": "\"defaults\": {\n    \"threshold\": 85.0,\n    \"direction\": \"upper\"\n  }",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-c461419b69ae201f7fbfaf7b5078cf65de575414e76994a1ce52d0a77428de14",
+            "quote": "\"algorithm_spec\": \"固定阈值：upper=x-T，lower=T-x，evidence包含threshold；缺失value时missing_input。等于阈值时分数为0，只有严格大于0才告警。fit仅确认存在有效训练值；reset无历史状态。\"",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-42faa1d6cf7801cbe2bdabfc7f90c0785a7110c825394f3dc37afddd93ee3ea9",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-26e9935e27bd2cda8710d40ce8b2cc877dd75842d6c822c553be01c0f86875f1",
+            "quote": "\"supported_directions\": [\n    \"upper\",\n    \"lower\"\n  ]",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-0cc34a962c15210d417b13137ff5cb229addcac2c1a0654557ac6dc46e7fc938",
+            "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-f346c55b0024b3f1dead87800b4acd7170d4942cedc409f3c0210e5b677deb40",
+            "quote": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]",
+            "symbol": null
+          },
+          {
+            "chunk_id": "chunk-82133a3edbb34ddaa04871bbc2753e7db37990cbb4fb1a15317e579ff5bfbd2a",
+            "quote": "\"min_history\": 0",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "constraints": [
+          "业务阈值须由用户确认；未指定值只是候选假设。"
+        ],
+        "defaults": {
+          "direction": "upper",
+          "threshold": 85.0
+        },
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "evaluation_metrics": [
+          "event_f1",
+          "point_f1",
+          "normal_false_alarms_per_host_hour",
+          "matched_delay_seconds"
+        ],
+        "field_evidence": {
+          "algorithm_spec": {
+            "chunk_id": "chunk-c461419b69ae201f7fbfaf7b5078cf65de575414e76994a1ce52d0a77428de14",
+            "quote": "\"algorithm_spec\": \"固定阈值：upper=x-T，lower=T-x，evidence包含threshold；缺失value时missing_input。等于阈值时分数为0，只有严格大于0才告警。fit仅确认存在有效训练值；reset无历史状态。\"",
+            "symbol": null
+          },
+          "defaults": {
+            "chunk_id": "chunk-d1f08156b088f3d37d8d5611dde9710218e03197a5e529b80a6f746bc9fd526d",
+            "quote": "\"defaults\": {\n    \"threshold\": 85.0,\n    \"direction\": \"upper\"\n  }",
+            "symbol": null
+          },
+          "dependency_profile": {
+            "chunk_id": "chunk-0cc34a962c15210d417b13137ff5cb229addcac2c1a0654557ac6dc46e7fc938",
+            "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+            "symbol": null
+          },
+          "evaluation_metrics": {
+            "chunk_id": "chunk-42faa1d6cf7801cbe2bdabfc7f90c0785a7110c825394f3dc37afddd93ee3ea9",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          },
+          "inputs": {
+            "chunk_id": "chunk-d2fb16758b4fcba337e46f2b42447010933bf28b1f57628fcec2177be172755c",
+            "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          "metric_kinds": {
+            "chunk_id": "chunk-f346c55b0024b3f1dead87800b4acd7170d4942cedc409f3c0210e5b677deb40",
+            "quote": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]",
+            "symbol": null
+          },
+          "min_history": {
+            "chunk_id": "chunk-82133a3edbb34ddaa04871bbc2753e7db37990cbb4fb1a15317e579ff5bfbd2a",
+            "quote": "\"min_history\": 0",
+            "symbol": null
+          },
+          "outputs": {
+            "chunk_id": "chunk-b5ea51765d3f826596c7d2bd1caf1af4716cb70cce8bb79a7c173232be68ddc7",
+            "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          "parameters": {
+            "chunk_id": "chunk-d01f0e8178ca740013afc701f866bdd2b9b20cb117cb9e14c11cc9fd31473307",
+            "quote": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"threshold\",\n      \"direction\"\n    ],\n    \"properties\": {\n      \"threshold\": {\n        \"type\": \"number\"\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          },
+          "supported_directions": {
+            "chunk_id": "chunk-26e9935e27bd2cda8710d40ce8b2cc877dd75842d6c822c553be01c0f86875f1",
+            "quote": "\"supported_directions\": [\n    \"upper\",\n    \"lower\"\n  ]",
+            "symbol": null
+          },
+          "task_type": {
+            "chunk_id": "chunk-3468d6e4829e7139c4279b39afd49019191a59790c6aea0152305b723f59b59b",
+            "quote": "\"task_type\": \"time_series_anomaly_detection\"",
+            "symbol": null
+          },
+          "version": {
+            "chunk_id": "chunk-6e7fae869f7aad267994a1afd3c97f25f0697f8c3ec12c4df88744753482fc0d",
+            "quote": "\"version\": \"1.0.0\"",
+            "symbol": null
+          }
+        },
+        "implementation_verified": false,
+        "inputs": {
+          "properties": {
+            "host_id": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            },
+            "value": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "timestamp",
+            "host_id",
+            "value"
+          ],
+          "type": "object"
+        },
+        "knowledge_status": "source_checked",
+        "limitations": [
+          "expert authored plugin card; not model extraction"
+        ],
+        "local_id": "fixed_threshold",
+        "method_id": "fixed_threshold",
+        "metric_kinds": [
+          "gauge",
+          "rate"
+        ],
+        "min_history": 0,
+        "name": "固定阈值",
+        "origin": "reference",
+        "outputs": {
+          "properties": {
+            "evidence": {
+              "type": "object"
+            },
+            "score": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "status": {
+              "enum": [
+                "ok",
+                "insufficient_history",
+                "missing_input",
+                "invalid_input"
+              ]
+            }
+          },
+          "required": [
+            "timestamp",
+            "host_id",
+            "status",
+            "score",
+            "evidence"
+          ],
+          "type": "object"
+        },
+        "parameters": {
+          "additionalProperties": false,
+          "properties": {
+            "direction": {
+              "enum": [
+                "upper",
+                "lower"
+              ]
+            },
+            "threshold": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "threshold",
+            "direction"
+          ],
+          "type": "object"
+        },
+        "plugin_hashes": {
+          "capability.json": "sha256:7af436aaf7e4a265e7d7e6792a4ac1d6311c8f98453904a136b8692209170bde",
+          "checks.py": "sha256:009933701326684689fb100d585f4bb44d596016fa7d9278147f6999566e9427",
+          "reference.py": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70"
+        },
+        "response_evidence": {
+          "origin": "reference",
+          "source_sha256": "sha256:7af436aaf7e4a265e7d7e6792a4ac1d6311c8f98453904a136b8692209170bde"
+        },
+        "single_host": true,
+        "source_id": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+        "source_status": "registered_card",
+        "specification_sha256": "sha256:d78418b686499b015abb691e10e65fad63592d12ad25bcab36e2ced5af7a2060",
+        "summary": "固定阈值；业务阈值须由用户确认；未指定值只是候选假设。",
+        "supported_directions": [
+          "upper",
+          "lower"
+        ],
+        "task_type": "time_series_anomaly_detection",
+        "verification": "reference",
+        "verification_level": "contract_only",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "id": "capability-c3e01df60373a5982df71fbbaa8f207a3f11761ae1c203865bdc3404bfe803ed",
+      "kind": "Capability",
+      "payload": {
+        "algorithm_spec": null,
+        "citations": [
+          {
+            "chunk_id": "chunk-a9459372dddbdfa7919ab0daae5ff3f659da54554b798f78e620df858b558742",
+            "quote": "# 构造材料：单主机指标字段规范",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "constraints": [
+          "单主机单指标"
+        ],
+        "defaults": null,
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "evaluation_metrics": null,
+        "field_evidence": null,
+        "implementation_verified": false,
+        "inputs": null,
+        "knowledge_status": "extracted_unverified",
+        "limitations": [
+          "mock extraction"
+        ],
+        "local_id": "controlled",
+        "method_id": null,
+        "metric_kinds": [
+          "gauge",
+          "rate"
+        ],
+        "min_history": 0,
+        "name": "01-fields.txt",
+        "origin": "mock",
+        "outputs": null,
+        "parameters": null,
+        "required_imports": [],
+        "response_evidence": {
+          "extraction_protocol": "metrics-extraction/2",
+          "prompt_version": "metrics-prompts/5",
+          "stage": "extract-0",
+          "task_id": "ewma-plugin-ingest"
+        },
+        "single_host": true,
+        "source_id": "source-cf538ad1148ef947276baa133928fc6fa78fcdabd3a6206c7718b8b1fbddd646",
+        "source_status": "source_checked",
+        "summary": "受控抽取示例：01-fields.txt",
+        "supported_directions": null,
+        "task_type": null,
+        "verification_level": null,
+        "version": null
+      }
+    },
+    {
+      "id": "capability-c5f219e060722483fdd6d21fb0ecb32682ffdf0300b9509294c3d0e0ce6afcc2",
+      "kind": "Capability",
+      "payload": {
+        "algorithm_spec": null,
+        "citations": [
+          {
+            "chunk_id": "chunk-50df28a0b01f219bc6d8a52fc227814c73da98469a23838fe9c50d66e758e4fd",
+            "quote": "# 构造评价材料",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "constraints": [
+          "单主机单指标"
+        ],
+        "defaults": null,
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "evaluation_metrics": null,
+        "field_evidence": null,
+        "implementation_verified": false,
+        "inputs": null,
+        "knowledge_status": "extracted_unverified",
+        "limitations": [
+          "mock extraction"
+        ],
+        "local_id": "controlled",
+        "method_id": null,
+        "metric_kinds": [
+          "gauge",
+          "rate"
+        ],
+        "min_history": 0,
+        "name": "04-evaluation.txt",
+        "origin": "mock",
+        "outputs": null,
+        "parameters": null,
+        "required_imports": [],
+        "response_evidence": {
+          "extraction_protocol": "metrics-extraction/2",
+          "prompt_version": "metrics-prompts/5",
+          "stage": "extract-3",
+          "task_id": "ewma-plugin-ingest"
+        },
+        "single_host": true,
+        "source_id": "source-36277c70704daf757a36cf1cee2546aeabfd1ca59c2f1a9085ae277f62640958",
+        "source_status": "source_checked",
+        "summary": "受控抽取示例：04-evaluation.txt",
+        "supported_directions": null,
+        "task_type": null,
+        "verification_level": null,
+        "version": null
+      }
+    },
+    {
+      "id": "capability-d97c56b263e86179ad60ce5c3bc1957fe220a6567b6e97b1c56ec8692fc81762",
+      "kind": "Capability",
+      "payload": {
+        "algorithm_spec": null,
+        "citations": [
+          {
+            "chunk_id": "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+            "quote": "# 构造业务材料：正常高峰与异常",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "constraints": [
+          "单主机单指标"
+        ],
+        "defaults": null,
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "evaluation_metrics": null,
+        "field_evidence": null,
+        "implementation_verified": false,
+        "inputs": null,
+        "knowledge_status": "extracted_unverified",
+        "limitations": [
+          "mock extraction"
+        ],
+        "local_id": "controlled",
+        "method_id": null,
+        "metric_kinds": [
+          "gauge",
+          "rate"
+        ],
+        "min_history": 0,
+        "name": "05-limitations.txt",
+        "origin": "mock",
+        "outputs": null,
+        "parameters": null,
+        "required_imports": [],
+        "response_evidence": {
+          "extraction_protocol": "metrics-extraction/2",
+          "prompt_version": "metrics-prompts/5",
+          "stage": "extract-4",
+          "task_id": "ewma-plugin-ingest"
+        },
+        "single_host": true,
+        "source_id": "source-97a77ad30f7a0b8cffe235cf0e976b80038afc54b52f87f2ae18117ce4506b0d",
+        "source_status": "source_checked",
+        "summary": "受控抽取示例：05-limitations.txt",
+        "supported_directions": null,
+        "task_type": null,
+        "verification_level": null,
+        "version": null
+      }
+    },
+    {
+      "id": "chunk-09022a7111f743df3d7844f918179ee0d228d2dd44239e4d5e50aab98a0c264d",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 25,
+        "sha256": "sha256:26322978e7b7ba1109a5645a4cebda5a53a17a749135650c1dedbe6433cd305b",
+        "source_id": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+        "start_line": 4,
+        "text": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }"
+      }
+    },
+    {
+      "id": "chunk-0b516360aec4a9148bd2c165332e9111e45a56d3318d181faa2cbcff1f7b096c",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 2,
+        "sha256": "sha256:a5d89d8886c7752e87130d054c334f5b7d2093bf87d79b97fdae698f93b68572",
+        "source_id": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+        "start_line": 2,
+        "text": "\"version\": \"1.0.0\""
+      }
+    },
+    {
+      "id": "chunk-0cc34a962c15210d417b13137ff5cb229addcac2c1a0654557ac6dc46e7fc938",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 65,
+        "sha256": "sha256:b6d0e1988d3012e08eba00aa6170180503893a51aaa51441cd31067662cd04c9",
+        "source_id": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+        "start_line": 65,
+        "text": "\"dependency_profile\": \"metrics-py312-stdlib/1\""
+      }
+    },
+    {
+      "id": "chunk-0d878bf874bd6951417f6908a83ef749e38a361c7c3f2dd300f9151465c83c73",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 126,
+        "sha256": "sha256:1b58e64f03a51f0b9db13073b8a8dfcb09e76f008517b5decd76e3b2f3b8478d",
+        "source_id": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+        "start_line": 126,
+        "text": "\"algorithm_spec\": \"仅使用当前点前最近window时间槽（包含None槽）；只有original_present=True的历史点计min_history。可用插补值参与median/MAD，但不计真实历史数。value=None时missing_input；真实历史不足时insufficient_history。m=median(有效历史)，mad=median(abs(v-m))，s=max(1.4826*mad,scale_floor)。upper=(x-m)/s，lower=(m-x)/s，two_sided=abs(x-m)/s。evidence含median,mad,scale。训练有效原始值R7分位数（位置(n-1)*q线性插值）的IQR确定scale_floor=max(1e-9,IQR*1e-6)。先评分，再把当前点追加到历史，包括异常点、插补和不可用None槽，保留最近window槽。min_history不得超过window。fit不能把训练点留作角色历史。\""
+      }
+    },
+    {
+      "id": "chunk-0deb5042792109e5c639173d6c044600fbd567542fe8e1910410d8125b5b5ad5",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 3,
+        "sha256": "sha256:a144d8d828e7fb97f5f6956262b45ad28185f5f70aaa90bfec23e32d64a1a579",
+        "source_id": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+        "start_line": 3,
+        "text": "\"task_type\": \"time_series_anomaly_detection\""
+      }
+    },
+    {
+      "id": "chunk-1baa88ad35b72cee1a5e9fefe49182cf1a838b4a9b0c1026743df4b5f6c78bd6",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 23,
+        "sha256": "sha256:7c2995c1b4ae5018a987466df24f9bd266d59ffd4e15fcb94dd208b1cbe4d62a",
+        "source_id": "source-9c6653aee67c954e52e57c3962225be1e5f7497639792f51057c2074c662ce0d",
+        "start_line": 20,
+        "text": "    def __init__(self, config):\n        self.config = dict(config)\n        self.floor = None\n        self.history = []"
+      }
+    },
+    {
+      "id": "chunk-2379bcae86e82ff164898f48b252ca44144c3a8674d4a7c3efb73cc11cd007ce",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 54,
+        "sha256": "sha256:067211d58506363cc1bd45491834d76cd2d1c616f66e34a19adaef112994c8f8",
+        "source_id": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+        "start_line": 26,
+        "text": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }"
+      }
+    },
+    {
+      "id": "chunk-26e9935e27bd2cda8710d40ce8b2cc877dd75842d6c822c553be01c0f86875f1",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 73,
+        "sha256": "sha256:841785a6f9536cdeb39021ea70f0695e423a1ff4b694cd1dad6ed0b59b7b3196",
+        "source_id": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+        "start_line": 70,
+        "text": "\"supported_directions\": [\n    \"upper\",\n    \"lower\"\n  ]"
+      }
+    },
+    {
+      "id": "chunk-2928ae6a19ba934c1b3859e41baece5606612be022c5ed25a6c32a3f64595fdd",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 3,
+        "sha256": "sha256:a144d8d828e7fb97f5f6956262b45ad28185f5f70aaa90bfec23e32d64a1a579",
+        "source_id": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+        "start_line": 3,
+        "text": "\"task_type\": \"time_series_anomaly_detection\""
+      }
+    },
+    {
+      "id": "chunk-29eaff7ab9b4d749d8df4ba5cd8c7f8fb535e667240371be9efab5d9c5255c97",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 62,
+        "sha256": "sha256:85330bc602deda6cce21079d31c8cea8c47ee1e0a9ecabb93036111b3609b1be",
+        "source_id": "source-9c6653aee67c954e52e57c3962225be1e5f7497639792f51057c2074c662ce0d",
+        "start_line": 61,
+        "text": "    def save_state(self):\n        return json.dumps({\"config\": self.config, \"floor\": self.floor, \"history\": self.history}, allow_nan=False)"
+      }
+    },
+    {
+      "id": "chunk-3468d6e4829e7139c4279b39afd49019191a59790c6aea0152305b723f59b59b",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 3,
+        "sha256": "sha256:a144d8d828e7fb97f5f6956262b45ad28185f5f70aaa90bfec23e32d64a1a579",
+        "source_id": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+        "start_line": 3,
+        "text": "\"task_type\": \"time_series_anomaly_detection\""
+      }
+    },
+    {
+      "id": "chunk-3afd82a859bde5cb64e374f8582efb14868f974c767e821d0610f034be952b61",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 28,
+        "sha256": "sha256:a0b3f9fa8a3e91f91ee17407b1bd7d97d51129dadcca837d22ac1d13a258504c",
+        "source_id": "source-c2c0cc97448d2d6a89f4868617d05db95ad6f4d584694a0a79f62a06b9f0bf7d",
+        "start_line": 21,
+        "text": "    def score_one(self, point):\n        value = point[\"value\"]\n        delta = None if value is None else value - self.config[\"threshold\"]\n        if delta is not None and self.config[\"direction\"] == \"lower\":\n            delta = -delta\n        return {\"timestamp\": point[\"timestamp\"], \"host_id\": point[\"host_id\"],\n                \"status\": \"missing_input\" if value is None else \"ok\", \"score\": delta,\n                \"evidence\": {\"threshold\": self.config[\"threshold\"]}}"
+      }
+    },
+    {
+      "id": "chunk-3b4197c7b19b95c260f53fe81f5e3791d1fc50872a85db49623187c531cc0019",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 16,
+        "sha256": "sha256:e7fb192a3fecdb601df923306547f8a198fbe394a19a67d703af1fa01c661a6e",
+        "source_id": "source-9c6653aee67c954e52e57c3962225be1e5f7497639792f51057c2074c662ce0d",
+        "start_line": 1,
+        "text": "\"\"\"Constructed human reference (origin=reference), not generated model code.\n\nUse previous W time slots. Only original observations count for min_history;\nforward-filled values may affect median/MAD. Update history AFTER scoring.\nThe training R7 IQR sets the numerical floor; no labels are used.\n\"\"\"\nimport json\nfrom statistics import median\n\n\ndef quantile(values, q):\n    values = sorted(values)\n    pos = (len(values) - 1) * q\n    lo = int(pos)\n    hi = min(lo + 1, len(values) - 1)\n    return values[lo] + (values[hi] - values[lo]) * (pos - lo)"
+      }
+    },
+    {
+      "id": "chunk-410ee6d014de562a66e470502fe864cff47b72ed510e2610e076010b56e1bc26",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 75,
+        "sha256": "sha256:726d27de50aaf06627b5f1cc72ce013c477bef2f4dac4b18b0966c9364885fff",
+        "source_id": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+        "start_line": 75,
+        "text": "\"min_history\": 3"
+      }
+    },
+    {
+      "id": "chunk-42faa1d6cf7801cbe2bdabfc7f90c0785a7110c825394f3dc37afddd93ee3ea9",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 64,
+        "sha256": "sha256:4194a33ccc0319d7b8d6a2cac421f3546120d6547fdf74b632b59996377a43ff",
+        "source_id": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+        "start_line": 59,
+        "text": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]"
+      }
+    },
+    {
+      "id": "chunk-46b8606cbf02aa1c7858ad10d74e1f32d4c8831a0d06d3712e6ad9929d9baa2c",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 11,
+        "sha256": "sha256:353d82e04c6893b7a1f1d0397401d970a6c853388a9d261736d825cc9ced1b80",
+        "source_id": "source-c2c0cc97448d2d6a89f4868617d05db95ad6f4d584694a0a79f62a06b9f0bf7d",
+        "start_line": 1,
+        "text": "\"\"\"Constructed human reference (origin=reference), never an LLM-generated result.\n\nUpper score=x-T, lower score=T-x. Equality is not an alert. The trusted driver\nowns preprocessing, persistence and labels; the detector only emits scores.\n\"\"\"\nimport json\n\n\nclass Detector:\n    def __init__(self, config):\n        self.config = dict(config)"
+      }
+    },
+    {
+      "id": "chunk-49124181af1a04806d7ed2ef192df695f8de572706f3ecbc7ae59d7ab398f6e4",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 58,
+        "sha256": "sha256:571227a0118c08ce4085c4d92d5c8b99136de202d9d41b8fcd80f946b4965e8d",
+        "source_id": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+        "start_line": 55,
+        "text": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]"
+      }
+    },
+    {
+      "id": "chunk-492b31fb4d27aa53b09616d2856d084fdd3c41f2682de3474795a3b8e7d45f21",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 31,
+        "sha256": "sha256:12d1b4fc40f8037fac0c9ac8e7512e2d6c1e5c2faed331bcf3ca20437c3be6cf",
+        "source_id": "source-c2c0cc97448d2d6a89f4868617d05db95ad6f4d584694a0a79f62a06b9f0bf7d",
+        "start_line": 30,
+        "text": "    def save_state(self):\n        return json.dumps({\"config\": self.config}, allow_nan=False)"
+      }
+    },
+    {
+      "id": "chunk-4b2f6efdf60fc1d6dd2e114e3b8a36c36167019067ca9ea88afd733e53beda14",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 35,
+        "sha256": "sha256:705fcfcb85d72f1e1d179a97abb174ee0aaac3dd64c21d136f14c415d717dcaf",
+        "source_id": "source-c2c0cc97448d2d6a89f4868617d05db95ad6f4d584694a0a79f62a06b9f0bf7d",
+        "start_line": 33,
+        "text": "    def load_state(self, raw):\n        if json.loads(raw) != {\"config\": self.config}:\n            raise ValueError(\"state config mismatch\")"
+      }
+    },
+    {
+      "id": "chunk-4db59015de2d3096a11f2a685e496b8d2b008ede2cbad59b387b8e83f5862904",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 10,
+        "sha256": "sha256:b431fb316881e937750441b7150bdfe934a5a696cf8fbef8162ac6a4c08f1113",
+        "source_id": "source-dc53e0f1b175e147db3a4be83973613aceb0e145b59d213bbba5b5c9c9f8afb4",
+        "start_line": 1,
+        "text": "EWMA 单主机数值指标异常检测（专家编写规格，不是模型实验结果）\n任务类型：time_series_anomaly_detection；输入 gauge 或已换算的 rate，输出 timestamp、host_id、status、score、evidence 字典。\n训练有效值的均值为固定 baseline，scale=max(1e-9,训练有效值的总体标准差)。角色开始 reset 时 smooth=baseline，原始有效点计数 count=0。\n参数 alpha 默认0.3，0<alpha<=1；min_history 默认3，1到600；direction 为 upper/lower/two_sided；quantile 默认0.99，由可信侧在无标签校准集计算。\n当前可用值 x（包括前向插补值）到来，先更新 smooth=alpha*x+(1-alpha)*smooth；只有 original_present=True 时 count 加1。\ncount<min_history 输出 insufficient_history，score=None，evidence={}；足够历史后 upper=(smooth-baseline)/scale，lower 为其相反数，two_sided 为绝对值。\n足够历史时 evidence 包含 ewma、baseline、scale。value=None 输出 missing_input、score=None、evidence={}，不更新计数或平滑值。\nfit 不能保留训练角色的滑动状态；reset 保留训练 baseline/scale，清空计数并恢复 smooth。save_state/load_state 保留配置及全部统计状态。\n适合持续升高、降低及渐变趋势；alpha 越小越平滑、响应越慢。固定训练基线不会像适应性滚动窗口一样把持续变化完全吸收为新正常。\n适用评价：事件F1、点级F1、正常误报频次、匹配延迟。依赖仅 Python 3.12 标准库；不访问文件、网络或标签。模拟数据的事件很少，不能证明生产效果。"
+      }
+    },
+    {
+      "id": "chunk-50df28a0b01f219bc6d8a52fc227814c73da98469a23838fe9c50d66e758e4fd",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 10,
+        "sha256": "sha256:1becbc87f0a2ad16e7bc7cd4d92343bacdc1f4bc7c2eb4674cc1ce33ca434860",
+        "source_id": "source-36277c70704daf757a36cf1cee2546aeabfd1ca59c2f1a9085ae277f62640958",
+        "start_line": 1,
+        "text": "# 构造评价材料\n\ntrain、calibration、development、test 四种角色独立初始化。前缀暖机，不计分。\n校准只用 calibration 无标签分数，选择只用 development；冻结后只测试胜出候选一次。\n最终测试不得用于代码修复、调参或换选候选；没有业务门槛只能报告实测。\n默认连续两点超阈值，从第二点告警，不向前补记；非超阈值或不可判断重置计数。\n点对应半开时间单元，连续告警合并事件，trigger 必须落在真实事件内，一对一匹配。\n正类弃权计 FN，正常弃权另列，不计 TN；覆盖率包含全部计分点。\nPrecision 无预测时为空，Recall 无真实异常时为空；禁止 point adjustment。\n方法语义检查、效果测量、业务达标分别报告。效果标签来自独立模拟注入，不由检测器决定。"
+      }
+    },
+    {
+      "id": "chunk-5576668e5e9b39c73cdde5dbaa763cce6f6869a846aa396fda60f50778c42ac6",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 59,
+        "sha256": "sha256:6b67dc0f90495db8eb533d3347cd1ecb651ec42d49e403e377b30fad7cc9b5b9",
+        "source_id": "source-9c6653aee67c954e52e57c3962225be1e5f7497639792f51057c2074c662ce0d",
+        "start_line": 35,
+        "text": "    def score_one(self, point):\n        if self.floor is None:\n            raise ValueError(\"fit required\")\n        value, evidence = point[\"value\"], {}\n        score, status = None, \"ok\"\n        if value is None:\n            status = \"missing_input\"\n        elif sum(slot[1] for slot in self.history) < self.config[\"min_history\"]:\n            status = \"insufficient_history\"\n        else:\n            values = [slot[0] for slot in self.history if slot[0] is not None]\n            center = median(values)\n            mad = median([abs(x - center) for x in values])\n            scale = max(1.4826 * mad, self.floor)\n            delta = value - center\n            if self.config[\"direction\"] == \"lower\":\n                delta = -delta\n            elif self.config[\"direction\"] == \"two_sided\":\n                delta = abs(delta)\n            score = delta / scale\n            evidence = {\"median\": center, \"mad\": mad, \"scale\": scale}\n        self.history.append([value, point[\"original_present\"]])\n        self.history = self.history[-self.config[\"window\"]:]\n        return {\"timestamp\": point[\"timestamp\"], \"host_id\": point[\"host_id\"],\n                \"status\": status, \"score\": score, \"evidence\": evidence}"
+      }
+    },
+    {
+      "id": "chunk-5c597877c1f103ce268081bc4dce46457181649b908badbd1ce59127fc71e145",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 125,
+        "sha256": "sha256:a516236b2c33965611b11c814782ac95875a25accef1fe2ad6ec20a3b1c1a198",
+        "source_id": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+        "start_line": 125,
+        "text": "\"algorithm_spec\": \"训练有效值均值为固定baseline，scale=max(1e-9,训练总体标准差)。reset令smooth=baseline,count=0。可用当前值x先更新smooth=alpha*x+(1-alpha)*smooth，只有original_present=True才count+=1。count<min_history时insufficient_history，score=None,evidence={}。否则upper=(smooth-baseline)/scale，lower取反，two_sided取绝对值；evidence含ewma、baseline、scale。value=None时missing_input、score=None、evidence={}，不更新平滑值或计数。fit不得留下角色滚动状态，save/load必须保留全部配置和统计量。\""
+      }
+    },
+    {
+      "id": "chunk-5d863fc0f97aef42e62f0da701cec18486eb88c8a803dbf8e4f32effb8a32a0b",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 16,
+        "sha256": "sha256:47eb5234edd837fa2a35d657401c66b3d009bcd93a20f0a423323b63af432d5c",
+        "source_id": "source-c2c0cc97448d2d6a89f4868617d05db95ad6f4d584694a0a79f62a06b9f0bf7d",
+        "start_line": 13,
+        "text": "    def fit(self, train_points):\n        if not any(point[\"value\"] is not None for point in train_points):\n            raise ValueError(\"no valid training observations\")\n        self.reset()"
+      }
+    },
+    {
+      "id": "chunk-5e5af62ecf27e1f3ca5a54226d651ebb92e1455010ac26c02e461a0151e4818a",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 72,
+        "sha256": "sha256:dd80089e2014aa0bb6924b813ad7257787edc2027a47855bb3ce234306dc324d",
+        "source_id": "source-9c6653aee67c954e52e57c3962225be1e5f7497639792f51057c2074c662ce0d",
+        "start_line": 71,
+        "text": "def create_detector(config):\n    return Detector(config)"
+      }
+    },
+    {
+      "id": "chunk-5ed620e1297669138b045b509aaafa404e8a100b8f21e3443b7fdfeabc7bf570",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 68,
+        "sha256": "sha256:cbafb11b688a23b8b135085cd620f9865cce2d9ac466327d57274b0ddc994e81",
+        "source_id": "source-9c6653aee67c954e52e57c3962225be1e5f7497639792f51057c2074c662ce0d",
+        "start_line": 64,
+        "text": "    def load_state(self, raw):\n        state = json.loads(raw)\n        if state[\"config\"] != self.config or len(state[\"history\"]) > self.config[\"window\"]:\n            raise ValueError(\"state config/history mismatch\")\n        self.floor, self.history = state[\"floor\"], state[\"history\"]"
+      }
+    },
+    {
+      "id": "chunk-5ffe089ae2ed6456634258840b1a66d92485a91a90ff7aeb76650d5819277802",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 65,
+        "sha256": "sha256:b6d0e1988d3012e08eba00aa6170180503893a51aaa51441cd31067662cd04c9",
+        "source_id": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+        "start_line": 65,
+        "text": "\"dependency_profile\": \"metrics-py312-stdlib/1\""
+      }
+    },
+    {
+      "id": "chunk-60f4ba882a6e906ac92c7a728e70c997db9ddd5128c03b1d74ae52744e9dbc81",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 65,
+        "sha256": "sha256:b6d0e1988d3012e08eba00aa6170180503893a51aaa51441cd31067662cd04c9",
+        "source_id": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+        "start_line": 65,
+        "text": "\"dependency_profile\": \"metrics-py312-stdlib/1\""
+      }
+    },
+    {
+      "id": "chunk-62e5e1613b0177760c8555914fbe37a3cc4a8ba05905afad125a7959ed2ec206",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 39,
+        "sha256": "sha256:dd80089e2014aa0bb6924b813ad7257787edc2027a47855bb3ce234306dc324d",
+        "source_id": "source-c2c0cc97448d2d6a89f4868617d05db95ad6f4d584694a0a79f62a06b9f0bf7d",
+        "start_line": 38,
+        "text": "def create_detector(config):\n    return Detector(config)"
+      }
+    },
+    {
+      "id": "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 8,
+        "sha256": "sha256:b2cceceb866b5eda5662b41cb0bffe117e408bd8a0fa447edbb802672f690618",
+        "source_id": "source-97a77ad30f7a0b8cffe235cf0e976b80038afc54b52f87f2ae18117ce4506b0d",
+        "start_line": 1,
+        "text": "# 构造业务材料：正常高峰与异常\n\n单主机 CPU、内存、磁盘延迟、网络速率可出现正常业务高峰，与异常数值区间重叠。\nfixed_threshold 和 rolling_mad 都不能仅靠该数值判定故障根因。\nMAD 适合检测相对历史偏离，固定阈值适合已有清晰绝对上/下界的需求。\n周期波动、缓慢漂移、长期缺失是必须保留的困难样本，不能从评价分母删除。\n历史实现即使工程通过，也必须在新输入上重新验证；失败实现只能作为风险经验。\n本材料只支持 gauge/rate、单主机单指标，不支持日志语义、Isolation Forest 或季节模型。"
+      }
+    },
+    {
+      "id": "chunk-6aca82a3edc887a5b49c78e6d6df3fc988d1756b12543c30daee85c085fb715c",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 82,
+        "sha256": "sha256:76505b11867d85680ee564d30208ccb8774ebe6fa003462ffe2263392c88f0cc",
+        "source_id": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+        "start_line": 77,
+        "text": "\"defaults\": {\n    \"window\": 30,\n    \"min_history\": 15,\n    \"direction\": \"upper\",\n    \"quantile\": 0.99\n  }"
+      }
+    },
+    {
+      "id": "chunk-6e7fae869f7aad267994a1afd3c97f25f0697f8c3ec12c4df88744753482fc0d",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 2,
+        "sha256": "sha256:a5d89d8886c7752e87130d054c334f5b7d2093bf87d79b97fdae698f93b68572",
+        "source_id": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+        "start_line": 2,
+        "text": "\"version\": \"1.0.0\""
+      }
+    },
+    {
+      "id": "chunk-6f7901a37608c1205d444bc404b8098d89e1617f0d1633c73d1c22e0e05ba7ac",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 11,
+        "sha256": "sha256:4d21e32573560e325bfff9bbb5528c607f1017660f11f9fac911448d0812b09a",
+        "source_id": "source-9b329ea3663d980d9ae702252a5e380b40f9d2efc3801882d1b9019744038bd3",
+        "start_line": 1,
+        "text": "# 构造专家材料：rolling_mad\n\n适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1。\nW 默认 30 个时间槽，min_history 默认 15 个真实观测，且 min_history<=W。\n仅用当前点之前最近 W 个槽；统计可用观测含短缺失插补值，但插补不增加真实历史数。\nm=历史中位数，MAD=|历史-m| 的中位数，scale=max(1.4826*MAD, scale_floor)。\n训练原始有效值的 R7 IQR 决定 scale_floor=max(1e-9,IQR*1e-6)。\nupper=(x-m)/scale，lower=(m-x)/scale，two_sided=|x-m|/scale。\n先评分再追加当前点；不可用点也占历史时间槽，历史不足返回 insufficient_history 和空分数。\ncalibration 的可判断计分分数至少 100 个，nearest-rank 0.99 分位阈值；不使用标签。\n严格 score>阈值，所有可用点（含异常）均更新窗口，长漂移可能被吸收，周期模式可能误报。"
+      }
+    },
+    {
+      "id": "chunk-714b69d7938bbb7fe21caaf43cbe9c7059ef034817c123a4b1b7c2287bc999a8",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 74,
+        "sha256": "sha256:8b30b55c0dda2c9ae5ffaf887c2ac58f2f67972c5cf3d8c18767b35a3a5cecd3",
+        "source_id": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+        "start_line": 70,
+        "text": "\"supported_directions\": [\n    \"upper\",\n    \"lower\",\n    \"two_sided\"\n  ]"
+      }
+    },
+    {
+      "id": "chunk-73d537a53c349caf76da241b87a8a57e9db0d9a01bc77d8896d2d9329fdbfe77",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 25,
+        "sha256": "sha256:26322978e7b7ba1109a5645a4cebda5a53a17a749135650c1dedbe6433cd305b",
+        "source_id": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+        "start_line": 4,
+        "text": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }"
+      }
+    },
+    {
+      "id": "chunk-77f4f8a90b99d2333e89dcc2fd366dfec789e464e1923b484bb7c40c8d0b1ed0",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 124,
+        "sha256": "sha256:d4b46144e5e4f0dc72e84d1cc1566cdd9db5d609cf08c4f627a9a3a8b411630d",
+        "source_id": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+        "start_line": 91,
+        "text": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"alpha\",\n      \"min_history\",\n      \"direction\",\n      \"quantile\"\n    ],\n    \"properties\": {\n      \"alpha\": {\n        \"type\": \"number\",\n        \"exclusiveMinimum\": 0,\n        \"maximum\": 1\n      },\n      \"min_history\": {\n        \"type\": \"integer\",\n        \"minimum\": 1,\n        \"maximum\": 600\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\",\n          \"two_sided\"\n        ]\n      },\n      \"quantile\": {\n        \"type\": \"number\",\n        \"exclusiveMinimum\": 0,\n        \"maximum\": 1\n      }\n    }\n  }"
+      }
+    },
+    {
+      "id": "chunk-82133a3edbb34ddaa04871bbc2753e7db37990cbb4fb1a15317e579ff5bfbd2a",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 74,
+        "sha256": "sha256:81382945e2c8b24d19cd4e619a091a9097837b0e687633b17ca1cfbdcb244855",
+        "source_id": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+        "start_line": 74,
+        "text": "\"min_history\": 0"
+      }
+    },
+    {
+      "id": "chunk-83a6878d98017898ddcfad7e0d93581ff41cb27654f2cf3c26e583f785fc863c",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 2,
+        "sha256": "sha256:a5d89d8886c7752e87130d054c334f5b7d2093bf87d79b97fdae698f93b68572",
+        "source_id": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+        "start_line": 2,
+        "text": "\"version\": \"1.0.0\""
+      }
+    },
+    {
+      "id": "chunk-8f809a1ed9e8925e96f3e2cf160bb965f342c60888b1951d4fc9e08379f21a30",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 64,
+        "sha256": "sha256:4194a33ccc0319d7b8d6a2cac421f3546120d6547fdf74b632b59996377a43ff",
+        "source_id": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+        "start_line": 59,
+        "text": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]"
+      }
+    },
+    {
+      "id": "chunk-9d2e1fa14c45065be635a6393faeac027f6e63a93a7889df04d653fdd8d8aa03",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 19,
+        "sha256": "sha256:707faaf6707b8408396a921005c017e8dca9a0bf5b9c8efaea2976ed804bccb1",
+        "source_id": "source-9c6653aee67c954e52e57c3962225be1e5f7497639792f51057c2074c662ce0d",
+        "start_line": 17,
+        "text": "\n\nclass Detector:"
+      }
+    },
+    {
+      "id": "chunk-a2ff1b5a07f2f1603e5f212d49f5d60b7f21b9df5a5bcb891ecaef90586a07a4",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 8,
+        "sha256": "sha256:6215d6ee955e2f0144f85b7c6858dead4a04f7702c1d415412e8ea136d901a1b",
+        "source_id": "source-8aa09fc385453bbbccd68b26e083b14040147c7d4c48028ce969f50cd7c0ae01",
+        "start_line": 1,
+        "text": "# 构造专家材料：fixed_threshold\n\n适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1，不需要历史基线。\nupper 分数为 x-T，lower 分数为 T-x。严格 score>0 才是异常候选；等号不触发。\n业务阈值必须来自用户明确值或有引用的业务材料；假设阈值要标为 candidate_assumption。\n本材料没有给定任何指标的业务阈值；禁止虚构业务达标保证。\ncalibration 不改变固定阈值 T；共享可信告警器处理连续点数和事件合并。\n绝对阈值可能漏掉低基线主机的相对变化，也可能对正常业务高峰误报。"
+      }
+    },
+    {
+      "id": "chunk-a4cd59e50c07aeb12e7195bd33bd8d5a5422d7ff85d5c330dd19aca557e7f199",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 64,
+        "sha256": "sha256:4194a33ccc0319d7b8d6a2cac421f3546120d6547fdf74b632b59996377a43ff",
+        "source_id": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+        "start_line": 59,
+        "text": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]"
+      }
+    },
+    {
+      "id": "chunk-a9459372dddbdfa7919ab0daae5ff3f659da54554b798f78e620df858b558742",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 9,
+        "sha256": "sha256:9fe4a4a687ecaa772af8d6f9eb202a1cdc5234dbb2eb1d4377c392a1b2c1194e",
+        "source_id": "source-cf538ad1148ef947276baa133928fc6fa78fcdabd3a6206c7718b8b1fbddd646",
+        "start_line": 1,
+        "text": "# 构造材料：单主机指标字段规范\n\n本文件是模拟业务专家材料，不是生产经验。\n输入为单主机、单指标，字段 timestamp、host_id、value；时间为 UTC，固定采样间隔。\nmetric_kind 仅允许 gauge 或已换算的 rate，原始 counter 不支持。\nCPU、内存以 percent 为单位，磁盘延迟以 ms 为单位，网络速率以 bytes/s 为单位。\n缺少 value 保留时间槽，不能删除行。重复、乱序、无穷值和物理范围外值拒绝。\n向前填充最多三点，无历史或超过三点时 missing_input；不能把缺失当正常。\n两种算法都支持 gauge/rate，不执行根因定位或多主机联合检测。"
+      }
+    },
+    {
+      "id": "chunk-aa7d289008f87fa9437752c4ad624a684d9370ecc1a3f83d652818d73bf8f3ab",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 82,
+        "sha256": "sha256:f08925ed21e53dadadf97d304d8bc4a8624fbf4b2a9a281e13686c7b8620f232",
+        "source_id": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+        "start_line": 77,
+        "text": "\"defaults\": {\n    \"alpha\": 0.3,\n    \"min_history\": 3,\n    \"direction\": \"upper\",\n    \"quantile\": 0.99\n  }"
+      }
+    },
+    {
+      "id": "chunk-abb93b3803008ade491d7efa74ee53611edb00c187e9f80dbccfd2140261bf8d",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 19,
+        "sha256": "sha256:40853150f3fb6b94995cd1a277aa9d23be161812da39eab2979a65afc08e4053",
+        "source_id": "source-c2c0cc97448d2d6a89f4868617d05db95ad6f4d584694a0a79f62a06b9f0bf7d",
+        "start_line": 18,
+        "text": "    def reset(self):\n        pass"
+      }
+    },
+    {
+      "id": "chunk-b5ea51765d3f826596c7d2bd1caf1af4716cb70cce8bb79a7c173232be68ddc7",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 54,
+        "sha256": "sha256:067211d58506363cc1bd45491834d76cd2d1c616f66e34a19adaef112994c8f8",
+        "source_id": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+        "start_line": 26,
+        "text": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }"
+      }
+    },
+    {
+      "id": "chunk-c2609fd37d782ce22ff7aedef6519c504997350f70d0076e2cf74fdb47d78f9b",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 33,
+        "sha256": "sha256:58158f2b614a6987d62ece8908c1c352e0abb591227690da1137010c6fc9bd44",
+        "source_id": "source-9c6653aee67c954e52e57c3962225be1e5f7497639792f51057c2074c662ce0d",
+        "start_line": 32,
+        "text": "    def reset(self):\n        self.history = []"
+      }
+    },
+    {
+      "id": "chunk-c2f758e721e2cdda0b05b4ee66ae063dca0629e83aac9e11465530ada19dd7ba",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 125,
+        "sha256": "sha256:1ba54ae1433e92e15522406c2f0df1e77b0c58004bb0d3613dd568d387820d18",
+        "source_id": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+        "start_line": 92,
+        "text": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"window\",\n      \"min_history\",\n      \"direction\",\n      \"quantile\"\n    ],\n    \"properties\": {\n      \"window\": {\n        \"type\": \"integer\",\n        \"minimum\": 1,\n        \"maximum\": 600\n      },\n      \"min_history\": {\n        \"type\": \"integer\",\n        \"minimum\": 1,\n        \"maximum\": 600\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\",\n          \"two_sided\"\n        ]\n      },\n      \"quantile\": {\n        \"type\": \"number\",\n        \"exclusiveMinimum\": 0,\n        \"maximum\": 1\n      }\n    }\n  }"
+      }
+    },
+    {
+      "id": "chunk-c461419b69ae201f7fbfaf7b5078cf65de575414e76994a1ce52d0a77428de14",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 106,
+        "sha256": "sha256:67196e0b0bd6dd2d4e1b8b2af62a4fabf01e8ee437ddaf89140875700454b8a3",
+        "source_id": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+        "start_line": 106,
+        "text": "\"algorithm_spec\": \"固定阈值：upper=x-T，lower=T-x，evidence包含threshold；缺失value时missing_input。等于阈值时分数为0，只有严格大于0才告警。fit仅确认存在有效训练值；reset无历史状态。\""
+      }
+    },
+    {
+      "id": "chunk-c5142d75f9382cccce3eaf61b5eca51cb0d9afbad11cacde88c47c28c6cbb40d",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 30,
+        "sha256": "sha256:3bebf2615db0fcefb1d0ef3baec6e3c5606bf0ea3e0f16afa5012cfc7e4bb9fc",
+        "source_id": "source-9c6653aee67c954e52e57c3962225be1e5f7497639792f51057c2074c662ce0d",
+        "start_line": 25,
+        "text": "    def fit(self, train_points):\n        values = [p[\"value\"] for p in train_points if p[\"value\"] is not None]\n        if not values:\n            raise ValueError(\"no valid training observations\")\n        self.floor = max(1e-9, (quantile(values, 0.75) - quantile(values, 0.25)) * 1e-6)\n        self.reset()"
+      }
+    },
+    {
+      "id": "chunk-d01f0e8178ca740013afc701f866bdd2b9b20cb117cb9e14c11cc9fd31473307",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 105,
+        "sha256": "sha256:0a121132bf645397ba800b207fd39cab61533504ec48bf3738d1d5d8cf9f10c4",
+        "source_id": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+        "start_line": 87,
+        "text": "\"config_schema\": {\n    \"type\": \"object\",\n    \"additionalProperties\": false,\n    \"required\": [\n      \"threshold\",\n      \"direction\"\n    ],\n    \"properties\": {\n      \"threshold\": {\n        \"type\": \"number\"\n      },\n      \"direction\": {\n        \"enum\": [\n          \"upper\",\n          \"lower\"\n        ]\n      }\n    }\n  }"
+      }
+    },
+    {
+      "id": "chunk-d1f08156b088f3d37d8d5611dde9710218e03197a5e529b80a6f746bc9fd526d",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 79,
+        "sha256": "sha256:8178dab66d13f99814abfe92575066032175fd09da9ea4ac3abbc3a80433e248",
+        "source_id": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+        "start_line": 76,
+        "text": "\"defaults\": {\n    \"threshold\": 85.0,\n    \"direction\": \"upper\"\n  }"
+      }
+    },
+    {
+      "id": "chunk-d2fb16758b4fcba337e46f2b42447010933bf28b1f57628fcec2177be172755c",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 25,
+        "sha256": "sha256:26322978e7b7ba1109a5645a4cebda5a53a17a749135650c1dedbe6433cd305b",
+        "source_id": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+        "start_line": 4,
+        "text": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }"
+      }
+    },
+    {
+      "id": "chunk-e220dfccabf488aa60d4c329a99bdaf0a919ad8f64d56fa29063b89243b56f62",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 58,
+        "sha256": "sha256:571227a0118c08ce4085c4d92d5c8b99136de202d9d41b8fcd80f946b4965e8d",
+        "source_id": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+        "start_line": 55,
+        "text": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]"
+      }
+    },
+    {
+      "id": "chunk-e43c152870db39923f6cb217da7ab7d523b915b9a54619ee286ee4e94cb90157",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 75,
+        "sha256": "sha256:4c36b12686e98a6267f3c5635e29aa7ed71fea22349ae21b41f09d4a83c28d0d",
+        "source_id": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+        "start_line": 75,
+        "text": "\"min_history\": 15"
+      }
+    },
+    {
+      "id": "chunk-e84cfa9df228fa0e710ed136ca89cdc4ee436e0db3c87b3ece79600015c9c86d",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 54,
+        "sha256": "sha256:067211d58506363cc1bd45491834d76cd2d1c616f66e34a19adaef112994c8f8",
+        "source_id": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+        "start_line": 26,
+        "text": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }"
+      }
+    },
+    {
+      "id": "chunk-eb9ac948739aac19f159c0c152c476c801b194eb4180b6b75addfabc8f42fd1b",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 74,
+        "sha256": "sha256:8b30b55c0dda2c9ae5ffaf887c2ac58f2f67972c5cf3d8c18767b35a3a5cecd3",
+        "source_id": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+        "start_line": 70,
+        "text": "\"supported_directions\": [\n    \"upper\",\n    \"lower\",\n    \"two_sided\"\n  ]"
+      }
+    },
+    {
+      "id": "chunk-f346c55b0024b3f1dead87800b4acd7170d4942cedc409f3c0210e5b677deb40",
+      "kind": "Chunk",
+      "payload": {
+        "end_line": 58,
+        "sha256": "sha256:571227a0118c08ce4085c4d92d5c8b99136de202d9d41b8fcd80f946b4965e8d",
+        "source_id": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+        "start_line": 55,
+        "text": "\"metric_kinds\": [\n    \"gauge\",\n    \"rate\"\n  ]"
+      }
+    },
+    {
+      "id": "constraint-011b13eddda36cec26713b1acacda8a81edac49d2432b2e3689f9d86379ade10",
+      "kind": "Constraint",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-6f7901a37608c1205d444bc404b8098d89e1617f0d1633c73d1c22e0e05ba7ac",
+            "quote": "# 构造专家材料：rolling_mad",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "description": "单主机单指标",
+        "knowledge_status": "extracted_unverified"
+      }
+    },
+    {
+      "id": "constraint-4064a940de70e9b14f21c0f5129299c03920a11e8cceefda64620540d0e69bda",
+      "kind": "Constraint",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-a2ff1b5a07f2f1603e5f212d49f5d60b7f21b9df5a5bcb891ecaef90586a07a4",
+            "quote": "# 构造专家材料：fixed_threshold",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "description": "单主机单指标",
+        "knowledge_status": "extracted_unverified"
+      }
+    },
+    {
+      "id": "constraint-774876d742c9505174e997c928fe4162874b38c74ecfabba7c5a45cd2b6c2fa1",
+      "kind": "Constraint",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-5c597877c1f103ce268081bc4dce46457181649b908badbd1ce59127fc71e145",
+            "quote": "\"algorithm_spec\": \"训练有效值均值为固定baseline，scale=max(1e-9,训练总体标准差)。reset令smooth=baseline,count=0。可用当前值x先更新smooth=alpha*x+(1-alpha)*smooth，只有original_present=True才count+=1。count<min_history时insufficient_history，score=None,evidence={}。否则upper=(smooth-baseline)/scale，lower取反，two_sided取绝对值；evidence含ewma、baseline、scale。value=None时missing_input、score=None、evidence={}，不更新平滑值或计数。fit不得留下角色滚动状态，save/load必须保留全部配置和统计量。\"",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "description": "适于持续变化；固定训练基线保留长期偏移，较小alpha会降低响应速度。",
+        "knowledge_status": "source_checked"
+      }
+    },
+    {
+      "id": "constraint-7f848577a1357aeadccd0ae241036e29afbce3ae1300161038817bfef2b90ba2",
+      "kind": "Constraint",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-4db59015de2d3096a11f2a685e496b8d2b008ede2cbad59b387b8e83f5862904",
+            "quote": "EWMA 单主机数值指标异常检测（专家编写规格，不是模型实验结果）",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "description": "单主机单指标",
+        "knowledge_status": "extracted_unverified"
+      }
+    },
+    {
+      "id": "constraint-80699ecfc23d9717f53eb74a10740de3dce9a2c5939d6276491f75e3d02c5e28",
+      "kind": "Constraint",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-50df28a0b01f219bc6d8a52fc227814c73da98469a23838fe9c50d66e758e4fd",
+            "quote": "# 构造评价材料",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "description": "单主机单指标",
+        "knowledge_status": "extracted_unverified"
+      }
+    },
+    {
+      "id": "constraint-8cdc9728490e69c3c5fa77c3dccbc75c436ea867dd38147afc35db06980c1a25",
+      "kind": "Constraint",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+            "quote": "# 构造业务材料：正常高峰与异常",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "description": "单主机单指标",
+        "knowledge_status": "extracted_unverified"
+      }
+    },
+    {
+      "id": "constraint-d50c80ca98f3ae7eeaab0de339d9a2fb16fb243177facd0571ed05c4abdb6ac9",
+      "kind": "Constraint",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-c461419b69ae201f7fbfaf7b5078cf65de575414e76994a1ce52d0a77428de14",
+            "quote": "\"algorithm_spec\": \"固定阈值：upper=x-T，lower=T-x，evidence包含threshold；缺失value时missing_input。等于阈值时分数为0，只有严格大于0才告警。fit仅确认存在有效训练值；reset无历史状态。\"",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "description": "业务阈值须由用户确认；未指定值只是候选假设。",
+        "knowledge_status": "source_checked"
+      }
+    },
+    {
+      "id": "constraint-d5a95ef1e8f171a2aab7cd4fb943ea9ee785aa372bbdfff3ac2c631849144926",
+      "kind": "Constraint",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-46b8606cbf02aa1c7858ad10d74e1f32d4c8831a0d06d3712e6ad9929d9baa2c",
+            "quote": "\"\"\"Constructed human reference (origin=reference), never an LLM-generated result.",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "description": "单主机单指标",
+        "knowledge_status": "extracted_unverified"
+      }
+    },
+    {
+      "id": "constraint-d655dd3305569815242b60a2f71312fc3f7d6c920ac43958f5e3f77a1f1eaf27",
+      "kind": "Constraint",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-3b4197c7b19b95c260f53fe81f5e3791d1fc50872a85db49623187c531cc0019",
+            "quote": "\"\"\"Constructed human reference (origin=reference), not generated model code.",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "description": "单主机单指标",
+        "knowledge_status": "extracted_unverified"
+      }
+    },
+    {
+      "id": "constraint-ee0d4df416ff947999b94fad8ef7562ef655036de30c8077a0b710b2d7792823",
+      "kind": "Constraint",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-0d878bf874bd6951417f6908a83ef749e38a361c7c3f2dd300f9151465c83c73",
+            "quote": "\"algorithm_spec\": \"仅使用当前点前最近window时间槽（包含None槽）；只有original_present=True的历史点计min_history。可用插补值参与median/MAD，但不计真实历史数。value=None时missing_input；真实历史不足时insufficient_history。m=median(有效历史)，mad=median(abs(v-m))，s=max(1.4826*mad,scale_floor)。upper=(x-m)/s，lower=(m-x)/s，two_sided=abs(x-m)/s。evidence含median,mad,scale。训练有效原始值R7分位数（位置(n-1)*q线性插值）的IQR确定scale_floor=max(1e-9,IQR*1e-6)。先评分，再把当前点追加到历史，包括异常点、插补和不可用None槽，保留最近window槽。min_history不得超过window。fit不能把训练点留作角色历史。\"",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "description": "自适应历史窗口可能把持续变化吸收为新基线。",
+        "knowledge_status": "source_checked"
+      }
+    },
+    {
+      "id": "constraint-f583eb4e9038c32ac9d019eede19440ef9782c62d24769f700673a0c13cda57d",
+      "kind": "Constraint",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-a9459372dddbdfa7919ab0daae5ff3f659da54554b798f78e620df858b558742",
+            "quote": "# 构造材料：单主机指标字段规范",
+            "symbol": null
+          }
+        ],
+        "conditions_status": "evidenced",
+        "description": "单主机单指标",
+        "knowledge_status": "extracted_unverified"
+      }
+    },
+    {
+      "id": "datacontract-0891a8eeed10d126a016c06c69232c6897b4d9d9b83458ff298d29862fb4ffaa",
+      "kind": "DataContract",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-e84cfa9df228fa0e710ed136ca89cdc4ee436e0db3c87b3ece79600015c9c86d",
+            "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "properties": {
+            "evidence": {
+              "type": "object"
+            },
+            "score": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "status": {
+              "enum": [
+                "ok",
+                "insufficient_history",
+                "missing_input",
+                "invalid_input"
+              ]
+            }
+          },
+          "required": [
+            "timestamp",
+            "host_id",
+            "status",
+            "score",
+            "evidence"
+          ],
+          "type": "object"
+        },
+        "name": "output",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "datacontract-6b20a2e54997e5e949ade86d5b491e3b8dbd9a1d1288d81bb7608754baaff923",
+      "kind": "DataContract",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-09022a7111f743df3d7844f918179ee0d228d2dd44239e4d5e50aab98a0c264d",
+            "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "properties": {
+            "host_id": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            },
+            "value": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "timestamp",
+            "host_id",
+            "value"
+          ],
+          "type": "object"
+        },
+        "name": "input",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "datacontract-72d1356361fda35d3d10d549722a3955b660dbdf0cf1def20a1016f574e93a91",
+      "kind": "DataContract",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-73d537a53c349caf76da241b87a8a57e9db0d9a01bc77d8896d2d9329fdbfe77",
+            "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "properties": {
+            "host_id": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            },
+            "value": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "timestamp",
+            "host_id",
+            "value"
+          ],
+          "type": "object"
+        },
+        "name": "input",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "datacontract-89d93b72ffa87931e2e323c27d67d04dae7e6f4a20ade96d66929e4949623c65",
+      "kind": "DataContract",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-2379bcae86e82ff164898f48b252ca44144c3a8674d4a7c3efb73cc11cd007ce",
+            "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "properties": {
+            "evidence": {
+              "type": "object"
+            },
+            "score": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "status": {
+              "enum": [
+                "ok",
+                "insufficient_history",
+                "missing_input",
+                "invalid_input"
+              ]
+            }
+          },
+          "required": [
+            "timestamp",
+            "host_id",
+            "status",
+            "score",
+            "evidence"
+          ],
+          "type": "object"
+        },
+        "name": "output",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "datacontract-a5748a0ee39b429dd4f4633bdec5ac8d2acd8f003a3e0d91576d53f57eb9560e",
+      "kind": "DataContract",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-d2fb16758b4fcba337e46f2b42447010933bf28b1f57628fcec2177be172755c",
+            "quote": "\"inputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"value\"\n    ],\n    \"properties\": {\n      \"timestamp\": {\n        \"type\": \"string\"\n      },\n      \"host_id\": {\n        \"type\": \"string\"\n      },\n      \"value\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "properties": {
+            "host_id": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            },
+            "value": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "timestamp",
+            "host_id",
+            "value"
+          ],
+          "type": "object"
+        },
+        "name": "input",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "datacontract-f4d04a6c1ab347c829b38686b9afea4967bd16b226f92c3871551495ed0921ad",
+      "kind": "DataContract",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-b5ea51765d3f826596c7d2bd1caf1af4716cb70cce8bb79a7c173232be68ddc7",
+            "quote": "\"outputs\": {\n    \"type\": \"object\",\n    \"required\": [\n      \"timestamp\",\n      \"host_id\",\n      \"status\",\n      \"score\",\n      \"evidence\"\n    ],\n    \"properties\": {\n      \"status\": {\n        \"enum\": [\n          \"ok\",\n          \"insufficient_history\",\n          \"missing_input\",\n          \"invalid_input\"\n        ]\n      },\n      \"evidence\": {\n        \"type\": \"object\"\n      },\n      \"score\": {\n        \"type\": [\n          \"number\",\n          \"null\"\n        ]\n      }\n    }\n  }",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "properties": {
+            "evidence": {
+              "type": "object"
+            },
+            "score": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "status": {
+              "enum": [
+                "ok",
+                "insufficient_history",
+                "missing_input",
+                "invalid_input"
+              ]
+            }
+          },
+          "required": [
+            "timestamp",
+            "host_id",
+            "status",
+            "score",
+            "evidence"
+          ],
+          "type": "object"
+        },
+        "name": "output",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "environment-092f6c48f13c209bf0433f9dd1a8f101d4ce007faffc8d8782187291d02794a2",
+      "kind": "Environment",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-0cc34a962c15210d417b13137ff5cb229addcac2c1a0654557ac6dc46e7fc938",
+            "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "profile": "metrics-py312-stdlib/1"
+        },
+        "name": "metrics-py312-stdlib/1",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "environment-0e556d8210908def2ddae4ad72a3de02d5c492f495d8d0ddb91f1856696ea6c3",
+      "kind": "Environment",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-60f4ba882a6e906ac92c7a728e70c997db9ddd5128c03b1d74ae52744e9dbc81",
+            "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "profile": "metrics-py312-stdlib/1"
+        },
+        "name": "metrics-py312-stdlib/1",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "environment-4c564e0d1ce6e73b217305ee64527b7e8a35be318ea11c3c12cc3d7632806e29",
+      "kind": "Environment",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-5ffe089ae2ed6456634258840b1a66d92485a91a90ff7aeb76650d5819277802",
+            "quote": "\"dependency_profile\": \"metrics-py312-stdlib/1\"",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "profile": "metrics-py312-stdlib/1"
+        },
+        "name": "metrics-py312-stdlib/1",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "metric-02c28b2b26e187331edc77cd658d2f5ebdcede207450a6b02d9e5c5b87b49b61",
+      "kind": "Metric",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-42faa1d6cf7801cbe2bdabfc7f90c0785a7110c825394f3dc37afddd93ee3ea9",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "name": "event_f1"
+        },
+        "name": "event_f1",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "metric-18d5f31d960609db0eec6d20bf473f3f7d62b1a664934fd334a2f394d6fae0ba",
+      "kind": "Metric",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-8f809a1ed9e8925e96f3e2cf160bb965f342c60888b1951d4fc9e08379f21a30",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "name": "event_f1"
+        },
+        "name": "event_f1",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "metric-2743e4a13a3ea5c8158003ac46c9a7238e2cc07575204ebe432b6e02585e6511",
+      "kind": "Metric",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-8f809a1ed9e8925e96f3e2cf160bb965f342c60888b1951d4fc9e08379f21a30",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "name": "matched_delay_seconds"
+        },
+        "name": "matched_delay_seconds",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "metric-32b30783d13e551725e0072974b7d3f6063f63e5e6e8f7319cd3cf1bd6997e63",
+      "kind": "Metric",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-42faa1d6cf7801cbe2bdabfc7f90c0785a7110c825394f3dc37afddd93ee3ea9",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "name": "point_f1"
+        },
+        "name": "point_f1",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "metric-358597cc0d96cdc0e9eb6c146d6afd2b73426c63fdeef6c53faf8cce7e656e63",
+      "kind": "Metric",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-8f809a1ed9e8925e96f3e2cf160bb965f342c60888b1951d4fc9e08379f21a30",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "name": "point_f1"
+        },
+        "name": "point_f1",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "metric-4d47a5d41d8c8bb79c282fbef0b083529013439153b4424f13c53ceca9364567",
+      "kind": "Metric",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-8f809a1ed9e8925e96f3e2cf160bb965f342c60888b1951d4fc9e08379f21a30",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "name": "normal_false_alarms_per_host_hour"
+        },
+        "name": "normal_false_alarms_per_host_hour",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "metric-68e028b6137424615f4086571f4ffd316c39055a1ad506139e3594aa3ec11491",
+      "kind": "Metric",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-a4cd59e50c07aeb12e7195bd33bd8d5a5422d7ff85d5c330dd19aca557e7f199",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "name": "normal_false_alarms_per_host_hour"
+        },
+        "name": "normal_false_alarms_per_host_hour",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "metric-898e731cfa43b7abe0a6b1007ea2f2705005e39955346f1676290746c558675f",
+      "kind": "Metric",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-42faa1d6cf7801cbe2bdabfc7f90c0785a7110c825394f3dc37afddd93ee3ea9",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "name": "normal_false_alarms_per_host_hour"
+        },
+        "name": "normal_false_alarms_per_host_hour",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "metric-933801031300cb369a408162b8e326001f8041b113393e98891522fe8586a0ca",
+      "kind": "Metric",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-a4cd59e50c07aeb12e7195bd33bd8d5a5422d7ff85d5c330dd19aca557e7f199",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "name": "point_f1"
+        },
+        "name": "point_f1",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "metric-ccf53e30fac062610909a9236c2bab2672f8b9fecc8fa2beacaf50424e41d2ac",
+      "kind": "Metric",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-a4cd59e50c07aeb12e7195bd33bd8d5a5422d7ff85d5c330dd19aca557e7f199",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "name": "event_f1"
+        },
+        "name": "event_f1",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "metric-db023946d64fdb912351b00b3fe92682a2b2f399f9b8c3cc8263575ccb4e2aed",
+      "kind": "Metric",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-a4cd59e50c07aeb12e7195bd33bd8d5a5422d7ff85d5c330dd19aca557e7f199",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "name": "matched_delay_seconds"
+        },
+        "name": "matched_delay_seconds",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "metric-e4985c056d4271fc04483fec1582d2855939258edb6d8a81d2f8def6302750f3",
+      "kind": "Metric",
+      "payload": {
+        "citations": [
+          {
+            "chunk_id": "chunk-42faa1d6cf7801cbe2bdabfc7f90c0785a7110c825394f3dc37afddd93ee3ea9",
+            "quote": "\"evaluation_metrics\": [\n    \"event_f1\",\n    \"point_f1\",\n    \"normal_false_alarms_per_host_hour\",\n    \"matched_delay_seconds\"\n  ]",
+            "symbol": null
+          }
+        ],
+        "definition": {
+          "name": "matched_delay_seconds"
+        },
+        "name": "matched_delay_seconds",
+        "origin": "reference"
+      }
+    },
+    {
+      "id": "source-36277c70704daf757a36cf1cee2546aeabfd1ca59c2f1a9085ae277f62640958",
+      "kind": "Source",
+      "payload": {
+        "imports": [],
+        "material_type": "txt",
+        "origin": "constructed_material",
+        "path": "04-evaluation.txt",
+        "sha256": "sha256:c90aca46676ee752a5ec8d6eaff44aee60d6d133fdcab8033c2a54fc6f707557",
+        "symbols": []
+      }
+    },
+    {
+      "id": "source-8aa09fc385453bbbccd68b26e083b14040147c7d4c48028ce969f50cd7c0ae01",
+      "kind": "Source",
+      "payload": {
+        "imports": [],
+        "material_type": "txt",
+        "origin": "constructed_material",
+        "path": "02-fixed-threshold.txt",
+        "sha256": "sha256:dc91558e86cf108f1796ad3f1ab2c5826c11517f8a443f9315d918f410ab5a3f",
+        "symbols": []
+      }
+    },
+    {
+      "id": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+      "kind": "Source",
+      "payload": {
+        "imports": [],
+        "material_type": "json",
+        "origin": "reference_plugin",
+        "path": "capabilities/fixed_threshold/capability.json",
+        "sha256": "sha256:7af436aaf7e4a265e7d7e6792a4ac1d6311c8f98453904a136b8692209170bde",
+        "symbols": []
+      }
+    },
+    {
+      "id": "source-97a77ad30f7a0b8cffe235cf0e976b80038afc54b52f87f2ae18117ce4506b0d",
+      "kind": "Source",
+      "payload": {
+        "imports": [],
+        "material_type": "txt",
+        "origin": "constructed_material",
+        "path": "05-limitations.txt",
+        "sha256": "sha256:c1365b562303243f94e0354de3b28cabdb6416170f1778937ac61c87c3fbd0c1",
+        "symbols": []
+      }
+    },
+    {
+      "id": "source-9b329ea3663d980d9ae702252a5e380b40f9d2efc3801882d1b9019744038bd3",
+      "kind": "Source",
+      "payload": {
+        "imports": [],
+        "material_type": "txt",
+        "origin": "constructed_material",
+        "path": "03-rolling-mad.txt",
+        "sha256": "sha256:c9b2a8158fe0978e951ec2e8c8141b661112b62cb1ca560ad72bea6d69c791d1",
+        "symbols": []
+      }
+    },
+    {
+      "id": "source-9c6653aee67c954e52e57c3962225be1e5f7497639792f51057c2074c662ce0d",
+      "kind": "Source",
+      "payload": {
+        "calls": [
+          {
+            "callee": "sorted",
+            "caller": "quantile",
+            "line": 12
+          },
+          {
+            "callee": "int",
+            "caller": "quantile",
+            "line": 14
+          },
+          {
+            "callee": "min",
+            "caller": "quantile",
+            "line": 15
+          },
+          {
+            "callee": "len",
+            "caller": "quantile",
+            "line": 13
+          },
+          {
+            "callee": "len",
+            "caller": "quantile",
+            "line": 15
+          },
+          {
+            "callee": "Detector",
+            "caller": "create_detector",
+            "line": 72
+          },
+          {
+            "callee": "dict",
+            "caller": "Detector.__init__",
+            "line": 21
+          },
+          {
+            "callee": "max",
+            "caller": "Detector.fit",
+            "line": 29
+          },
+          {
+            "callee": "self.reset",
+            "caller": "Detector.fit",
+            "line": 30
+          },
+          {
+            "callee": "ValueError",
+            "caller": "Detector.fit",
+            "line": 28
+          },
+          {
+            "callee": "quantile",
+            "caller": "Detector.fit",
+            "line": 29
+          },
+          {
+            "callee": "quantile",
+            "caller": "Detector.fit",
+            "line": 29
+          },
+          {
+            "callee": "self.history.append",
+            "caller": "Detector.score_one",
+            "line": 56
+          },
+          {
+            "callee": "ValueError",
+            "caller": "Detector.score_one",
+            "line": 37
+          },
+          {
+            "callee": "sum",
+            "caller": "Detector.score_one",
+            "line": 42
+          },
+          {
+            "callee": "median",
+            "caller": "Detector.score_one",
+            "line": 46
+          },
+          {
+            "callee": "median",
+            "caller": "Detector.score_one",
+            "line": 47
+          },
+          {
+            "callee": "max",
+            "caller": "Detector.score_one",
+            "line": 48
+          },
+          {
+            "callee": "abs",
+            "caller": "Detector.score_one",
+            "line": 47
+          },
+          {
+            "callee": "abs",
+            "caller": "Detector.score_one",
+            "line": 53
+          },
+          {
+            "callee": "json.dumps",
+            "caller": "Detector.save_state",
+            "line": 62
+          },
+          {
+            "callee": "json.loads",
+            "caller": "Detector.load_state",
+            "line": 65
+          },
+          {
+            "callee": "ValueError",
+            "caller": "Detector.load_state",
+            "line": 67
+          },
+          {
+            "callee": "len",
+            "caller": "Detector.load_state",
+            "line": 66
+          }
+        ],
+        "extraction_protocol": "metrics-source/2",
+        "import_evidence": [
+          {
+            "end_line": 7,
+            "line": 7,
+            "name": "json",
+            "quote": "import json"
+          },
+          {
+            "end_line": 8,
+            "line": 8,
+            "name": "statistics",
+            "quote": "from statistics import median"
+          }
+        ],
+        "imports": [
+          "json",
+          "statistics"
+        ],
+        "material_type": "py",
+        "origin": "provided_code",
+        "path": "reference_mad.py",
+        "sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+        "symbols": [
+          {
+            "docstring": null,
+            "end_line": 16,
+            "line": 11,
+            "name": "quantile",
+            "qualified_name": "quantile",
+            "signature": "values, q"
+          },
+          {
+            "docstring": null,
+            "end_line": 68,
+            "line": 19,
+            "name": "Detector",
+            "qualified_name": "Detector",
+            "signature": null
+          },
+          {
+            "docstring": null,
+            "end_line": 72,
+            "line": 71,
+            "name": "create_detector",
+            "qualified_name": "create_detector",
+            "signature": "config"
+          },
+          {
+            "docstring": null,
+            "end_line": 23,
+            "line": 20,
+            "name": "__init__",
+            "qualified_name": "Detector.__init__",
+            "signature": "self, config"
+          },
+          {
+            "docstring": null,
+            "end_line": 30,
+            "line": 25,
+            "name": "fit",
+            "qualified_name": "Detector.fit",
+            "signature": "self, train_points"
+          },
+          {
+            "docstring": null,
+            "end_line": 33,
+            "line": 32,
+            "name": "reset",
+            "qualified_name": "Detector.reset",
+            "signature": "self"
+          },
+          {
+            "docstring": null,
+            "end_line": 59,
+            "line": 35,
+            "name": "score_one",
+            "qualified_name": "Detector.score_one",
+            "signature": "self, point"
+          },
+          {
+            "docstring": null,
+            "end_line": 62,
+            "line": 61,
+            "name": "save_state",
+            "qualified_name": "Detector.save_state",
+            "signature": "self"
+          },
+          {
+            "docstring": null,
+            "end_line": 68,
+            "line": 64,
+            "name": "load_state",
+            "qualified_name": "Detector.load_state",
+            "signature": "self, raw"
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-c2c0cc97448d2d6a89f4868617d05db95ad6f4d584694a0a79f62a06b9f0bf7d",
+      "kind": "Source",
+      "payload": {
+        "calls": [
+          {
+            "callee": "Detector",
+            "caller": "create_detector",
+            "line": 39
+          },
+          {
+            "callee": "dict",
+            "caller": "Detector.__init__",
+            "line": 11
+          },
+          {
+            "callee": "self.reset",
+            "caller": "Detector.fit",
+            "line": 16
+          },
+          {
+            "callee": "any",
+            "caller": "Detector.fit",
+            "line": 14
+          },
+          {
+            "callee": "ValueError",
+            "caller": "Detector.fit",
+            "line": 15
+          },
+          {
+            "callee": "json.dumps",
+            "caller": "Detector.save_state",
+            "line": 31
+          },
+          {
+            "callee": "json.loads",
+            "caller": "Detector.load_state",
+            "line": 34
+          },
+          {
+            "callee": "ValueError",
+            "caller": "Detector.load_state",
+            "line": 35
+          }
+        ],
+        "extraction_protocol": "metrics-source/2",
+        "import_evidence": [
+          {
+            "end_line": 6,
+            "line": 6,
+            "name": "json",
+            "quote": "import json"
+          }
+        ],
+        "imports": [
+          "json"
+        ],
+        "material_type": "py",
+        "origin": "provided_code",
+        "path": "reference_fixed.py",
+        "sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+        "symbols": [
+          {
+            "docstring": null,
+            "end_line": 35,
+            "line": 9,
+            "name": "Detector",
+            "qualified_name": "Detector",
+            "signature": null
+          },
+          {
+            "docstring": null,
+            "end_line": 39,
+            "line": 38,
+            "name": "create_detector",
+            "qualified_name": "create_detector",
+            "signature": "config"
+          },
+          {
+            "docstring": null,
+            "end_line": 11,
+            "line": 10,
+            "name": "__init__",
+            "qualified_name": "Detector.__init__",
+            "signature": "self, config"
+          },
+          {
+            "docstring": null,
+            "end_line": 16,
+            "line": 13,
+            "name": "fit",
+            "qualified_name": "Detector.fit",
+            "signature": "self, train_points"
+          },
+          {
+            "docstring": null,
+            "end_line": 19,
+            "line": 18,
+            "name": "reset",
+            "qualified_name": "Detector.reset",
+            "signature": "self"
+          },
+          {
+            "docstring": null,
+            "end_line": 28,
+            "line": 21,
+            "name": "score_one",
+            "qualified_name": "Detector.score_one",
+            "signature": "self, point"
+          },
+          {
+            "docstring": null,
+            "end_line": 31,
+            "line": 30,
+            "name": "save_state",
+            "qualified_name": "Detector.save_state",
+            "signature": "self"
+          },
+          {
+            "docstring": null,
+            "end_line": 35,
+            "line": 33,
+            "name": "load_state",
+            "qualified_name": "Detector.load_state",
+            "signature": "self, raw"
+          }
+        ]
+      }
+    },
+    {
+      "id": "source-cf538ad1148ef947276baa133928fc6fa78fcdabd3a6206c7718b8b1fbddd646",
+      "kind": "Source",
+      "payload": {
+        "imports": [],
+        "material_type": "txt",
+        "origin": "constructed_material",
+        "path": "01-fields.txt",
+        "sha256": "sha256:fc53ae58c43cbe11cb9b8e8878b73d394f55a14a494f663c03529cc5f855a6b4",
+        "symbols": []
+      }
+    },
+    {
+      "id": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+      "kind": "Source",
+      "payload": {
+        "imports": [],
+        "material_type": "json",
+        "origin": "reference_plugin",
+        "path": "capabilities/rolling_mad/capability.json",
+        "sha256": "sha256:39d8d9a00953b367af3f105a356912956a920f26dcc44796dec0346b3b88fb66",
+        "symbols": []
+      }
+    },
+    {
+      "id": "source-dc53e0f1b175e147db3a4be83973613aceb0e145b59d213bbba5b5c9c9f8afb4",
+      "kind": "Source",
+      "payload": {
+        "imports": [],
+        "material_type": "txt",
+        "origin": "constructed_material",
+        "path": "06-ewma.txt",
+        "sha256": "sha256:b5f7c12ab2e1ea98e55f6c7d25cbf73ffaa6df42cbbfc42ada8265f23e0092d5",
+        "symbols": []
+      }
+    },
+    {
+      "id": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+      "kind": "Source",
+      "payload": {
+        "imports": [],
+        "material_type": "json",
+        "origin": "reference_plugin",
+        "path": "capabilities/ewma/capability.json",
+        "sha256": "sha256:34742af2d68e6df5600ee2547d4b0556cb1dff020e7c0fc895587dc4d8a12617",
+        "symbols": []
+      }
+    }
+  ],
+  "relations": [
+    {
+      "source": "capability-20e27b389b6dc00f2fcd647b8328bff3004c51f002f1feffa2bcf4ada293baee",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-3b4197c7b19b95c260f53fe81f5e3791d1fc50872a85db49623187c531cc0019",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-7",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "capability-20e27b389b6dc00f2fcd647b8328bff3004c51f002f1feffa2bcf4ada293baee",
+      "relation": "REQUIRES",
+      "target": "constraint-d655dd3305569815242b60a2f71312fc3f7d6c920ac43958f5e3f77a1f1eaf27",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-7",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "capability-55a4e15e984ccb50beaa7eff61012fecf2c9229c353dc1463cce0047475a3987",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-4db59015de2d3096a11f2a685e496b8d2b008ede2cbad59b387b8e83f5862904",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-5",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "capability-55a4e15e984ccb50beaa7eff61012fecf2c9229c353dc1463cce0047475a3987",
+      "relation": "REQUIRES",
+      "target": "constraint-7f848577a1357aeadccd0ae241036e29afbce3ae1300161038817bfef2b90ba2",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-5",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "capability-5fc379e8f3525b8d5793490836c059cd1ade9e1b9511fcf1af84360522e72738",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-46b8606cbf02aa1c7858ad10d74e1f32d4c8831a0d06d3712e6ad9929d9baa2c",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-6",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "capability-5fc379e8f3525b8d5793490836c059cd1ade9e1b9511fcf1af84360522e72738",
+      "relation": "REQUIRES",
+      "target": "constraint-d5a95ef1e8f171a2aab7cd4fb943ea9ee785aa372bbdfff3ac2c631849144926",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-6",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "relation": "CONSUMES",
+      "target": "datacontract-72d1356361fda35d3d10d549722a3955b660dbdf0cf1def20a1016f574e93a91",
+      "provenance": {
+        "field": "inputs",
+        "source_id": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc"
+      }
+    },
+    {
+      "source": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "relation": "DEPENDS_ON",
+      "target": "environment-4c564e0d1ce6e73b217305ee64527b7e8a35be318ea11c3c12cc3d7632806e29",
+      "provenance": {
+        "field": "dependency_profile",
+        "source_id": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc"
+      }
+    },
+    {
+      "source": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-0deb5042792109e5c639173d6c044600fbd567542fe8e1910410d8125b5b5ad5",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-2379bcae86e82ff164898f48b252ca44144c3a8674d4a7c3efb73cc11cd007ce",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-410ee6d014de562a66e470502fe864cff47b72ed510e2610e076010b56e1bc26",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-5c597877c1f103ce268081bc4dce46457181649b908badbd1ce59127fc71e145",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-5ffe089ae2ed6456634258840b1a66d92485a91a90ff7aeb76650d5819277802",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-714b69d7938bbb7fe21caaf43cbe9c7059ef034817c123a4b1b7c2287bc999a8",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-73d537a53c349caf76da241b87a8a57e9db0d9a01bc77d8896d2d9329fdbfe77",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-77f4f8a90b99d2333e89dcc2fd366dfec789e464e1923b484bb7c40c8d0b1ed0",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-83a6878d98017898ddcfad7e0d93581ff41cb27654f2cf3c26e583f785fc863c",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-a4cd59e50c07aeb12e7195bd33bd8d5a5422d7ff85d5c330dd19aca557e7f199",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-aa7d289008f87fa9437752c4ad624a684d9370ecc1a3f83d652818d73bf8f3ab",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-e220dfccabf488aa60d4c329a99bdaf0a919ad8f64d56fa29063b89243b56f62",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "relation": "EVALUATED_WITH",
+      "target": "metric-68e028b6137424615f4086571f4ffd316c39055a1ad506139e3594aa3ec11491",
+      "provenance": {
+        "field": "evaluation_metrics",
+        "source_id": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc"
+      }
+    },
+    {
+      "source": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "relation": "EVALUATED_WITH",
+      "target": "metric-933801031300cb369a408162b8e326001f8041b113393e98891522fe8586a0ca",
+      "provenance": {
+        "field": "evaluation_metrics",
+        "source_id": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc"
+      }
+    },
+    {
+      "source": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "relation": "EVALUATED_WITH",
+      "target": "metric-ccf53e30fac062610909a9236c2bab2672f8b9fecc8fa2beacaf50424e41d2ac",
+      "provenance": {
+        "field": "evaluation_metrics",
+        "source_id": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc"
+      }
+    },
+    {
+      "source": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "relation": "EVALUATED_WITH",
+      "target": "metric-db023946d64fdb912351b00b3fe92682a2b2f399f9b8c3cc8263575ccb4e2aed",
+      "provenance": {
+        "field": "evaluation_metrics",
+        "source_id": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc"
+      }
+    },
+    {
+      "source": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "relation": "PRODUCES",
+      "target": "datacontract-89d93b72ffa87931e2e323c27d67d04dae7e6f4a20ade96d66929e4949623c65",
+      "provenance": {
+        "field": "outputs",
+        "source_id": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc"
+      }
+    },
+    {
+      "source": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "relation": "REQUIRES",
+      "target": "constraint-774876d742c9505174e997c928fe4162874b38c74ecfabba7c5a45cd2b6c2fa1",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-6f3af6e59cae8f44a27b56ef673f9f89d7dcfd810242ebd5dc1ea4b1d8ca8083",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-6f7901a37608c1205d444bc404b8098d89e1617f0d1633c73d1c22e0e05ba7ac",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-2",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "capability-6f3af6e59cae8f44a27b56ef673f9f89d7dcfd810242ebd5dc1ea4b1d8ca8083",
+      "relation": "REQUIRES",
+      "target": "constraint-011b13eddda36cec26713b1acacda8a81edac49d2432b2e3689f9d86379ade10",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-2",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "capability-728400369614a3518acdf96edc3b6bd20a5a39716598d7ebda22b4205a70984f",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-a2ff1b5a07f2f1603e5f212d49f5d60b7f21b9df5a5bcb891ecaef90586a07a4",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-1",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "capability-728400369614a3518acdf96edc3b6bd20a5a39716598d7ebda22b4205a70984f",
+      "relation": "REQUIRES",
+      "target": "constraint-4064a940de70e9b14f21c0f5129299c03920a11e8cceefda64620540d0e69bda",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-1",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "relation": "CONSUMES",
+      "target": "datacontract-6b20a2e54997e5e949ade86d5b491e3b8dbd9a1d1288d81bb7608754baaff923",
+      "provenance": {
+        "field": "inputs",
+        "source_id": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583"
+      }
+    },
+    {
+      "source": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "relation": "DEPENDS_ON",
+      "target": "environment-0e556d8210908def2ddae4ad72a3de02d5c492f495d8d0ddb91f1856696ea6c3",
+      "provenance": {
+        "field": "dependency_profile",
+        "source_id": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583"
+      }
+    },
+    {
+      "source": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-09022a7111f743df3d7844f918179ee0d228d2dd44239e4d5e50aab98a0c264d",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-0b516360aec4a9148bd2c165332e9111e45a56d3318d181faa2cbcff1f7b096c",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-0d878bf874bd6951417f6908a83ef749e38a361c7c3f2dd300f9151465c83c73",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-2928ae6a19ba934c1b3859e41baece5606612be022c5ed25a6c32a3f64595fdd",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-49124181af1a04806d7ed2ef192df695f8de572706f3ecbc7ae59d7ab398f6e4",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-60f4ba882a6e906ac92c7a728e70c997db9ddd5128c03b1d74ae52744e9dbc81",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-6aca82a3edc887a5b49c78e6d6df3fc988d1756b12543c30daee85c085fb715c",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-8f809a1ed9e8925e96f3e2cf160bb965f342c60888b1951d4fc9e08379f21a30",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-c2f758e721e2cdda0b05b4ee66ae063dca0629e83aac9e11465530ada19dd7ba",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-e43c152870db39923f6cb217da7ab7d523b915b9a54619ee286ee4e94cb90157",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-e84cfa9df228fa0e710ed136ca89cdc4ee436e0db3c87b3ece79600015c9c86d",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-eb9ac948739aac19f159c0c152c476c801b194eb4180b6b75addfabc8f42fd1b",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "relation": "EVALUATED_WITH",
+      "target": "metric-18d5f31d960609db0eec6d20bf473f3f7d62b1a664934fd334a2f394d6fae0ba",
+      "provenance": {
+        "field": "evaluation_metrics",
+        "source_id": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583"
+      }
+    },
+    {
+      "source": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "relation": "EVALUATED_WITH",
+      "target": "metric-2743e4a13a3ea5c8158003ac46c9a7238e2cc07575204ebe432b6e02585e6511",
+      "provenance": {
+        "field": "evaluation_metrics",
+        "source_id": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583"
+      }
+    },
+    {
+      "source": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "relation": "EVALUATED_WITH",
+      "target": "metric-358597cc0d96cdc0e9eb6c146d6afd2b73426c63fdeef6c53faf8cce7e656e63",
+      "provenance": {
+        "field": "evaluation_metrics",
+        "source_id": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583"
+      }
+    },
+    {
+      "source": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "relation": "EVALUATED_WITH",
+      "target": "metric-4d47a5d41d8c8bb79c282fbef0b083529013439153b4424f13c53ceca9364567",
+      "provenance": {
+        "field": "evaluation_metrics",
+        "source_id": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583"
+      }
+    },
+    {
+      "source": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "relation": "PRODUCES",
+      "target": "datacontract-0891a8eeed10d126a016c06c69232c6897b4d9d9b83458ff298d29862fb4ffaa",
+      "provenance": {
+        "field": "outputs",
+        "source_id": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583"
+      }
+    },
+    {
+      "source": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "relation": "REQUIRES",
+      "target": "constraint-ee0d4df416ff947999b94fad8ef7562ef655036de30c8077a0b710b2d7792823",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "relation": "CONSUMES",
+      "target": "datacontract-a5748a0ee39b429dd4f4633bdec5ac8d2acd8f003a3e0d91576d53f57eb9560e",
+      "provenance": {
+        "field": "inputs",
+        "source_id": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06"
+      }
+    },
+    {
+      "source": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "relation": "DEPENDS_ON",
+      "target": "environment-092f6c48f13c209bf0433f9dd1a8f101d4ce007faffc8d8782187291d02794a2",
+      "provenance": {
+        "field": "dependency_profile",
+        "source_id": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06"
+      }
+    },
+    {
+      "source": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-0cc34a962c15210d417b13137ff5cb229addcac2c1a0654557ac6dc46e7fc938",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-26e9935e27bd2cda8710d40ce8b2cc877dd75842d6c822c553be01c0f86875f1",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-3468d6e4829e7139c4279b39afd49019191a59790c6aea0152305b723f59b59b",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-42faa1d6cf7801cbe2bdabfc7f90c0785a7110c825394f3dc37afddd93ee3ea9",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-6e7fae869f7aad267994a1afd3c97f25f0697f8c3ec12c4df88744753482fc0d",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-82133a3edbb34ddaa04871bbc2753e7db37990cbb4fb1a15317e579ff5bfbd2a",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-b5ea51765d3f826596c7d2bd1caf1af4716cb70cce8bb79a7c173232be68ddc7",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-c461419b69ae201f7fbfaf7b5078cf65de575414e76994a1ce52d0a77428de14",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-d01f0e8178ca740013afc701f866bdd2b9b20cb117cb9e14c11cc9fd31473307",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-d1f08156b088f3d37d8d5611dde9710218e03197a5e529b80a6f746bc9fd526d",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-d2fb16758b4fcba337e46f2b42447010933bf28b1f57628fcec2177be172755c",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-f346c55b0024b3f1dead87800b4acd7170d4942cedc409f3c0210e5b677deb40",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "relation": "EVALUATED_WITH",
+      "target": "metric-02c28b2b26e187331edc77cd658d2f5ebdcede207450a6b02d9e5c5b87b49b61",
+      "provenance": {
+        "field": "evaluation_metrics",
+        "source_id": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06"
+      }
+    },
+    {
+      "source": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "relation": "EVALUATED_WITH",
+      "target": "metric-32b30783d13e551725e0072974b7d3f6063f63e5e6e8f7319cd3cf1bd6997e63",
+      "provenance": {
+        "field": "evaluation_metrics",
+        "source_id": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06"
+      }
+    },
+    {
+      "source": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "relation": "EVALUATED_WITH",
+      "target": "metric-898e731cfa43b7abe0a6b1007ea2f2705005e39955346f1676290746c558675f",
+      "provenance": {
+        "field": "evaluation_metrics",
+        "source_id": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06"
+      }
+    },
+    {
+      "source": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "relation": "EVALUATED_WITH",
+      "target": "metric-e4985c056d4271fc04483fec1582d2855939258edb6d8a81d2f8def6302750f3",
+      "provenance": {
+        "field": "evaluation_metrics",
+        "source_id": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06"
+      }
+    },
+    {
+      "source": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "relation": "PRODUCES",
+      "target": "datacontract-f4d04a6c1ab347c829b38686b9afea4967bd16b226f92c3871551495ed0921ad",
+      "provenance": {
+        "field": "outputs",
+        "source_id": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06"
+      }
+    },
+    {
+      "source": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "relation": "REQUIRES",
+      "target": "constraint-d50c80ca98f3ae7eeaab0de339d9a2fb16fb243177facd0571ed05c4abdb6ac9",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "capability-c3e01df60373a5982df71fbbaa8f207a3f11761ae1c203865bdc3404bfe803ed",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-a9459372dddbdfa7919ab0daae5ff3f659da54554b798f78e620df858b558742",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-0",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "capability-c3e01df60373a5982df71fbbaa8f207a3f11761ae1c203865bdc3404bfe803ed",
+      "relation": "REQUIRES",
+      "target": "constraint-f583eb4e9038c32ac9d019eede19440ef9782c62d24769f700673a0c13cda57d",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-0",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "capability-c5f219e060722483fdd6d21fb0ecb32682ffdf0300b9509294c3d0e0ce6afcc2",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-50df28a0b01f219bc6d8a52fc227814c73da98469a23838fe9c50d66e758e4fd",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-3",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "capability-c5f219e060722483fdd6d21fb0ecb32682ffdf0300b9509294c3d0e0ce6afcc2",
+      "relation": "REQUIRES",
+      "target": "constraint-80699ecfc23d9717f53eb74a10740de3dce9a2c5939d6276491f75e3d02c5e28",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-3",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "capability-d97c56b263e86179ad60ce5c3bc1957fe220a6567b6e97b1c56ec8692fc81762",
+      "relation": "DERIVED_FROM",
+      "target": "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-4",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "capability-d97c56b263e86179ad60ce5c3bc1957fe220a6567b6e97b1c56ec8692fc81762",
+      "relation": "REQUIRES",
+      "target": "constraint-8cdc9728490e69c3c5fa77c3dccbc75c436ea867dd38147afc35db06980c1a25",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-4",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-09022a7111f743df3d7844f918179ee0d228d2dd44239e4d5e50aab98a0c264d",
+      "relation": "DERIVED_FROM",
+      "target": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-0b516360aec4a9148bd2c165332e9111e45a56d3318d181faa2cbcff1f7b096c",
+      "relation": "DERIVED_FROM",
+      "target": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-0cc34a962c15210d417b13137ff5cb229addcac2c1a0654557ac6dc46e7fc938",
+      "relation": "DERIVED_FROM",
+      "target": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-0d878bf874bd6951417f6908a83ef749e38a361c7c3f2dd300f9151465c83c73",
+      "relation": "DERIVED_FROM",
+      "target": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-0deb5042792109e5c639173d6c044600fbd567542fe8e1910410d8125b5b5ad5",
+      "relation": "DERIVED_FROM",
+      "target": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-1baa88ad35b72cee1a5e9fefe49182cf1a838b4a9b0c1026743df4b5f6c78bd6",
+      "relation": "DERIVED_FROM",
+      "target": "source-9c6653aee67c954e52e57c3962225be1e5f7497639792f51057c2074c662ce0d",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-7",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-2379bcae86e82ff164898f48b252ca44144c3a8674d4a7c3efb73cc11cd007ce",
+      "relation": "DERIVED_FROM",
+      "target": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-26e9935e27bd2cda8710d40ce8b2cc877dd75842d6c822c553be01c0f86875f1",
+      "relation": "DERIVED_FROM",
+      "target": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-2928ae6a19ba934c1b3859e41baece5606612be022c5ed25a6c32a3f64595fdd",
+      "relation": "DERIVED_FROM",
+      "target": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-29eaff7ab9b4d749d8df4ba5cd8c7f8fb535e667240371be9efab5d9c5255c97",
+      "relation": "DERIVED_FROM",
+      "target": "source-9c6653aee67c954e52e57c3962225be1e5f7497639792f51057c2074c662ce0d",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-7",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-3468d6e4829e7139c4279b39afd49019191a59790c6aea0152305b723f59b59b",
+      "relation": "DERIVED_FROM",
+      "target": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-3afd82a859bde5cb64e374f8582efb14868f974c767e821d0610f034be952b61",
+      "relation": "DERIVED_FROM",
+      "target": "source-c2c0cc97448d2d6a89f4868617d05db95ad6f4d584694a0a79f62a06b9f0bf7d",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-6",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-3b4197c7b19b95c260f53fe81f5e3791d1fc50872a85db49623187c531cc0019",
+      "relation": "DERIVED_FROM",
+      "target": "source-9c6653aee67c954e52e57c3962225be1e5f7497639792f51057c2074c662ce0d",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-7",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-410ee6d014de562a66e470502fe864cff47b72ed510e2610e076010b56e1bc26",
+      "relation": "DERIVED_FROM",
+      "target": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-42faa1d6cf7801cbe2bdabfc7f90c0785a7110c825394f3dc37afddd93ee3ea9",
+      "relation": "DERIVED_FROM",
+      "target": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-46b8606cbf02aa1c7858ad10d74e1f32d4c8831a0d06d3712e6ad9929d9baa2c",
+      "relation": "DERIVED_FROM",
+      "target": "source-c2c0cc97448d2d6a89f4868617d05db95ad6f4d584694a0a79f62a06b9f0bf7d",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-6",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-49124181af1a04806d7ed2ef192df695f8de572706f3ecbc7ae59d7ab398f6e4",
+      "relation": "DERIVED_FROM",
+      "target": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-492b31fb4d27aa53b09616d2856d084fdd3c41f2682de3474795a3b8e7d45f21",
+      "relation": "DERIVED_FROM",
+      "target": "source-c2c0cc97448d2d6a89f4868617d05db95ad6f4d584694a0a79f62a06b9f0bf7d",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-6",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-4b2f6efdf60fc1d6dd2e114e3b8a36c36167019067ca9ea88afd733e53beda14",
+      "relation": "DERIVED_FROM",
+      "target": "source-c2c0cc97448d2d6a89f4868617d05db95ad6f4d584694a0a79f62a06b9f0bf7d",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-6",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-4db59015de2d3096a11f2a685e496b8d2b008ede2cbad59b387b8e83f5862904",
+      "relation": "DERIVED_FROM",
+      "target": "source-dc53e0f1b175e147db3a4be83973613aceb0e145b59d213bbba5b5c9c9f8afb4",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-5",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-50df28a0b01f219bc6d8a52fc227814c73da98469a23838fe9c50d66e758e4fd",
+      "relation": "DERIVED_FROM",
+      "target": "source-36277c70704daf757a36cf1cee2546aeabfd1ca59c2f1a9085ae277f62640958",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-3",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-5576668e5e9b39c73cdde5dbaa763cce6f6869a846aa396fda60f50778c42ac6",
+      "relation": "DERIVED_FROM",
+      "target": "source-9c6653aee67c954e52e57c3962225be1e5f7497639792f51057c2074c662ce0d",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-7",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-5c597877c1f103ce268081bc4dce46457181649b908badbd1ce59127fc71e145",
+      "relation": "DERIVED_FROM",
+      "target": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-5d863fc0f97aef42e62f0da701cec18486eb88c8a803dbf8e4f32effb8a32a0b",
+      "relation": "DERIVED_FROM",
+      "target": "source-c2c0cc97448d2d6a89f4868617d05db95ad6f4d584694a0a79f62a06b9f0bf7d",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-6",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-5e5af62ecf27e1f3ca5a54226d651ebb92e1455010ac26c02e461a0151e4818a",
+      "relation": "DERIVED_FROM",
+      "target": "source-9c6653aee67c954e52e57c3962225be1e5f7497639792f51057c2074c662ce0d",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-7",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-5ed620e1297669138b045b509aaafa404e8a100b8f21e3443b7fdfeabc7bf570",
+      "relation": "DERIVED_FROM",
+      "target": "source-9c6653aee67c954e52e57c3962225be1e5f7497639792f51057c2074c662ce0d",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-7",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-5ffe089ae2ed6456634258840b1a66d92485a91a90ff7aeb76650d5819277802",
+      "relation": "DERIVED_FROM",
+      "target": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-60f4ba882a6e906ac92c7a728e70c997db9ddd5128c03b1d74ae52744e9dbc81",
+      "relation": "DERIVED_FROM",
+      "target": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-62e5e1613b0177760c8555914fbe37a3cc4a8ba05905afad125a7959ed2ec206",
+      "relation": "DERIVED_FROM",
+      "target": "source-c2c0cc97448d2d6a89f4868617d05db95ad6f4d584694a0a79f62a06b9f0bf7d",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-6",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-66019de7847be2b28236aa130789b8240731ce317b8b0a4af664a7be97700726",
+      "relation": "DERIVED_FROM",
+      "target": "source-97a77ad30f7a0b8cffe235cf0e976b80038afc54b52f87f2ae18117ce4506b0d",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-4",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-6aca82a3edc887a5b49c78e6d6df3fc988d1756b12543c30daee85c085fb715c",
+      "relation": "DERIVED_FROM",
+      "target": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-6e7fae869f7aad267994a1afd3c97f25f0697f8c3ec12c4df88744753482fc0d",
+      "relation": "DERIVED_FROM",
+      "target": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-6f7901a37608c1205d444bc404b8098d89e1617f0d1633c73d1c22e0e05ba7ac",
+      "relation": "DERIVED_FROM",
+      "target": "source-9b329ea3663d980d9ae702252a5e380b40f9d2efc3801882d1b9019744038bd3",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-2",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-714b69d7938bbb7fe21caaf43cbe9c7059ef034817c123a4b1b7c2287bc999a8",
+      "relation": "DERIVED_FROM",
+      "target": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-73d537a53c349caf76da241b87a8a57e9db0d9a01bc77d8896d2d9329fdbfe77",
+      "relation": "DERIVED_FROM",
+      "target": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-77f4f8a90b99d2333e89dcc2fd366dfec789e464e1923b484bb7c40c8d0b1ed0",
+      "relation": "DERIVED_FROM",
+      "target": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-82133a3edbb34ddaa04871bbc2753e7db37990cbb4fb1a15317e579ff5bfbd2a",
+      "relation": "DERIVED_FROM",
+      "target": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-83a6878d98017898ddcfad7e0d93581ff41cb27654f2cf3c26e583f785fc863c",
+      "relation": "DERIVED_FROM",
+      "target": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-8f809a1ed9e8925e96f3e2cf160bb965f342c60888b1951d4fc9e08379f21a30",
+      "relation": "DERIVED_FROM",
+      "target": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-9d2e1fa14c45065be635a6393faeac027f6e63a93a7889df04d653fdd8d8aa03",
+      "relation": "DERIVED_FROM",
+      "target": "source-9c6653aee67c954e52e57c3962225be1e5f7497639792f51057c2074c662ce0d",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-7",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-a2ff1b5a07f2f1603e5f212d49f5d60b7f21b9df5a5bcb891ecaef90586a07a4",
+      "relation": "DERIVED_FROM",
+      "target": "source-8aa09fc385453bbbccd68b26e083b14040147c7d4c48028ce969f50cd7c0ae01",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-1",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-a4cd59e50c07aeb12e7195bd33bd8d5a5422d7ff85d5c330dd19aca557e7f199",
+      "relation": "DERIVED_FROM",
+      "target": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-a9459372dddbdfa7919ab0daae5ff3f659da54554b798f78e620df858b558742",
+      "relation": "DERIVED_FROM",
+      "target": "source-cf538ad1148ef947276baa133928fc6fa78fcdabd3a6206c7718b8b1fbddd646",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-0",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-aa7d289008f87fa9437752c4ad624a684d9370ecc1a3f83d652818d73bf8f3ab",
+      "relation": "DERIVED_FROM",
+      "target": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-abb93b3803008ade491d7efa74ee53611edb00c187e9f80dbccfd2140261bf8d",
+      "relation": "DERIVED_FROM",
+      "target": "source-c2c0cc97448d2d6a89f4868617d05db95ad6f4d584694a0a79f62a06b9f0bf7d",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-6",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-b5ea51765d3f826596c7d2bd1caf1af4716cb70cce8bb79a7c173232be68ddc7",
+      "relation": "DERIVED_FROM",
+      "target": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-c2609fd37d782ce22ff7aedef6519c504997350f70d0076e2cf74fdb47d78f9b",
+      "relation": "DERIVED_FROM",
+      "target": "source-9c6653aee67c954e52e57c3962225be1e5f7497639792f51057c2074c662ce0d",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-7",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-c2f758e721e2cdda0b05b4ee66ae063dca0629e83aac9e11465530ada19dd7ba",
+      "relation": "DERIVED_FROM",
+      "target": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-c461419b69ae201f7fbfaf7b5078cf65de575414e76994a1ce52d0a77428de14",
+      "relation": "DERIVED_FROM",
+      "target": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-c5142d75f9382cccce3eaf61b5eca51cb0d9afbad11cacde88c47c28c6cbb40d",
+      "relation": "DERIVED_FROM",
+      "target": "source-9c6653aee67c954e52e57c3962225be1e5f7497639792f51057c2074c662ce0d",
+      "provenance": {
+        "extraction_protocol": "metrics-extraction/2",
+        "prompt_version": "metrics-prompts/5",
+        "stage": "extract-7",
+        "task_id": "ewma-plugin-ingest"
+      }
+    },
+    {
+      "source": "chunk-d01f0e8178ca740013afc701f866bdd2b9b20cb117cb9e14c11cc9fd31473307",
+      "relation": "DERIVED_FROM",
+      "target": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-d1f08156b088f3d37d8d5611dde9710218e03197a5e529b80a6f746bc9fd526d",
+      "relation": "DERIVED_FROM",
+      "target": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-d2fb16758b4fcba337e46f2b42447010933bf28b1f57628fcec2177be172755c",
+      "relation": "DERIVED_FROM",
+      "target": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-e220dfccabf488aa60d4c329a99bdaf0a919ad8f64d56fa29063b89243b56f62",
+      "relation": "DERIVED_FROM",
+      "target": "source-f9ecd6c870725d5a628ae2e8616c7cdf45a7963bd75186a057df1f184adbbabc",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-e43c152870db39923f6cb217da7ab7d523b915b9a54619ee286ee4e94cb90157",
+      "relation": "DERIVED_FROM",
+      "target": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-e84cfa9df228fa0e710ed136ca89cdc4ee436e0db3c87b3ece79600015c9c86d",
+      "relation": "DERIVED_FROM",
+      "target": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-eb9ac948739aac19f159c0c152c476c801b194eb4180b6b75addfabc8f42fd1b",
+      "relation": "DERIVED_FROM",
+      "target": "source-d90cd59af292b2d3963ea0f8b904f5f54511065a47470e3672b71af3f2e38583",
+      "provenance": {
+        "origin": "reference"
+      }
+    },
+    {
+      "source": "chunk-f346c55b0024b3f1dead87800b4acd7170d4942cedc409f3c0210e5b677deb40",
+      "relation": "DERIVED_FROM",
+      "target": "source-91b391720c395fda728cd171fc9f57fe4de4c4036661b2e2a94af372535eeb06",
+      "provenance": {
+        "origin": "reference"
+      }
+    }
+  ],
+  "snapshot_id": "sha256:ca4dc787dfb4ddb2ca0d384de36d6e6ee0b6659171df9950d1fc19fac404078e"
+}

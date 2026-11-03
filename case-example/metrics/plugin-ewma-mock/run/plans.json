@@ -1,0 +1,84 @@
+{
+  "supported": true,
+  "understanding": "受控单指标示例",
+  "anomaly_target": "upper",
+  "limitations": [
+    "mock"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "ewma",
+      "config": {
+        "method_id": "ewma",
+        "direction": "upper",
+        "alpha": 0.3,
+        "min_history": 3,
+        "quantile": 0.99
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "alpha": "protocol_default",
+        "min_history": "protocol_default",
+        "direction": "user_explicit",
+        "quantile": "protocol_default"
+      },
+      "knowledge_ids": [
+        "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666"
+      ],
+      "limitations": [
+        "controlled example",
+        "适于持续变化；固定训练基线保留长期偏移，较小alpha会降低响应速度。"
+      ],
+      "capability_id": "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666",
+      "selection_reason": "EWMA：适于持续变化；固定训练基线保留长期偏移，较小alpha会降低响应速度。"
+    },
+    {
+      "candidate_id": "fixed",
+      "config": {
+        "method_id": "fixed_threshold",
+        "direction": "upper",
+        "threshold": 85.0
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "threshold": "user_explicit",
+        "direction": "user_explicit"
+      },
+      "knowledge_ids": [
+        "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95"
+      ],
+      "limitations": [
+        "controlled example",
+        "业务阈值须由用户确认；未指定值只是候选假设。"
+      ],
+      "capability_id": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "selection_reason": "固定阈值：业务阈值须由用户确认；未指定值只是候选假设。"
+    },
+    {
+      "candidate_id": "mad",
+      "config": {
+        "method_id": "rolling_mad",
+        "direction": "upper",
+        "window": 30,
+        "min_history": 15,
+        "quantile": 0.99
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "window": "protocol_default",
+        "min_history": "protocol_default",
+        "direction": "user_explicit",
+        "quantile": "protocol_default"
+      },
+      "knowledge_ids": [
+        "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d"
+      ],
+      "limitations": [
+        "controlled example",
+        "自适应历史窗口可能把持续变化吸收为新基线。"
+      ],
+      "capability_id": "capability-b4fb70d5b0d9351ba494f89462d2befb09fc808853abd75784daaf3c85ef8a3d",
+      "selection_reason": "滚动 MAD：自适应历史窗口可能把持续变化吸收为新基线。"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+# 构造专家材料：fixed_threshold
+
+适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1，不需要历史基线。
+upper 分数为 x-T，lower 分数为 T-x。严格 score>0 才是异常候选；等号不触发。
+业务阈值必须来自用户明确值或有引用的业务材料；假设阈值要标为 candidate_assumption。
+本材料没有给定任何指标的业务阈值；禁止虚构业务达标保证。
+calibration 不改变固定阈值 T；共享可信告警器处理连续点数和事件合并。
+绝对阈值可能漏掉低基线主机的相对变化，也可能对正常业务高峰误报。

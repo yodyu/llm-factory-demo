@@ -1,0 +1,45 @@
+{
+  "supported": true,
+  "understanding": "针对单主机 gauge 指标 memory_utilization（单位：percent，采样周期60秒），使用已接入的 fixed_threshold 固定阈值能力检测向上异常：阈值85%，方向upper，连续 persistence_points=2 个点满足严格大于阈值后告警。当前训练摘要包含299个有效值和1个缺失值，足以通过仅要求存在有效训练值的fit；缺失value按能力契约输出missing_input。规划阶段仅给出检测方案，后续阶段输出代码与验证报告。",
+  "anomaly_target": "upper",
+  "limitations": [
+    "只选择并规划已接入的 fixed_threshold；不添加趋势、突变、同比、基线学习等未请求或未接入方法。",
+    "能力卡片为专家编写插件卡，verification_level=contract_only；历史经验提示在新数据上仍需重新验证代码、校准与效果。",
+    "固定阈值本身不负责事件合并；连续两点由共享可信告警器/持久化规则处理。",
+    "等于85%时score=0，不触发；只有value严格大于85%才形成异常候选。",
+    "训练数据最大值49.440387%，未覆盖超过85%的异常样本，因此无法仅凭训练摘要证明85%阈值的实际检出效果或误报水平。"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "config": {
+        "method_id": "fixed_threshold",
+        "threshold": 85.0,
+        "direction": "upper"
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "threshold": "user_explicit",
+        "direction": "user_explicit",
+        "persistence_points": "user_explicit",
+        "method_id": "user_explicit"
+      },
+      "knowledge_ids": [
+        "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+        "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+        "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+        "chunk-7ac5e3104c65ea345ed16051fd2dfa6aeb1588f1584dc99ac7a53dec3b632191",
+        "chunk-3478558ca578b2421a9eafa4318746e1999211f4102a9c0c15c0327f07b4cdc8",
+        "experience-30c9cf9f0612211c3ae824cb1a5639cdc5948d508a7918ceccb8959fdb3b8c07"
+      ],
+      "limitations": [
+        "不检测“逐步升高”的趋势形态，只检测数值超过85%且持续两点的上位异常。",
+        "固定阈值检测器无历史状态；连续点数计数依赖外部可信告警器或执行框架。",
+        "实现效果需要在新的模拟/真实数据上重新验证，不能由已有经验直接承诺F1、误报率或延迟达标。",
+        "演示纠正：已移除未提供的知识引用，相关参数不再标记为知识依据。"
+      ],
+      "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "selection_reason": "需求明确限定只使用固定阈值，并给出阈值85%、连续两点告警；该能力支持time_series_anomaly_detection、单主机单指标gauge、upper方向，min_history=0且不需要历史基线。upper分数为x-85，严格score>0才是异常候选；连续两点过滤瞬时越界。假设后续输入字段符合timestamp、host_id、value契约，且85%是用户确认的内存利用率告警阈值而不是从训练分布推断。"
+    }
+  ]
+}

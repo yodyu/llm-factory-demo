@@ -1,0 +1,129 @@
+- log
+- log
+- link "Skip to main content":
+  - /url: "#stMain"
+- region "Sidebar":
+  - paragraph:
+    - strong: 算法能力工厂
+  - button "创建任务":
+    - generic: add
+    - paragraph: 创建任务
+  - button "任务结果":
+    - generic: grid_view
+    - paragraph: 任务结果
+  - button "知识图谱":
+    - generic: hub
+    - paragraph: 知识图谱
+  - separator
+  - button "系统配置":
+    - generic: settings
+    - paragraph: 系统配置
+- banner:
+  - button "Expand sidebar":
+    - generic: keyboard_double_arrow_right
+  - button "Deploy":
+    - generic: Deploy
+  - button "Main menu":
+- main:
+  - heading "CPU异常检测" [level=3]:
+    - text: CPU异常检测
+    - link "Link to heading":
+      - /url: "#cpu"
+  - combobox "查看任务": CPU异常检测 · sim-cpu_spike-v1 · ui-ac5fa8e7cab64a6d
+  - button "Open":
+  - button "下载与原始记录":
+    - paragraph: 下载与原始记录
+    - generic: expand_more
+  - paragraph:
+    - text: 数据来源：内置模拟数据 · 主机：sim-host-a ·
+    - generic: 执行：执行完成
+    - text: ·
+    - generic: 效果：已测量
+    - text: · 业务验收：未定义门槛
+  - radiogroup "结果内容":
+    - radio "结果概览"
+    - paragraph: 结果概览
+    - radio "运行与验证"
+    - paragraph: 运行与验证
+    - radio "知识依据" [checked] [active]
+    - paragraph: 知识依据
+    - radio "模型用量"
+    - paragraph: 模型用量
+  - heading "方案依据" [level=3]:
+    - text: 方案依据
+    - link "Link to heading":
+      - /url: "#b7abfb49"
+  - paragraph: 实际提供给模型的知识 13 条，显式引用 5 条；提供经验 3 条，引用 1 条。引用不证明效果收益。
+  - paragraph: 采用方案：固定阈值
+  - generic "适用条件与方案限制":
+    - generic: keyboard_arrow_right
+    - paragraph: 适用条件与方案限制
+  - table:
+    - rowgroup:
+      - row "引用材料 片段数":
+        - columnheader "引用材料":
+          - paragraph: 引用材料
+        - columnheader "片段数":
+          - paragraph: 片段数
+    - rowgroup:
+      - row "materials/metrics/02-fixed-threshold.txt 1":
+        - cell "materials/metrics/02-fixed-threshold.txt":
+          - paragraph: materials/metrics/02-fixed-threshold.txt
+        - cell "1":
+          - paragraph: "1"
+      - row "materials/metrics/reference_fixed.py 1":
+        - cell "materials/metrics/reference_fixed.py":
+          - paragraph: materials/metrics/reference_fixed.py
+        - cell "1":
+          - paragraph: "1"
+      - row "05-limitations.txt 1":
+        - cell "05-limitations.txt":
+          - paragraph: 05-limitations.txt
+        - cell "1":
+          - paragraph: "1"
+      - row "capabilities/fixed_threshold/capability.json 3":
+        - cell "capabilities/fixed_threshold/capability.json":
+          - paragraph: capabilities/fixed_threshold/capability.json
+        - cell "3":
+          - paragraph: "3"
+  - generic "检索文档与代码片段":
+    - generic: keyboard_arrow_right
+    - paragraph: 检索文档与代码片段
+  - generic "知识引用 ID 与检索记录":
+    - generic: keyboard_arrow_right
+    - paragraph: 知识引用 ID 与检索记录
+  - generic "需求、完整计划与校准记录":
+    - generic: keyboard_arrow_right
+    - paragraph: 需求、完整计划与校准记录
+  - button "在知识图谱中查看":
+    - paragraph: 在知识图谱中查看
+  - heading "知识回写" [level=3]:
+    - text: 知识回写
+    - link "Link to heading":
+      - /url: "#a87258ed"
+  - paragraph: 回写回执状态： PUBLISHED
+  - table:
+    - rowgroup:
+      - row "方法 实现版本 经验性质 已记录问题":
+        - columnheader "方法":
+          - paragraph: 方法
+        - columnheader "实现版本":
+          - paragraph: 实现版本
+        - columnheader "经验性质":
+          - paragraph: 经验性质
+        - columnheader "已记录问题":
+          - paragraph: 已记录问题
+    - rowgroup:
+      - row "fixed_threshold 0 获准在新输入重新验证后复用 verified_method_requires_new_input_evaluation":
+        - cell "fixed_threshold":
+          - paragraph: fixed_threshold
+        - cell "0":
+          - paragraph: "0"
+        - cell "获准在新输入重新验证后复用":
+          - paragraph: 获准在新输入重新验证后复用
+        - cell "verified_method_requires_new_input_evaluation":
+          - paragraph: verified_method_requires_new_input_evaluation
+  - generic "回写回执、节点与适用范围":
+    - generic: keyboard_arrow_right
+    - paragraph: 回写回执、节点与适用范围
+  - paragraph: 仅从当前回执与只读知识库核实；缺失节点不会补写，浏览不会发布。

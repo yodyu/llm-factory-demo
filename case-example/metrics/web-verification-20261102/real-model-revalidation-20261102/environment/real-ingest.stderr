@@ -1,0 +1,35 @@
+Received notification from DBMS server: {severity: WARNING} {code: Neo.ClientNotification.Statement.UnknownPropertyKeyWarning} {category: UNRECOGNIZED} {title: The provided property key is not in the database} {description: One of the property names in your query is not available in the database, make sure you didn't misspell it or that the label is available when you run this statement in your application (the missing property name is: payload)} {position: line: 1, column: 79, offset: 78} for query: 'MATCH (n:MetricsKnowledge {namespace:$ns}) RETURN n.id AS id,n.kind AS kind,n.payload AS payload ORDER BY id'
+Received notification from DBMS server: {severity: WARNING} {code: Neo.ClientNotification.Statement.UnknownPropertyKeyWarning} {category: UNRECOGNIZED} {title: The provided property key is not in the database} {description: One of the property names in your query is not available in the database, make sure you didn't misspell it or that the label is available when you run this statement in your application (the missing property name is: provenance)} {position: line: 2, column: 72, offset: 156} for query: 'MATCH (a:MetricsKnowledge {namespace:$ns})-[r]->(b:MetricsKnowledge {namespace:$ns})\n            RETURN a.id AS source,type(r) AS relation,b.id AS target,r.provenance AS provenance ORDER BY source,relation,target'
+Received notification from DBMS server: {severity: WARNING} {code: Neo.ClientNotification.Statement.UnknownPropertyKeyWarning} {category: UNRECOGNIZED} {title: The provided property key is not in the database} {description: One of the property names in your query is not available in the database, make sure you didn't misspell it or that the label is available when you run this statement in your application (the missing property name is: payload)} {position: line: 1, column: 79, offset: 78} for query: 'MATCH (n:MetricsKnowledge {namespace:$ns}) RETURN n.id AS id,n.kind AS kind,n.payload AS payload ORDER BY id'
+Received notification from DBMS server: {severity: WARNING} {code: Neo.ClientNotification.Statement.UnknownPropertyKeyWarning} {category: UNRECOGNIZED} {title: The provided property key is not in the database} {description: One of the property names in your query is not available in the database, make sure you didn't misspell it or that the label is available when you run this statement in your application (the missing property name is: provenance)} {position: line: 2, column: 72, offset: 156} for query: 'MATCH (a:MetricsKnowledge {namespace:$ns})-[r]->(b:MetricsKnowledge {namespace:$ns})\n            RETURN a.id AS source,type(r) AS relation,b.id AS target,r.provenance AS provenance ORDER BY source,relation,target'
+Received notification from DBMS server: {severity: WARNING} {code: Neo.ClientNotification.Statement.UnknownPropertyKeyWarning} {category: UNRECOGNIZED} {title: The provided property key is not in the database} {description: One of the property names in your query is not available in the database, make sure you didn't misspell it or that the label is available when you run this statement in your application (the missing property name is: payload)} {position: line: 1, column: 75, offset: 74} for query: 'MATCH (n:MetricsKnowledge {namespace:$ns,id:$id}) RETURN n.kind AS kind,n.payload AS payload'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/path/to/llm-factory/real-web-revalidation-20261102/demo/src/factory/__main__.py", line 3, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/path/to/llm-factory/real-web-revalidation-20261102/demo/src/factory/metrics/cli.py", line 113, in main
+    result = asyncio.run(ingest_command(args))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/path/to/llm-factory/real-web-revalidation-20261102/demo/src/factory/metrics/service.py", line 57, in ingest_command
+    result = await ingest(args.root, paths, knowledge, gateway, task_id,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/llm-factory/real-web-revalidation-20261102/demo/src/factory/metrics/knowledge.py", line 323, in ingest
+    result = await gateway.ask(task_id, f"extract-{index}", Extraction,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/llm-factory/real-web-revalidation-20261102/demo/src/factory/metrics/model.py", line 34, in ask
+    result = validate_structured(response.text, schema)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/llm-factory/real-web-revalidation-20261102/demo/src/factory/models/checks.py", line 59, in validate_structured
+    raise ModelCallError(
+factory.models.transport.ModelCallError: MODEL_OUTPUT_INVALID: structured_output_invalid

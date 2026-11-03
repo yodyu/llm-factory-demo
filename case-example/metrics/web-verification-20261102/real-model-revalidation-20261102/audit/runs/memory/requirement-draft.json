@@ -1,0 +1,86 @@
+{
+  "schema_version": "metrics-requirement-draft/1",
+  "turns": [
+    "用模拟数据检测单主机内存利用率缓慢升高，比较固定阈值、滚动 MAD 和 EWMA 三种方法；固定阈值为 70%，EWMA 的 alpha 为 0.2，连续两点异常才报警，优先覆盖持续异常区间，输出代码和验证报告。"
+  ],
+  "binding": "sha256:d79b7f8776dec1f6d2232f2421826a7157fce662ef8e6e51b8adf879f25ad00b",
+  "revision": 1,
+  "values": {
+    "scenario": "memory_drift",
+    "data_source": "simulation",
+    "methods": [
+      "ewma",
+      "fixed_threshold",
+      "rolling_mad"
+    ],
+    "threshold": 70.0,
+    "alpha": 0.2,
+    "persistence_points": 2,
+    "evaluation_objective": "sustained_coverage",
+    "selection_policy": "recall",
+    "direction": "upper"
+  },
+  "evidence": {
+    "scenario": {
+      "origin": "user_explicit",
+      "quote": "用模拟数据检测单主机内存利用率缓慢升高，比较固定阈值、滚动 MAD 和 EWMA 三种方法；固定阈值为 70%，EWMA 的 alpha 为 0.2，连续两点异常才报警，优先覆盖持续异常区间，输出代码和验证报告。",
+      "turn": 1
+    },
+    "data_source": {
+      "origin": "user_explicit",
+      "quote": "模拟",
+      "turn": 1
+    },
+    "methods": {
+      "origin": "user_explicit",
+      "quote": "用模拟数据检测单主机内存利用率缓慢升高，比较固定阈值、滚动 MAD 和 EWMA 三种方法；固定阈值为 70%，EWMA 的 alpha 为 0.2，连续两点异常才报警，优先覆盖持续异常区间，输出代码和验证报告。",
+      "turn": 1
+    },
+    "threshold": {
+      "origin": "user_explicit",
+      "quote": "阈值为 70%",
+      "turn": 1
+    },
+    "alpha": {
+      "origin": "user_explicit",
+      "quote": "alpha 为 0.2",
+      "turn": 1
+    },
+    "persistence_points": {
+      "origin": "user_explicit",
+      "quote": "连续两点",
+      "turn": 1
+    },
+    "evaluation_objective": {
+      "origin": "user_explicit",
+      "quote": "用模拟数据检测单主机内存利用率缓慢升高，比较固定阈值、滚动 MAD 和 EWMA 三种方法；固定阈值为 70%，EWMA 的 alpha 为 0.2，连续两点异常才报警，优先覆盖持续异常区间，输出代码和验证报告。",
+      "turn": 1
+    },
+    "selection_policy": {
+      "origin": "user_explicit",
+      "quote": "优先覆盖持续异常区间",
+      "turn": 1
+    },
+    "direction": {
+      "origin": "user_explicit",
+      "quote": "用模拟数据检测单主机内存利用率缓慢升高，比较固定阈值、滚动 MAD 和 EWMA 三种方法；固定阈值为 70%，EWMA 的 alpha 为 0.2，连续两点异常才报警，优先覆盖持续异常区间，输出代码和验证报告。",
+      "turn": 1
+    }
+  },
+  "issues": [],
+  "defaults": [
+    "模拟数据：每 60 秒一点，独立四段；允许最多前向填补 3 点。"
+  ],
+  "model_mode": "api",
+  "parse_task_id": "understand-f02931632f904eee",
+  "model_usage": {
+    "kind": "api",
+    "requests": 2,
+    "reservations": 2,
+    "input_tokens": 2223,
+    "output_tokens": 378,
+    "total_tokens": 2601,
+    "missing_usage_requests": 0,
+    "notice": "Counts include retries and repairs; tokens are provider-reported only; missing usage is not zero."
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "task_sha256": "sha256:087f5b3dc543d924f2cff038f28e01f218e8efaeb05fb2f798500ebc0d235431",
+  "bindings": {
+    "image_id": "sha256:ec7e3f613d45080c580bed6c83b6404df77b17a7cb72be69bacc80cce954ed31",
+    "knowledge_snapshot": "sha256:ca4dc787dfb4ddb2ca0d384de36d6e6ee0b6659171df9950d1fc19fac404078e",
+    "labels_sha256": "sha256:6a517b2eb58c8139863a5c9439b37bde43e1e4a4b0486a6d1ae94bc395e24be5",
+    "manifest_sha256": "sha256:fa1285126d0d20c64f69aacafd732f851b54b704de045560cea5cfc11374e285"
+  },
+  "selected": "fixed",
+  "plan": {
+    "candidate_id": "fixed",
+    "capability_id": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+    "config": {
+      "direction": "upper",
+      "method_id": "fixed_threshold",
+      "threshold": 85.0
+    },
+    "knowledge_ids": [
+      "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95"
+    ],
+    "limitations": [
+      "controlled example",
+      "业务阈值须由用户确认；未指定值只是候选假设。"
+    ],
+    "parameter_sources": {
+      "direction": "user_explicit",
+      "threshold": "user_explicit"
+    },
+    "persistence_points": 2,
+    "selection_reason": "固定阈值：业务阈值须由用户确认；未指定值只是候选假设。"
+  },
+  "source_path": "candidate-12aff05139e917c8d6fe0daaa3e2191c2ee3434e51a6a5b5f67e001847ebd5aa/v0.py",
+  "source_sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+  "threshold": 0.0,
+  "selection": {
+    "basis": "labelled_development",
+    "beta": 1.0,
+    "criteria": [
+      "event_f1_desc",
+      "point_f1_desc",
+      "false_alarm_rate_asc",
+      "matched_delay_asc",
+      "coverage_desc",
+      "candidate_id"
+    ],
+    "objective": "event_detection",
+    "policy": "balanced",
+    "protocol": "metrics-selection/2",
+    "ranking": [
+      "fixed",
+      "ewma",
+      "mad"
+    ],
+    "reason": "按开发集目标及次级 Fβ、正常误报频次、匹配延迟、覆盖率和候选ID排序；最终测试不参与选择。",
+    "requested_policy": "balanced",
+    "selected": "fixed",
+    "status": "SELECTED",
+    "tie_broken_by": "point_f1",
+    "warnings": [
+      "LOW_EVENT_COUNT: 真实事件少于5个，事件F1不足以支持统计结论。"
+    ]
+  },
+  "protocol": "metrics-evaluation/1",
+  "selection_sha256": "sha256:fe30b7b043af4a06c0613ee98516cd0454cd434a04262c5b5f16cc4572a724b5"
+}

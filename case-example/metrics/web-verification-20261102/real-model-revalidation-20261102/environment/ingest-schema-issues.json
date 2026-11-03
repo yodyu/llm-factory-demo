@@ -1,0 +1,28 @@
+[
+  {
+    "call_id": "ingest-a7c70fdd71834cb1:extract-1:format-0",
+    "issues": [
+      {
+        "loc": [
+          "capabilities",
+          0,
+          "method_id"
+        ],
+        "type": "string_pattern_mismatch"
+      }
+    ]
+  },
+  {
+    "call_id": "ingest-a7c70fdd71834cb1:extract-1:format-1",
+    "issues": [
+      {
+        "loc": [
+          "capabilities",
+          0,
+          "method_id"
+        ],
+        "type": "string_pattern_mismatch"
+      }
+    ]
+  }
+]

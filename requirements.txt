@@ -1,0 +1,2 @@
+# Reproducible application, Web UI and test dependencies.
+-r requirements.lock.txt

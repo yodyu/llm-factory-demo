@@ -1,0 +1,78 @@
+{
+  "description": "Unmodified generated source artifacts for README sections 6–8; copied read-only from completed server tasks. Sources are not executed during documentation verification.",
+  "evidence_summary": "../web-verification-20261102/summary.json",
+  "sources": [
+    {
+      "path": "ui-061bbc0f5eff41d0/fixed-threshold-v0.py",
+      "task_id": "ui-061bbc0f5eff41d0",
+      "candidate_id": "fixed-threshold-70-p2",
+      "version": 0,
+      "origin": "llm_api",
+      "source_sha256": "sha256:525f904a445349804cc5d4a7d8d6111d6af764f1ac0cd05880f219e5ac1965a1",
+      "evidence_scope": "web_case_method_check_3"
+    },
+    {
+      "path": "ui-061bbc0f5eff41d0/rolling-mad-v0.py",
+      "task_id": "ui-061bbc0f5eff41d0",
+      "candidate_id": "rolling-mad-default-p2",
+      "version": 0,
+      "origin": "llm_api",
+      "source_sha256": "sha256:f444e5e98e6b51c522a927fb1baa9490970be7d3c07fc4958f19fb5681d34554",
+      "evidence_scope": "web_case_method_check_3"
+    },
+    {
+      "path": "ui-061bbc0f5eff41d0/ewma-v0.py",
+      "task_id": "ui-061bbc0f5eff41d0",
+      "candidate_id": "ewma-alpha02-p2",
+      "version": 0,
+      "origin": "llm_api",
+      "source_sha256": "sha256:79a8428ef5e388c02ea1c8fc44f10dc710c5a409e7824e6d60f3d5e9c94ac06e",
+      "evidence_scope": "web_case_method_check_3"
+    },
+    {
+      "path": "ui-ac5fa8e7cab64a6d/fixed-threshold-v0.py",
+      "task_id": "ui-ac5fa8e7cab64a6d",
+      "candidate_id": "fixed_threshold_cpu_upper_90_p3",
+      "version": 0,
+      "origin": "llm_api",
+      "source_sha256": "sha256:7d52100586dc9817fc4a6370ffd19276cdc4c12f4ec2a29e5a30b16489ac0131",
+      "evidence_scope": "web_case_method_check_3"
+    },
+    {
+      "path": "ui-8072f05359334d6e/rolling-mad-v0.py",
+      "task_id": "ui-8072f05359334d6e",
+      "candidate_id": "rolling_mad_w30_p2",
+      "version": 0,
+      "origin": "llm_api",
+      "source_sha256": "sha256:3472299b092c4c73da9dc04c82c3a7e20a1a8c0335d0bed3519365566ff69494",
+      "evidence_scope": "web_case_method_check_3"
+    },
+    {
+      "path": "ui-8072f05359334d6e/ewma-v0.py",
+      "task_id": "ui-8072f05359334d6e",
+      "candidate_id": "ewma_alpha0.3_p2",
+      "version": 0,
+      "origin": "llm_api",
+      "source_sha256": "sha256:d2479a2d919da504ca1061fb468814a553fb723cc08a8844edaf505399b23236",
+      "evidence_scope": "web_case_method_check_3"
+    },
+    {
+      "path": "ui-96ad0eca55c14f59/rolling-mad-v0.py",
+      "task_id": "ui-96ad0eca55c14f59",
+      "candidate_id": "rolling_mad_memory_utilization_upper",
+      "version": 0,
+      "origin": "llm_api",
+      "source_sha256": "sha256:d7d2f3087dc15d59f7f5257e3f560facd0fb6f9050a10347a9d776fee1fa6e69",
+      "evidence_scope": "historical_method_check_2"
+    },
+    {
+      "path": "ui-96ad0eca55c14f59/rolling-mad-v1.py",
+      "task_id": "ui-96ad0eca55c14f59",
+      "candidate_id": "rolling_mad_memory_utilization_upper",
+      "version": 1,
+      "origin": "llm_api",
+      "source_sha256": "sha256:c7dccaff8d3c49ad9173bf840389d7b88a4c2d05ae518bb6ed05d4755a1705c6",
+      "evidence_scope": "historical_method_check_2"
+    }
+  ]
+}

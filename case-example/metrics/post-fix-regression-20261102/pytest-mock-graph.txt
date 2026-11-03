@@ -1,0 +1,22 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________ test_repair_is_executed_by_graph_and_evidence_is_digest_bound _________
+
+setup_run = (PosixPath('/tmp/pytest-of-user/pytest-344/test_repair_is_executed_by_gra0/state'), <factory.metrics.runtime.Metri...tory.metrics.knowledge.LegacySQLiteKnowledgeStore object at 0x7fb1872e4b00>, 'llm-factory-metrics-sandbox:latest', ...)
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-344/test_repair_is_executed_by_gra0')
+
+    def test_repair_is_executed_by_graph_and_evidence_is_digest_bound(setup_run, tmp_path):
+        result = launch(setup_run, fault_injection=True)
+        directory = Path(result["directory"])
+        report = json.loads((directory / "report.json").read_text())
+        evidence = json.loads((directory / "orchestration.json").read_text())
+>       assert report["status"] == "COMPLETED"
+E       AssertionError: assert 'FAILED' == 'COMPLETED'
+E         
+E         - COMPLETED
+E         + FAILED
+
+tests/metrics/test_orchestration.py:43: AssertionError
+=========================== short test summary info ============================
+FAILED tests/metrics/test_orchestration.py::test_repair_is_executed_by_graph_and_evidence_is_digest_bound
+1 failed in 0.81s

@@ -1,0 +1,15 @@
+{
+  "publication_id": "publication-ccece27d4f1c5824bbfe654c108d9561cb4c02756da08840a8a3711d7fa37cdb",
+  "node_ids": [
+    "experience-3c400aad5437cbffcfb4c026c178eb8a77e87e62d45cf0f1d19685c28d666b0a",
+    "experience-8994fbe8622595cad805f1388c2ffd8746b76ce1809cdea8020c5866f76a10f4",
+    "experience-a60f01a0506263c577f1c38877dc3dc06c2ad9b3a8b9a3af4ea3679a119ee66b",
+    "implementation-ac68184ae1fefa93ba22087939bba8fab4b711fc1e275d04d44a68fee85ebf3d",
+    "implementation-b730bcc8b9db7ed1b9bf8b6ca69f081f3799d58a18f88dcdad04225aca36d931",
+    "implementation-bd0a98bd6b5896aa07e59cf3d646aec6c5b019db47b35beffd5f8ed39aad6f71",
+    "validation-35c2268bee1d935facc6c11438fab08844e3005c2e07093aa7332270078c8ed8",
+    "validation-7197c5a7661391394d87b13ab2d3205305872beeb138f6a7118f365f5b35b3a8",
+    "validation-c2371112423b96ff339c546b86414239011d1ee0d551eb9586981784d27d6fe7"
+  ],
+  "status": "PUBLISHED"
+}

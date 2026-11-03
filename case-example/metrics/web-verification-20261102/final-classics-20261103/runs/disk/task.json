@@ -1,0 +1,114 @@
+{
+  "acceptance_criteria": {
+    "max_false_alarms_per_hour": null,
+    "min_event_f1": null,
+    "min_event_recall": null
+  },
+  "allowed_methods": [
+    "ewma",
+    "rolling_mad"
+  ],
+  "anomaly_target": "upper",
+  "budgets": {
+    "candidates": 2,
+    "model_calls": 16,
+    "repair_rounds": 2,
+    "wall_seconds": 900
+  },
+  "dataset_id": "sim-disk_peaks-v1",
+  "evaluation_objective": "sustained_coverage",
+  "explicit_constraints": {
+    "alpha": 0.3,
+    "direction": "upper",
+    "persistence_points": 2.0
+  },
+  "knowledge_snapshot": "sha256:18e70f9d7791f976732d864a50889aff1174173183e9c879a6555e276fcf6d1e",
+  "metric": "disk_latency",
+  "model_mode": "api",
+  "model_profile_id": "metrics-c9a0036e73b91ba3",
+  "ranking_preferences": [],
+  "requirement": "用模拟数据检测单主机磁盘 I/O 延迟持续升高，比较 EWMA 和滚动 MAD；EWMA 的 alpha 为 0.3，连续两点异常才报警，尽量减少误报，输出检测代码和验证报告。",
+  "requirement_draft": {
+    "binding": "sha256:78f7d9214ddcadf10fd4f0cb8caf25071cb16e1b16c1bdff3037375d800968e3",
+    "defaults": [
+      "模拟数据：每 60 秒一点，独立四段；允许最多前向填补 3 点。"
+    ],
+    "evidence": {
+      "alpha": {
+        "origin": "user_explicit",
+        "quote": "alpha 为 0.3",
+        "turn": 1
+      },
+      "data_source": {
+        "origin": "user_explicit",
+        "quote": "模拟",
+        "turn": 1
+      },
+      "direction": {
+        "origin": "user_explicit",
+        "quote": "用模拟数据检测单主机磁盘 I/O 延迟持续升高，比较 EWMA 和滚动 MAD；EWMA 的 alpha 为 0.3，连续两点异常才报警，尽量减少误报，输出检测代码和验证报告。",
+        "turn": 1
+      },
+      "evaluation_objective": {
+        "origin": "user_explicit",
+        "quote": "用模拟数据检测单主机磁盘 I/O 延迟持续升高，比较 EWMA 和滚动 MAD；EWMA 的 alpha 为 0.3，连续两点异常才报警，尽量减少误报，输出检测代码和验证报告。",
+        "turn": 1
+      },
+      "methods": {
+        "origin": "user_explicit",
+        "quote": "用模拟数据检测单主机磁盘 I/O 延迟持续升高，比较 EWMA 和滚动 MAD；EWMA 的 alpha 为 0.3，连续两点异常才报警，尽量减少误报，输出检测代码和验证报告。",
+        "turn": 1
+      },
+      "persistence_points": {
+        "origin": "user_explicit",
+        "quote": "连续两点",
+        "turn": 1
+      },
+      "scenario": {
+        "origin": "user_explicit",
+        "quote": "用模拟数据检测单主机磁盘 I/O 延迟持续升高，比较 EWMA 和滚动 MAD；EWMA 的 alpha 为 0.3，连续两点异常才报警，尽量减少误报，输出检测代码和验证报告。",
+        "turn": 1
+      },
+      "selection_policy": {
+        "origin": "user_explicit",
+        "quote": "用模拟数据检测单主机磁盘 I/O 延迟持续升高，比较 EWMA 和滚动 MAD；EWMA 的 alpha 为 0.3，连续两点异常才报警，尽量减少误报，输出检测代码和验证报告。",
+        "turn": 1
+      }
+    },
+    "issues": [],
+    "model_mode": "api",
+    "model_usage": {
+      "input_tokens": 986,
+      "kind": "api",
+      "missing_usage_requests": 0,
+      "notice": "Counts include retries and repairs; tokens are provider-reported only; missing usage is not zero.",
+      "output_tokens": 150,
+      "requests": 1,
+      "reservations": 1,
+      "total_tokens": 1136
+    },
+    "parse_task_id": "understand-4008afee537a4e6d",
+    "revision": 1,
+    "schema_version": "metrics-requirement-draft/1",
+    "turns": [
+      "用模拟数据检测单主机磁盘 I/O 延迟持续升高，比较 EWMA 和滚动 MAD；EWMA 的 alpha 为 0.3，连续两点异常才报警，尽量减少误报，输出检测代码和验证报告。"
+    ],
+    "values": {
+      "alpha": 0.3,
+      "data_source": "simulation",
+      "direction": "upper",
+      "evaluation_objective": "sustained_coverage",
+      "methods": [
+        "ewma",
+        "rolling_mad"
+      ],
+      "persistence_points": 2,
+      "scenario": "disk_peaks",
+      "selection_policy": "precision"
+    }
+  },
+  "schema_version": "metrics-task/1",
+  "selection_policy": "precision",
+  "task_id": "ui-1a5c876ccd124f53",
+  "validation_protocol": "metrics-evaluation/1"
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "metrics-requirement-draft/1",
+  "turns": [
+    "用模拟数据检测单主机内存利用率持续升高，比较全部方法，阈值85%，连续两点告警，输出代码和验证报告。"
+  ],
+  "binding": "sha256:8ac834b876fa44212cc42761057061fa9a85160858d8441e6955acabe8a17133",
+  "revision": 2,
+  "values": {
+    "scenario": "memory_shift",
+    "data_source": "simulation",
+    "methods": [
+      "ewma",
+      "fixed_threshold",
+      "rolling_mad",
+      "threshold_probe"
+    ],
+    "threshold": 85.0,
+    "persistence_points": 2,
+    "evaluation_objective": "sustained_coverage",
+    "direction": "upper",
+    "selection_policy": "balanced"
+  },
+  "evidence": {
+    "scenario": {
+      "origin": "user_explicit",
+      "quote": "用模拟数据检测单主机内存利用率持续升高，比较全部方法，阈值85%，连续两点告警，输出代码和验证报告。",
+      "turn": 1
+    },
+    "data_source": {
+      "origin": "user_explicit",
+      "quote": "模拟",
+      "turn": 1
+    },
+    "methods": {
+      "origin": "user_explicit",
+      "quote": "用模拟数据检测单主机内存利用率持续升高，比较全部方法，阈值85%，连续两点告警，输出代码和验证报告。",
+      "turn": 1
+    },
+    "threshold": {
+      "origin": "user_explicit",
+      "quote": "阈值85%",
+      "turn": 1
+    },
+    "persistence_points": {
+      "origin": "user_explicit",
+      "quote": "连续两点",
+      "turn": 1
+    },
+    "evaluation_objective": {
+      "origin": "user_explicit",
+      "quote": "用模拟数据检测单主机内存利用率持续升高，比较全部方法，阈值85%，连续两点告警，输出代码和验证报告。",
+      "turn": 1
+    },
+    "direction": {
+      "origin": "user_explicit",
+      "quote": "用模拟数据检测单主机内存利用率持续升高，比较全部方法，阈值85%，连续两点告警，输出代码和验证报告。",
+      "turn": 1
+    },
+    "selection_policy": {
+      "origin": "protocol_default",
+      "quote": "协议默认值",
+      "turn": 0
+    }
+  },
+  "issues": [],
+  "defaults": [
+    "选优偏好：balanced",
+    "模拟数据：每 60 秒一点，独立四段；允许最多前向填补 3 点。",
+    "未明确变化形态：CPU默认突增、内存默认阶跃模拟场景；模拟结果不代表生产效果。"
+  ],
+  "model_mode": "api",
+  "parse_task_id": "understand-f08c36f47ec5497c",
+  "model_usage": {
+    "kind": "api",
+    "requests": 1,
+    "reservations": 1,
+    "input_tokens": 970,
+    "output_tokens": 112,
+    "total_tokens": 1082,
+    "missing_usage_requests": 0,
+    "notice": "Counts include retries and repairs; tokens are provider-reported only; missing usage is not zero."
+  }
+}

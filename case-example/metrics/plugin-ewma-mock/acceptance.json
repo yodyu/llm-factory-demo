@@ -1,0 +1,20 @@
+{
+  "origin": "mock",
+  "real_model_requests": 0,
+  "status": "PASSED",
+  "task": "比较固定阈值、滚动MAD和EWMA检测模拟内存持续升高，固定阈值85%，连续两点告警",
+  "candidates": [
+    "ewma",
+    "fixed_threshold",
+    "rolling_mad"
+  ],
+  "generation_protocol": "capability-generation/2",
+  "publication": "PUBLISHED",
+  "all_reference_verified": true,
+  "new_plugin_commit_changes_src": false,
+  "limitations": [
+    "expert references copied by mock",
+    "synthetic data and low event count",
+    "real API not verified"
+  ]
+}

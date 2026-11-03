@@ -1,0 +1,7 @@
+{
+  "status": "PASSED",
+  "namespace": "p1-ewma-audit",
+  "ewma_implementation_validation_paths": 1,
+  "origin": "mock",
+  "real_model_requests": 0
+}

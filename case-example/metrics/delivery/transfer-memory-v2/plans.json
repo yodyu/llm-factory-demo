@@ -1,0 +1,74 @@
+{
+  "supported": true,
+  "understanding": "针对单主机 gauge 型内存利用率（percent，60秒采样）规划两个仅用于持续上偏检测的候选：用户明确指定的85 percent固定上界，以及滚动MAD相对历史基线检测。两者均采用连续2点满足异常条件后才形成告警；评估阶段需分别报告误报、覆盖率和发现延迟，不做根因定位。缺失时间槽保留，允许最多连续3点向前填充；历史不足或缺失超限不把缺失当作正常。",
+  "anomaly_target": "upper",
+  "limitations": [
+    "固定阈值85 percent是用户明确配置，不代表故障根因或业务达标保证；训练历史最大值48.404101 percent远低于该阈值，因此固定阈值可能对低基线主机的持续相对升高覆盖率较低。",
+    "正常业务高峰可能与异常内存利用率区间重叠，两种方法都只给出异常分数/告警，不能定位根因。",
+    "滚动MAD可能在周期模式下误报，缓慢持续升高可能被滚动窗口吸收，从而延迟发现或漏报。",
+    "滚动MAD前15个真实观测之前返回insufficient_history；该阶段不应计入有效覆盖结论，需在评估中单独说明。",
+    "短暂缺失仅允许最多连续3点向前填充；超过3点或无可用历史时为missing_input，不能删除时间槽或作为正常点。"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "memory_utilization_fixed_upper_85_p2",
+      "config": {
+        "method_id": "fixed_threshold",
+        "threshold": 85.0,
+        "direction": "upper"
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "threshold": "user_explicit",
+        "direction": "user_explicit",
+        "persistence_points": "user_explicit"
+      },
+      "knowledge_ids": [
+        "capability-2f9b9c51210dd4b46886b148774a4cc017e5d07556179c5a93de016cb324a285",
+        "capability-ff2da84a0b44f7f1063cae4146983682f938c59bb8e3c600125a53757d206a3b",
+        "capability-106fc5025f92d2dfec9698b99161e17a6e35a65509b48320d43e5828858adb0f",
+        "chunk-b65a19c4f2a26deb5a0d6d8a588af6f29a3b5bb2b4931befdfdbcb31083a7e13",
+        "chunk-2843fb878551f6a5bc7ff28064829f9bf3f6966c84efaf7e5f9cc057d04ef24f",
+        "chunk-9fdc4618934c65208b705044487750899a698cf00f1e25e52554832504313804"
+      ],
+      "limitations": [
+        "仅当value>85时分数为正；value=85不触发单点异常。",
+        "该绝对阈值可能漏掉未达到85 percent但相对历史持续升高的内存异常。",
+        "正常业务高峰超过85 percent时可能产生误报；检测器不判定根因。"
+      ]
+    },
+    {
+      "candidate_id": "memory_utilization_rolling_mad_upper_w30_h15_q99_p2",
+      "config": {
+        "method_id": "rolling_mad",
+        "window": 30,
+        "min_history": 15,
+        "direction": "upper",
+        "quantile": 0.99
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "window": "protocol_default",
+        "min_history": "protocol_default",
+        "direction": "user_explicit",
+        "quantile": "protocol_default",
+        "persistence_points": "user_explicit",
+        "scale_floor": "knowledge:capability-495442200c109b16b45d3bfb8ff7eba7746d1cce28b0631e0893d13cb60e39e9"
+      },
+      "knowledge_ids": [
+        "capability-495442200c109b16b45d3bfb8ff7eba7746d1cce28b0631e0893d13cb60e39e9",
+        "capability-106fc5025f92d2dfec9698b99161e17a6e35a65509b48320d43e5828858adb0f",
+        "capability-ba2670c5ca166ee2f6458d8f8bf37cf3adb2ce63c28bdba06d15d10137a86c42",
+        "chunk-1011e52512074bc8dc412d864d260ab286e30fe8b03606cef419f11535cd65b1",
+        "chunk-61b0a6434b7535057ffdd2e5fa6ae0a7d4788f020e8973b19c650ee48614a369",
+        "chunk-b65a19c4f2a26deb5a0d6d8a588af6f29a3b5bb2b4931befdfdbcb31083a7e13"
+      ],
+      "limitations": [
+        "使用当前点之前最多30个时间槽计算中位数和MAD；真实观测少于15个时为insufficient_history，不输出异常分数。",
+        "0.99分位判定阈值需用至少100个可判断校准分数按nearest-rank估计；当前训练样本数量足够，但仍需在新数据上重新校准验证。",
+        "持续缓慢升高可能逐步进入滚动基线而被吸收，造成发现延迟或漏报；周期性波动可能导致误报。",
+        "短缺失插补值可用于统计但不增加真实历史数，连续缺失超过3点必须返回missing_input。"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,285 @@
+FFFFF.......FF                                                           [100%]
+=================================== FAILURES ===================================
+_____ test_nested_feedback_identifies_method_instead_of_only_capabilities ______
+
+tmp_path = PosixPath('/tmp/pytest-of-youwenyu/pytest-354/test_nested_feedback_identifie0')
+
+    def test_nested_feedback_identifies_method_instead_of_only_capabilities(tmp_path):
+        from factory.metrics.knowledge import import_material
+        (tmp_path / 'a.txt').write_text('单主机 gauge')
+        source, chunks = import_material(tmp_path, 'a.txt')
+        value = extracted(source, chunks).model_dump(mode='json')
+        value['capabilities'][0]['method_id'] = 'metrics-py312-stdlib/1'
+        with pytest.raises(ModelCallError) as caught:
+            validate_structured(json.dumps(value), Extraction)
+>       assert caught.value.validation_issues == [{
+            'field': 'capabilities', 'path': 'capabilities[0].method_id',
+            'type': 'string_pattern_mismatch',
+        }]
+E       AssertionError: assert [{'field': 'c...rn_mismatch'}] == [{'field': 'c...rn_mismatch'}]
+E         
+E         At index 0 diff: {'field': 'capabilities', 'type': 'string_pattern_mismatch'} != {'field': 'capabilities', 'path': 'capabilities[0].method_id', 'type': 'string_pattern_mismatch'}
+E         Use -v to get more diff
+
+tests/models/test_structured_feedback.py:20: AssertionError
+_________ test_feedback_never_echoes_unknown_property_names_or_values __________
+
+    def test_feedback_never_echoes_unknown_property_names_or_values():
+        class Child(BaseModel):
+            model_config = ConfigDict(extra='forbid', strict=True)
+            count: int
+    
+        class Parent(BaseModel):
+            children: list[Child]
+    
+        with pytest.raises(ModelCallError) as caught:
+            validate_structured('{"children":[{"count":"password=private", "secret_key":1}]}', Parent)
+        issues = caught.value.validation_issues
+>       assert issues[0]['path'] == 'children[0].count'
+               ^^^^^^^^^^^^^^^^^
+E       KeyError: 'path'
+
+tests/models/test_structured_feedback.py:38: KeyError
+_ test_partial_spec_feedback_names_missing_fields_and_correction_explains_fallback _
+
+tmp_path = PosixPath('/tmp/pytest-of-youwenyu/pytest-354/test_partial_spec_feedback_nam0')
+
+    def test_partial_spec_feedback_names_missing_fields_and_correction_explains_fallback(tmp_path):
+        (tmp_path / 'a.txt').write_text('只有算法公式，没有完整版本和输入输出定义。')
+        source, chunks = import_material(tmp_path, 'a.txt')
+        partial = extracted(source, chunks, algorithm_spec='只有算法公式')
+        with pytest.raises(EvidenceError) as caught:
+            checked_extraction(source, chunks, partial, origin='llm_api', response_evidence={})
+>       assert 'version' in caught.value.feedback['missing_values']
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'missing_values'
+
+tests/metrics/test_ingest_regressions.py:42: KeyError
+_ test_invalid_structured_source_is_recorded_and_next_material_still_runs[False] _
+
+tmp_path = PosixPath('/tmp/pytest-of-youwenyu/pytest-354/test_invalid_structured_source0')
+during_correction = False
+
+    @pytest.mark.parametrize('during_correction', [False, True])
+    def test_invalid_structured_source_is_recorded_and_next_material_still_runs(tmp_path, during_correction):
+        for path in ('a.txt', 'b.txt'):
+            (tmp_path / path).write_text('单主机 gauge：' + path)
+        source, chunks = import_material(tmp_path, 'a.txt')
+        next_source, next_chunks = import_material(tmp_path, 'b.txt')
+        error = ModelCallError(ErrorCode.MODEL_OUTPUT_INVALID, 'structured_output_invalid',
+                              validation_issues=[{'field': 'capabilities', 'type': 'string_pattern_mismatch'}])
+        outputs = ([extracted(source, chunks, algorithm_spec='partial')] if during_correction else [])
+        gateway = Gateway([*outputs, error, extracted(next_source, next_chunks)])
+        store = LocalKnowledgeStore(tmp_path / 'knowledge.sqlite')
+>       result = asyncio.run(ingest(tmp_path, ['a.txt', 'b.txt'], store, gateway, 'ingest-test', origin='llm_api'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/metrics/test_ingest_regressions.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/asyncio/runners.py:195: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/asyncio/runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/asyncio/base_events.py:691: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+src/factory/metrics/knowledge.py:323: in ingest
+    result = await gateway.ask(task_id, f"extract-{index}", Extraction,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <metrics.test_ingest_regressions.Gateway object at 0x7f44acb8b980>
+args = ('ingest-test', 'extract-0', <class 'contracts.metrics_knowledge.Extraction'>, {'source': {'id': 'source-fe6554bb36a6d...不能从常识补公式。引用逐字来自chunk并保留chunk_id；Python 符号只能引用给定 AST 符号。不能把来源校验说成实现已验证。不确定条件填 unknown，不要猜测。一般数据或评价规范可用 method_id=null。')
+
+    async def ask(self, *args):
+        self.calls.append(args)
+        result = next(self.outputs)
+        if isinstance(result, Exception):
+>           raise result
+E           factory.models.transport.ModelCallError: MODEL_OUTPUT_INVALID: structured_output_invalid
+
+tests/metrics/test_ingest_regressions.py:32: ModelCallError
+_ test_invalid_structured_source_is_recorded_and_next_material_still_runs[True] _
+
+root = PosixPath('/tmp/pytest-of-youwenyu/pytest-354/test_invalid_structured_source1')
+paths = ['a.txt', 'b.txt']
+knowledge = <factory.metrics.local_store.LocalKnowledgeStore object at 0x7f44ac407980>
+gateway = <metrics.test_ingest_regressions.Gateway object at 0x7f44ac405f40>
+task_id = 'ingest-test', origin = 'llm_api'
+
+    async def ingest(root, paths, knowledge, gateway, task_id, *, origin):
+        # A source chunk is a content identity, independent of the extraction task.
+        # Re-extraction creates new capability evidence while retaining existing immutable
+        # material edges and explicitly disclosing their original provenance.
+        existing = knowledge.snapshot()
+        material_edges = {(r["source"], r["target"]): r for r in existing["relations"]
+                          if r["relation"] == "DERIVED_FROM"}
+        results = []
+        for index, relative in enumerate(paths):
+            source, chunks = import_material(root, relative)
+            result = await gateway.ask(task_id, f"extract-{index}", Extraction,
+                     {"source": source, "chunks": chunks},
+                     "metrics-extraction/2：从本次材料抽取能力及约束。版本、任务类型、输入输出JSON Schema、参数、算法规格、评价指标、方向必须逐字段在field_evidence提供原文引用；资料不全时新增字段全部为null，不能从常识补公式。引用逐字来自chunk并保留chunk_id；"
+                     "Python 符号只能引用给定 AST 符号。不能把来源校验说成实现已验证。"
+                     "不确定条件填 unknown，不要猜测。一般数据或评价规范可用 method_id=null。")
+            stage = f"extract-{index}"
+            for check_attempt in range(2):
+                evidence = {"task_id": task_id, "stage": stage, "prompt_version": gateway.prompt_version, "extraction_protocol": "metrics-extraction/2"}
+                try:
+>                   nodes, relations = checked_extraction(source, chunks, result, origin=origin, response_evidence=evidence)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src/factory/metrics/knowledge.py:332: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+source = {'id': 'source-fe6554bb36a6d26b4204d8853dde7cab91a09e5a86f0bf934d6b8fa3b2c766b7', 'kind': 'Source', 'payload': {'path'...082e234004f24245d25efb56558b04874b5a296bcee3431e571b5', 'material_type': 'txt', 'origin': 'constructed_material', ...}}
+chunks = [{'id': 'chunk-2a735a38865cd44a66c91a439df781d14d038dec3b12f89d0b0bd0b6e8af9dbc', 'kind': 'Chunk', 'payload': {'source...26b4204d8853dde7cab91a09e5a86f0bf934d6b8fa3b2c766b7', 'start_line': 1, 'end_line': 1, 'text': '单主机 gauge：a.txt', ...}}]
+extraction = Extraction(capabilities=[ExtractedCapability(local_id='cap', name='test', method_id='rolling_mad', summary='MAD', metr...thm_spec='partial', evaluation_metrics=None, supported_directions=None, verification_level=None, field_evidence=None)])
+origin = 'llm_api'
+response_evidence = {'task_id': 'ingest-test', 'stage': 'extract-0', 'prompt_version': 'regression', 'extraction_protocol': 'metrics-extraction/2'}
+
+    def checked_extraction(source, chunks, extraction, *, origin, response_evidence):
+        from execution.metrics_runner import IMPORTS
+        by_id = {chunk["id"]: chunk for chunk in chunks}
+        symbol_names = {name for symbol in source["payload"]["symbols"] for name in (symbol["name"], symbol["qualified_name"])}
+        nodes, relations = [source, *chunks], []
+        unsupported = [name for name in source["payload"]["imports"] if name.split(".")[0] not in IMPORTS]
+        for chunk in chunks:
+            relations.append({"source": chunk["id"], "relation": "DERIVED_FROM", "target": source["id"], "provenance": response_evidence})
+        for cap_index, capability in enumerate(extraction.capabilities):
+            if capability.verification_level not in (None, 'contract_only'):
+                raise EvidenceError({'code': 'UNSUPPORTED_IMPLEMENTATION_CLAIM',
+                                     'expected': 'implementation verification requires a ValidationRun'})
+            if capability.algorithm_spec:
+                required = {'version', 'task_type', 'inputs', 'outputs', 'parameters', 'algorithm_spec',
+                            'evaluation_metrics', 'supported_directions'}
+                evidence = capability.field_evidence or {}
+                if not required <= set(evidence) or not all(getattr(capability, k) for k in required):
+>                   raise EvidenceError({'code': 'MISSING_FIELD_EVIDENCE', 'expected': sorted(required)})
+E                   factory.metrics.knowledge.EvidenceError: MISSING_FIELD_EVIDENCE
+
+src/factory/metrics/knowledge.py:276: EvidenceError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/tmp/pytest-of-youwenyu/pytest-354/test_invalid_structured_source1')
+during_correction = True
+
+    @pytest.mark.parametrize('during_correction', [False, True])
+    def test_invalid_structured_source_is_recorded_and_next_material_still_runs(tmp_path, during_correction):
+        for path in ('a.txt', 'b.txt'):
+            (tmp_path / path).write_text('单主机 gauge：' + path)
+        source, chunks = import_material(tmp_path, 'a.txt')
+        next_source, next_chunks = import_material(tmp_path, 'b.txt')
+        error = ModelCallError(ErrorCode.MODEL_OUTPUT_INVALID, 'structured_output_invalid',
+                              validation_issues=[{'field': 'capabilities', 'type': 'string_pattern_mismatch'}])
+        outputs = ([extracted(source, chunks, algorithm_spec='partial')] if during_correction else [])
+        gateway = Gateway([*outputs, error, extracted(next_source, next_chunks)])
+        store = LocalKnowledgeStore(tmp_path / 'knowledge.sqlite')
+>       result = asyncio.run(ingest(tmp_path, ['a.txt', 'b.txt'], store, gateway, 'ingest-test', origin='llm_api'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/metrics/test_ingest_regressions.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/asyncio/runners.py:195: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/asyncio/runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.12/asyncio/base_events.py:691: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+src/factory/metrics/knowledge.py:352: in ingest
+    result = await gateway.ask(task_id, stage, Extraction,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <metrics.test_ingest_regressions.Gateway object at 0x7f44ac405f40>
+args = ('ingest-test', 'extract-0-citation-fix', <class 'contracts.metrics_knowledge.Extraction'>, {'source': {'id': 'source-...ons', ...]}}, '仅修正本材料抽取的具体引用差异。quote必须是给定chunk的逐字连续子串，保留空格，不用省略号；symbol必须来自给定AST符号或为null。不得将能力标为已验证。返回完整Extraction实例。')
+
+    async def ask(self, *args):
+        self.calls.append(args)
+        result = next(self.outputs)
+        if isinstance(result, Exception):
+>           raise result
+E           factory.models.transport.ModelCallError: MODEL_OUTPUT_INVALID: structured_output_invalid
+
+tests/metrics/test_ingest_regressions.py:32: ModelCallError
+_ test_all_methods_without_names_includes_new_nondefault_plugin[\u6bd4\u8f83\u5168\u90e8\u65b9\u6cd5] _
+
+tmp_path = PosixPath('/tmp/pytest-of-youwenyu/pytest-354/test_all_methods_without_names0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f44ac448fe0>
+wording = '比较全部方法'
+
+    @pytest.mark.parametrize('wording', ['比较全部方法', '比较所有方法'])
+    def test_all_methods_without_names_includes_new_nondefault_plugin(tmp_path, monkeypatch, wording):
+        import json
+        import shutil
+        from pathlib import Path
+        from factory.metrics.capability_registry import methods
+        from factory.metrics.requirements import build_draft, controlled_extract, binding_for, request_from_draft
+        root = Path(__file__).resolve().parents[2]
+        plugins = tmp_path / 'plugins'
+        shutil.copytree(root / 'capabilities', plugins)
+        shutil.copytree(plugins / 'fixed_threshold', plugins / 'probe')
+        path = plugins / 'probe/capability.json'
+        card = json.loads(path.read_text())
+        card.update(method_id='probe', aliases=['探针'], default_candidate=False)
+        path.write_text(json.dumps(card, ensure_ascii=False))
+        monkeypatch.setenv('FACTORY_CAPABILITIES_DIRECTORY', str(plugins))
+        text = '用模拟数据检测内存持续升高，' + wording
+        draft = build_draft([text], [controlled_extract(text)], binding=binding_for([text]))
+        request = request_from_draft(draft, current_binding=draft.binding)
+>       assert set(request.allowed_methods) == set(methods()) == {'fixed_threshold', 'rolling_mad', 'ewma', 'probe'}
+E       AssertionError: assert {'fixed_thres...'rolling_mad'} == {'ewma', 'fix...'rolling_mad'}
+E         
+E         Extra items in the right set:
+E         'ewma'
+E         'probe'
+E         Use -v to get more diff
+
+tests/metrics/test_plugin_generation.py:150: AssertionError
+_ test_all_methods_without_names_includes_new_nondefault_plugin[\u6bd4\u8f83\u6240\u6709\u65b9\u6cd5] _
+
+tmp_path = PosixPath('/tmp/pytest-of-youwenyu/pytest-354/test_all_methods_without_names1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f44ac4893d0>
+wording = '比较所有方法'
+
+    @pytest.mark.parametrize('wording', ['比较全部方法', '比较所有方法'])
+    def test_all_methods_without_names_includes_new_nondefault_plugin(tmp_path, monkeypatch, wording):
+        import json
+        import shutil
+        from pathlib import Path
+        from factory.metrics.capability_registry import methods
+        from factory.metrics.requirements import build_draft, controlled_extract, binding_for, request_from_draft
+        root = Path(__file__).resolve().parents[2]
+        plugins = tmp_path / 'plugins'
+        shutil.copytree(root / 'capabilities', plugins)
+        shutil.copytree(plugins / 'fixed_threshold', plugins / 'probe')
+        path = plugins / 'probe/capability.json'
+        card = json.loads(path.read_text())
+        card.update(method_id='probe', aliases=['探针'], default_candidate=False)
+        path.write_text(json.dumps(card, ensure_ascii=False))
+        monkeypatch.setenv('FACTORY_CAPABILITIES_DIRECTORY', str(plugins))
+        text = '用模拟数据检测内存持续升高，' + wording
+        draft = build_draft([text], [controlled_extract(text)], binding=binding_for([text]))
+        request = request_from_draft(draft, current_binding=draft.binding)
+>       assert set(request.allowed_methods) == set(methods()) == {'fixed_threshold', 'rolling_mad', 'ewma', 'probe'}
+E       AssertionError: assert {'fixed_thres...'rolling_mad'} == {'ewma', 'fix...'rolling_mad'}
+E         
+E         Extra items in the right set:
+E         'ewma'
+E         'probe'
+E         Use -v to get more diff
+
+tests/metrics/test_plugin_generation.py:150: AssertionError
+=========================== short test summary info ============================
+FAILED tests/models/test_structured_feedback.py::test_nested_feedback_identifies_method_instead_of_only_capabilities
+FAILED tests/models/test_structured_feedback.py::test_feedback_never_echoes_unknown_property_names_or_values
+FAILED tests/metrics/test_ingest_regressions.py::test_partial_spec_feedback_names_missing_fields_and_correction_explains_fallback
+FAILED tests/metrics/test_ingest_regressions.py::test_invalid_structured_source_is_recorded_and_next_material_still_runs[False]
+FAILED tests/metrics/test_ingest_regressions.py::test_invalid_structured_source_is_recorded_and_next_material_still_runs[True]
+FAILED tests/metrics/test_plugin_generation.py::test_all_methods_without_names_includes_new_nondefault_plugin[\u6bd4\u8f83\u5168\u90e8\u65b9\u6cd5]
+FAILED tests/metrics/test_plugin_generation.py::test_all_methods_without_names_includes_new_nondefault_plugin[\u6bd4\u8f83\u6240\u6709\u65b9\u6cd5]
+7 failed, 7 passed in 0.91s

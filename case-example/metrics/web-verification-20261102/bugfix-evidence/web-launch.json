@@ -1,0 +1,8 @@
+{
+  "old_web_pid_stopped": 3759200,
+  "new_web_pid": 3798525,
+  "port": 18503,
+  "new_namespace": "bugfix-revalidation-20261103",
+  "test_plugin": "threshold_probe",
+  "production_service_unchanged": true
+}

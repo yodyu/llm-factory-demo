@@ -1,0 +1,191 @@
+{
+  "source_baseline": "final-classic-source-archive",
+  "browser": "in-app browser",
+  "screenshots": [
+    {
+      "file": "02-cpu-confirmation.jpg",
+      "url": "http://127.0.0.1:18503/",
+      "captured_at": "2026-11-03T02:54:44.655Z"
+    },
+    {
+      "file": "03-cpu-running.jpg",
+      "url": "http://127.0.0.1:18503/",
+      "captured_at": "2026-11-03T02:55:01.940Z"
+    },
+    {
+      "file": "04-repair-confirmation.jpg",
+      "url": "http://127.0.0.1:18504/",
+      "captured_at": "2026-11-03T02:55:02.827Z"
+    },
+    {
+      "file": "05-repair-running.jpg",
+      "url": "http://127.0.0.1:18504/",
+      "captured_at": "2026-11-03T02:55:43.668Z"
+    },
+    {
+      "file": "06-memory-parameters.jpg",
+      "url": "http://127.0.0.1:18503/",
+      "captured_at": "2026-11-03T02:56:01.348Z"
+    },
+    {
+      "file": "07-memory-confirmation.jpg",
+      "url": "http://127.0.0.1:18503/",
+      "captured_at": "2026-11-03T02:56:01.972Z"
+    },
+    {
+      "file": "08-memory-running.jpg",
+      "url": "http://127.0.0.1:18503/",
+      "captured_at": "2026-11-03T02:56:21.858Z"
+    },
+    {
+      "file": "09-cpu-result.jpg",
+      "url": "http://127.0.0.1:18503/",
+      "captured_at": "2026-11-03T02:57:01.490Z"
+    },
+    {
+      "file": "10-cpu-validation.jpg",
+      "url": "http://127.0.0.1:18503/",
+      "captured_at": "2026-11-03T02:57:25.182Z"
+    },
+    {
+      "file": "11-repair-result.jpg",
+      "url": "http://127.0.0.1:18504/",
+      "captured_at": "2026-11-03T02:57:25.322Z"
+    },
+    {
+      "file": "12-repair-v0-failure.jpg",
+      "url": "http://127.0.0.1:18504/",
+      "captured_at": "2026-11-03T02:57:35.928Z"
+    },
+    {
+      "file": "13-cpu-knowledge.jpg",
+      "url": "http://127.0.0.1:18503/",
+      "captured_at": "2026-11-03T02:57:56.120Z"
+    },
+    {
+      "file": "14-cpu-publication.jpg",
+      "url": "http://127.0.0.1:18503/",
+      "captured_at": "2026-11-03T02:57:56.296Z"
+    },
+    {
+      "file": "15-repair-failed-check.jpg",
+      "url": "http://127.0.0.1:18504/",
+      "captured_at": "2026-11-03T02:57:56.531Z"
+    },
+    {
+      "file": "16-repair-v1-parent.jpg",
+      "url": "http://127.0.0.1:18504/",
+      "captured_at": "2026-11-03T02:58:12.913Z"
+    },
+    {
+      "file": "17-repair-publication.jpg",
+      "url": "http://127.0.0.1:18504/",
+      "captured_at": "2026-11-03T02:58:41.245Z"
+    },
+    {
+      "file": "18-repair-usage.jpg",
+      "url": "http://127.0.0.1:18504/",
+      "captured_at": "2026-11-03T02:59:12.144Z"
+    },
+    {
+      "file": "19-disk-parameters.jpg",
+      "url": "http://127.0.0.1:18503/",
+      "captured_at": "2026-11-03T03:00:00.393Z"
+    },
+    {
+      "file": "20-disk-confirmation.jpg",
+      "url": "http://127.0.0.1:18503/",
+      "captured_at": "2026-11-03T03:00:01.013Z"
+    },
+    {
+      "file": "21-memory-knowledge.jpg",
+      "url": "http://127.0.0.1:18504/",
+      "captured_at": "2026-11-03T03:00:15.879Z"
+    },
+    {
+      "file": "22-memory-publication.jpg",
+      "url": "http://127.0.0.1:18504/",
+      "captured_at": "2026-11-03T03:00:16.029Z"
+    },
+    {
+      "file": "23-memory-result.jpg",
+      "url": "http://127.0.0.1:18504/",
+      "captured_at": "2026-11-03T03:00:26.468Z"
+    },
+    {
+      "file": "24-memory-comparison.jpg",
+      "url": "http://127.0.0.1:18504/",
+      "captured_at": "2026-11-03T03:00:26.609Z"
+    },
+    {
+      "file": "25-disk-running.jpg",
+      "url": "http://127.0.0.1:18503/",
+      "captured_at": "2026-11-03T03:00:38.676Z"
+    },
+    {
+      "file": "26-memory-validation.jpg",
+      "url": "http://127.0.0.1:18504/",
+      "captured_at": "2026-11-03T03:00:49.334Z"
+    },
+    {
+      "file": "27-memory-ewma-checks.jpg",
+      "url": "http://127.0.0.1:18504/",
+      "captured_at": "2026-11-03T03:00:49.752Z"
+    },
+    {
+      "file": "28-disk-result.jpg",
+      "url": "http://127.0.0.1:18503/",
+      "captured_at": "2026-11-03T03:04:05.679Z"
+    },
+    {
+      "file": "29-disk-comparison.jpg",
+      "url": "http://127.0.0.1:18503/",
+      "captured_at": "2026-11-03T03:04:05.859Z"
+    },
+    {
+      "file": "30-disk-validation.jpg",
+      "url": "http://127.0.0.1:18503/",
+      "captured_at": "2026-11-03T03:04:16.599Z"
+    },
+    {
+      "file": "31-disk-knowledge.jpg",
+      "url": "http://127.0.0.1:18503/",
+      "captured_at": "2026-11-03T03:04:31.993Z"
+    },
+    {
+      "file": "32-disk-experience-ids.jpg",
+      "url": "http://127.0.0.1:18503/",
+      "captured_at": "2026-11-03T03:04:32.632Z"
+    },
+    {
+      "file": "33-disk-publication.jpg",
+      "url": "http://127.0.0.1:18503/",
+      "captured_at": "2026-11-03T03:04:50.598Z"
+    },
+    {
+      "file": "34-disk-usage.jpg",
+      "url": "http://127.0.0.1:18503/",
+      "captured_at": "2026-11-03T03:05:11.432Z"
+    },
+    {
+      "file": "35-final-budget.jpg",
+      "url": "http://127.0.0.1:18503/",
+      "captured_at": "2026-11-03T03:05:22.819Z"
+    },
+    {
+      "file": "36-memory-usage.jpg",
+      "url": "http://127.0.0.1:18504/",
+      "captured_at": "2026-11-03T03:05:22.934Z"
+    }
+  ],
+  "first_budget_image": {
+    "file": "01-real-model-budget.jpg",
+    "phase": "before task submissions"
+  },
+  "all_four_submitted_via_web": true,
+  "cpu_task": "ui-3dea5cbfa50d4154",
+  "memory_task": "ui-1deabf9ab9634a9a",
+  "disk_task": "ui-1a5c876ccd124f53",
+  "repair_task": "ui-5f4299d229da4349",
+  "fault_injection_authorized": true
+}

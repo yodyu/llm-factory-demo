@@ -1,0 +1,69 @@
+{
+  "task_sha256": "sha256:69084d0e7ca13bab63979f7ce7e477eb207676b5c6ccb658d4199bd5c54cde07",
+  "bindings": {
+    "image_id": "sha256:ec7e3f613d45080c580bed6c83b6404df77b17a7cb72be69bacc80cce954ed31",
+    "knowledge_snapshot": "sha256:8629bb2cc8fb47ca561445d92ebc70655622684d48b6e9b7d4ae2b5941ff8754",
+    "labels_sha256": "sha256:6a517b2eb58c8139863a5c9439b37bde43e1e4a4b0486a6d1ae94bc395e24be5",
+    "manifest_sha256": "sha256:83a8d6be7a979e9049d679c822c43fb727ecaad5ff30aa62da142ead69245061"
+  },
+  "selected": "fixed_threshold_85_p2",
+  "plan": {
+    "candidate_id": "fixed_threshold_85_p2",
+    "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+    "config": {
+      "direction": "upper",
+      "method_id": "fixed_threshold",
+      "threshold": 85.0
+    },
+    "knowledge_ids": [
+      "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952"
+    ],
+    "limitations": [
+      "只能识别超过85%的水平，不能发现低于85%但相对历史显著升高的趋势。",
+      "等号不触发；值正好为85%时分数为0。",
+      "演示纠正：已移除未提供的知识引用，相关参数不再标记为知识依据。"
+    ],
+    "parameter_sources": {
+      "direction": "user_explicit",
+      "persistence_points": "user_explicit",
+      "threshold": "user_explicit"
+    },
+    "persistence_points": 2,
+    "selection_reason": "固定阈值直接表达用户给定的内存利用率85%上侧业务阈值，upper分数为x-85，严格大于0才进入异常候选，再由连续2点规则抑制单点抖动。该方法不需要历史基线，适合与自适应方法进行基准对照。阈值和方向均由用户明确给出，不是候选假设。"
+  },
+  "source_path": "candidate-9ffd513ec09cff74c2f5fc8a52a712b0fe49d3e72447c7752a6e36c0a9713c28/v0.py",
+  "source_sha256": "sha256:06527fe8ef00a3f4fe7d054e2e85d1bd1ae19483dc890d31eca79ab89ba64f9d",
+  "threshold": 0.0,
+  "selection": {
+    "basis": "labelled_development",
+    "beta": 1.0,
+    "criteria": [
+      "point_f1_desc",
+      "event_f1_desc",
+      "false_alarm_rate_asc",
+      "matched_delay_asc",
+      "coverage_desc",
+      "candidate_id"
+    ],
+    "objective": "sustained_coverage",
+    "policy": "balanced",
+    "protocol": "metrics-selection/2",
+    "ranking": [
+      "fixed_threshold_85_p2",
+      "threshold_probe_85_p2",
+      "ewma_alpha0p3_q99_p2",
+      "rolling_mad_w30_q99_p2"
+    ],
+    "reason": "按开发集目标及次级 Fβ、正常误报频次、匹配延迟、覆盖率和候选ID排序；最终测试不参与选择。",
+    "requested_policy": "balanced",
+    "selected": "fixed_threshold_85_p2",
+    "status": "SELECTED",
+    "tie_broken_by": "candidate_id",
+    "warnings": [
+      "LOW_EVENT_COUNT: 真实事件少于5个，事件F1不足以支持统计结论。"
+    ]
+  },
+  "protocol": "metrics-evaluation/1",
+  "selection_sha256": "sha256:68d00fb161fd7f43e31f251e4350fc63d1cd89feb40f7716a9808be17a826ae8"
+}

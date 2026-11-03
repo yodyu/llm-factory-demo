@@ -1,0 +1,131 @@
+{
+  "snapshot_id": "sha256:65456cc48ddd39d06f9ac701bab4469392f4a0d37dbddc533967764a539565f7",
+  "mode": "structured",
+  "knowledge_ids": [
+    "capability-106fc5025f92d2dfec9698b99161e17a6e35a65509b48320d43e5828858adb0f",
+    "capability-2f9b9c51210dd4b46886b148774a4cc017e5d07556179c5a93de016cb324a285",
+    "capability-495442200c109b16b45d3bfb8ff7eba7746d1cce28b0631e0893d13cb60e39e9",
+    "capability-ba2670c5ca166ee2f6458d8f8bf37cf3adb2ce63c28bdba06d15d10137a86c42",
+    "capability-ff2da84a0b44f7f1063cae4146983682f938c59bb8e3c600125a53757d206a3b",
+    "chunk-1011e52512074bc8dc412d864d260ab286e30fe8b03606cef419f11535cd65b1",
+    "chunk-2843fb878551f6a5bc7ff28064829f9bf3f6966c84efaf7e5f9cc057d04ef24f",
+    "chunk-61b0a6434b7535057ffdd2e5fa6ae0a7d4788f020e8973b19c650ee48614a369",
+    "chunk-6ea94804be639006f4a4e9a76956bcefea95398a78279e19ab1de5361f32d779",
+    "chunk-9fdc4618934c65208b705044487750899a698cf00f1e25e52554832504313804",
+    "chunk-b65a19c4f2a26deb5a0d6d8a588af6f29a3b5bb2b4931befdfdbcb31083a7e13"
+  ],
+  "chunks": [
+    {
+      "id": "chunk-b65a19c4f2a26deb5a0d6d8a588af6f29a3b5bb2b4931befdfdbcb31083a7e13",
+      "end_line": 9,
+      "sha256": "sha256:9fe4a4a687ecaa772af8d6f9eb202a1cdc5234dbb2eb1d4377c392a1b2c1194e",
+      "source_id": "source-bd5c2193e5a9ee84f09d9e624ddfe156b10693aa391a6dbd944eabf1805ae3d6",
+      "start_line": 1,
+      "text": "# 构造材料：单主机指标字段规范\n\n本文件是模拟业务专家材料，不是生产经验。\n输入为单主机、单指标，字段 timestamp、host_id、value；时间为 UTC，固定采样间隔。\nmetric_kind 仅允许 gauge 或已换算的 rate，原始 counter 不支持。\nCPU、内存以 percent 为单位，磁盘延迟以 ms 为单位，网络速率以 bytes/s 为单位。\n缺少 value 保留时间槽，不能删除行。重复、乱序、无穷值和物理范围外值拒绝。\n向前填充最多三点，无历史或超过三点时 missing_input；不能把缺失当正常。\n两种算法都支持 gauge/rate，不执行根因定位或多主机联合检测。",
+      "source": "01-fields.md",
+      "source_sha256": "sha256:fc53ae58c43cbe11cb9b8e8878b73d394f55a14a494f663c03529cc5f855a6b4",
+      "capability_id": "capability-106fc5025f92d2dfec9698b99161e17a6e35a65509b48320d43e5828858adb0f",
+      "summary": "支持对单主机、单指标的 gauge 或已换算 rate 数据进行输入字段、时间、单位和质量规则约束；缺失值仅可有限向前填充，异常输入需拒绝或报 missing_input。",
+      "conditions_status": "evidenced",
+      "knowledge_status": "extracted_unverified"
+    },
+    {
+      "id": "chunk-61b0a6434b7535057ffdd2e5fa6ae0a7d4788f020e8973b19c650ee48614a369",
+      "end_line": 8,
+      "sha256": "sha256:b2cceceb866b5eda5662b41cb0bffe117e408bd8a0fa447edbb802672f690618",
+      "source_id": "source-a7753a331f160f8f82bfef0f61513e4f9ad7126dd8857b3f54cfa18a23401eb7",
+      "start_line": 1,
+      "text": "# 构造业务材料：正常高峰与异常\n\n单主机 CPU、内存、磁盘延迟、网络速率可出现正常业务高峰，与异常数值区间重叠。\nfixed_threshold 和 rolling_mad 都不能仅靠该数值判定故障根因。\nMAD 适合检测相对历史偏离，固定阈值适合已有清晰绝对上/下界的需求。\n周期波动、缓慢漂移、长期缺失是必须保留的困难样本，不能从评价分母删除。\n历史实现即使工程通过，也必须在新输入上重新验证；失败实现只能作为风险经验。\n本材料只支持 gauge/rate、单主机单指标，不支持日志语义、Isolation Forest 或季节模型。",
+      "source": "05-limitations.md",
+      "source_sha256": "sha256:c1365b562303243f94e0354de3b28cabdb6416170f1778937ac61c87c3fbd0c1",
+      "capability_id": "capability-ba2670c5ca166ee2f6458d8f8bf37cf3adb2ce63c28bdba06d15d10137a86c42",
+      "summary": "单主机 CPU、内存、磁盘延迟、网络速率可能出现正常业务高峰，且正常高峰与异常数值区间重叠；不能仅依据重叠数值判定故障根因。",
+      "conditions_status": "evidenced",
+      "knowledge_status": "extracted_unverified"
+    },
+    {
+      "id": "chunk-2843fb878551f6a5bc7ff28064829f9bf3f6966c84efaf7e5f9cc057d04ef24f",
+      "end_line": 8,
+      "sha256": "sha256:6215d6ee955e2f0144f85b7c6858dead4a04f7702c1d415412e8ea136d901a1b",
+      "source_id": "source-321cc4684fb2390bd4e47f50247a511e6ffe919adfad2b9d5cbb2b95636e1b5a",
+      "start_line": 1,
+      "text": "# 构造专家材料：fixed_threshold\n\n适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1，不需要历史基线。\nupper 分数为 x-T，lower 分数为 T-x。严格 score>0 才是异常候选；等号不触发。\n业务阈值必须来自用户明确值或有引用的业务材料；假设阈值要标为 candidate_assumption。\n本材料没有给定任何指标的业务阈值；禁止虚构业务达标保证。\ncalibration 不改变固定阈值 T；共享可信告警器处理连续点数和事件合并。\n绝对阈值可能漏掉低基线主机的相对变化，也可能对正常业务高峰误报。",
+      "source": "02-fixed-threshold.md",
+      "source_sha256": "sha256:dc91558e86cf108f1796ad3f1ab2c5826c11517f8a443f9315d918f410ab5a3f",
+      "capability_id": "capability-2f9b9c51210dd4b46886b148774a4cc017e5d07556179c5a93de016cb324a285",
+      "summary": "适用于单主机单指标 gauge/rate，无需历史基线；upper 方向以 x-T 计分、lower 方向以 T-x 计分，仅严格 score>0 才形成异常候选。",
+      "conditions_status": "evidenced",
+      "knowledge_status": "extracted_unverified"
+    },
+    {
+      "id": "chunk-1011e52512074bc8dc412d864d260ab286e30fe8b03606cef419f11535cd65b1",
+      "end_line": 11,
+      "sha256": "sha256:4d21e32573560e325bfff9bbb5528c607f1017660f11f9fac911448d0812b09a",
+      "source_id": "source-e78ac18ef3e976d16ccc8c128644df75015a4465fc2cc65f385ca6a42fc637c9",
+      "start_line": 1,
+      "text": "# 构造专家材料：rolling_mad\n\n适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1。\nW 默认 30 个时间槽，min_history 默认 15 个真实观测，且 min_history<=W。\n仅用当前点之前最近 W 个槽；统计可用观测含短缺失插补值，但插补不增加真实历史数。\nm=历史中位数，MAD=|历史-m| 的中位数，scale=max(1.4826*MAD, scale_floor)。\n训练原始有效值的 R7 IQR 决定 scale_floor=max(1e-9,IQR*1e-6)。\nupper=(x-m)/scale，lower=(m-x)/scale，two_sided=|x-m|/scale。\n先评分再追加当前点；不可用点也占历史时间槽，历史不足返回 insufficient_history 和空分数。\ncalibration 的可判断计分分数至少 100 个，nearest-rank 0.99 分位阈值；不使用标签。\n严格 score>阈值，所有可用点（含异常）均更新窗口，长漂移可能被吸收，周期模式可能误报。",
+      "source": "03-rolling-mad.md",
+      "source_sha256": "sha256:c9b2a8158fe0978e951ec2e8c8141b661112b62cb1ca560ad72bea6d69c791d1",
+      "capability_id": "capability-495442200c109b16b45d3bfb8ff7eba7746d1cce28b0631e0893d13cb60e39e9",
+      "summary": "对单主机的单个 gauge 或 rate 指标，使用当前点之前最近 W 个时间槽的历史中位数与 MAD 构造稳健尺度，输出 upper、lower、two_sided 分数，并基于校准集 nearest-rank 0.99 分位阈值且严格 score>阈值进行判定。",
+      "conditions_status": "evidenced",
+      "knowledge_status": "extracted_unverified"
+    },
+    {
+      "id": "chunk-9fdc4618934c65208b705044487750899a698cf00f1e25e52554832504313804",
+      "end_line": 32,
+      "sha256": "sha256:981904a2f34cebbf0f3a970ea60e576e2c34c653ac71801cef777d6b2c28f218",
+      "source_id": "source-74b5788c8efcc29ca5dcbbf4b608c0d755fb6b5a7cee57c53850b53fa5041193",
+      "start_line": 1,
+      "text": "\"\"\"Constructed human reference (origin=reference), never an LLM-generated result.\n\nUpper score=x-T, lower score=T-x. Equality is not an alert. The trusted driver\nowns preprocessing, persistence and labels; the detector only emits scores.\n\"\"\"\nimport json\n\n\nclass Detector:\n    def __init__(self, config):\n        self.config = dict(config)\n\n    def fit(self, train_points):\n        if not any(point[\"value\"] is not None for point in train_points):\n            raise ValueError(\"no valid training observations\")\n        self.reset()\n\n    def reset(self):\n        pass\n\n    def score_one(self, point):\n        value = point[\"value\"]\n        delta = None if value is None else value - self.config[\"threshold\"]\n        if delta is not None and self.config[\"direction\"] == \"lower\":\n            delta = -delta\n        return {\"timestamp\": point[\"timestamp\"], \"host_id\": point[\"host_id\"],\n                \"status\": \"missing_input\" if value is None else \"ok\", \"score\": delta,\n                \"evidence\": {\"threshold\": self.config[\"threshold\"]}}\n\n    def save_state(self):\n        return json.dumps({\"config\": self.config}, allow_nan=False)\n",
+      "source": "reference_fixed.py",
+      "source_sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+      "capability_id": "capability-ff2da84a0b44f7f1063cae4146983682f938c59bb8e3c600125a53757d206a3b",
+      "summary": "Computes a point score relative to a configured threshold: upper direction uses value-threshold and lower direction negates that difference; missing values emit a null score with missing_input status. Equality produces score 0, and the module states that equality is not an alert.",
+      "conditions_status": "evidenced",
+      "knowledge_status": "extracted_unverified"
+    },
+    {
+      "id": "chunk-6ea94804be639006f4a4e9a76956bcefea95398a78279e19ab1de5361f32d779",
+      "end_line": 39,
+      "sha256": "sha256:da48f788bf72108e88804dd30653278f80a87ab2514723c2246936a9f4810bdd",
+      "source_id": "source-74b5788c8efcc29ca5dcbbf4b608c0d755fb6b5a7cee57c53850b53fa5041193",
+      "start_line": 33,
+      "text": "    def load_state(self, raw):\n        if json.loads(raw) != {\"config\": self.config}:\n            raise ValueError(\"state config mismatch\")\n\n\ndef create_detector(config):\n    return Detector(config)",
+      "source": "reference_fixed.py",
+      "source_sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+      "capability_id": "capability-ff2da84a0b44f7f1063cae4146983682f938c59bb8e3c600125a53757d206a3b",
+      "summary": "Computes a point score relative to a configured threshold: upper direction uses value-threshold and lower direction negates that difference; missing values emit a null score with missing_input status. Equality produces score 0, and the module states that equality is not an alert.",
+      "conditions_status": "evidenced",
+      "knowledge_status": "extracted_unverified"
+    }
+  ],
+  "experiences": [],
+  "excluded": [
+    {
+      "capability_id": "capability-0fc2c99a37ad4a7e8744892f81ea8d8d5648f1d4ffd1420a5ea28bb62e1caf3f",
+      "reason": "not_single_host"
+    },
+    {
+      "capability_id": "capability-5e2edda57f93f5f94f52cc2c4a41c670cadce1f1e72db6b199c62938bfa22d38",
+      "reason": "not_single_host"
+    },
+    {
+      "capability_id": "capability-c780c2d05b4f87fb0ae29423f61f73082ab1eef33f024477fa6269cb9e3b736b",
+      "reason": "metric_kind_not_supported"
+    },
+    {
+      "capability_id": "capability-e12058a5289be2a8689ccd986b1d60023693a4995b87ad0a7932756a914c3044",
+      "reason": "metric_kind_not_supported"
+    },
+    {
+      "capability_id": "capability-e4738507506af158e69cf7ca8acbb0ab88332f1b7b029e1b24bbe19692f65bbb",
+      "reason": "metric_kind_not_supported"
+    },
+    {
+      "capability_id": "capability-fadc0a08b93f59ba620d7b3b415984b0adfc8d046b17a8a427f86fedd48d0cea",
+      "reason": "metric_kind_not_supported"
+    }
+  ],
+  "conditions_notice": "extracted applicability claims are source-linked, not implementation verification"
+}

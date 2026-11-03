@@ -1,0 +1,71 @@
+..................................sss................................... [ 59%]
+............FF............................sssssss                        [100%]
+=================================== FAILURES ===================================
+_ test_summary_final_metric_uses_recorded_objective[sustained_coverage-\u70b9\u7ea7 F1] _
+
+objective = 'sustained_coverage', label = '点级 F1'
+
+    @pytest.mark.parametrize('objective,label', [('sustained_coverage','点级 F1'), ('event_detection','事件 F1')])
+    def test_summary_final_metric_uses_recorded_objective(objective, label):
+        from streamlit.testing.v1 import AppTest
+        report = {'status':'COMPLETED', 'selection':{'objective':objective},
+                  'final':{'execution_status':'SUCCEEDED','effect_status':'MEASURED',
+                           'point':{'f1':{'value':.4}}, 'event':{'f1':{'value':.9}}}}
+        app = AppTest.from_string('from factory.metrics.app import show_summary\n'
+                                 'import streamlit as st\nshow_summary(st.session_state["report"])')
+        app.session_state['report'] = report
+        app.run()
+        assert not app.exception and app.metric[0].label == label
+>       assert app.metric[0].value == ('0.4000' if objective == 'sustained_coverage' else '0.9000')
+E       AssertionError: assert '—' == '0.4000'
+E         
+E         - 0.4000
+E         + —
+
+tests/metrics/test_ui_presentation.py:139: AssertionError
+----------------------------- Captured stderr call -----------------------------
+2026-11-02 20:25:32.789 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-11-02 20:25:32.789 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+------------------------------ Captured log call -------------------------------
+WARNING  streamlit.runtime.scriptrunner_utils.script_run_context:script_run_context.py:508 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+WARNING  streamlit.runtime.scriptrunner_utils.script_run_context:script_run_context.py:508 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+_ test_summary_final_metric_uses_recorded_objective[event_detection-\u4e8b\u4ef6 F1] _
+
+objective = 'event_detection', label = '事件 F1'
+
+    @pytest.mark.parametrize('objective,label', [('sustained_coverage','点级 F1'), ('event_detection','事件 F1')])
+    def test_summary_final_metric_uses_recorded_objective(objective, label):
+        from streamlit.testing.v1 import AppTest
+        report = {'status':'COMPLETED', 'selection':{'objective':objective},
+                  'final':{'execution_status':'SUCCEEDED','effect_status':'MEASURED',
+                           'point':{'f1':{'value':.4}}, 'event':{'f1':{'value':.9}}}}
+        app = AppTest.from_string('from factory.metrics.app import show_summary\n'
+                                 'import streamlit as st\nshow_summary(st.session_state["report"])')
+        app.session_state['report'] = report
+        app.run()
+        assert not app.exception and app.metric[0].label == label
+>       assert app.metric[0].value == ('0.4000' if objective == 'sustained_coverage' else '0.9000')
+E       AssertionError: assert '—' == '0.9000'
+E         
+E         - 0.9000
+E         + —
+
+tests/metrics/test_ui_presentation.py:139: AssertionError
+----------------------------- Captured stderr call -----------------------------
+2026-11-02 20:25:32.962 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-11-02 20:25:32.963 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+------------------------------ Captured log call -------------------------------
+WARNING  streamlit.runtime.scriptrunner_utils.script_run_context:script_run_context.py:508 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+WARNING  streamlit.runtime.scriptrunner_utils.script_run_context:script_run_context.py:508 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+=========================== short test summary info ============================
+SKIPPED [3] tests/metrics/test_app.py:28: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_orchestration.py:38: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_orchestration.py:63: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_orchestration.py:80: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_orchestration.py:93: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_orchestration.py:109: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_orchestration.py:122: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_orchestration.py:138: 需要设置 FACTORY_METRICS_IMAGE
+FAILED tests/metrics/test_ui_presentation.py::test_summary_final_metric_uses_recorded_objective[sustained_coverage-\u70b9\u7ea7 F1]
+FAILED tests/metrics/test_ui_presentation.py::test_summary_final_metric_uses_recorded_objective[event_detection-\u4e8b\u4ef6 F1]
+2 failed, 109 passed, 10 skipped in 41.40s

@@ -1,0 +1,117 @@
+import json
+import math
+
+
+def _is_finite_number(value):
+    return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(float(value))
+
+
+class FixedThresholdDetector:
+    def __init__(self, config):
+        threshold = config.get("threshold", 85.0)
+        direction = config.get("direction", "upper")
+        if not _is_finite_number(threshold):
+            raise ValueError("threshold must be a finite number")
+        if direction not in ("upper", "lower"):
+            raise ValueError("direction must be upper or lower")
+        self.threshold = float(threshold)
+        self.direction = direction
+        self._fitted = False
+
+    def fit(self, train_points):
+        valid = False
+        for point in train_points or []:
+            value = point.get("value") if isinstance(point, dict) else None
+            if value is not None:
+                if not _is_finite_number(value):
+                    raise ValueError("training value must be a finite number or null")
+                valid = True
+        if not valid:
+            raise ValueError("no valid training observations")
+        self._fitted = True
+        self.reset()
+
+    def reset(self):
+        return None
+
+    def score_one(self, point):
+        timestamp = point.get("timestamp")
+        host_id = point.get("host_id")
+        value = point.get("value")
+
+        if value is None:
+            status = "missing_input"
+            return {
+                "timestamp": timestamp,
+                "host_id": host_id,
+                "status": status,
+                "score": None,
+                "evidence": {},
+            }
+
+        if not _is_finite_number(value):
+            return {
+                "timestamp": timestamp,
+                "host_id": host_id,
+                "status": "invalid_input",
+                "score": None,
+                "evidence": {},
+            }
+
+        numeric_value = float(value)
+        if self.direction == "upper":
+            score = numeric_value - self.threshold
+        else:
+            score = self.threshold - numeric_value
+
+        return {
+            "timestamp": timestamp,
+            "host_id": host_id,
+            "status": "ok",
+            "score": score,
+            "evidence": {
+                "threshold": self.threshold,
+                "direction": self.direction,
+            },
+        }
+
+    def save_state(self):
+        return json.dumps(
+            {
+                "threshold": self.threshold,
+                "direction": self.direction,
+                "fitted": self._fitted,
+            },
+            separators=(",", ":"),
+            sort_keys=True,
+        )
+
+    def load_state(self, raw):
+        state = json.loads(raw)
+        threshold = state.get("threshold")
+        direction = state.get("direction")
+        if not _is_finite_number(threshold) or direction not in ("upper", "lower"):
+            raise ValueError("invalid saved state")
+        self.threshold = float(threshold)
+        self.direction = direction
+        self._fitted = bool(state.get("fitted", False))
+        self.reset()
+
+
+def create_detector(config: dict):
+    return FixedThresholdDetector(config or {})
+
+# Deliberate test-only fault injection: do not count as a natural model failure.
+_fault_original_factory = create_detector
+def create_detector(config):
+    original = _fault_original_factory(config)
+    class FaultProxy:
+        def fit(self, points): return original.fit(points)
+        def reset(self): return original.reset()
+        def save_state(self): return original.save_state()
+        def load_state(self, raw): return original.load_state(raw)
+        def score_one(self, point):
+            result = original.score_one(point)
+            if result['status'] == 'ok': result['score'] += 1.0
+            return result
+    return FaultProxy()

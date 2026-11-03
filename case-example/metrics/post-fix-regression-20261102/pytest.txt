@@ -1,0 +1,12 @@
+..................................sss................................... [ 60%]
+........................................sssssss                          [100%]
+=========================== short test summary info ============================
+SKIPPED [3] tests/metrics/test_app.py:28: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_orchestration.py:38: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_orchestration.py:63: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_orchestration.py:80: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_orchestration.py:93: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_orchestration.py:109: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_orchestration.py:122: 需要设置 FACTORY_METRICS_IMAGE
+SKIPPED [1] tests/metrics/test_orchestration.py:138: 需要设置 FACTORY_METRICS_IMAGE
+109 passed, 10 skipped in 40.11s

@@ -1,0 +1,36 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/path/to/llm-factory/real-web-revalidation-20261102/demo/src/factory/__main__.py", line 3, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/path/to/llm-factory/real-web-revalidation-20261102/demo/src/factory/metrics/cli.py", line 113, in main
+    result = asyncio.run(ingest_command(args))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/path/to/llm-factory/real-web-revalidation-20261102/demo/src/factory/metrics/service.py", line 57, in ingest_command
+    result = await ingest(args.root, paths, knowledge, gateway, task_id,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/llm-factory/real-web-revalidation-20261102/demo/src/factory/metrics/knowledge.py", line 323, in ingest
+    result = await gateway.ask(task_id, f"extract-{index}", Extraction,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/llm-factory/real-web-revalidation-20261102/demo/src/factory/metrics/model.py", line 31, in ask
+    response = await self.client.generate(ModelRequest(task_id=task_id, call_id=call_id,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/llm-factory/real-web-revalidation-20261102/demo/src/factory/models/clients.py", line 347, in generate
+    return await self._generate(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/path/to/llm-factory/real-web-revalidation-20261102/demo/src/factory/models/clients.py", line 333, in _generate
+    result, reference = await self._call(
+                        ^^^^^^^^^^^^^^^^^
+  File "/path/to/llm-factory/real-web-revalidation-20261102/demo/src/factory/models/clients.py", line 269, in _call
+    raise last_error from None
+factory.models.transport.ModelCallError: MODEL_TIMEOUT: timeout

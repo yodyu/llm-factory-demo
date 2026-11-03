@@ -1,0 +1,6 @@
+{
+  "status": "SUCCEEDED",
+  "output": ".runtime/ewma-acceptance/state/runs/task-0076991ddd6f58d28b670fa4441d9459fb0d0e07af29f410d3ade3c1940fc83a/delivery.zip",
+  "files": 111,
+  "sha256": "sha256:1c9b8e0cc8442a377a1d1bf0cda5ef114b51d0dfff95d11a8c873930f071d167"
+}

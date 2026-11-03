@@ -1,0 +1,114 @@
+{
+  "task_id": "ingest-bugfix-20261103-1",
+  "origin": "llm_api",
+  "sources": [
+    {
+      "source_id": "source-cf538ad1148ef947276baa133928fc6fa78fcdabd3a6206c7718b8b1fbddd646",
+      "path": "01-fields.txt",
+      "status": "source_checked",
+      "capabilities": [
+        "capability-1fccd2412c2a28daadb268f8668ba558f16a597a9eca5fd8d89c594d787f721d"
+      ],
+      "reused_immutable_source_edges": []
+    },
+    {
+      "source_id": "source-8aa09fc385453bbbccd68b26e083b14040147c7d4c48028ce969f50cd7c0ae01",
+      "path": "02-fixed-threshold.txt",
+      "status": "source_checked",
+      "capabilities": [
+        "capability-cfb6b034a4db4c2d1cfd54c812faa5d8e87d021a5d88741ad84e61b36c993691"
+      ],
+      "reused_immutable_source_edges": []
+    },
+    {
+      "source_id": "source-9b329ea3663d980d9ae702252a5e380b40f9d2efc3801882d1b9019744038bd3",
+      "path": "03-rolling-mad.txt",
+      "status": "source_checked",
+      "capabilities": [
+        "capability-11520c6eba9320652cb42dc119002670a468b31059a5dc89041743cadb9530ec"
+      ],
+      "reused_immutable_source_edges": []
+    },
+    {
+      "source_id": "source-36277c70704daf757a36cf1cee2546aeabfd1ca59c2f1a9085ae277f62640958",
+      "path": "04-evaluation.txt",
+      "status": "source_checked",
+      "capabilities": [
+        "capability-dd84d52fd2c312d197e39c39ece878fd4369acb9abaf1fedee521a5f8d3c67ad",
+        "capability-18907b00ca1f343bc6f2bfe6fdcfedd3b1a5ff832c90d62224f2c215423c04db",
+        "capability-a13226db11d3d29b346f4e7a55dcd85228afdeb959a5556bb9d46bf3578ddc0f",
+        "capability-1a2f586ebb422419090b27c5d53bacea4237ac739379e46a9b64275e3f7623c1"
+      ],
+      "reused_immutable_source_edges": []
+    },
+    {
+      "source_id": "source-97a77ad30f7a0b8cffe235cf0e976b80038afc54b52f87f2ae18117ce4506b0d",
+      "path": "05-limitations.txt",
+      "status": "source_checked",
+      "capabilities": [
+        "capability-cb052fd309e7c61ec0cab3f4d9007244e4ca7337beedb7ec0312697c9adc32d4",
+        "capability-08565f7fa2e1d91f5f465077681e1c1273a049d893844ad80ed4723ee2b995f6",
+        "capability-04f01882e204ff779b5af174effe77a90d0602613195ad5df94e5bb92a3b98d8"
+      ],
+      "reused_immutable_source_edges": []
+    },
+    {
+      "source_id": "source-dc53e0f1b175e147db3a4be83973613aceb0e145b59d213bbba5b5c9c9f8afb4",
+      "path": "06-ewma.txt",
+      "status": "source_checked",
+      "capabilities": [
+        "capability-764b9a2a6c8aebe862df97558119174dbbdb8e64f055d71a2b78859e1cbee7e6"
+      ],
+      "reused_immutable_source_edges": []
+    },
+    {
+      "source_id": "source-c2c0cc97448d2d6a89f4868617d05db95ad6f4d584694a0a79f62a06b9f0bf7d",
+      "path": "reference_fixed.py",
+      "status": "source_checked",
+      "capabilities": [
+        "capability-37ff615d4d45f09916f73f191c0de1e11ac39631a186d34acd794cb78a6b4446",
+        "capability-50e032e850a34085d679738f850745aa6271156bbbfafd8b9e10894b28a08eb8"
+      ],
+      "reused_immutable_source_edges": []
+    },
+    {
+      "source_id": "source-9c6653aee67c954e52e57c3962225be1e5f7497639792f51057c2074c662ce0d",
+      "path": "reference_mad.py",
+      "status": "source_checked",
+      "capabilities": [
+        "capability-b7d865a18d3bbeefd4fd907ec3a48e750208839c3940af715483c7e366b895de"
+      ],
+      "reused_immutable_source_edges": []
+    }
+  ],
+  "status": "SUCCEEDED",
+  "snapshot_id": "sha256:9bb94b5e6a37ddc26f472653b398cce33b9f5c175c49cee6bb9706938581dcca",
+  "budget": {
+    "limit": 60,
+    "reserved": 41,
+    "used": 41,
+    "sent": 41,
+    "remaining": 19,
+    "round": 2,
+    "lifetime_reserved": 51,
+    "rounds": [
+      {
+        "轮次": 2,
+        "上限": 60,
+        "已预约": 41,
+        "剩余": 19,
+        "当前轮": true,
+        "开始时间": 1793630933.020357
+      },
+      {
+        "轮次": 1,
+        "上限": 60,
+        "已预约": 10,
+        "剩余": 50,
+        "当前轮": false,
+        "开始时间": null
+      }
+    ],
+    "accounting": "reservations include uncertain requests; new rounds require explicit authorization; no history erased"
+  }
+}

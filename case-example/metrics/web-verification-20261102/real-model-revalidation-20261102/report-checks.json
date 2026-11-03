@@ -1,0 +1,21 @@
+{
+  "checked_at": "2026-11-03T10:18:33.281116+08:00",
+  "status": "PASSED",
+  "local_links_checked": 145,
+  "jpeg_screenshots_verified": 36,
+  "user_png_screenshots_verified": 2,
+  "screenshots_verified_total": 38,
+  "immutable_ledger_reports_verified": [
+    "ui-15e8770de18747f7",
+    "ui-34a756c1b4ac490b",
+    "ui-e6121958cd5a44b7",
+    "ui-74cc4a21520a4e1b",
+    "ui-da4c1f50a3504008"
+  ],
+  "real_material_sources_passed": 2,
+  "real_material_sources_total": 8,
+  "memory_experiences_cited_by_disk": 2,
+  "credential_content_matches": 0,
+  "browser_limitations_preserved": true,
+  "disk_success_visual_evidence_supplemented_by_user": true
+}

@@ -1,0 +1,46 @@
+{
+  "protocol": "metrics-method-check/1",
+  "candidate_id": "memory_utilization_rolling_mad_upper_w30_h15_q99_p2",
+  "version": 0,
+  "origin": "llm_api",
+  "source_sha256": "sha256:7a7a5f678bb6feb777dfe1fde88d3f055e75f6e8b911ad4195099aad95683c1a",
+  "config": {
+    "method_id": "rolling_mad",
+    "window": 30,
+    "min_history": 15,
+    "direction": "upper",
+    "quantile": 0.99
+  },
+  "dependency_profile": "metrics-py312-stdlib/1",
+  "checks": [
+    {
+      "check": "static_profile",
+      "passed": true
+    },
+    {
+      "check": "mad_past_only",
+      "passed": false,
+      "point_index": 0,
+      "development_input": [
+        {
+          "timestamp": "2026-01-01T00:00:00Z",
+          "host_id": "validation-host",
+          "value": 1.0
+        }
+      ],
+      "difference": {
+        "code": "OUTPUT_SCHEMA",
+        "line": null,
+        "fields": [
+          [
+            "evidence"
+          ]
+        ],
+        "message": "output must match Score schema; non-ok score must be null"
+      },
+      "allowed_changes": "candidate source only; keep frozen config and interface"
+    }
+  ],
+  "passed": false,
+  "repairable": true
+}

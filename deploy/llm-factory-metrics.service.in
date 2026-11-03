@@ -1,0 +1,19 @@
+[Unit]
+Description=LLM Factory numeric metrics demo
+After=network.target
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+WorkingDirectory=@ROOT@
+EnvironmentFile=%h/.config/llm-factory-metrics/runtime.env
+ExecStart=@ROOT@/.venv/bin/python -m streamlit run @ROOT@/streamlit_app.py --server.address=127.0.0.1 --server.port=@PORT@ --server.headless=true --browser.gatherUsageStats=false --server.fileWatcherType=none
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=30
+KillMode=mixed
+UMask=0077
+
+[Install]
+WantedBy=default.target

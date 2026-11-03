@@ -1,0 +1,13 @@
+{
+  "id": "compat-chat-response",
+  "object": "chat.completion",
+  "model": "fixture-chat-model",
+  "choices": [
+    {
+      "index": 0,
+      "message": {"role": "assistant", "content": "{\"answer\":\"ready\",\"count\":2}"},
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {"prompt_tokens": 12, "completion_tokens": 8, "total_tokens": 20}
+}

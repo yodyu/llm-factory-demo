@@ -1,0 +1,69 @@
+{
+  "supported": true,
+  "understanding": "为单主机 gauge 指标 memory_utilization（percent，60秒采样）规划两个上侧异常检测候选：一个严格使用用户指定85 percent上界的 fixed_threshold，另一个使用默认30点窗口、15点最小历史和0.99分位校准的 rolling_mad。两者均在连续2个异常点后触发告警；评估需分别报告误报、覆盖率和发现延迟，不做根因定位。允许短暂缺失，但缺失不应当作正常，超过规则范围应返回 missing_input。",
+  "anomaly_target": "upper",
+  "limitations": [
+    "固定阈值85 percent只代表用户指定检测阈值；材料未提供业务达标或故障判定保证。",
+    "固定阈值可能漏掉低于85 percent但相对低基线持续升高的内存利用异常，也可能对正常业务高峰产生误报。",
+    "rolling_mad能检测相对历史偏离，但缓慢持续漂移可能被滚动窗口吸收，周期模式可能导致误报。",
+    "rolling_mad在真实历史不足15点时返回 insufficient_history；训练窗口统计先评分再更新。",
+    "短暂缺失可按规则最多向前填充3个时间槽，插补值参与可用统计但不增加真实历史数；超过3点缺失不能视为正常。",
+    "本规划仅支持单主机、单指标 gauge/rate，不执行根因定位、多主机联合检测、日志语义、Isolation Forest或季节模型。"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "memory_utilization_fixed_upper_85_p2",
+      "config": {
+        "method_id": "fixed_threshold",
+        "threshold": 85.0,
+        "direction": "upper"
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "threshold": "user_explicit",
+        "direction": "user_explicit",
+        "persistence_points": "user_explicit"
+      },
+      "knowledge_ids": [
+        "capability-2f9b9c51210dd4b46886b148774a4cc017e5d07556179c5a93de016cb324a285",
+        "capability-ff2da84a0b44f7f1063cae4146983682f938c59bb8e3c600125a53757d206a3b",
+        "capability-ba2670c5ca166ee2f6458d8f8bf37cf3adb2ce63c28bdba06d15d10137a86c42"
+      ],
+      "limitations": [
+        "上侧分数为 value-85；仅严格大于0形成候选，等于85不告警。",
+        "训练摘要最大值48.573414 percent，历史中没有超过85 percent的样本，因此该阈值的误报、覆盖率和发现延迟必须在新评价集上验证，不能由训练统计推断。",
+        "可能漏掉低于85 percent的持续升高；正常业务高峰若超过85 percent可能产生误报。"
+      ]
+    },
+    {
+      "candidate_id": "memory_utilization_rolling_mad_upper_w30_h15_q99_p2",
+      "config": {
+        "method_id": "rolling_mad",
+        "window": 30,
+        "min_history": 15,
+        "direction": "upper",
+        "quantile": 0.99
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "window": "protocol_default",
+        "min_history": "protocol_default",
+        "quantile": "protocol_default",
+        "direction": "user_explicit",
+        "persistence_points": "user_explicit",
+        "scale_floor": "candidate_assumption"
+      },
+      "knowledge_ids": [
+        "capability-495442200c109b16b45d3bfb8ff7eba7746d1cce28b0631e0893d13cb60e39e9",
+        "capability-106fc5025f92d2dfec9698b99161e17a6e35a65509b48320d43e5828858adb0f",
+        "capability-ba2670c5ca166ee2f6458d8f8bf37cf3adb2ce63c28bdba06d15d10137a86c42"
+      ],
+      "limitations": [
+        "scale_floor 需由训练原始有效值的R7 IQR按 max(1e-9, IQR*1e-6) 计算；当前摘要未给IQR，因此执行阶段需从300点训练数据计算，不能凭空指定数值。",
+        "校准需至少100个可判断计分点，采用nearest-rank 0.99分位阈值，并且严格 score>阈值才告警。",
+        "前14个真实观测不足时为 insufficient_history，会影响早期覆盖率和发现延迟统计。",
+        "缓慢持续升高可能被30点滚动基线吸收，周期性变化可能造成误报；仍需分别评估误报、覆盖率和发现延迟。"
+      ]
+    }
+  ]
+}

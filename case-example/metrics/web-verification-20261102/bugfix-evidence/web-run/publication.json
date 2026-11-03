@@ -1,0 +1,18 @@
+{
+  "publication_id": "publication-2f3a15d5f8999d8956aab9e1dd1c279a09f158bba89c98772be47a980bd67701",
+  "node_ids": [
+    "experience-0cbde211d322007dbb38f49e830fa93c5c725cf4f6bcfa1072ef6d6147fe3981",
+    "experience-2e2de95c1ebbd396cf7383ff5561cbd8a0dfa69dfa1a0bee28174a5013be53f0",
+    "experience-4d15c613d378b941e943b85757c9108b4605a4901506c6d0d11d1b7e5be101bb",
+    "experience-c2550d16f1463c8d056bf0c1174c32f3742a751d25d2ec9c83352f16fda53b1a",
+    "implementation-394f81339e6007c7657205fe8e42707ba98aa2457dcb0232055c10324d1fdf5d",
+    "implementation-bd2bae91dbbbdae6f3217bd2b18a4571ed06970381707b842e7b4cf356636282",
+    "implementation-cf10ccc1dc1c41ec6e32b507dbd5ccedf6ea9af64644ffcfecdbaca308732c6a",
+    "implementation-dbed84170ad50b2cacb8eb26cd4aed0af41b465d7ef32fb431f7b4dbbf5a6b81",
+    "validation-08552c2600297d29ffd9eae022513e60d35839f87194e6fab5d20075436a17e7",
+    "validation-13e6ff0110dcff725643e11424f3305f28d25bfb387360d09cb221da046e7188",
+    "validation-29c1e12f6b3fadde3921835f9910251f04ca87e6a5f12ee4fecf24a7ae557a67",
+    "validation-958b06d187b68be955e48690af7a9777c99147bf16921afd7980f4e8b54ebfb6"
+  ],
+  "status": "PUBLISHED"
+}

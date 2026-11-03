@@ -1,0 +1,39 @@
+{
+  "supported": true,
+  "understanding": "需求是在60秒采样的单主机 gauge 指标 memory_utilization（单位：百分比，有效范围0-100）上，仅使用 fixed_threshold 检测内存利用率上行异常；用户明确指定阈值85%，并由共享可信告警逻辑要求连续2个点 score>0 才产生告警。规划阶段先给出检测候选；检测代码和验证报告属于后续执行阶段产物。",
+  "anomaly_target": "upper",
+  "limitations": [
+    "当前固定阈值能力本身只计算 upper score=x-threshold，严格大于0才是异常候选；连续点数 persistence_points=2 由共享可信告警器处理，不是 fixed_threshold 的 config_schema 参数。",
+    "训练统计最大值48.913008%、均值45.027571%，训练数据未触及85%；fit仅确认存在有效训练值，不据此校准阈值。",
+    "能力卡为参考契约且 implementation_verified=false、verification_level=contract_only；本次规划不宣称运行实现已独立验证。",
+    "需求中的“输出检测代码和验证报告”不在本规划 schema 的直接产出范围内，需在后续执行阶段完成。"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "fixed_threshold_upper_85_p2",
+      "config": {
+        "method_id": "fixed_threshold",
+        "threshold": 85.0,
+        "direction": "upper"
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "threshold": "user_explicit",
+        "direction": "user_explicit",
+        "persistence_points": "user_explicit"
+      },
+      "knowledge_ids": [
+        "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+        "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+        "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09"
+      ],
+      "limitations": [
+        "阈值85%来自用户明确输入，不是从训练分布推断；训练数据最高仅48.913008%，无法从训练数据验证阈值附近效果。",
+        "固定阈值不能识别“持续升高但仍低于85%”的趋势异常；本方案只检测超过85%后的连续上行越限事件。",
+        "演示纠正：已移除未提供的知识引用，相关参数不再标记为知识依据。"
+      ],
+      "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "selection_reason": "该能力是唯一且用户限定允许的 fixed_threshold 方法，支持 upper 方向、gauge 指标、单主机单指标场景且 min_history=0。用户明确给出阈值85%和连续2点告警；因此配置 direction=upper、threshold=85.0，并在告警器层设置 persistence_points=2。假设输入点包含 timestamp、host_id、value；当 value 缺失时按 missing_input 处理，value=85 时 score=0 不触发，只有 value>85 才形成异常候选，连续2个候选才告警。"
+    }
+  ]
+}

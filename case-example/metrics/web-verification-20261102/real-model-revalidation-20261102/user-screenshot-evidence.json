@@ -1,0 +1,86 @@
+{
+  "recorded_at": "2026-11-03T10:18:32.882903+08:00",
+  "task_id": "ui-da4c1f50a3504008",
+  "source": "two screenshots supplied by the user in this chat",
+  "task_selector_visible_prefix": "ui-da4c1f5",
+  "visible_values_match_server_report": true,
+  "comparison_method": "assistant visual inspection of supplied images; visible values independently checked against audited JSON",
+  "visible_values": {
+    "status": "completed",
+    "effect": "measured",
+    "selected_method": "EWMA",
+    "persistence_points": 2,
+    "point_f1_display": "0.3333",
+    "normal_false_alarms_display": "0.0000",
+    "delay_seconds_display": "480.0000",
+    "coverage_display": "100.0%",
+    "provided_knowledge": 14,
+    "cited_knowledge": 8,
+    "provided_experiences": 3,
+    "cited_experiences": 3
+  },
+  "not_shown_in_supplied_images": [
+    "full task ID",
+    "candidate comparison",
+    "expanded experience IDs",
+    "publication receipt"
+  ],
+  "images": [
+    {
+      "original_filename": "codex-clipboard-23e13a71-8449-423d-9a4c-081cdda0e035.png",
+      "stored_path": "screenshots/37-disk-result-user.png",
+      "source": "user attachment",
+      "page": "result_overview",
+      "image_format": "PNG",
+      "dimensions": [
+        2600,
+        1786
+      ],
+      "bytes": 327441,
+      "sha256": "08a8c3d52610c155d07e3e76a70144765a0befbb76ab0f48db60c685c4ac8cc2",
+      "processing": "file copy only; no cropping, compositing or image edits"
+    },
+    {
+      "original_filename": "codex-clipboard-77487005-3ff4-4511-b0a2-398b29165c21.png",
+      "stored_path": "screenshots/38-disk-knowledge-user.png",
+      "source": "user attachment",
+      "page": "knowledge_basis",
+      "image_format": "PNG",
+      "dimensions": [
+        2584,
+        1408
+      ],
+      "bytes": 284191,
+      "sha256": "7ece3026d4964990ddc1373827bc83d23b2c8bddb7ebb88f7380b777f0ffd405",
+      "processing": "file copy only; no cropping, compositing or image edits"
+    }
+  ],
+  "campaign_snapshot_at_supplement": {
+    "limit": 60,
+    "reserved": 32,
+    "used": 32,
+    "sent": 32,
+    "remaining": 28,
+    "round": 2,
+    "lifetime_reserved": 42,
+    "rounds": [
+      {
+        "轮次": 2,
+        "上限": 60,
+        "已预约": 32,
+        "剩余": 28,
+        "当前轮": true,
+        "开始时间": 1793630933.020357
+      },
+      {
+        "轮次": 1,
+        "上限": 60,
+        "已预约": 10,
+        "剩余": 50,
+        "当前轮": false,
+        "开始时间": null
+      }
+    ],
+    "accounting": "reservations include uncertain requests; new rounds require explicit authorization; no history erased"
+  }
+}

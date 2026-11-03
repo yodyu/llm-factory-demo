@@ -1,0 +1,68 @@
+{
+  "generator_version": "metrics-synthetic/1",
+  "scenario": "memory_shift",
+  "seeds": {
+    "train": 20261031,
+    "calibration": 20361034,
+    "development": 20461037,
+    "test": 20561040
+  },
+  "injection_intervals_scoring_offsets": {
+    "train": [],
+    "calibration": [],
+    "development": [
+      [
+        100,
+        160
+      ]
+    ],
+    "test": [
+      [
+        100,
+        160
+      ]
+    ]
+  },
+  "labels_path": "trusted/labels.json",
+  "labels_sha256": "sha256:6a517b2eb58c8139863a5c9439b37bde43e1e4a4b0486a6d1ae94bc395e24be5",
+  "prefix_points": 60,
+  "scoring_points": 240,
+  "normal_prefix_assumption": true,
+  "calibration_normal_reference_assumption": true,
+  "origin": "synthetic_injection",
+  "dataset": {
+    "schema_version": "metrics-dataset/1",
+    "dataset_id": "sim-memory_shift-v1",
+    "host_id": "sim-host-a",
+    "metric": "memory_utilization",
+    "unit": "percent",
+    "metric_kind": "gauge",
+    "sampling_seconds": 60,
+    "valid_range": [
+      0.0,
+      100.0
+    ],
+    "roles": {
+      "train": {
+        "path": "train.csv",
+        "sha256": "sha256:872961e0a74fc3f72e1100475738576597ffe9b2f900c79b4023060dedd26049",
+        "prefix_points": 60
+      },
+      "calibration": {
+        "path": "calibration.csv",
+        "sha256": "sha256:ec215bc11f1129f7703cf641743c06b9df71b041c6d69b67762f66a888e05ce1",
+        "prefix_points": 60
+      },
+      "development": {
+        "path": "development.csv",
+        "sha256": "sha256:9a389eb7d0487c4bd127a4b354e144b83b1819f7b98dcfbd2da1ce548f2b6709",
+        "prefix_points": 60
+      },
+      "test": {
+        "path": "test.csv",
+        "sha256": "sha256:7b47fe2b64d82c86dfb2609cc930d4edf2deff11a2a2f80fd739934b2926e464",
+        "prefix_points": 60
+      }
+    }
+  }
+}

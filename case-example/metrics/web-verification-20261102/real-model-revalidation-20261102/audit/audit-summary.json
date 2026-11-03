@@ -1,0 +1,60 @@
+{
+  "checked_at": "2026-11-03T09:52:19.598545+08:00",
+  "source_baseline": "real-web-source-archive",
+  "run_labels": {
+    "ui-34a756c1b4ac490b": "cpu",
+    "ui-15e8770de18747f7": "memory",
+    "ui-e6121958cd5a44b7": "disk-timeout",
+    "ui-da4c1f50a3504008": "disk",
+    "ui-74cc4a21520a4e1b": "repair"
+  },
+  "checks_passed": true,
+  "experience_chain": {
+    "memory_task_id": "ui-15e8770de18747f7",
+    "disk_task_id": "ui-da4c1f50a3504008",
+    "memory_experience_ids": [
+      "experience-3c400aad5437cbffcfb4c026c178eb8a77e87e62d45cf0f1d19685c28d666b0a",
+      "experience-8994fbe8622595cad805f1388c2ffd8746b76ce1809cdea8020c5866f76a10f4",
+      "experience-a60f01a0506263c577f1c38877dc3dc06c2ad9b3a8b9a3af4ea3679a119ee66b"
+    ],
+    "memory_experiences_provided_to_disk": [
+      "experience-3c400aad5437cbffcfb4c026c178eb8a77e87e62d45cf0f1d19685c28d666b0a",
+      "experience-8994fbe8622595cad805f1388c2ffd8746b76ce1809cdea8020c5866f76a10f4"
+    ],
+    "memory_experiences_cited_by_disk": [
+      "experience-3c400aad5437cbffcfb4c026c178eb8a77e87e62d45cf0f1d19685c28d666b0a",
+      "experience-8994fbe8622595cad805f1388c2ffd8746b76ce1809cdea8020c5866f76a10f4"
+    ],
+    "disk_code_prompts": [
+      {
+        "call_id": "ui-da4c1f50a3504008:code-ewma_alpha0.3_upper_p2-v0:format-0",
+        "prompt_sha256": "sha256:334c662a40e38727acadc8a4d7d99804eaf81e4d8657ba0e1ab13f2346940a5b",
+        "provided_experience_ids": [
+          "experience-8994fbe8622595cad805f1388c2ffd8746b76ce1809cdea8020c5866f76a10f4",
+          "experience-1a45af64c9486f459f33d134feaea09ec6cfd61ba346b46f6dcd8df062f8002a",
+          "experience-3c400aad5437cbffcfb4c026c178eb8a77e87e62d45cf0f1d19685c28d666b0a"
+        ],
+        "has_previous_source": false,
+        "has_development_feedback": false
+      },
+      {
+        "call_id": "ui-da4c1f50a3504008:code-rolling_mad_w30_upper_p2-v0:format-0",
+        "prompt_sha256": "sha256:5c02908f4ab4ef23a14aa3b97f35597af4ba49ba644aea566cba16cece36d0af",
+        "provided_experience_ids": [
+          "experience-3c400aad5437cbffcfb4c026c178eb8a77e87e62d45cf0f1d19685c28d666b0a",
+          "experience-8994fbe8622595cad805f1388c2ffd8746b76ce1809cdea8020c5866f76a10f4",
+          "experience-1a45af64c9486f459f33d134feaea09ec6cfd61ba346b46f6dcd8df062f8002a"
+        ],
+        "has_previous_source": false,
+        "has_development_feedback": false
+      }
+    ]
+  },
+  "zip_check": {
+    "byte_equal_to_server": true,
+    "entries": 73,
+    "sha256": "sha256:58cd1d4711171804aafba9b29ecc9fadb3652995c2373792f28e582888de016f"
+  },
+  "completed": 4,
+  "retained_failed_runs": 1
+}

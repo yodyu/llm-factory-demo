@@ -1,0 +1,1118 @@
+{
+  "label": "memory",
+  "task_id": "ui-15e8770de18747f7",
+  "status": "COMPLETED",
+  "origin": "llm_api",
+  "requirement": "用模拟数据检测单主机内存利用率缓慢升高，比较固定阈值、滚动 MAD 和 EWMA 三种方法；固定阈值为 70%，EWMA 的 alpha 为 0.2，连续两点异常才报警，优先覆盖持续异常区间，输出代码和验证报告。",
+  "task": {
+    "acceptance_criteria": {
+      "max_false_alarms_per_hour": null,
+      "min_event_f1": null,
+      "min_event_recall": null
+    },
+    "allowed_methods": [
+      "ewma",
+      "fixed_threshold",
+      "rolling_mad"
+    ],
+    "anomaly_target": "upper",
+    "budgets": {
+      "candidates": 3,
+      "model_calls": 16,
+      "repair_rounds": 2,
+      "wall_seconds": 900
+    },
+    "dataset_id": "sim-memory_drift-v1",
+    "evaluation_objective": "sustained_coverage",
+    "explicit_constraints": {
+      "alpha": 0.2,
+      "direction": "upper",
+      "persistence_points": 2.0,
+      "threshold": 70.0
+    },
+    "knowledge_snapshot": "sha256:919e8bf13131bfe328ddfb4108fcb9eafc8673b74be9b85b774f428739151dcb",
+    "metric": "memory_utilization",
+    "model_mode": "api",
+    "model_profile_id": "metrics-c9a0036e73b91ba3",
+    "ranking_preferences": [],
+    "requirement": "用模拟数据检测单主机内存利用率缓慢升高，比较固定阈值、滚动 MAD 和 EWMA 三种方法；固定阈值为 70%，EWMA 的 alpha 为 0.2，连续两点异常才报警，优先覆盖持续异常区间，输出代码和验证报告。",
+    "requirement_draft": {
+      "binding": "sha256:d79b7f8776dec1f6d2232f2421826a7157fce662ef8e6e51b8adf879f25ad00b",
+      "defaults": [
+        "模拟数据：每 60 秒一点，独立四段；允许最多前向填补 3 点。"
+      ],
+      "evidence": {
+        "alpha": {
+          "origin": "user_explicit",
+          "quote": "alpha 为 0.2",
+          "turn": 1
+        },
+        "data_source": {
+          "origin": "user_explicit",
+          "quote": "模拟",
+          "turn": 1
+        },
+        "direction": {
+          "origin": "user_explicit",
+          "quote": "用模拟数据检测单主机内存利用率缓慢升高，比较固定阈值、滚动 MAD 和 EWMA 三种方法；固定阈值为 70%，EWMA 的 alpha 为 0.2，连续两点异常才报警，优先覆盖持续异常区间，输出代码和验证报告。",
+          "turn": 1
+        },
+        "evaluation_objective": {
+          "origin": "user_explicit",
+          "quote": "用模拟数据检测单主机内存利用率缓慢升高，比较固定阈值、滚动 MAD 和 EWMA 三种方法；固定阈值为 70%，EWMA 的 alpha 为 0.2，连续两点异常才报警，优先覆盖持续异常区间，输出代码和验证报告。",
+          "turn": 1
+        },
+        "methods": {
+          "origin": "user_explicit",
+          "quote": "用模拟数据检测单主机内存利用率缓慢升高，比较固定阈值、滚动 MAD 和 EWMA 三种方法；固定阈值为 70%，EWMA 的 alpha 为 0.2，连续两点异常才报警，优先覆盖持续异常区间，输出代码和验证报告。",
+          "turn": 1
+        },
+        "persistence_points": {
+          "origin": "user_explicit",
+          "quote": "连续两点",
+          "turn": 1
+        },
+        "scenario": {
+          "origin": "user_explicit",
+          "quote": "用模拟数据检测单主机内存利用率缓慢升高，比较固定阈值、滚动 MAD 和 EWMA 三种方法；固定阈值为 70%，EWMA 的 alpha 为 0.2，连续两点异常才报警，优先覆盖持续异常区间，输出代码和验证报告。",
+          "turn": 1
+        },
+        "selection_policy": {
+          "origin": "user_explicit",
+          "quote": "优先覆盖持续异常区间",
+          "turn": 1
+        },
+        "threshold": {
+          "origin": "user_explicit",
+          "quote": "阈值为 70%",
+          "turn": 1
+        }
+      },
+      "issues": [],
+      "model_mode": "api",
+      "model_usage": {
+        "input_tokens": 2223,
+        "kind": "api",
+        "missing_usage_requests": 0,
+        "notice": "Counts include retries and repairs; tokens are provider-reported only; missing usage is not zero.",
+        "output_tokens": 378,
+        "requests": 2,
+        "reservations": 2,
+        "total_tokens": 2601
+      },
+      "parse_task_id": "understand-f02931632f904eee",
+      "revision": 1,
+      "schema_version": "metrics-requirement-draft/1",
+      "turns": [
+        "用模拟数据检测单主机内存利用率缓慢升高，比较固定阈值、滚动 MAD 和 EWMA 三种方法；固定阈值为 70%，EWMA 的 alpha 为 0.2，连续两点异常才报警，优先覆盖持续异常区间，输出代码和验证报告。"
+      ],
+      "values": {
+        "alpha": 0.2,
+        "data_source": "simulation",
+        "direction": "upper",
+        "evaluation_objective": "sustained_coverage",
+        "methods": [
+          "ewma",
+          "fixed_threshold",
+          "rolling_mad"
+        ],
+        "persistence_points": 2,
+        "scenario": "memory_drift",
+        "selection_policy": "recall",
+        "threshold": 70.0
+      }
+    },
+    "schema_version": "metrics-task/1",
+    "selection_policy": "recall",
+    "task_id": "ui-15e8770de18747f7",
+    "validation_protocol": "metrics-evaluation/1"
+  },
+  "usage": {
+    "kind": "api",
+    "requests": 4,
+    "reservations": 4,
+    "input_tokens": 142728,
+    "output_tokens": 7465,
+    "total_tokens": 150193,
+    "missing_usage_requests": 0,
+    "notice": "Counts include retries and repairs; tokens are provider-reported only; missing usage is not zero."
+  },
+  "knowledge_usage": {
+    "supplied": [
+      "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+      "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+      "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+      "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+      "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+      "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+      "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+      "source-77c556c6553d4192078e1bfdf985a4cd89e45754f491b6ee917b9dcc07769438",
+      "source-b87632b829b20184b15b4a9610c028db947eb04a8672c227b3caa14ff39afcd3",
+      "source-ba12995471501af4d22a092ff63e3420003103c0a364a4769ae2afa939fd5cab",
+      "source-c6d85ec31dbd8809fc844451579165bc762b556e94fd925222e0afb96d75a74c",
+      "source-f5e5f8ac42e9fd7f7bb393e7cc89533f14187c96f6d02a17f9fd4374221933b2"
+    ],
+    "cited": [
+      "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+      "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+      "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+      "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+      "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+      "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+      "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816"
+    ],
+    "references": [
+      {
+        "候选": "fixed-threshold-70-p2",
+        "阶段": "方案",
+        "知识ID": [
+          "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+          "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+          "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09"
+        ]
+      },
+      {
+        "候选": "fixed-threshold-70-p2",
+        "阶段": "代码 v0",
+        "知识ID": [
+          "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+          "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+          "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09"
+        ]
+      },
+      {
+        "候选": "rolling-mad-default-p2",
+        "阶段": "方案",
+        "知识ID": [
+          "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+          "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+          "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+          "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816"
+        ]
+      },
+      {
+        "候选": "rolling-mad-default-p2",
+        "阶段": "代码 v0",
+        "知识ID": [
+          "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+          "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+          "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+          "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816"
+        ]
+      },
+      {
+        "候选": "ewma-alpha02-p2",
+        "阶段": "方案",
+        "知识ID": [
+          "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+          "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd"
+        ]
+      },
+      {
+        "候选": "ewma-alpha02-p2",
+        "阶段": "代码 v0",
+        "知识ID": [
+          "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+          "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd"
+        ]
+      }
+    ],
+    "unprovided_citations": [],
+    "supplied_experiences": [],
+    "cited_experiences": []
+  },
+  "prompts": [
+    {
+      "call_id": "ui-15e8770de18747f7:plan:format-0",
+      "prompt_sha256": "sha256:15970a862fbd2fff4c30a280316d37eaac147f27564dc921ca0d0f253cf69527",
+      "provided_experience_ids": [],
+      "has_previous_source": false,
+      "has_development_feedback": false
+    },
+    {
+      "call_id": "ui-15e8770de18747f7:code-fixed-threshold-70-p2-v0:format-0",
+      "prompt_sha256": "sha256:e76a3939eaa79ae82e3c892fc4c7f39fdc42e89b0dfa794f4274979309099b94",
+      "provided_experience_ids": [],
+      "has_previous_source": false,
+      "has_development_feedback": false
+    },
+    {
+      "call_id": "ui-15e8770de18747f7:code-rolling-mad-default-p2-v0:format-0",
+      "prompt_sha256": "sha256:aae8dd527f5081f63639fac288207f0f52fdb97a3f217e727e24ed704a5e1434",
+      "provided_experience_ids": [],
+      "has_previous_source": false,
+      "has_development_feedback": false
+    },
+    {
+      "call_id": "ui-15e8770de18747f7:code-ewma-alpha02-p2-v0:format-0",
+      "prompt_sha256": "sha256:504e14707f49659f5e0578c6b2e716b6bb108525c2e78359cae8474f1218e3a8",
+      "provided_experience_ids": [],
+      "has_previous_source": false,
+      "has_development_feedback": false
+    }
+  ],
+  "operations": [
+    {
+      "operation_id": "ui-15e8770de18747f7:plan:format-0",
+      "resource": "model",
+      "status": "SUCCEEDED",
+      "metadata": {
+        "actual_model": "doubao-seed-2-1-pro-260915",
+        "elapsed_seconds": 44.759852200746536,
+        "failure_code": null,
+        "input_tokens": 29614,
+        "output_tokens": 1882,
+        "profile_id": "metrics-c9a0036e73b91ba3"
+      }
+    },
+    {
+      "operation_id": "ui-15e8770de18747f7:code-fixed-threshold-70-p2-v0:format-0",
+      "resource": "model",
+      "status": "SUCCEEDED",
+      "metadata": {
+        "actual_model": "doubao-seed-2-1-pro-260915",
+        "elapsed_seconds": 32.220267336815596,
+        "failure_code": null,
+        "input_tokens": 36421,
+        "output_tokens": 1405,
+        "profile_id": "metrics-c9a0036e73b91ba3"
+      }
+    },
+    {
+      "operation_id": "ui-15e8770de18747f7:check-fixed-threshold-70-p2-v0",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-15e8770de18747f7:development-fixed-threshold-70-p2",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-15e8770de18747f7:code-rolling-mad-default-p2-v0:format-0",
+      "resource": "model",
+      "status": "SUCCEEDED",
+      "metadata": {
+        "actual_model": "doubao-seed-2-1-pro-260915",
+        "elapsed_seconds": 33.11234272271395,
+        "failure_code": null,
+        "input_tokens": 39280,
+        "output_tokens": 2187,
+        "profile_id": "metrics-c9a0036e73b91ba3"
+      }
+    },
+    {
+      "operation_id": "ui-15e8770de18747f7:check-rolling-mad-default-p2-v0",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-15e8770de18747f7:calibrate-rolling-mad-default-p2",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-15e8770de18747f7:development-rolling-mad-default-p2",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-15e8770de18747f7:code-ewma-alpha02-p2-v0:format-0",
+      "resource": "model",
+      "status": "SUCCEEDED",
+      "metadata": {
+        "actual_model": "doubao-seed-2-1-pro-260915",
+        "elapsed_seconds": 32.20839335024357,
+        "failure_code": null,
+        "input_tokens": 37413,
+        "output_tokens": 1991,
+        "profile_id": "metrics-c9a0036e73b91ba3"
+      }
+    },
+    {
+      "operation_id": "ui-15e8770de18747f7:check-ewma-alpha02-p2-v0",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-15e8770de18747f7:calibrate-ewma-alpha02-p2",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-15e8770de18747f7:development-ewma-alpha02-p2",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-15e8770de18747f7:final-test",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-15e8770de18747f7:knowledge:publication-ccece27d4f1c5824bbfe654c108d9561cb4c02756da08840a8a3711d7fa37cdb",
+      "resource": "knowledge-publication",
+      "status": "SUCCEEDED",
+      "metadata": {
+        "payload_ref": "sha256:b7fc7fe9cc2e98040495fa48d9e97f1fd7868d5b9c45ef00617fca7d2d3e192a",
+        "publication_id": "publication-ccece27d4f1c5824bbfe654c108d9561cb4c02756da08840a8a3711d7fa37cdb"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "fixed-threshold-70-p2",
+      "config": {
+        "direction": "upper",
+        "method_id": "fixed_threshold",
+        "threshold": 70.0
+      },
+      "development": {
+        "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+        "coverage": {
+          "denominator": 240,
+          "null_reason": null,
+          "numerator": 240,
+          "value": 1.0
+        },
+        "effect_status": "MEASURED",
+        "engineering_status": "PASSED",
+        "event": {
+          "f1": {
+            "denominator": 2,
+            "null_reason": null,
+            "numerator": 2,
+            "value": 1.0
+          },
+          "fn": 0,
+          "fp": 0,
+          "pairs": [
+            {
+              "delay_seconds": 4620.0,
+              "prediction_id": "pred-0000",
+              "truth_id": "truth-0000"
+            }
+          ],
+          "precision": {
+            "denominator": 1,
+            "null_reason": null,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 1,
+            "null_reason": null,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "tp": 1,
+          "unmatched_prediction_ids": [],
+          "unmatched_truth_ids": []
+        },
+        "execution_status": "SUCCEEDED",
+        "matched_delay_seconds": {
+          "maximum": 4620.0,
+          "median": 4620.0,
+          "missed_events": 0,
+          "null_reason": null
+        },
+        "normal_false_alarms_per_host_hour": {
+          "denominator": 7800,
+          "null_reason": null,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "peak_memory_bytes": null,
+        "peak_memory_null_reason": "not_measured",
+        "point": {
+          "abstained_normal": 0,
+          "f1": {
+            "denominator": 143,
+            "null_reason": null,
+            "numerator": 66,
+            "value": 0.46153846153846156
+          },
+          "fn": 77,
+          "fp": 0,
+          "precision": {
+            "denominator": 33,
+            "null_reason": null,
+            "numerator": 33,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 110,
+            "null_reason": null,
+            "numerator": 33,
+            "value": 0.3
+          },
+          "tn": 130,
+          "total": 240,
+          "tp": 33
+        },
+        "predicted_events": [
+          {
+            "end_at": "2026-01-03T04:20:00Z",
+            "event_id": "pred-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T03:47:00Z",
+            "trigger_at": "2026-01-03T03:47:00Z"
+          }
+        ],
+        "protocol": "metrics-evaluation/1",
+        "runtime_seconds": 0.11321137472987175,
+        "truth_events": [
+          {
+            "end_at": "2026-01-03T04:20:00Z",
+            "event_id": "truth-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T02:30:00Z",
+            "trigger_at": "2026-01-03T02:30:00Z"
+          }
+        ]
+      },
+      "versions": [
+        {
+          "version": 0,
+          "origin": "llm_api",
+          "source_path": "candidate-01e9959f384714c5db7416055433d2916cd70f0adcdf8522d2fe09f7641f4625/v0.py",
+          "source_sha256": "sha256:9ceaa85724bf25dae0d8a5e0cd379ba48dd1c91886050858518d4759b102e238",
+          "parent_source_sha256": null,
+          "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+          "capability_version": "1.1.0",
+          "specification_sha256": "sha256:d78418b686499b015abb691e10e65fad63592d12ad25bcab36e2ced5af7a2060",
+          "knowledge_ids": [
+            "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+            "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+            "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09"
+          ],
+          "passed": true,
+          "verification_level": "reference_verified",
+          "checks": [
+            {
+              "check": "static_profile",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "missing_input_contract",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "state_reload",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "reset_repeat_future_invariance",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "fixed_strict_boundary",
+              "layer": "property",
+              "passed": true,
+              "points": 3
+            },
+            {
+              "check": "fixed_missing",
+              "layer": "property",
+              "passed": true,
+              "points": 6
+            },
+            {
+              "check": "fixed_strict_boundary",
+              "layer": "reference",
+              "passed": true,
+              "points": 3
+            },
+            {
+              "check": "fixed_missing",
+              "layer": "reference",
+              "passed": true,
+              "points": 6
+            }
+          ],
+          "implementation_ids": [
+            "implementation-b730bcc8b9db7ed1b9bf8b6ca69f081f3799d58a18f88dcdad04225aca36d931"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "rolling-mad-default-p2",
+      "config": {
+        "direction": "upper",
+        "method_id": "rolling_mad",
+        "min_history": 15,
+        "quantile": 0.99,
+        "window": 30
+      },
+      "development": {
+        "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+        "coverage": {
+          "denominator": 240,
+          "null_reason": null,
+          "numerator": 240,
+          "value": 1.0
+        },
+        "effect_status": "MEASURED",
+        "engineering_status": "PASSED",
+        "event": {
+          "f1": {
+            "denominator": 1,
+            "null_reason": null,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fn": 1,
+          "fp": 0,
+          "pairs": [],
+          "precision": {
+            "denominator": 0,
+            "null_reason": "no_predictions",
+            "numerator": 0,
+            "value": null
+          },
+          "recall": {
+            "denominator": 1,
+            "null_reason": null,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "tp": 0,
+          "unmatched_prediction_ids": [],
+          "unmatched_truth_ids": [
+            "truth-0000"
+          ]
+        },
+        "execution_status": "SUCCEEDED",
+        "matched_delay_seconds": {
+          "maximum": null,
+          "median": null,
+          "missed_events": 1,
+          "null_reason": "no_matched_events"
+        },
+        "normal_false_alarms_per_host_hour": {
+          "denominator": 7800,
+          "null_reason": null,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "peak_memory_bytes": null,
+        "peak_memory_null_reason": "not_measured",
+        "point": {
+          "abstained_normal": 0,
+          "f1": {
+            "denominator": 110,
+            "null_reason": null,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "fn": 110,
+          "fp": 0,
+          "precision": {
+            "denominator": 0,
+            "null_reason": "no_predictions",
+            "numerator": 0,
+            "value": null
+          },
+          "recall": {
+            "denominator": 110,
+            "null_reason": null,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "tn": 130,
+          "total": 240,
+          "tp": 0
+        },
+        "predicted_events": [],
+        "protocol": "metrics-evaluation/1",
+        "runtime_seconds": 0.1169339120388031,
+        "truth_events": [
+          {
+            "end_at": "2026-01-03T04:20:00Z",
+            "event_id": "truth-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T02:30:00Z",
+            "trigger_at": "2026-01-03T02:30:00Z"
+          }
+        ]
+      },
+      "versions": [
+        {
+          "version": 0,
+          "origin": "llm_api",
+          "source_path": "candidate-4e127ce62a49b6442b1eab600031cde172b6032fce733cf6d6fe492b8a96e7a7/v0.py",
+          "source_sha256": "sha256:5b3fbb52229b225c2e4ecf57f453d2e37c270631361c000b14282def2ef88d64",
+          "parent_source_sha256": null,
+          "capability_id": "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+          "capability_version": "1.1.0",
+          "specification_sha256": "sha256:1341c8dba78c069e25220a8afe6f80caaf9150384348d3c7f47c3c4e1dce8309",
+          "knowledge_ids": [
+            "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+            "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+            "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+            "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816"
+          ],
+          "passed": true,
+          "verification_level": "reference_verified",
+          "checks": [
+            {
+              "check": "static_profile",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "missing_input_contract",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "state_reload",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "reset_repeat_future_invariance",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "mad_past_only",
+              "layer": "property",
+              "passed": true,
+              "points": 17
+            },
+            {
+              "check": "mad_zero_scale",
+              "layer": "property",
+              "passed": true,
+              "points": 33
+            },
+            {
+              "check": "mad_missing_slots",
+              "layer": "property",
+              "passed": true,
+              "points": 50
+            },
+            {
+              "check": "mad_imputed_not_original",
+              "layer": "property",
+              "passed": true,
+              "points": 19
+            },
+            {
+              "check": "mad_past_only",
+              "layer": "reference",
+              "passed": true,
+              "points": 17
+            },
+            {
+              "check": "mad_zero_scale",
+              "layer": "reference",
+              "passed": true,
+              "points": 33
+            },
+            {
+              "check": "mad_missing_slots",
+              "layer": "reference",
+              "passed": true,
+              "points": 50
+            },
+            {
+              "check": "mad_imputed_not_original",
+              "layer": "reference",
+              "passed": true,
+              "points": 19
+            }
+          ],
+          "implementation_ids": [
+            "implementation-bd0a98bd6b5896aa07e59cf3d646aec6c5b019db47b35beffd5f8ed39aad6f71"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "ewma-alpha02-p2",
+      "config": {
+        "alpha": 0.2,
+        "direction": "upper",
+        "method_id": "ewma",
+        "min_history": 3,
+        "quantile": 0.99
+      },
+      "development": {
+        "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+        "coverage": {
+          "denominator": 240,
+          "null_reason": null,
+          "numerator": 240,
+          "value": 1.0
+        },
+        "effect_status": "MEASURED",
+        "engineering_status": "PASSED",
+        "event": {
+          "f1": {
+            "denominator": 2,
+            "null_reason": null,
+            "numerator": 2,
+            "value": 1.0
+          },
+          "fn": 0,
+          "fp": 0,
+          "pairs": [
+            {
+              "delay_seconds": 360.0,
+              "prediction_id": "pred-0000",
+              "truth_id": "truth-0000"
+            }
+          ],
+          "precision": {
+            "denominator": 1,
+            "null_reason": null,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 1,
+            "null_reason": null,
+            "numerator": 1,
+            "value": 1.0
+          },
+          "tp": 1,
+          "unmatched_prediction_ids": [],
+          "unmatched_truth_ids": []
+        },
+        "execution_status": "SUCCEEDED",
+        "matched_delay_seconds": {
+          "maximum": 360.0,
+          "median": 360.0,
+          "missed_events": 0,
+          "null_reason": null
+        },
+        "normal_false_alarms_per_host_hour": {
+          "denominator": 7800,
+          "null_reason": null,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "peak_memory_bytes": null,
+        "peak_memory_null_reason": "not_measured",
+        "point": {
+          "abstained_normal": 0,
+          "f1": {
+            "denominator": 229,
+            "null_reason": null,
+            "numerator": 208,
+            "value": 0.9082969432314411
+          },
+          "fn": 6,
+          "fp": 15,
+          "precision": {
+            "denominator": 119,
+            "null_reason": null,
+            "numerator": 104,
+            "value": 0.8739495798319328
+          },
+          "recall": {
+            "denominator": 110,
+            "null_reason": null,
+            "numerator": 104,
+            "value": 0.9454545454545454
+          },
+          "tn": 115,
+          "total": 240,
+          "tp": 104
+        },
+        "predicted_events": [
+          {
+            "end_at": "2026-01-03T04:35:00Z",
+            "event_id": "pred-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T02:36:00Z",
+            "trigger_at": "2026-01-03T02:36:00Z"
+          }
+        ],
+        "protocol": "metrics-evaluation/1",
+        "runtime_seconds": 0.10543597862124443,
+        "truth_events": [
+          {
+            "end_at": "2026-01-03T04:20:00Z",
+            "event_id": "truth-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T02:30:00Z",
+            "trigger_at": "2026-01-03T02:30:00Z"
+          }
+        ]
+      },
+      "versions": [
+        {
+          "version": 0,
+          "origin": "llm_api",
+          "source_path": "candidate-730de598da96cd05bf2f01f6398f8007cbada30ae9a101664788d60c6dc75c6d/v0.py",
+          "source_sha256": "sha256:36f522d5c83974e41ed9457961e422d82ade2d6c4caf934030f95755172024cf",
+          "parent_source_sha256": null,
+          "capability_id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+          "capability_version": "1.1.0",
+          "specification_sha256": "sha256:53abdca0789200f3681895fdd88b049227e8b5e9587a9cc82d7f1d1bcc70bda2",
+          "knowledge_ids": [
+            "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+            "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd"
+          ],
+          "passed": true,
+          "verification_level": "reference_verified",
+          "checks": [
+            {
+              "check": "static_profile",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "missing_input_contract",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "state_reload",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "reset_repeat_future_invariance",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "ewma_cold_start",
+              "layer": "property",
+              "passed": true,
+              "points": 3
+            },
+            {
+              "check": "ewma_monotonic_step",
+              "layer": "property",
+              "passed": true,
+              "points": 13
+            },
+            {
+              "check": "ewma_missing",
+              "layer": "property",
+              "passed": true,
+              "points": 8
+            },
+            {
+              "check": "ewma_cold_start",
+              "layer": "reference",
+              "passed": true,
+              "points": 3
+            },
+            {
+              "check": "ewma_monotonic_step",
+              "layer": "reference",
+              "passed": true,
+              "points": 13
+            },
+            {
+              "check": "ewma_missing",
+              "layer": "reference",
+              "passed": true,
+              "points": 8
+            }
+          ],
+          "implementation_ids": [
+            "implementation-ac68184ae1fefa93ba22087939bba8fab4b711fc1e275d04d44a68fee85ebf3d"
+          ]
+        }
+      ]
+    }
+  ],
+  "selection": {
+    "basis": "labelled_development",
+    "beta": 2.0,
+    "criteria": [
+      "point_fbeta_desc",
+      "event_fbeta_desc",
+      "false_alarm_rate_asc",
+      "matched_delay_asc",
+      "coverage_desc",
+      "candidate_id"
+    ],
+    "objective": "sustained_coverage",
+    "policy": "recall",
+    "protocol": "metrics-selection/2",
+    "ranking": [
+      "ewma-alpha02-p2",
+      "fixed-threshold-70-p2",
+      "rolling-mad-default-p2"
+    ],
+    "reason": "按开发集目标及次级 Fβ、正常误报频次、匹配延迟、覆盖率和候选ID排序；最终测试不参与选择。",
+    "requested_policy": "recall",
+    "selected": "ewma-alpha02-p2",
+    "status": "SELECTED",
+    "tie_broken_by": "point_fbeta",
+    "warnings": [
+      "LOW_EVENT_COUNT: 真实事件少于5个，事件F1不足以支持统计结论。"
+    ]
+  },
+  "final": {
+    "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+    "coverage": {
+      "denominator": 240,
+      "null_reason": null,
+      "numerator": 240,
+      "value": 1.0
+    },
+    "effect_status": "MEASURED",
+    "engineering_status": "PASSED",
+    "event": {
+      "f1": {
+        "denominator": 3,
+        "null_reason": null,
+        "numerator": 2,
+        "value": 0.6666666666666666
+      },
+      "fn": 0,
+      "fp": 1,
+      "pairs": [
+        {
+          "delay_seconds": 420.0,
+          "prediction_id": "pred-0001",
+          "truth_id": "truth-0000"
+        }
+      ],
+      "precision": {
+        "denominator": 2,
+        "null_reason": null,
+        "numerator": 1,
+        "value": 0.5
+      },
+      "recall": {
+        "denominator": 1,
+        "null_reason": null,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "tp": 1,
+      "unmatched_prediction_ids": [
+        "pred-0000"
+      ],
+      "unmatched_truth_ids": []
+    },
+    "execution_status": "SUCCEEDED",
+    "matched_delay_seconds": {
+      "maximum": 420.0,
+      "median": 420.0,
+      "missed_events": 0,
+      "null_reason": null
+    },
+    "normal_false_alarms_per_host_hour": {
+      "denominator": 7800,
+      "null_reason": null,
+      "numerator": 3600,
+      "value": 0.46153846153846156
+    },
+    "peak_memory_bytes": null,
+    "peak_memory_null_reason": "not_measured",
+    "phase": "test",
+    "point": {
+      "abstained_normal": 0,
+      "f1": {
+        "denominator": 232,
+        "null_reason": null,
+        "numerator": 206,
+        "value": 0.8879310344827587
+      },
+      "fn": 7,
+      "fp": 19,
+      "precision": {
+        "denominator": 122,
+        "null_reason": null,
+        "numerator": 103,
+        "value": 0.8442622950819673
+      },
+      "recall": {
+        "denominator": 110,
+        "null_reason": null,
+        "numerator": 103,
+        "value": 0.9363636363636364
+      },
+      "tn": 111,
+      "total": 240,
+      "tp": 103
+    },
+    "predicted_events": [
+      {
+        "end_at": "2026-01-04T02:07:00Z",
+        "event_id": "pred-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-04T02:05:00Z",
+        "trigger_at": "2026-01-04T02:05:00Z"
+      },
+      {
+        "end_at": "2026-01-04T04:37:00Z",
+        "event_id": "pred-0001",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-04T02:37:00Z",
+        "trigger_at": "2026-01-04T02:37:00Z"
+      }
+    ],
+    "protocol": "metrics-evaluation/1",
+    "runtime_seconds": 0.0913938544690609,
+    "selected": "ewma-alpha02-p2",
+    "selection_sha256": "sha256:781b9baeb442f3b5868ee35d8e5929b3a840cc3f6c68340d50284c6884fccb12",
+    "test_execution_started": true,
+    "truth_events": [
+      {
+        "end_at": "2026-01-04T04:20:00Z",
+        "event_id": "truth-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-04T02:30:00Z",
+        "trigger_at": "2026-01-04T02:30:00Z"
+      }
+    ]
+  },
+  "publication": {
+    "publication_id": "publication-ccece27d4f1c5824bbfe654c108d9561cb4c02756da08840a8a3711d7fa37cdb",
+    "node_ids": [
+      "experience-3c400aad5437cbffcfb4c026c178eb8a77e87e62d45cf0f1d19685c28d666b0a",
+      "experience-8994fbe8622595cad805f1388c2ffd8746b76ce1809cdea8020c5866f76a10f4",
+      "experience-a60f01a0506263c577f1c38877dc3dc06c2ad9b3a8b9a3af4ea3679a119ee66b",
+      "implementation-ac68184ae1fefa93ba22087939bba8fab4b711fc1e275d04d44a68fee85ebf3d",
+      "implementation-b730bcc8b9db7ed1b9bf8b6ca69f081f3799d58a18f88dcdad04225aca36d931",
+      "implementation-bd0a98bd6b5896aa07e59cf3d646aec6c5b019db47b35beffd5f8ed39aad6f71",
+      "validation-35c2268bee1d935facc6c11438fab08844e3005c2e07093aa7332270078c8ed8",
+      "validation-7197c5a7661391394d87b13ab2d3205305872beeb138f6a7118f365f5b35b3a8",
+      "validation-c2371112423b96ff339c546b86414239011d1ee0d551eb9586981784d27d6fe7"
+    ],
+    "status": "PUBLISHED"
+  },
+  "failure": null,
+  "workflow_runtime_seconds": 169.20986112579703,
+  "browser_download_checked": true,
+  "download_matches_server": true,
+  "page_capture_limitation": null
+}

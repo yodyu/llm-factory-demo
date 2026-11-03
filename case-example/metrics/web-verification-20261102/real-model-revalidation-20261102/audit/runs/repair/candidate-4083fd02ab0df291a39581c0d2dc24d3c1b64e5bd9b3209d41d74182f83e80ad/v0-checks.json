@@ -1,0 +1,107 @@
+{
+  "candidate_id": "fixed_threshold_memory_upper_85_p2",
+  "capability_version": "1.1.0",
+  "checks": [
+    {
+      "check": "static_profile",
+      "layer": "contract",
+      "passed": true
+    },
+    {
+      "check": "missing_input_contract",
+      "layer": "contract",
+      "passed": true
+    },
+    {
+      "check": "state_reload",
+      "layer": "contract",
+      "passed": true
+    },
+    {
+      "check": "reset_repeat_future_invariance",
+      "layer": "contract",
+      "passed": true
+    },
+    {
+      "allowed_changes": "candidate source only; keep frozen config and interface",
+      "check": "fixed_strict_boundary",
+      "development_input": [
+        {
+          "host_id": "validation-host",
+          "timestamp": "2026-01-01T00:00:00Z",
+          "value": 84.0
+        },
+        {
+          "host_id": "validation-host",
+          "timestamp": "2026-01-01T00:01:00Z",
+          "value": 85.0
+        },
+        {
+          "host_id": "validation-host",
+          "timestamp": "2026-01-01T00:02:00Z",
+          "value": 86.0
+        }
+      ],
+      "difference": {
+        "actual": [
+          {
+            "evidence": {
+              "direction": "upper",
+              "threshold": 85.0
+            },
+            "host_id": "validation-host",
+            "score": 0.0,
+            "status": "ok",
+            "timestamp": "2026-01-01T00:00:00Z"
+          },
+          {
+            "evidence": {
+              "direction": "upper",
+              "threshold": 85.0
+            },
+            "host_id": "validation-host",
+            "score": 1.0,
+            "status": "ok",
+            "timestamp": "2026-01-01T00:01:00Z"
+          },
+          {
+            "evidence": {
+              "direction": "upper",
+              "threshold": 85.0
+            },
+            "host_id": "validation-host",
+            "score": 2.0,
+            "status": "ok",
+            "timestamp": "2026-01-01T00:02:00Z"
+          }
+        ],
+        "code": "METHOD_DIFFERENCE",
+        "expected": {
+          "passed": true,
+          "property": "fixed_strict_boundary"
+        },
+        "message": "capability property failed"
+      },
+      "passed": false,
+      "point_index": 2
+    }
+  ],
+  "config": {
+    "direction": "upper",
+    "method_id": "fixed_threshold",
+    "threshold": 85.0
+  },
+  "dependency_profile": "metrics-py312-stdlib/1",
+  "origin": "fault_injection",
+  "passed": false,
+  "plugin_hashes": {
+    "capability.json": "sha256:a19217ef27bff5c0726e6be8d4dc123a509bfe2d34c6fe8b63b0f2cd6c5ef045",
+    "checks.py": "sha256:009933701326684689fb100d585f4bb44d596016fa7d9278147f6999566e9427",
+    "reference.py": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70"
+  },
+  "protocol": "metrics-method-check/3",
+  "repairable": true,
+  "source_sha256": "sha256:4c95e5b297ac516c7e7a27d9c0dd2df63a7bd00ef3ddaca927da94fface38cf3",
+  "verification_level": "contract_only",
+  "version": 0
+}

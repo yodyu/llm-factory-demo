@@ -1,0 +1,93 @@
+{
+  "schema_version": "metrics-orchestration/1",
+  "engine": "langgraph",
+  "graph_version": "metrics-graph/1",
+  "langgraph_version": "1.2.18",
+  "source_sha256": "sha256:598893d7172be2ce9df55973255ef0033977922a15e6ce95c2a077081ab81bee",
+  "task_id": "ui-e6121958cd5a44b7",
+  "workflow_status": "FAILED",
+  "events": [
+    {
+      "node": "preflight",
+      "event": "started",
+      "at_seconds": 0.02305316925048828
+    },
+    {
+      "node": "preflight",
+      "event": "finished",
+      "at_seconds": 0.025854691863059998
+    },
+    {
+      "node": "freeze_knowledge",
+      "event": "started",
+      "at_seconds": 0.027171067893505096
+    },
+    {
+      "node": "freeze_knowledge",
+      "event": "finished",
+      "at_seconds": 0.5460452027618885
+    },
+    {
+      "node": "initialize_task",
+      "event": "started",
+      "at_seconds": 0.5474862307310104
+    },
+    {
+      "node": "initialize_task",
+      "event": "finished",
+      "at_seconds": 0.601686391979456
+    },
+    {
+      "node": "bind_inputs",
+      "event": "started",
+      "at_seconds": 0.632567971944809
+    },
+    {
+      "node": "bind_inputs",
+      "event": "finished",
+      "at_seconds": 0.6862612292170525
+    },
+    {
+      "node": "retrieve_knowledge",
+      "event": "started",
+      "at_seconds": 0.7179084904491901
+    },
+    {
+      "node": "retrieve_knowledge",
+      "event": "finished",
+      "at_seconds": 0.7539276964962482
+    },
+    {
+      "node": "plan_candidates",
+      "event": "started",
+      "at_seconds": 0.7902872860431671
+    },
+    {
+      "node": "plan_candidates",
+      "event": "failed",
+      "at_seconds": 60.87556333467364,
+      "code": "MODEL_TIMEOUT"
+    },
+    {
+      "node": "record_failure",
+      "event": "started",
+      "at_seconds": 61.05283838883042
+    },
+    {
+      "node": "record_failure",
+      "event": "finished",
+      "at_seconds": 61.063550762832165
+    },
+    {
+      "node": "cleanup",
+      "event": "started",
+      "at_seconds": 61.0997060239315
+    },
+    {
+      "node": "cleanup",
+      "event": "finished",
+      "at_seconds": 61.10012090951204
+    }
+  ],
+  "scope": "execution through cleanup; publication and export have separate receipts"
+}

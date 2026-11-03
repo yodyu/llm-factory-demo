@@ -1,0 +1,220 @@
+{
+  "candidate_id": "memory_utilization_rolling_mad_upper_w30_h15_q99_p2",
+  "role": "development",
+  "plan": {
+    "candidate_id": "memory_utilization_rolling_mad_upper_w30_h15_q99_p2",
+    "config": {
+      "method_id": "rolling_mad",
+      "window": 30,
+      "min_history": 15,
+      "direction": "upper",
+      "quantile": 0.99
+    },
+    "persistence_points": 2,
+    "parameter_sources": {
+      "window": "protocol_default",
+      "min_history": "protocol_default",
+      "direction": "user_explicit",
+      "quantile": "protocol_default",
+      "persistence_points": "user_explicit",
+      "scale_floor": "knowledge:capability-495442200c109b16b45d3bfb8ff7eba7746d1cce28b0631e0893d13cb60e39e9"
+    },
+    "knowledge_ids": [
+      "capability-495442200c109b16b45d3bfb8ff7eba7746d1cce28b0631e0893d13cb60e39e9",
+      "capability-106fc5025f92d2dfec9698b99161e17a6e35a65509b48320d43e5828858adb0f",
+      "capability-ba2670c5ca166ee2f6458d8f8bf37cf3adb2ce63c28bdba06d15d10137a86c42",
+      "chunk-1011e52512074bc8dc412d864d260ab286e30fe8b03606cef419f11535cd65b1",
+      "chunk-61b0a6434b7535057ffdd2e5fa6ae0a7d4788f020e8973b19c650ee48614a369",
+      "chunk-b65a19c4f2a26deb5a0d6d8a588af6f29a3b5bb2b4931befdfdbcb31083a7e13"
+    ],
+    "limitations": [
+      "使用当前点之前最多30个时间槽计算中位数和MAD；真实观测少于15个时为insufficient_history，不输出异常分数。",
+      "0.99分位判定阈值需用至少100个可判断校准分数按nearest-rank估计；当前训练样本数量足够，但仍需在新数据上重新校准验证。",
+      "持续缓慢升高可能逐步进入滚动基线而被吸收，造成发现延迟或漏报；周期性波动可能导致误报。",
+      "短缺失插补值可用于统计但不增加真实历史数，连续缺失超过3点必须返回missing_input。"
+    ]
+  },
+  "versions": [
+    {
+      "version": 0,
+      "origin": "llm_api",
+      "source_path": "candidate-eed1519ccc941e1cd33c3e3c07523594fbf1318f9682e67b91309a27e3bed153/v0.py",
+      "source_sha256": "sha256:0754202b7da0758e6c2f655f7c0bfc610a344c78addbb48dc67c461aa5fe02cf",
+      "source_ref": "sha256:0754202b7da0758e6c2f655f7c0bfc610a344c78addbb48dc67c461aa5fe02cf",
+      "parent_source_sha256": null,
+      "knowledge_ids": [
+        "capability-495442200c109b16b45d3bfb8ff7eba7746d1cce28b0631e0893d13cb60e39e9",
+        "capability-106fc5025f92d2dfec9698b99161e17a6e35a65509b48320d43e5828858adb0f",
+        "capability-ba2670c5ca166ee2f6458d8f8bf37cf3adb2ce63c28bdba06d15d10137a86c42",
+        "chunk-1011e52512074bc8dc412d864d260ab286e30fe8b03606cef419f11535cd65b1",
+        "chunk-61b0a6434b7535057ffdd2e5fa6ae0a7d4788f020e8973b19c650ee48614a369",
+        "chunk-b65a19c4f2a26deb5a0d6d8a588af6f29a3b5bb2b4931befdfdbcb31083a7e13"
+      ],
+      "explanation": "实现滚动MAD单侧upper检测器：窗口30、真实历史15，先评分后更新；训练有效值的R7 IQR用于scale_floor，插补值可参与统计但不增加真实历史数，缺失和不可用槽占用窗口。",
+      "validation": {
+        "protocol": "metrics-method-check/1",
+        "candidate_id": "memory_utilization_rolling_mad_upper_w30_h15_q99_p2",
+        "version": 0,
+        "origin": "llm_api",
+        "source_sha256": "sha256:0754202b7da0758e6c2f655f7c0bfc610a344c78addbb48dc67c461aa5fe02cf",
+        "config": {
+          "method_id": "rolling_mad",
+          "window": 30,
+          "min_history": 15,
+          "direction": "upper",
+          "quantile": 0.99
+        },
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "checks": [
+          {
+            "check": "static_profile",
+            "passed": true
+          },
+          {
+            "check": "mad_past_only",
+            "passed": true,
+            "points": 17
+          },
+          {
+            "check": "mad_zero_scale",
+            "passed": true,
+            "points": 33
+          },
+          {
+            "check": "mad_missing_slots",
+            "passed": true,
+            "points": 50
+          },
+          {
+            "check": "mad_imputed_not_original",
+            "passed": true,
+            "points": 19
+          },
+          {
+            "check": "state_reload",
+            "passed": true
+          },
+          {
+            "check": "reset_repeat_future_invariance",
+            "passed": true
+          }
+        ],
+        "passed": true,
+        "repairable": true
+      }
+    }
+  ],
+  "calibration": {
+    "threshold": 3.093224621208671,
+    "quantile": 0.99,
+    "score_count": 240,
+    "rule": "nearest-rank",
+    "labels_used": false
+  },
+  "report": {
+    "protocol": "metrics-evaluation/1",
+    "execution_status": "SUCCEEDED",
+    "engineering_status": "PASSED",
+    "effect_status": "MEASURED",
+    "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+    "point": {
+      "tp": 14,
+      "fp": 0,
+      "fn": 46,
+      "tn": 180,
+      "abstained_normal": 0,
+      "total": 240,
+      "precision": {
+        "value": 1.0,
+        "numerator": 14,
+        "denominator": 14,
+        "null_reason": null
+      },
+      "recall": {
+        "value": 0.23333333333333334,
+        "numerator": 14,
+        "denominator": 60,
+        "null_reason": null
+      },
+      "f1": {
+        "value": 0.3783783783783784,
+        "numerator": 28,
+        "denominator": 74,
+        "null_reason": null
+      }
+    },
+    "event": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "pairs": [
+        {
+          "truth_id": "truth-0000",
+          "prediction_id": "pred-0000",
+          "delay_seconds": 60.0
+        }
+      ],
+      "unmatched_truth_ids": [],
+      "unmatched_prediction_ids": [],
+      "precision": {
+        "value": 1.0,
+        "numerator": 1,
+        "denominator": 1,
+        "null_reason": null
+      },
+      "recall": {
+        "value": 1.0,
+        "numerator": 1,
+        "denominator": 1,
+        "null_reason": null
+      },
+      "f1": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "null_reason": null
+      }
+    },
+    "coverage": {
+      "value": 1.0,
+      "numerator": 240,
+      "denominator": 240,
+      "null_reason": null
+    },
+    "normal_false_alarms_per_host_hour": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 10800,
+      "null_reason": null
+    },
+    "matched_delay_seconds": {
+      "median": 60.0,
+      "maximum": 60.0,
+      "null_reason": null,
+      "missed_events": 0
+    },
+    "runtime_seconds": 0.08754508942365646,
+    "peak_memory_bytes": null,
+    "peak_memory_null_reason": "not_measured",
+    "predicted_events": [
+      {
+        "event_id": "pred-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-03T02:41:00Z",
+        "end_at": "2026-01-03T02:55:00Z",
+        "trigger_at": "2026-01-03T02:41:00Z"
+      }
+    ],
+    "truth_events": [
+      {
+        "event_id": "truth-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-03T02:40:00Z",
+        "end_at": "2026-01-03T03:40:00Z",
+        "trigger_at": "2026-01-03T02:40:00Z"
+      }
+    ]
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "supported": true,
+  "understanding": "计划阶段：针对单主机内存利用率 gauge（单位 percent，采样间隔60秒）检测缓慢升高的上侧异常。用户明确要求比较固定阈值、滚动MAD、EWMA三种方法；固定阈值使用70%，EWMA使用alpha=0.2，所有候选均要求连续2个异常点才报警，以优先覆盖持续异常区间。后续可基于模拟数据生成代码与验证报告，但本阶段仅输出检测候选方案。",
+  "anomaly_target": "upper",
+  "limitations": [
+    "当前为plan阶段，仅返回候选检测配置；代码实现、模拟数据生成和验证报告属于后续执行阶段。",
+    "滚动MAD的window、min_history、quantile沿用能力默认值；这些不是用户显式业务参数，建议用无标签校准或模拟验证确认。",
+    "固定阈值70%是用户显式给定的检测阈值；内存利用率的业务达标含义仍以用户阈值为准，不额外宣称业务标准。",
+    "EWMA使用固定训练baseline，可保留长期偏移；alpha=0.2较小，响应速度相对更慢，但更平滑，适合配合连续2点确认持续异常。",
+    "滚动MAD的自适应窗口可能把持续缓慢升高吸收为新基线，从而降低持续异常后半段的检出率。",
+    "能力卡片验证级别为contract_only，implementation_verified=false；执行阶段仍需按契约验证。"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "fixed-threshold-70-p2",
+      "config": {
+        "method_id": "fixed_threshold",
+        "threshold": 70.0,
+        "direction": "upper"
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "threshold": "user_explicit",
+        "direction": "user_explicit",
+        "persistence_points": "user_explicit"
+      },
+      "knowledge_ids": [
+        "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+        "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+        "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09"
+      ],
+      "limitations": [
+        "等于70%时分数为0，不会触发；必须严格大于70%。",
+        "无法识别低于70%但相对训练基线持续缓慢升高的异常。",
+        "阈值虽由用户明确指定，但其业务含义仅限本次检测任务，不扩展为通用SLA。"
+      ],
+      "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "selection_reason": "固定阈值直接满足用户指定的70%上侧报警线，upper分数为x-70，只有严格超过70%才进入异常候选；再由persistence_points=2要求连续两点异常，能减少瞬时尖峰干扰。该方法不依赖历史基线，适合作为三种方法的透明基线。假设模拟数据中的内存利用率单位与用户给定阈值一致，均为percent，且70表示70%而不是0.70。"
+    },
+    {
+      "candidate_id": "rolling-mad-default-p2",
+      "config": {
+        "method_id": "rolling_mad",
+        "window": 30,
+        "min_history": 15,
+        "direction": "upper",
+        "quantile": 0.99
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "window": "protocol_default",
+        "min_history": "protocol_default",
+        "direction": "user_explicit",
+        "quantile": "protocol_default",
+        "persistence_points": "user_explicit"
+      },
+      "knowledge_ids": [
+        "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+        "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+        "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+        "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816"
+      ],
+      "limitations": [
+        "自适应历史窗口可能吸收持续缓慢升高，导致长期爬坡进入新基线后分数下降。",
+        "min_history=15意味着开始阶段真实观测不足时输出insufficient_history。",
+        "周期性内存使用模式若未在短窗口中稳定体现，可能产生误报。",
+        "默认quantile=0.99不是用户显式业务阈值，应通过校准或模拟结果评估。"
+      ],
+      "capability_id": "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+      "selection_reason": "滚动MAD用最近30个时间槽的中位数和MAD衡量局部偏离，适合与固定阈值和EWMA对比，并可在不指定业务阈值时捕捉相对历史的上侧突增。配置采用能力默认window=30、min_history=15、quantile=0.99，方向按用户目标设为upper，连续2点异常用于过滤短暂波动。假设模拟数据按60秒等间隔采样，30个槽约覆盖30分钟，且默认窗口长度足以代表局部正常水平。"
+    },
+    {
+      "candidate_id": "ewma-alpha02-p2",
+      "config": {
+        "method_id": "ewma",
+        "alpha": 0.2,
+        "min_history": 3,
+        "direction": "upper",
+        "quantile": 0.99
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "alpha": "user_explicit",
+        "min_history": "protocol_default",
+        "direction": "user_explicit",
+        "quantile": "protocol_default",
+        "persistence_points": "user_explicit"
+      },
+      "knowledge_ids": [
+        "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+        "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd"
+      ],
+      "limitations": [
+        "alpha=0.2会降低对突发升高的响应速度，可能增加检测延迟。",
+        "固定训练baseline会保留长期偏移；若训练阶段已包含爬升趋势，可能降低异常分数。",
+        "训练标准差很小或近似常数时，scale会受1e-9下限影响，需在验证报告中检查证据。",
+        "默认quantile=0.99不是用户提供的业务阈值，后续应由可信侧校准或在模拟实验中评估。"
+      ],
+      "capability_id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "selection_reason": "EWMA适合持续变化场景，用户显式指定alpha=0.2，较小alpha会增强平滑、降低单点噪声影响，同时配合固定训练baseline可发现相对训练期的持续上移。min_history=3和quantile=0.99沿用能力默认值，direction严格设为upper，并由连续2点异常确认报警，契合优先覆盖持续异常区间的目标。假设训练数据主要代表正常内存利用率，且训练标准差能为缓慢升高提供有效scale。"
+    }
+  ]
+}

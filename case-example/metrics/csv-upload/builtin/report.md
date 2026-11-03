@@ -1,0 +1,621 @@
+# 数值监控验证报告
+任务：builtin；流程：COMPLETED
+工程通过、效果测量、业务达标分别记录；未定义业务门槛。
+
+## A. 工程质量
+
+```json
+{
+  "model_origin": "mock",
+  "dependency_profile": "metrics-py312-stdlib/1",
+  "image": "sha256:4ac57c88b37dae806e1542718e900f497dca56f3d8030bd4211d16193108162c",
+  "prompt_version": "metrics-prompts/3",
+  "candidates": [
+    {
+      "candidate_id": "fixed",
+      "role": "development",
+      "plan": {
+        "candidate_id": "fixed",
+        "config": {
+          "method_id": "fixed_threshold",
+          "threshold": 85.0,
+          "direction": "upper"
+        },
+        "persistence_points": 2,
+        "parameter_sources": {
+          "threshold": "user_explicit"
+        },
+        "knowledge_ids": [
+          "capability-10ae25e3348a01de76dccd8b39b48b876303cddaa2f2780fd1d270e2dc03c9d1"
+        ],
+        "limitations": [
+          "controlled example"
+        ]
+      },
+      "versions": [
+        {
+          "version": 0,
+          "origin": "mock",
+          "source_path": "candidate-12aff05139e917c8d6fe0daaa3e2191c2ee3434e51a6a5b5f67e001847ebd5aa/v0.py",
+          "source_sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+          "source_ref": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+          "parent_source_sha256": null,
+          "knowledge_ids": [
+            "capability-10ae25e3348a01de76dccd8b39b48b876303cddaa2f2780fd1d270e2dc03c9d1"
+          ],
+          "explanation": "Explicit mock response copies the constructed human reference.",
+          "validation": {
+            "protocol": "metrics-method-check/2",
+            "candidate_id": "fixed",
+            "version": 0,
+            "origin": "mock",
+            "source_sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+            "config": {
+              "method_id": "fixed_threshold",
+              "threshold": 85.0,
+              "direction": "upper"
+            },
+            "dependency_profile": "metrics-py312-stdlib/1",
+            "checks": [
+              {
+                "check": "static_profile",
+                "passed": true
+              },
+              {
+                "check": "fixed_strict_boundary",
+                "passed": true,
+                "points": 3
+              },
+              {
+                "check": "fixed_missing",
+                "passed": true,
+                "points": 6
+              },
+              {
+                "check": "state_reload",
+                "passed": true
+              },
+              {
+                "check": "reset_repeat_future_invariance",
+                "passed": true
+              }
+            ],
+            "passed": true,
+            "repairable": true
+          }
+        }
+      ],
+      "calibration": {
+        "threshold": 0.0,
+        "rule": "fixed_parameter_unchanged",
+        "labels_used": false,
+        "binding": {
+          "source": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+          "config": {
+            "method_id": "fixed_threshold",
+            "threshold": 85.0,
+            "direction": "upper"
+          },
+          "dataset": {
+            "manifest_sha256": "sha256:fa1285126d0d20c64f69aacafd732f851b54b704de045560cea5cfc11374e285",
+            "knowledge_snapshot": "sha256:326f233ed3c437ad47d291f9f04e4c78c850350e4b3d7e202d7fca80fdb0cefd",
+            "image_id": "sha256:4ac57c88b37dae806e1542718e900f497dca56f3d8030bd4211d16193108162c",
+            "labels_sha256": "sha256:6a517b2eb58c8139863a5c9439b37bde43e1e4a4b0486a6d1ae94bc395e24be5"
+          }
+        }
+      },
+      "calibration_status": "SUCCEEDED",
+      "report": {
+        "protocol": "metrics-evaluation/1",
+        "execution_status": "SUCCEEDED",
+        "engineering_status": "PASSED",
+        "effect_status": "MEASURED",
+        "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+        "point": {
+          "tp": 59,
+          "fp": 0,
+          "fn": 1,
+          "tn": 180,
+          "abstained_normal": 0,
+          "total": 240,
+          "precision": {
+            "value": 1.0,
+            "numerator": 59,
+            "denominator": 59,
+            "null_reason": null
+          },
+          "recall": {
+            "value": 0.9833333333333333,
+            "numerator": 59,
+            "denominator": 60,
+            "null_reason": null
+          },
+          "f1": {
+            "value": 0.9915966386554622,
+            "numerator": 118,
+            "denominator": 119,
+            "null_reason": null
+          }
+        },
+        "event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pairs": [
+            {
+              "truth_id": "truth-0000",
+              "prediction_id": "pred-0000",
+              "delay_seconds": 60.0
+            }
+          ],
+          "unmatched_truth_ids": [],
+          "unmatched_prediction_ids": [],
+          "precision": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "null_reason": null
+          },
+          "recall": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "null_reason": null
+          },
+          "f1": {
+            "value": 1.0,
+            "numerator": 2,
+            "denominator": 2,
+            "null_reason": null
+          }
+        },
+        "coverage": {
+          "value": 1.0,
+          "numerator": 240,
+          "denominator": 240,
+          "null_reason": null
+        },
+        "normal_false_alarms_per_host_hour": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 10800,
+          "null_reason": null
+        },
+        "matched_delay_seconds": {
+          "median": 60.0,
+          "maximum": 60.0,
+          "null_reason": null,
+          "missed_events": 0
+        },
+        "runtime_seconds": 0.09602605551481247,
+        "peak_memory_bytes": null,
+        "peak_memory_null_reason": "not_measured",
+        "predicted_events": [
+          {
+            "event_id": "pred-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T02:41:00Z",
+            "end_at": "2026-01-03T03:40:00Z",
+            "trigger_at": "2026-01-03T02:41:00Z"
+          }
+        ],
+        "truth_events": [
+          {
+            "event_id": "truth-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T02:40:00Z",
+            "end_at": "2026-01-03T03:40:00Z",
+            "trigger_at": "2026-01-03T02:40:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "candidate_id": "mad",
+      "role": "development",
+      "plan": {
+        "candidate_id": "mad",
+        "config": {
+          "method_id": "rolling_mad",
+          "window": 30,
+          "min_history": 15,
+          "direction": "upper",
+          "quantile": 0.99
+        },
+        "persistence_points": 2,
+        "parameter_sources": {
+          "window": "protocol_default"
+        },
+        "knowledge_ids": [
+          "capability-10ae25e3348a01de76dccd8b39b48b876303cddaa2f2780fd1d270e2dc03c9d1"
+        ],
+        "limitations": [
+          "controlled example"
+        ]
+      },
+      "versions": [
+        {
+          "version": 0,
+          "origin": "mock",
+          "source_path": "candidate-a7627b363c8b9db655145f8280b45089de3ec4b089747c5d875ca3b39528e2c3/v0.py",
+          "source_sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+          "source_ref": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+          "parent_source_sha256": null,
+          "knowledge_ids": [
+            "capability-10ae25e3348a01de76dccd8b39b48b876303cddaa2f2780fd1d270e2dc03c9d1"
+          ],
+          "explanation": "Explicit mock response copies the constructed human reference.",
+          "validation": {
+            "protocol": "metrics-method-check/2",
+            "candidate_id": "mad",
+            "version": 0,
+            "origin": "mock",
+            "source_sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+            "config": {
+              "method_id": "rolling_mad",
+              "window": 30,
+              "min_history": 15,
+              "direction": "upper",
+              "quantile": 0.99
+            },
+            "dependency_profile": "metrics-py312-stdlib/1",
+            "checks": [
+              {
+                "check": "static_profile",
+                "passed": true
+              },
+              {
+                "check": "mad_past_only",
+                "passed": true,
+                "points": 17
+              },
+              {
+                "check": "mad_zero_scale",
+                "passed": true,
+                "points": 33
+              },
+              {
+                "check": "mad_missing_slots",
+                "passed": true,
+                "points": 50
+              },
+              {
+                "check": "mad_imputed_not_original",
+                "passed": true,
+                "points": 19
+              },
+              {
+                "check": "state_reload",
+                "passed": true
+              },
+              {
+                "check": "reset_repeat_future_invariance",
+                "passed": true
+              }
+            ],
+            "passed": true,
+            "repairable": true
+          }
+        }
+      ],
+      "calibration": {
+        "threshold": 2.370236853992631,
+        "quantile": 0.99,
+        "score_count": 240,
+        "rule": "nearest-rank",
+        "labels_used": false,
+        "binding": {
+          "source": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+          "config": {
+            "method_id": "rolling_mad",
+            "window": 30,
+            "min_history": 15,
+            "direction": "upper",
+            "quantile": 0.99
+          },
+          "dataset": {
+            "manifest_sha256": "sha256:fa1285126d0d20c64f69aacafd732f851b54b704de045560cea5cfc11374e285",
+            "knowledge_snapshot": "sha256:326f233ed3c437ad47d291f9f04e4c78c850350e4b3d7e202d7fca80fdb0cefd",
+            "image_id": "sha256:4ac57c88b37dae806e1542718e900f497dca56f3d8030bd4211d16193108162c",
+            "labels_sha256": "sha256:6a517b2eb58c8139863a5c9439b37bde43e1e4a4b0486a6d1ae94bc395e24be5"
+          }
+        }
+      },
+      "calibration_status": "SUCCEEDED",
+      "report": {
+        "protocol": "metrics-evaluation/1",
+        "execution_status": "SUCCEEDED",
+        "engineering_status": "PASSED",
+        "effect_status": "MEASURED",
+        "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+        "point": {
+          "tp": 14,
+          "fp": 0,
+          "fn": 46,
+          "tn": 180,
+          "abstained_normal": 0,
+          "total": 240,
+          "precision": {
+            "value": 1.0,
+            "numerator": 14,
+            "denominator": 14,
+            "null_reason": null
+          },
+          "recall": {
+            "value": 0.23333333333333334,
+            "numerator": 14,
+            "denominator": 60,
+            "null_reason": null
+          },
+          "f1": {
+            "value": 0.3783783783783784,
+            "numerator": 28,
+            "denominator": 74,
+            "null_reason": null
+          }
+        },
+        "event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "pairs": [
+            {
+              "truth_id": "truth-0000",
+              "prediction_id": "pred-0000",
+              "delay_seconds": 60.0
+            }
+          ],
+          "unmatched_truth_ids": [],
+          "unmatched_prediction_ids": [],
+          "precision": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "null_reason": null
+          },
+          "recall": {
+            "value": 1.0,
+            "numerator": 1,
+            "denominator": 1,
+            "null_reason": null
+          },
+          "f1": {
+            "value": 1.0,
+            "numerator": 2,
+            "denominator": 2,
+            "null_reason": null
+          }
+        },
+        "coverage": {
+          "value": 1.0,
+          "numerator": 240,
+          "denominator": 240,
+          "null_reason": null
+        },
+        "normal_false_alarms_per_host_hour": {
+          "value": 0.0,
+          "numerator": 0,
+          "denominator": 10800,
+          "null_reason": null
+        },
+        "matched_delay_seconds": {
+          "median": 60.0,
+          "maximum": 60.0,
+          "null_reason": null,
+          "missed_events": 0
+        },
+        "runtime_seconds": 0.13505660742521286,
+        "peak_memory_bytes": null,
+        "peak_memory_null_reason": "not_measured",
+        "predicted_events": [
+          {
+            "event_id": "pred-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T02:41:00Z",
+            "end_at": "2026-01-03T02:55:00Z",
+            "trigger_at": "2026-01-03T02:41:00Z"
+          }
+        ],
+        "truth_events": [
+          {
+            "event_id": "truth-0000",
+            "host_id": "sim-host-a",
+            "metric": "memory_utilization",
+            "start_at": "2026-01-03T02:40:00Z",
+            "end_at": "2026-01-03T03:40:00Z",
+            "trigger_at": "2026-01-03T02:40:00Z"
+          }
+        ]
+      }
+    }
+  ],
+  "stage_status": {
+    "engineering": "PASSED",
+    "detection": "SUCCEEDED",
+    "benchmark": "NOT_APPLICABLE"
+  },
+  "workflow_runtime_seconds": 15.716989144682884,
+  "resources": {
+    "peak_memory_bytes": null,
+    "cpu_seconds": null,
+    "reason": "not_measured; sandbox limits are not measurements"
+  },
+  "peak_memory": "NOT_MEASURED; container limits are not measurements",
+  "failure": null
+}
+```
+
+## B. 当前检测数据
+
+```json
+{
+  "frozen_source": {
+    "type": "builtin_simulation",
+    "display_name": "sim-memory_shift-v1",
+    "host_id": "sim-host-a",
+    "metric": "memory_utilization",
+    "unit": "percent",
+    "sampling_seconds": 60,
+    "roles": {
+      "train": {
+        "path": "train.csv",
+        "sha256": "sha256:872961e0a74fc3f72e1100475738576597ffe9b2f900c79b4023060dedd26049",
+        "prefix_points": 60
+      },
+      "calibration": {
+        "path": "calibration.csv",
+        "sha256": "sha256:ec215bc11f1129f7703cf641743c06b9df71b041c6d69b67762f66a888e05ce1",
+        "prefix_points": 60
+      },
+      "development": {
+        "path": "development.csv",
+        "sha256": "sha256:9a389eb7d0487c4bd127a4b354e144b83b1819f7b98dcfbd2da1ce548f2b6709",
+        "prefix_points": 60
+      },
+      "test": {
+        "path": "test.csv",
+        "sha256": "sha256:7b47fe2b64d82c86dfb2609cc930d4edf2deff11a2a2f80fd739934b2926e464",
+        "prefix_points": 60
+      }
+    },
+    "points": 300,
+    "start_at": "2026-01-04T00:00:00+00:00",
+    "end_at_inclusive": "2026-01-04T04:59:00+00:00",
+    "missing_points": 1
+  },
+  "selection": {
+    "status": "SELECTED",
+    "ranking": [
+      "fixed",
+      "mad"
+    ],
+    "selected": "fixed"
+  },
+  "result": {
+    "protocol": "metrics-evaluation/1",
+    "execution_status": "SUCCEEDED",
+    "engineering_status": "PASSED",
+    "effect_status": "MEASURED",
+    "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+    "point": {
+      "tp": 59,
+      "fp": 0,
+      "fn": 1,
+      "tn": 180,
+      "abstained_normal": 0,
+      "total": 240,
+      "precision": {
+        "value": 1.0,
+        "numerator": 59,
+        "denominator": 59,
+        "null_reason": null
+      },
+      "recall": {
+        "value": 0.9833333333333333,
+        "numerator": 59,
+        "denominator": 60,
+        "null_reason": null
+      },
+      "f1": {
+        "value": 0.9915966386554622,
+        "numerator": 118,
+        "denominator": 119,
+        "null_reason": null
+      }
+    },
+    "event": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "pairs": [
+        {
+          "truth_id": "truth-0000",
+          "prediction_id": "pred-0000",
+          "delay_seconds": 60.0
+        }
+      ],
+      "unmatched_truth_ids": [],
+      "unmatched_prediction_ids": [],
+      "precision": {
+        "value": 1.0,
+        "numerator": 1,
+        "denominator": 1,
+        "null_reason": null
+      },
+      "recall": {
+        "value": 1.0,
+        "numerator": 1,
+        "denominator": 1,
+        "null_reason": null
+      },
+      "f1": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "null_reason": null
+      }
+    },
+    "coverage": {
+      "value": 1.0,
+      "numerator": 240,
+      "denominator": 240,
+      "null_reason": null
+    },
+    "normal_false_alarms_per_host_hour": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 10800,
+      "null_reason": null
+    },
+    "matched_delay_seconds": {
+      "median": 60.0,
+      "maximum": 60.0,
+      "null_reason": null,
+      "missed_events": 0
+    },
+    "runtime_seconds": 0.09178175032138824,
+    "peak_memory_bytes": null,
+    "peak_memory_null_reason": "not_measured",
+    "predicted_events": [
+      {
+        "event_id": "pred-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-04T02:41:00Z",
+        "end_at": "2026-01-04T03:40:00Z",
+        "trigger_at": "2026-01-04T02:41:00Z"
+      }
+    ],
+    "truth_events": [
+      {
+        "event_id": "truth-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-04T02:40:00Z",
+        "end_at": "2026-01-04T03:40:00Z",
+        "trigger_at": "2026-01-04T02:40:00Z"
+      }
+    ],
+    "selection_sha256": "sha256:4a955d753c99a50e7387e8f4fa29c0ed6d60de716c40d2f382674ea855503036",
+    "selected": "fixed",
+    "phase": "test",
+    "test_execution_started": true
+  },
+  "notice": null
+}
+```
+
+## C. 独立模拟基准效果
+
+```json
+{
+  "notice": "这些指标属于独立模拟基准，不代表上传数据的准确率或生产效果。",
+  "result": {
+    "execution_status": "NOT_EVALUATED",
+    "reason": "builtin simulation evaluated in B"
+  }
+}
+```

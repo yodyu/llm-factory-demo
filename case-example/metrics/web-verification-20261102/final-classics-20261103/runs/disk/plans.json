@@ -1,0 +1,81 @@
+{
+  "supported": true,
+  "understanding": "针对单主机磁盘 I/O 延迟（gauge，单位 ms，60 秒采样）的持续升高检测，目标是仅检测上侧异常。计划在允许的 EWMA 与 rolling_mad 两种已登记能力中各给一个候选；两者均配置 upper，并在外部报警层使用连续 2 个点超阈值才触发，以抑制单点抖动和误报。EWMA 明确使用 alpha=0.3。阈值分位数沿用方法默认 0.99，但它不是业务固定阈值，应在无标签校准数据上确定；当前规划不直接生成代码或验证报告，只给出检测方案。",
+  "anomaly_target": "upper",
+  "limitations": [
+    "输入知识中的 capability 卡片为专家编写/合同级资料，implementation_verified=false；已有经验仅说明方法通过校验，不代表在本次模拟磁盘延迟数据上的最终效果。",
+    "quantile=0.99 是协议默认值；若无标签校准结果，不能宣称其为业务阈值或保证误报率。",
+    "rolling_mad 的自适应窗口可能吸收持续性升高，EWMA 的固定训练基线则可能保留长期水平偏移。",
+    "训练集有 1 个缺失点；rolling_mad 校准若可计分分数不足，阈值统计稳定性需要检查。",
+    "本阶段只输出候选检测计划；检测代码和验证报告需在后续执行阶段生成。"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "ewma_alpha0.3_p2_upper",
+      "config": {
+        "method_id": "ewma",
+        "alpha": 0.3,
+        "min_history": 3,
+        "direction": "upper",
+        "quantile": 0.99
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "alpha": "user_explicit",
+        "direction": "user_explicit",
+        "persistence_points": "user_explicit",
+        "min_history": "protocol_default",
+        "quantile": "protocol_default"
+      },
+      "knowledge_ids": [
+        "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+        "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+        "chunk-4db59015de2d3096a11f2a685e496b8d2b008ede2cbad59b387b8e83f5862904",
+        "chunk-96b8b23d75a52b7582040f893468476eb249c8ec4e3d9091c1572b61e5c0cf7f",
+        "experience-2c0a28207a7c66ce05eb6cf3c84bd3ebfa387404e12d6d908a70dd3682306e0c",
+        "source-f5e5f8ac42e9fd7f7bb393e7cc89533f14187c96f6d02a17f9fd4374221933b2"
+      ],
+      "limitations": [
+        "固定 baseline 会保留长期业务或环境变化造成的水平偏移；若训练后正常负载长期上升，可能增加误报。",
+        "alpha=0.3 相对平滑，极短尖峰可能被削弱，检测延迟与灵敏度需在验证报告中评估。",
+        "quantile=0.99 尚不是用户给定业务阈值，需要校准支持。"
+      ],
+      "capability_id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "selection_reason": "EWMA 支持 upper 方向和 gauge 指标，使用固定训练 baseline 与训练总体标准差，适合检测磁盘延迟相对训练水平的持续升高；用户明确指定 alpha=0.3，且连续两个异常点才报警可减少瞬时尖点造成的误报。假设训练数据能代表正常磁盘 I/O 水平，异常主要表现为平滑值相对固定 baseline 的上移；min_history=3 和 quantile=0.99 先采用协议默认，后续应基于无标签校准分数确认阈值。"
+    },
+    {
+      "candidate_id": "rolling_mad_w30_p2_upper",
+      "config": {
+        "method_id": "rolling_mad",
+        "window": 30,
+        "min_history": 15,
+        "direction": "upper",
+        "quantile": 0.99
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "direction": "user_explicit",
+        "persistence_points": "user_explicit",
+        "window": "protocol_default",
+        "min_history": "protocol_default",
+        "quantile": "protocol_default"
+      },
+      "knowledge_ids": [
+        "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+        "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+        "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+        "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+        "experience-3946b9860fbae3a78763063b9c7f1c60d4247661f8e13c51854b41060c43a622",
+        "source-b87632b829b20184b15b4a9610c028db947eb04a8672c227b3caa14ff39afcd3",
+        "source-ba12995471501af4d22a092ff63e3420003103c0a364a4769ae2afa939fd5cab"
+      ],
+      "limitations": [
+        "自适应历史窗口可能把持续升高逐步吸收为新基线，导致漏报或报警分数回落。",
+        "至少需要 15 个真实观测才能评分，早期数据会返回 insufficient_history。",
+        "周期性 I/O 模式若未被当前窗口充分表征，可能造成误报；quantile=0.99 仍需无标签校准。"
+      ],
+      "capability_id": "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+      "selection_reason": "rolling_mad 支持 upper 方向和 gauge 指标，以最近 30 个时间槽的中位数和 MAD 构造局部稳健基线，对局部波动和离群点较稳健；与 EWMA 对比可评估固定基线与自适应窗口在持续升高场景中的差异。外部 persistence_points=2 同样要求连续两点异常，适合减少误报。假设 60 秒采样、近期窗口能代表局部正常状态，且异常升高速度不会在 30 个槽内完全被窗口吸收；window、min_history 和 quantile 均采用协议默认。"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "task_sha256": "sha256:2a8285eab8628b7c52fed83b33b6a8ea829425062c958c08794457f266af7d51",
+  "bindings": {
+    "manifest_sha256": "sha256:fa1285126d0d20c64f69aacafd732f851b54b704de045560cea5cfc11374e285",
+    "knowledge_snapshot": "sha256:65456cc48ddd39d06f9ac701bab4469392f4a0d37dbddc533967764a539565f7",
+    "image_id": "sha256:4ac57c88b37dae806e1542718e900f497dca56f3d8030bd4211d16193108162c",
+    "labels_sha256": "sha256:6a517b2eb58c8139863a5c9439b37bde43e1e4a4b0486a6d1ae94bc395e24be5"
+  },
+  "selected": "memory_utilization_fixed_u85_p2",
+  "plan": {
+    "candidate_id": "memory_utilization_fixed_u85_p2",
+    "config": {
+      "method_id": "fixed_threshold",
+      "threshold": 85.0,
+      "direction": "upper"
+    },
+    "persistence_points": 2,
+    "parameter_sources": {
+      "threshold": "user_explicit",
+      "direction": "user_explicit",
+      "persistence_points": "user_explicit"
+    },
+    "knowledge_ids": [
+      "capability-2f9b9c51210dd4b46886b148774a4cc017e5d07556179c5a93de016cb324a285",
+      "capability-ff2da84a0b44f7f1063cae4146983682f938c59bb8e3c600125a53757d206a3b",
+      "capability-106fc5025f92d2dfec9698b99161e17a6e35a65509b48320d43e5828858adb0f",
+      "capability-ba2670c5ca166ee2f6458d8f8bf37cf3adb2ce63c28bdba06d15d10137a86c42"
+    ],
+    "limitations": [
+      "仅当内存利用率严格高于85%且连续2点满足时告警；85%本身不告警。",
+      "训练历史最大值为48.688021%，无超过阈值样本；规划阶段不能估计该校验集上的实际误报率、覆盖率或发现延迟。",
+      "无法发现低于85%但相对正常基线显著持续升高的异常。",
+      "超过85%的正常业务高峰仍可能产生误报；检测器不提供根因判断。"
+    ]
+  },
+  "source_path": "candidate-76f14b4feefb60917e1f7f5008a8e4853ca711b82b6ebf2812d63d6c970e2404/v0.py",
+  "source_sha256": "sha256:3c34f4831f3df6320976858d129869127782c219154017e0f739dd98abddaa57",
+  "threshold": 0.0,
+  "selection": {
+    "status": "SELECTED",
+    "ranking": [
+      "memory_utilization_fixed_u85_p2"
+    ],
+    "selected": "memory_utilization_fixed_u85_p2"
+  },
+  "protocol": "metrics-evaluation/1",
+  "selection_sha256": "sha256:b4dc177466d698fc192901e7f888384467c1cc02f4d7e46aab8a853d786a8df6"
+}

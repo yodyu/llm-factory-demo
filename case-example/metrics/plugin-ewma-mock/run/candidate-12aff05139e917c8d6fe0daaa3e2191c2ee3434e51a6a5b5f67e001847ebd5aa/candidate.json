@@ -1,0 +1,246 @@
+{
+  "business_acceptance": {
+    "checks": [],
+    "status": "NOT_DEFINED"
+  },
+  "calibration": {
+    "binding": {
+      "config": {
+        "direction": "upper",
+        "method_id": "fixed_threshold",
+        "threshold": 85.0
+      },
+      "dataset": {
+        "image_id": "sha256:ec7e3f613d45080c580bed6c83b6404df77b17a7cb72be69bacc80cce954ed31",
+        "knowledge_snapshot": "sha256:ca4dc787dfb4ddb2ca0d384de36d6e6ee0b6659171df9950d1fc19fac404078e",
+        "labels_sha256": "sha256:6a517b2eb58c8139863a5c9439b37bde43e1e4a4b0486a6d1ae94bc395e24be5",
+        "manifest_sha256": "sha256:fa1285126d0d20c64f69aacafd732f851b54b704de045560cea5cfc11374e285"
+      },
+      "source": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70"
+    },
+    "labels_used": false,
+    "rule": "fixed_parameter_unchanged",
+    "threshold": 0.0
+  },
+  "calibration_status": "SUCCEEDED",
+  "candidate_id": "fixed",
+  "plan": {
+    "candidate_id": "fixed",
+    "capability_id": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+    "config": {
+      "direction": "upper",
+      "method_id": "fixed_threshold",
+      "threshold": 85.0
+    },
+    "knowledge_ids": [
+      "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95"
+    ],
+    "limitations": [
+      "controlled example",
+      "业务阈值须由用户确认；未指定值只是候选假设。"
+    ],
+    "parameter_sources": {
+      "direction": "user_explicit",
+      "threshold": "user_explicit"
+    },
+    "persistence_points": 2,
+    "selection_reason": "固定阈值：业务阈值须由用户确认；未指定值只是候选假设。"
+  },
+  "report": {
+    "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+    "coverage": {
+      "denominator": 240,
+      "null_reason": null,
+      "numerator": 240,
+      "value": 1.0
+    },
+    "effect_status": "MEASURED",
+    "engineering_status": "PASSED",
+    "event": {
+      "f1": {
+        "denominator": 2,
+        "null_reason": null,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "fn": 0,
+      "fp": 0,
+      "pairs": [
+        {
+          "delay_seconds": 60.0,
+          "prediction_id": "pred-0000",
+          "truth_id": "truth-0000"
+        }
+      ],
+      "precision": {
+        "denominator": 1,
+        "null_reason": null,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "recall": {
+        "denominator": 1,
+        "null_reason": null,
+        "numerator": 1,
+        "value": 1.0
+      },
+      "tp": 1,
+      "unmatched_prediction_ids": [],
+      "unmatched_truth_ids": []
+    },
+    "execution_status": "SUCCEEDED",
+    "matched_delay_seconds": {
+      "maximum": 60.0,
+      "median": 60.0,
+      "missed_events": 0,
+      "null_reason": null
+    },
+    "normal_false_alarms_per_host_hour": {
+      "denominator": 10800,
+      "null_reason": null,
+      "numerator": 0,
+      "value": 0.0
+    },
+    "peak_memory_bytes": null,
+    "peak_memory_null_reason": "not_measured",
+    "point": {
+      "abstained_normal": 0,
+      "f1": {
+        "denominator": 119,
+        "null_reason": null,
+        "numerator": 118,
+        "value": 0.9915966386554622
+      },
+      "fn": 1,
+      "fp": 0,
+      "precision": {
+        "denominator": 59,
+        "null_reason": null,
+        "numerator": 59,
+        "value": 1.0
+      },
+      "recall": {
+        "denominator": 60,
+        "null_reason": null,
+        "numerator": 59,
+        "value": 0.9833333333333333
+      },
+      "tn": 180,
+      "total": 240,
+      "tp": 59
+    },
+    "predicted_events": [
+      {
+        "end_at": "2026-01-03T03:40:00Z",
+        "event_id": "pred-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-03T02:41:00Z",
+        "trigger_at": "2026-01-03T02:41:00Z"
+      }
+    ],
+    "protocol": "metrics-evaluation/1",
+    "runtime_seconds": 0.09791019186377525,
+    "truth_events": [
+      {
+        "end_at": "2026-01-03T03:40:00Z",
+        "event_id": "truth-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-03T02:40:00Z",
+        "trigger_at": "2026-01-03T02:40:00Z"
+      }
+    ]
+  },
+  "role": "development",
+  "versions": [
+    {
+      "capability_id": "capability-bfc8deb63f893fd0e82050292732064ce2f81f841ca02f55fa25dcb6ea8fff95",
+      "capability_version": "1.0.0",
+      "explanation": "Explicit mock response copies the constructed human reference.",
+      "knowledge_ids": [
+        "capability-6c5773d4f7d2ac25dd1eea67e3d1472c25adb240b3d7151b3a43569c851ba666"
+      ],
+      "origin": "mock",
+      "parent_source_sha256": null,
+      "plugin_hashes": {
+        "capability.json": "sha256:7af436aaf7e4a265e7d7e6792a4ac1d6311c8f98453904a136b8692209170bde",
+        "checks.py": "sha256:009933701326684689fb100d585f4bb44d596016fa7d9278147f6999566e9427",
+        "reference.py": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70"
+      },
+      "source_path": "candidate-12aff05139e917c8d6fe0daaa3e2191c2ee3434e51a6a5b5f67e001847ebd5aa/v0.py",
+      "source_ref": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+      "source_sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+      "specification_sha256": "sha256:d78418b686499b015abb691e10e65fad63592d12ad25bcab36e2ced5af7a2060",
+      "validation": {
+        "candidate_id": "fixed",
+        "capability_version": "1.0.0",
+        "checks": [
+          {
+            "check": "static_profile",
+            "layer": "contract",
+            "passed": true
+          },
+          {
+            "check": "missing_input_contract",
+            "layer": "contract",
+            "passed": true
+          },
+          {
+            "check": "state_reload",
+            "layer": "contract",
+            "passed": true
+          },
+          {
+            "check": "reset_repeat_future_invariance",
+            "layer": "contract",
+            "passed": true
+          },
+          {
+            "check": "fixed_strict_boundary",
+            "layer": "property",
+            "passed": true,
+            "points": 3
+          },
+          {
+            "check": "fixed_missing",
+            "layer": "property",
+            "passed": true,
+            "points": 6
+          },
+          {
+            "check": "fixed_strict_boundary",
+            "layer": "reference",
+            "passed": true,
+            "points": 3
+          },
+          {
+            "check": "fixed_missing",
+            "layer": "reference",
+            "passed": true,
+            "points": 6
+          }
+        ],
+        "config": {
+          "direction": "upper",
+          "method_id": "fixed_threshold",
+          "threshold": 85.0
+        },
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "origin": "mock",
+        "passed": true,
+        "plugin_hashes": {
+          "capability.json": "sha256:7af436aaf7e4a265e7d7e6792a4ac1d6311c8f98453904a136b8692209170bde",
+          "checks.py": "sha256:009933701326684689fb100d585f4bb44d596016fa7d9278147f6999566e9427",
+          "reference.py": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70"
+        },
+        "protocol": "metrics-method-check/3",
+        "repairable": true,
+        "source_sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+        "verification_level": "reference_verified",
+        "version": 0
+      },
+      "version": 0
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "protocol": "metrics-method-check/1",
+  "candidate_id": "memory_utilization_rolling_mad_upper_w30_h15_q99_p2",
+  "version": 0,
+  "origin": "llm_api",
+  "source_sha256": "sha256:0754202b7da0758e6c2f655f7c0bfc610a344c78addbb48dc67c461aa5fe02cf",
+  "config": {
+    "method_id": "rolling_mad",
+    "window": 30,
+    "min_history": 15,
+    "direction": "upper",
+    "quantile": 0.99
+  },
+  "dependency_profile": "metrics-py312-stdlib/1",
+  "checks": [
+    {
+      "check": "static_profile",
+      "passed": true
+    },
+    {
+      "check": "mad_past_only",
+      "passed": true,
+      "points": 17
+    },
+    {
+      "check": "mad_zero_scale",
+      "passed": true,
+      "points": 33
+    },
+    {
+      "check": "mad_missing_slots",
+      "passed": true,
+      "points": 50
+    },
+    {
+      "check": "mad_imputed_not_original",
+      "passed": true,
+      "points": 19
+    },
+    {
+      "check": "state_reload",
+      "passed": true
+    },
+    {
+      "check": "reset_repeat_future_invariance",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "repairable": true
+}

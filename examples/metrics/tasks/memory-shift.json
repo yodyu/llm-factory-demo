@@ -1,0 +1,9 @@
+{
+  "schema_version": "metrics-request/1",
+  "requirement": "为单主机内存利用率生成异常检测器，检测持续升高。固定阈值候选使用我指定的85 percent上界；同时比较滚动MAD。连续两点才开始告警，允许短暂缺失。分别报告误报、覆盖率和发现延迟，不要求根因定位。",
+  "expected_metric": "memory_utilization",
+  "anomaly_target": "upper",
+  "explicit_constraints": {"threshold": 85.0, "direction": "upper", "persistence_points": 2.0},
+  "allowed_methods": ["fixed_threshold", "rolling_mad"],
+  "ranking_preferences": ["event_f1", "coverage", "false_alarm_rate"]
+}

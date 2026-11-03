@@ -1,0 +1,4 @@
+# Frozen examples bind reports, CSV, code and ZIP contents by SHA-256.
+# Preserve original bytes across checkouts and platforms.
+case-example/** -text
+case-example/**/*.csv whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

@@ -1,0 +1,70 @@
+{
+  "task_sha256": "sha256:26f45bcef804a43c2ca1466dbe3c7a7b9d90d054708e2a92be23911821da44c8",
+  "bindings": {
+    "image_id": "sha256:ec7e3f613d45080c580bed6c83b6404df77b17a7cb72be69bacc80cce954ed31",
+    "knowledge_snapshot": "sha256:9bb94b5e6a37ddc26f472653b398cce33b9f5c175c49cee6bb9706938581dcca",
+    "labels_sha256": "sha256:8c8b78419d8c02fa3875660f384b2ca28279a5eeaf144b58e442dcf65d259c6b",
+    "manifest_sha256": "sha256:a0acb6ae387ad842597e0b2d38bdf9c03e944f269074c23fb2b75c7cd8ae293a"
+  },
+  "selected": "fixed_upper_cpu_90_p3",
+  "plan": {
+    "candidate_id": "fixed_upper_cpu_90_p3",
+    "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+    "config": {
+      "direction": "upper",
+      "method_id": "fixed_threshold",
+      "threshold": 90.0
+    },
+    "knowledge_ids": [
+      "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+      "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+      "chunk-7ac5e3104c65ea345ed16051fd2dfa6aeb1588f1584dc99ac7a53dec3b632191",
+      "chunk-3478558ca578b2421a9eafa4318746e1999211f4102a9c0c15c0327f07b4cdc8"
+    ],
+    "limitations": [
+      "阈值 90.0 和连续 3 点来自用户明确需求；不使用默认 85.0，也不根据训练数据校准。",
+      "训练数据最大值远低于 90.0，因此 fit 只能确认存在有效训练观测，不能由该训练摘要证明阈值的业务效果。",
+      "演示纠正：已移除未提供的知识引用，相关参数不再标记为知识依据。"
+    ],
+    "parameter_sources": {
+      "direction": "user_explicit",
+      "method_id": "user_explicit",
+      "persistence_points": "user_explicit",
+      "threshold": "user_explicit"
+    },
+    "persistence_points": 3,
+    "selection_reason": "该能力支持 time_series_anomaly_detection、gauge/rate、upper 方向和单主机单指标场景，min_history=0，适合无需历史基线的 CPU 使用率固定阈值监控。用户明确要求“只使用固定阈值”、超过 90% 且连续 3 个采样点报警，因此采用 threshold=90.0、direction=upper、persistence_points=3。假设输入字段包含 timestamp、host_id、value，且 value 为 0 到 100 的百分数数值或 null；value=90 时分数为 0，不报警。"
+  },
+  "source_path": "candidate-dc9b2f18f5619ee06db95e9689a3ef12f9c98a6ad2c153263b16bb37da87f460/v0.py",
+  "source_sha256": "sha256:9049eb1b5535ee01d96796b15f6433016b845e10f6c9b0aabd85390cbe8ceda5",
+  "threshold": 0.0,
+  "selection": {
+    "basis": "labelled_development",
+    "beta": 1.0,
+    "criteria": [
+      "event_f1_desc",
+      "point_f1_desc",
+      "false_alarm_rate_asc",
+      "matched_delay_asc",
+      "coverage_desc",
+      "candidate_id"
+    ],
+    "objective": "event_detection",
+    "policy": "balanced",
+    "protocol": "metrics-selection/2",
+    "ranking": [
+      "fixed_upper_cpu_90_p3"
+    ],
+    "reason": "按开发集目标及次级 Fβ、正常误报频次、匹配延迟、覆盖率和候选ID排序；最终测试不参与选择。",
+    "requested_policy": "balanced",
+    "selected": "fixed_upper_cpu_90_p3",
+    "status": "SELECTED",
+    "tie_broken_by": "only_eligible_candidate",
+    "warnings": [
+      "LOW_EVENT_COUNT: 真实事件少于5个，事件F1不足以支持统计结论。"
+    ]
+  },
+  "protocol": "metrics-evaluation/1",
+  "selection_sha256": "sha256:51480222f747b8a94a764f7e5861a4a7621b3b09325be8def0a98f1900179d14"
+}

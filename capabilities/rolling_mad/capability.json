@@ -1,0 +1,151 @@
+{
+  "version": "1.1.0",
+  "task_type": "time_series_anomaly_detection",
+  "inputs": {
+    "type": "object",
+    "required": [
+      "timestamp",
+      "host_id",
+      "value"
+    ],
+    "properties": {
+      "timestamp": {
+        "type": "string"
+      },
+      "host_id": {
+        "type": "string"
+      },
+      "value": {
+        "type": [
+          "number",
+          "null"
+        ]
+      }
+    }
+  },
+  "outputs": {
+    "type": "object",
+    "required": [
+      "timestamp",
+      "host_id",
+      "status",
+      "score",
+      "evidence"
+    ],
+    "properties": {
+      "status": {
+        "enum": [
+          "ok",
+          "insufficient_history",
+          "missing_input",
+          "invalid_input"
+        ]
+      },
+      "evidence": {
+        "type": "object"
+      },
+      "score": {
+        "type": [
+          "number",
+          "null"
+        ]
+      }
+    }
+  },
+  "metric_kinds": [
+    "gauge",
+    "rate"
+  ],
+  "evaluation_metrics": [
+    "event_f1",
+    "point_f1",
+    "normal_false_alarms_per_host_hour",
+    "matched_delay_seconds"
+  ],
+  "dependency_profile": "metrics-py312-stdlib/1",
+  "verification": "reference",
+  "default_candidate": true,
+  "method_id": "rolling_mad",
+  "display_name": "滚动 MAD",
+  "supported_directions": [
+    "upper",
+    "lower",
+    "two_sided"
+  ],
+  "min_history": 15,
+  "calibration": "quantile",
+  "defaults": {
+    "window": 30,
+    "min_history": 15,
+    "direction": "upper",
+    "quantile": 0.99
+  },
+  "aliases": [
+    "滚动MAD",
+    "MAD",
+    "历史波动",
+    "滚动中位数"
+  ],
+  "assumptions": [
+    "自适应历史窗口可能把持续变化吸收为新基线。"
+  ],
+  "config_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "window",
+      "min_history",
+      "direction",
+      "quantile"
+    ],
+    "properties": {
+      "window": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 600
+      },
+      "min_history": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 600
+      },
+      "direction": {
+        "enum": [
+          "upper",
+          "lower",
+          "two_sided"
+        ]
+      },
+      "quantile": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "maximum": 1
+      }
+    }
+  },
+  "algorithm_spec": "仅使用当前点前最近window时间槽（包含None槽）；只有original_present=True的历史点计min_history。可用插补值参与median/MAD，但不计真实历史数。value=None时missing_input；真实历史不足时insufficient_history。m=median(有效历史)，mad=median(abs(v-m))，s=max(1.4826*mad,scale_floor)。upper=(x-m)/s，lower=(m-x)/s，two_sided=abs(x-m)/s。evidence含median,mad,scale。训练有效原始值R7分位数（位置(n-1)*q线性插值）的IQR确定scale_floor=max(1e-9,IQR*1e-6)。先评分，再把当前点追加到历史，包括异常点、插补和不可用None槽，保留最近window槽。min_history不得超过window。fit不能把训练点留作角色历史。",
+  "candidate_name": "mad",
+  "spec_sources": [
+    {
+      "path": "materials/metrics/03-rolling-mad.txt",
+      "sha256": "sha256:c9b2a8158fe0978e951ec2e8c8141b661112b62cb1ca560ad72bea6d69c791d1",
+      "start_line": 3,
+      "end_line": 11,
+      "quote": "适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1。\nW 默认 30 个时间槽，min_history 默认 15 个真实观测，且 min_history<=W。\n仅用当前点之前最近 W 个槽；统计可用观测含短缺失插补值，但插补不增加真实历史数。\nm=历史中位数，MAD=|历史-m| 的中位数，scale=max(1.4826*MAD, scale_floor)。\n训练原始有效值的 R7 IQR 决定 scale_floor=max(1e-9,IQR*1e-6)。\nupper=(x-m)/scale，lower=(m-x)/scale，two_sided=|x-m|/scale。\n先评分再追加当前点；不可用点也占历史时间槽，历史不足返回 insufficient_history 和空分数。\ncalibration 的可判断计分分数至少 100 个，nearest-rank 0.99 分位阈值；不使用标签。\n严格 score>阈值，所有可用点（含异常）均更新窗口，长漂移可能被吸收，周期模式可能误报。"
+    },
+    {
+      "path": "materials/metrics/reference_mad.py",
+      "sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+      "start_line": 11,
+      "end_line": 33,
+      "quote": "def quantile(values, q):\n    values = sorted(values)\n    pos = (len(values) - 1) * q\n    lo = int(pos)\n    hi = min(lo + 1, len(values) - 1)\n    return values[lo] + (values[hi] - values[lo]) * (pos - lo)\n\n\nclass Detector:\n    def __init__(self, config):\n        self.config = dict(config)\n        self.floor = None\n        self.history = []\n\n    def fit(self, train_points):\n        values = [p[\"value\"] for p in train_points if p[\"value\"] is not None]\n        if not values:\n            raise ValueError(\"no valid training observations\")\n        self.floor = max(1e-9, (quantile(values, 0.75) - quantile(values, 0.25)) * 1e-6)\n        self.reset()\n\n    def reset(self):\n        self.history = []"
+    },
+    {
+      "path": "materials/metrics/reference_mad.py",
+      "sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+      "start_line": 35,
+      "end_line": 59,
+      "quote": "    def score_one(self, point):\n        if self.floor is None:\n            raise ValueError(\"fit required\")\n        value, evidence = point[\"value\"], {}\n        score, status = None, \"ok\"\n        if value is None:\n            status = \"missing_input\"\n        elif sum(slot[1] for slot in self.history) < self.config[\"min_history\"]:\n            status = \"insufficient_history\"\n        else:\n            values = [slot[0] for slot in self.history if slot[0] is not None]\n            center = median(values)\n            mad = median([abs(x - center) for x in values])\n            scale = max(1.4826 * mad, self.floor)\n            delta = value - center\n            if self.config[\"direction\"] == \"lower\":\n                delta = -delta\n            elif self.config[\"direction\"] == \"two_sided\":\n                delta = abs(delta)\n            score = delta / scale\n            evidence = {\"median\": center, \"mad\": mad, \"scale\": scale}\n        self.history.append([value, point[\"original_present\"]])\n        self.history = self.history[-self.config[\"window\"]:]\n        return {\"timestamp\": point[\"timestamp\"], \"host_id\": point[\"host_id\"],\n                \"status\": status, \"score\": score, \"evidence\": evidence}"
+    }
+  ]
+}

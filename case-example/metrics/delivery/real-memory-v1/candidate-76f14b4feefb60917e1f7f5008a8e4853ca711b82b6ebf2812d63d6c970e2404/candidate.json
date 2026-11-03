@@ -1,0 +1,196 @@
+{
+  "candidate_id": "memory_utilization_fixed_u85_p2",
+  "role": "development",
+  "plan": {
+    "candidate_id": "memory_utilization_fixed_u85_p2",
+    "config": {
+      "method_id": "fixed_threshold",
+      "threshold": 85.0,
+      "direction": "upper"
+    },
+    "persistence_points": 2,
+    "parameter_sources": {
+      "threshold": "user_explicit",
+      "direction": "user_explicit",
+      "persistence_points": "user_explicit"
+    },
+    "knowledge_ids": [
+      "capability-2f9b9c51210dd4b46886b148774a4cc017e5d07556179c5a93de016cb324a285",
+      "capability-ff2da84a0b44f7f1063cae4146983682f938c59bb8e3c600125a53757d206a3b",
+      "capability-106fc5025f92d2dfec9698b99161e17a6e35a65509b48320d43e5828858adb0f",
+      "capability-ba2670c5ca166ee2f6458d8f8bf37cf3adb2ce63c28bdba06d15d10137a86c42"
+    ],
+    "limitations": [
+      "仅当内存利用率严格高于85%且连续2点满足时告警；85%本身不告警。",
+      "训练历史最大值为48.688021%，无超过阈值样本；规划阶段不能估计该校验集上的实际误报率、覆盖率或发现延迟。",
+      "无法发现低于85%但相对正常基线显著持续升高的异常。",
+      "超过85%的正常业务高峰仍可能产生误报；检测器不提供根因判断。"
+    ]
+  },
+  "versions": [
+    {
+      "version": 0,
+      "origin": "llm_api",
+      "source_path": "candidate-76f14b4feefb60917e1f7f5008a8e4853ca711b82b6ebf2812d63d6c970e2404/v0.py",
+      "source_sha256": "sha256:3c34f4831f3df6320976858d129869127782c219154017e0f739dd98abddaa57",
+      "parent_source_sha256": null,
+      "knowledge_ids": [
+        "capability-2f9b9c51210dd4b46886b148774a4cc017e5d07556179c5a93de016cb324a285",
+        "capability-ff2da84a0b44f7f1063cae4146983682f938c59bb8e3c600125a53757d206a3b",
+        "capability-106fc5025f92d2dfec9698b99161e17a6e35a65509b48320d43e5828858adb0f",
+        "capability-ba2670c5ca166ee2f6458d8f8bf37cf3adb2ce63c28bdba06d15d10137a86c42"
+      ],
+      "explanation": "实现用户明确指定的内存利用率85%上界固定阈值检测器：upper方向分数为value-85，85%本身得0分；缺失返回missing_input，非有限值返回invalid_input。连续两点、插补、事件合并和告警标签由可信侧处理，检测器不实现持久化告警逻辑。",
+      "validation": {
+        "protocol": "metrics-method-check/1",
+        "candidate_id": "memory_utilization_fixed_u85_p2",
+        "version": 0,
+        "origin": "llm_api",
+        "source_sha256": "sha256:3c34f4831f3df6320976858d129869127782c219154017e0f739dd98abddaa57",
+        "config": {
+          "method_id": "fixed_threshold",
+          "threshold": 85.0,
+          "direction": "upper"
+        },
+        "dependency_profile": "metrics-py312-stdlib/1",
+        "checks": [
+          {
+            "check": "static_profile",
+            "passed": true
+          },
+          {
+            "check": "fixed_strict_boundary",
+            "passed": true,
+            "points": 3
+          },
+          {
+            "check": "fixed_missing",
+            "passed": true,
+            "points": 6
+          },
+          {
+            "check": "state_reload",
+            "passed": true
+          },
+          {
+            "check": "reset_repeat_future_invariance",
+            "passed": true
+          }
+        ],
+        "passed": true,
+        "repairable": true
+      }
+    }
+  ],
+  "calibration": {
+    "threshold": 0.0,
+    "rule": "fixed_parameter_unchanged",
+    "labels_used": false
+  },
+  "report": {
+    "protocol": "metrics-evaluation/1",
+    "execution_status": "SUCCEEDED",
+    "engineering_status": "PASSED",
+    "effect_status": "MEASURED",
+    "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+    "point": {
+      "tp": 59,
+      "fp": 0,
+      "fn": 1,
+      "tn": 180,
+      "abstained_normal": 0,
+      "total": 240,
+      "precision": {
+        "value": 1.0,
+        "numerator": 59,
+        "denominator": 59,
+        "null_reason": null
+      },
+      "recall": {
+        "value": 0.9833333333333333,
+        "numerator": 59,
+        "denominator": 60,
+        "null_reason": null
+      },
+      "f1": {
+        "value": 0.9915966386554622,
+        "numerator": 118,
+        "denominator": 119,
+        "null_reason": null
+      }
+    },
+    "event": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "pairs": [
+        {
+          "truth_id": "truth-0000",
+          "prediction_id": "pred-0000",
+          "delay_seconds": 60.0
+        }
+      ],
+      "unmatched_truth_ids": [],
+      "unmatched_prediction_ids": [],
+      "precision": {
+        "value": 1.0,
+        "numerator": 1,
+        "denominator": 1,
+        "null_reason": null
+      },
+      "recall": {
+        "value": 1.0,
+        "numerator": 1,
+        "denominator": 1,
+        "null_reason": null
+      },
+      "f1": {
+        "value": 1.0,
+        "numerator": 2,
+        "denominator": 2,
+        "null_reason": null
+      }
+    },
+    "coverage": {
+      "value": 1.0,
+      "numerator": 240,
+      "denominator": 240,
+      "null_reason": null
+    },
+    "normal_false_alarms_per_host_hour": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 10800,
+      "null_reason": null
+    },
+    "matched_delay_seconds": {
+      "median": 60.0,
+      "maximum": 60.0,
+      "null_reason": null,
+      "missed_events": 0
+    },
+    "runtime_seconds": 0.099653210490942,
+    "peak_memory_bytes": null,
+    "peak_memory_null_reason": "not_measured",
+    "predicted_events": [
+      {
+        "event_id": "pred-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-03T02:41:00Z",
+        "end_at": "2026-01-03T03:40:00Z",
+        "trigger_at": "2026-01-03T02:41:00Z"
+      }
+    ],
+    "truth_events": [
+      {
+        "event_id": "truth-0000",
+        "host_id": "sim-host-a",
+        "metric": "memory_utilization",
+        "start_at": "2026-01-03T02:40:00Z",
+        "end_at": "2026-01-03T03:40:00Z",
+        "trigger_at": "2026-01-03T02:40:00Z"
+      }
+    ]
+  }
+}

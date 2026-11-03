@@ -1,0 +1,72 @@
+{
+  "task_sha256": "sha256:403ce22d8b73b2cb72d51dc3f9553ce978417513b92dd0c3fcac591002e097db",
+  "bindings": {
+    "image_id": "sha256:ec7e3f613d45080c580bed6c83b6404df77b17a7cb72be69bacc80cce954ed31",
+    "knowledge_snapshot": "sha256:7cbd569bbbbcf05287069fb4da11e9566620597575198f666f1d5e93c6ac72c9",
+    "labels_sha256": "sha256:cd4fc63a453f43324b11d45a9f167f3cc866cb404ca5cbfd305e2210b554ed28",
+    "manifest_sha256": "sha256:2caae24ea4d3acd2f2f242b5d4a2a4cb921afab6528ef0b3cb8bcbeffad65620"
+  },
+  "selected": "ewma_memory_upper_alpha02",
+  "plan": {
+    "candidate_id": "ewma_memory_upper_alpha02",
+    "capability_id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+    "config": {
+      "alpha": 0.2,
+      "direction": "upper",
+      "method_id": "ewma",
+      "min_history": 3,
+      "quantile": 0.99
+    },
+    "knowledge_ids": [
+      "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd"
+    ],
+    "limitations": [
+      "alpha=0.2较小，平滑值响应较慢，可能增加异常开始阶段的检测延迟。",
+      "若训练期标准差接近0，scale会使用1e-9下限，可能放大微小偏移。",
+      "若模拟数据存在强周期或阶跃模式，固定baseline和单一scale可能不适配。"
+    ],
+    "parameter_sources": {
+      "alpha": "user_explicit",
+      "direction": "user_explicit",
+      "min_history": "protocol_default",
+      "persistence_points": "user_explicit",
+      "quantile": "protocol_default"
+    },
+    "persistence_points": 2,
+    "selection_reason": "EWMA通过平滑值追踪持续变化，并以训练均值baseline和训练标准差scale计算upper分数，较适合内存利用率缓慢升高场景；用户明确alpha=0.2可增强平滑、抑制噪声，配合连续两点规则优先覆盖持续性异常。min_history=3和quantile=0.99采用注册默认值。假设训练有效值能稳定估计baseline/scale，且测试阶段的长期抬升不应被视为新的正常基线。"
+  },
+  "source_path": "candidate-f8e383a9e6e045eb20e3da125d037cf5987c71070e859b91b3e79a8c2003974e/v0.py",
+  "source_sha256": "sha256:ab3817c394b2a74f147ca5b36b6d12392184c83a0a90ea09a54d964a73f6219d",
+  "threshold": 0.6521263271164296,
+  "selection": {
+    "basis": "labelled_development",
+    "beta": 1.0,
+    "criteria": [
+      "point_f1_desc",
+      "event_f1_desc",
+      "false_alarm_rate_asc",
+      "matched_delay_asc",
+      "coverage_desc",
+      "candidate_id"
+    ],
+    "objective": "sustained_coverage",
+    "policy": "balanced",
+    "protocol": "metrics-selection/2",
+    "ranking": [
+      "ewma_memory_upper_alpha02",
+      "fixed_threshold_memory_upper_70",
+      "rolling_mad_memory_upper_default"
+    ],
+    "reason": "按开发集目标及次级 Fβ、正常误报频次、匹配延迟、覆盖率和候选ID排序；最终测试不参与选择。",
+    "requested_policy": "balanced",
+    "selected": "ewma_memory_upper_alpha02",
+    "status": "SELECTED",
+    "tie_broken_by": "point_f1",
+    "warnings": [
+      "LOW_EVENT_COUNT: 真实事件少于5个，事件F1不足以支持统计结论。"
+    ]
+  },
+  "protocol": "metrics-evaluation/1",
+  "selection_sha256": "sha256:9fb56b04f372018d8f0536df60806ff5e51abb8429631b6931557f9da870b009"
+}

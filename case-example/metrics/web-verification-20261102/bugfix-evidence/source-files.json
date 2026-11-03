@@ -1,0 +1,11 @@
+{
+  "src/contracts/metrics_knowledge.py": "c5cfc52c5a16cf3a2c87d32042e5cd170e8ca1f7dba4b9f7df36a4afcda1f1ec",
+  "src/factory/metrics/knowledge.py": "99ec9b45e9a8a9bb09a170c8ae6b57040682238696a8bd47324619001df05841",
+  "src/factory/metrics/model.py": "bfcdd2cc118e8ea23649badaf6f289f6479499ffcdcf647094a25abd539703d3",
+  "src/factory/metrics/requirements.py": "bf1ceedbc4c94c5c4cb0f50ba17ce0dd3164f9dfb107031809831efb03bfc298",
+  "src/factory/models/checks.py": "6f75fcb0636cc727c0d48c5929430c6cfb8211b799ddeda55c01f2664f21ce58",
+  "src/factory/models/transport.py": "305a5d772038b9f1bfe0ce0e39b4ef61e0f9388a2f9b11d34eac8988fa8fc1a2",
+  "tests/metrics/test_plugin_generation.py": "d5e421539b516dc83bb47972b523c07dd5d45c4b943f5307d39b3b1fcba2a68d",
+  "tests/metrics/test_ingest_regressions.py": "a4306d09468869bd3986150d459a0030d46408712f08fada38389b0dfcf1611c",
+  "tests/models/test_structured_feedback.py": "eeacae674c3d9080a4a901ddcfcf06ed93bb6189ff33f3c1f98070618d41df6d"
+}

@@ -1,0 +1,114 @@
+[
+  {
+    "operation_id": "ingest-a7c70fdd71834cb1:extract-1:format-0",
+    "issues": [
+      {
+        "field": "capabilities",
+        "type": "string_pattern_mismatch"
+      }
+    ]
+  },
+  {
+    "operation_id": "ingest-a7c70fdd71834cb1:extract-1:format-1",
+    "issues": [
+      {
+        "field": "capabilities",
+        "type": "string_pattern_mismatch"
+      }
+    ]
+  },
+  {
+    "operation_id": "ingest-dbea48297fac4140:extract-1:format-0",
+    "issues": [
+      {
+        "field": "capabilities",
+        "type": "string_pattern_mismatch"
+      }
+    ]
+  },
+  {
+    "operation_id": "ingest-dbea48297fac4140:extract-1:format-1",
+    "issues": [
+      {
+        "field": "capabilities",
+        "type": "string_pattern_mismatch"
+      }
+    ]
+  },
+  {
+    "operation_id": "ingest-4cfb40a8b85b49bb:extract-0:format-0:attempt:2",
+    "issues": [
+      {
+        "field": "capabilities",
+        "type": "model_type"
+      },
+      {
+        "field": "capabilities",
+        "type": "model_type"
+      },
+      {
+        "field": "capabilities",
+        "type": "model_type"
+      },
+      {
+        "field": "capabilities",
+        "type": "model_type"
+      },
+      {
+        "field": "capabilities",
+        "type": "model_type"
+      },
+      {
+        "field": "capabilities",
+        "type": "model_type"
+      }
+    ]
+  },
+  {
+    "operation_id": "ingest-4cfb40a8b85b49bb:extract-0:format-1",
+    "issues": [
+      {
+        "field": "capabilities",
+        "type": "model_type"
+      },
+      {
+        "field": "capabilities",
+        "type": "model_type"
+      },
+      {
+        "field": "capabilities",
+        "type": "model_type"
+      },
+      {
+        "field": "capabilities",
+        "type": "model_type"
+      },
+      {
+        "field": "capabilities",
+        "type": "model_type"
+      },
+      {
+        "field": "capabilities",
+        "type": "model_type"
+      }
+    ]
+  },
+  {
+    "operation_id": "ingest-0d126567388444da:extract-0:format-0",
+    "issues": [
+      {
+        "field": "capabilities",
+        "type": "string_pattern_mismatch"
+      }
+    ]
+  },
+  {
+    "operation_id": "ingest-0d126567388444da:extract-0:format-1",
+    "issues": [
+      {
+        "field": "capabilities",
+        "type": "string_pattern_mismatch"
+      }
+    ]
+  }
+]

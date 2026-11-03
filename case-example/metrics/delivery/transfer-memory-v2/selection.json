@@ -1,0 +1,56 @@
+{
+  "task_sha256": "sha256:325e325b323fdf09518b8b0bf874ef78d10de51bf7c3e71db4a42e65213055d1",
+  "bindings": {
+    "manifest_sha256": "sha256:da84607c8dca1f6af6f9e6df02ff8ab2ae4c365ecc66e0fac8224e94d1a0ef55",
+    "knowledge_snapshot": "sha256:5055811fdd93c9c07b8752c045158e0edf6e82e0bf5168f3c801b158540a6205",
+    "image_id": "sha256:4ac57c88b37dae806e1542718e900f497dca56f3d8030bd4211d16193108162c",
+    "labels_sha256": "sha256:6a517b2eb58c8139863a5c9439b37bde43e1e4a4b0486a6d1ae94bc395e24be5"
+  },
+  "selected": "memory_utilization_rolling_mad_upper_w30_h15_q99_p2",
+  "plan": {
+    "candidate_id": "memory_utilization_rolling_mad_upper_w30_h15_q99_p2",
+    "config": {
+      "method_id": "rolling_mad",
+      "window": 30,
+      "min_history": 15,
+      "direction": "upper",
+      "quantile": 0.99
+    },
+    "persistence_points": 2,
+    "parameter_sources": {
+      "window": "protocol_default",
+      "min_history": "protocol_default",
+      "direction": "user_explicit",
+      "quantile": "protocol_default",
+      "persistence_points": "user_explicit",
+      "scale_floor": "knowledge:capability-495442200c109b16b45d3bfb8ff7eba7746d1cce28b0631e0893d13cb60e39e9"
+    },
+    "knowledge_ids": [
+      "capability-495442200c109b16b45d3bfb8ff7eba7746d1cce28b0631e0893d13cb60e39e9",
+      "capability-106fc5025f92d2dfec9698b99161e17a6e35a65509b48320d43e5828858adb0f",
+      "capability-ba2670c5ca166ee2f6458d8f8bf37cf3adb2ce63c28bdba06d15d10137a86c42",
+      "chunk-1011e52512074bc8dc412d864d260ab286e30fe8b03606cef419f11535cd65b1",
+      "chunk-61b0a6434b7535057ffdd2e5fa6ae0a7d4788f020e8973b19c650ee48614a369",
+      "chunk-b65a19c4f2a26deb5a0d6d8a588af6f29a3b5bb2b4931befdfdbcb31083a7e13"
+    ],
+    "limitations": [
+      "使用当前点之前最多30个时间槽计算中位数和MAD；真实观测少于15个时为insufficient_history，不输出异常分数。",
+      "0.99分位判定阈值需用至少100个可判断校准分数按nearest-rank估计；当前训练样本数量足够，但仍需在新数据上重新校准验证。",
+      "持续缓慢升高可能逐步进入滚动基线而被吸收，造成发现延迟或漏报；周期性波动可能导致误报。",
+      "短缺失插补值可用于统计但不增加真实历史数，连续缺失超过3点必须返回missing_input。"
+    ]
+  },
+  "source_path": "candidate-eed1519ccc941e1cd33c3e3c07523594fbf1318f9682e67b91309a27e3bed153/v0.py",
+  "source_sha256": "sha256:0754202b7da0758e6c2f655f7c0bfc610a344c78addbb48dc67c461aa5fe02cf",
+  "threshold": 3.093224621208671,
+  "selection": {
+    "status": "SELECTED",
+    "ranking": [
+      "memory_utilization_rolling_mad_upper_w30_h15_q99_p2",
+      "memory_utilization_fixed_upper_85_p2"
+    ],
+    "selected": "memory_utilization_rolling_mad_upper_w30_h15_q99_p2"
+  },
+  "protocol": "metrics-evaluation/1",
+  "selection_sha256": "sha256:4710836f6e832c7de1ba7b928b602c18455536df86264bcc46bd45f501cf74f7"
+}

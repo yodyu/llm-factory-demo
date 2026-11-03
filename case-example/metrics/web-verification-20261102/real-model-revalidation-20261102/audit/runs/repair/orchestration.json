@@ -1,0 +1,316 @@
+{
+  "schema_version": "metrics-orchestration/1",
+  "engine": "langgraph",
+  "graph_version": "metrics-graph/1",
+  "langgraph_version": "1.2.18",
+  "source_sha256": "sha256:598893d7172be2ce9df55973255ef0033977922a15e6ce95c2a077081ab81bee",
+  "task_id": "ui-74cc4a21520a4e1b",
+  "workflow_status": "COMPLETED",
+  "events": [
+    {
+      "node": "preflight",
+      "event": "started",
+      "at_seconds": 0.024975955486297607
+    },
+    {
+      "node": "preflight",
+      "event": "finished",
+      "at_seconds": 0.02703174203634262
+    },
+    {
+      "node": "freeze_knowledge",
+      "event": "started",
+      "at_seconds": 0.02843903750181198
+    },
+    {
+      "node": "freeze_knowledge",
+      "event": "finished",
+      "at_seconds": 0.40353482216596603
+    },
+    {
+      "node": "initialize_task",
+      "event": "started",
+      "at_seconds": 0.40498896315693855
+    },
+    {
+      "node": "initialize_task",
+      "event": "finished",
+      "at_seconds": 0.4543505720794201
+    },
+    {
+      "node": "bind_inputs",
+      "event": "started",
+      "at_seconds": 0.4880240187048912
+    },
+    {
+      "node": "bind_inputs",
+      "event": "finished",
+      "at_seconds": 0.5418948754668236
+    },
+    {
+      "node": "retrieve_knowledge",
+      "event": "started",
+      "at_seconds": 0.5762197263538837
+    },
+    {
+      "node": "retrieve_knowledge",
+      "event": "finished",
+      "at_seconds": 0.6097763031721115
+    },
+    {
+      "node": "plan_candidates",
+      "event": "started",
+      "at_seconds": 0.6439228281378746
+    },
+    {
+      "node": "plan_candidates",
+      "event": "finished",
+      "at_seconds": 27.76962210610509
+    },
+    {
+      "node": "next_candidate",
+      "event": "started",
+      "at_seconds": 27.806341029703617
+    },
+    {
+      "node": "next_candidate",
+      "event": "finished",
+      "at_seconds": 27.806387562304735
+    },
+    {
+      "node": "run_candidate",
+      "event": "started",
+      "at_seconds": 27.973907694220543
+    },
+    {
+      "node": "prepare_candidate",
+      "event": "started",
+      "at_seconds": 27.982140976935625,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 0
+    },
+    {
+      "node": "prepare_candidate",
+      "event": "finished",
+      "at_seconds": 27.988079763948917,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 0
+    },
+    {
+      "node": "generate_version",
+      "event": "started",
+      "at_seconds": 27.989199470728636,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 0
+    },
+    {
+      "node": "generate_version",
+      "event": "finished",
+      "at_seconds": 50.69633873924613,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 0
+    },
+    {
+      "node": "persist_version",
+      "event": "started",
+      "at_seconds": 50.69756671786308,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 0
+    },
+    {
+      "node": "persist_version",
+      "event": "finished",
+      "at_seconds": 50.718369618058205,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 0
+    },
+    {
+      "node": "validate_version",
+      "event": "started",
+      "at_seconds": 50.71963254734874,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 0
+    },
+    {
+      "node": "validate_version",
+      "event": "finished",
+      "at_seconds": 53.436463467776775,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 0
+    },
+    {
+      "node": "reserve_repair",
+      "event": "started",
+      "at_seconds": 53.43813702836633,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 0
+    },
+    {
+      "node": "reserve_repair",
+      "event": "finished",
+      "at_seconds": 53.44654914736748,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 1
+    },
+    {
+      "node": "generate_version",
+      "event": "started",
+      "at_seconds": 53.44763710722327,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 1
+    },
+    {
+      "node": "generate_version",
+      "event": "finished",
+      "at_seconds": 84.52341106906533,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 1
+    },
+    {
+      "node": "persist_version",
+      "event": "started",
+      "at_seconds": 84.5247149169445,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 1
+    },
+    {
+      "node": "persist_version",
+      "event": "finished",
+      "at_seconds": 84.54712157696486,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 1
+    },
+    {
+      "node": "validate_version",
+      "event": "started",
+      "at_seconds": 84.54831352457404,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 1
+    },
+    {
+      "node": "validate_version",
+      "event": "finished",
+      "at_seconds": 87.1448078751564,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 1
+    },
+    {
+      "node": "calibrate_candidate",
+      "event": "started",
+      "at_seconds": 87.1463756673038,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 1
+    },
+    {
+      "node": "calibrate_candidate",
+      "event": "finished",
+      "at_seconds": 87.15706814825535,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 1
+    },
+    {
+      "node": "evaluate_development",
+      "event": "started",
+      "at_seconds": 87.15817023068666,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 1
+    },
+    {
+      "node": "evaluate_development",
+      "event": "finished",
+      "at_seconds": 89.85187002271414,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 1
+    },
+    {
+      "node": "finish_candidate",
+      "event": "started",
+      "at_seconds": 89.853126719594,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 1
+    },
+    {
+      "node": "finish_candidate",
+      "event": "finished",
+      "at_seconds": 89.86080100759864,
+      "candidate_id": "fixed_threshold_memory_upper_85_p2",
+      "version": 1
+    },
+    {
+      "node": "run_candidate",
+      "event": "finished",
+      "at_seconds": 89.86174643412232
+    },
+    {
+      "node": "record_candidate",
+      "event": "started",
+      "at_seconds": 89.89451276138425
+    },
+    {
+      "node": "record_candidate",
+      "event": "finished",
+      "at_seconds": 89.89580044150352
+    },
+    {
+      "node": "next_candidate",
+      "event": "started",
+      "at_seconds": 89.93162449076772
+    },
+    {
+      "node": "next_candidate",
+      "event": "finished",
+      "at_seconds": 89.9316707700491
+    },
+    {
+      "node": "select_candidate",
+      "event": "started",
+      "at_seconds": 89.96606793999672
+    },
+    {
+      "node": "select_candidate",
+      "event": "finished",
+      "at_seconds": 89.96622822061181
+    },
+    {
+      "node": "freeze_selection",
+      "event": "started",
+      "at_seconds": 90.00453246757388
+    },
+    {
+      "node": "freeze_selection",
+      "event": "finished",
+      "at_seconds": 90.02245391905308
+    },
+    {
+      "node": "final_evaluate",
+      "event": "started",
+      "at_seconds": 90.05882550403476
+    },
+    {
+      "node": "final_evaluate",
+      "event": "finished",
+      "at_seconds": 92.79688804969192
+    },
+    {
+      "node": "resolve_outcome",
+      "event": "started",
+      "at_seconds": 92.83278205245733
+    },
+    {
+      "node": "resolve_outcome",
+      "event": "finished",
+      "at_seconds": 92.85177041590214
+    },
+    {
+      "node": "cleanup",
+      "event": "started",
+      "at_seconds": 92.88729832693934
+    },
+    {
+      "node": "cleanup",
+      "event": "finished",
+      "at_seconds": 92.88768224418163
+    }
+  ],
+  "scope": "execution through cleanup; publication and export have separate receipts"
+}

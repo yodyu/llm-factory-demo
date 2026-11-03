@@ -1,0 +1,68 @@
+{
+  "protocol": "metrics-method-check/3",
+  "candidate_id": "fixed",
+  "version": 0,
+  "origin": "mock",
+  "source_sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+  "config": {
+    "method_id": "fixed_threshold",
+    "direction": "upper",
+    "threshold": 85.0
+  },
+  "dependency_profile": "metrics-py312-stdlib/1",
+  "checks": [
+    {
+      "check": "static_profile",
+      "passed": true,
+      "layer": "contract"
+    },
+    {
+      "check": "missing_input_contract",
+      "passed": true,
+      "layer": "contract"
+    },
+    {
+      "check": "state_reload",
+      "passed": true,
+      "layer": "contract"
+    },
+    {
+      "check": "reset_repeat_future_invariance",
+      "passed": true,
+      "layer": "contract"
+    },
+    {
+      "check": "fixed_strict_boundary",
+      "passed": true,
+      "layer": "property",
+      "points": 3
+    },
+    {
+      "check": "fixed_missing",
+      "passed": true,
+      "layer": "property",
+      "points": 6
+    },
+    {
+      "check": "fixed_strict_boundary",
+      "passed": true,
+      "layer": "reference",
+      "points": 3
+    },
+    {
+      "check": "fixed_missing",
+      "passed": true,
+      "layer": "reference",
+      "points": 6
+    }
+  ],
+  "passed": true,
+  "repairable": true,
+  "verification_level": "reference_verified",
+  "capability_version": "1.0.0",
+  "plugin_hashes": {
+    "reference.py": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+    "capability.json": "sha256:7af436aaf7e4a265e7d7e6792a4ac1d6311c8f98453904a136b8692209170bde",
+    "checks.py": "sha256:009933701326684689fb100d585f4bb44d596016fa7d9278147f6999566e9427"
+  }
+}

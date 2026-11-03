@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-11-03T11:07:22.743683+08:00",
+  "source_baseline": "final-classic-source-archive",
+  "normal_web_kept_for_review": 18503,
+  "repair_web_stopped": 18504,
+  "repair_source_restored": true,
+  "source_files_equal_to_commit_in_both_copies": 116,
+  "requests_added": 18,
+  "lifetime_requests": 75,
+  "current_round": 3,
+  "current_round_remaining": 42,
+  "production_8501_unchanged_by_this_run": true
+}

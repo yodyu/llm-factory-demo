@@ -1,0 +1,11 @@
+# 构造专家材料：rolling_mad
+
+适用于单主机单指标 gauge/rate，依赖 metrics-py312-stdlib/1。
+W 默认 30 个时间槽，min_history 默认 15 个真实观测，且 min_history<=W。
+仅用当前点之前最近 W 个槽；统计可用观测含短缺失插补值，但插补不增加真实历史数。
+m=历史中位数，MAD=|历史-m| 的中位数，scale=max(1.4826*MAD, scale_floor)。
+训练原始有效值的 R7 IQR 决定 scale_floor=max(1e-9,IQR*1e-6)。
+upper=(x-m)/scale，lower=(m-x)/scale，two_sided=|x-m|/scale。
+先评分再追加当前点；不可用点也占历史时间槽，历史不足返回 insufficient_history 和空分数。
+calibration 的可判断计分分数至少 100 个，nearest-rank 0.99 分位阈值；不使用标签。
+严格 score>阈值，所有可用点（含异常）均更新窗口，长漂移可能被吸收，周期模式可能误报。

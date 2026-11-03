@@ -1,0 +1,82 @@
+{
+  "candidate_id": "ewma_alpha0.3_upper_p2",
+  "capability_version": "1.1.0",
+  "checks": [
+    {
+      "check": "static_profile",
+      "layer": "contract",
+      "passed": true
+    },
+    {
+      "check": "missing_input_contract",
+      "layer": "contract",
+      "passed": true
+    },
+    {
+      "check": "state_reload",
+      "layer": "contract",
+      "passed": true
+    },
+    {
+      "check": "reset_repeat_future_invariance",
+      "layer": "contract",
+      "passed": true
+    },
+    {
+      "check": "ewma_cold_start",
+      "layer": "property",
+      "passed": true,
+      "points": 3
+    },
+    {
+      "check": "ewma_monotonic_step",
+      "layer": "property",
+      "passed": true,
+      "points": 13
+    },
+    {
+      "check": "ewma_missing",
+      "layer": "property",
+      "passed": true,
+      "points": 8
+    },
+    {
+      "check": "ewma_cold_start",
+      "layer": "reference",
+      "passed": true,
+      "points": 3
+    },
+    {
+      "check": "ewma_monotonic_step",
+      "layer": "reference",
+      "passed": true,
+      "points": 13
+    },
+    {
+      "check": "ewma_missing",
+      "layer": "reference",
+      "passed": true,
+      "points": 8
+    }
+  ],
+  "config": {
+    "alpha": 0.3,
+    "direction": "upper",
+    "method_id": "ewma",
+    "min_history": 3,
+    "quantile": 0.99
+  },
+  "dependency_profile": "metrics-py312-stdlib/1",
+  "origin": "llm_api",
+  "passed": true,
+  "plugin_hashes": {
+    "capability.json": "sha256:99e8d1e67f8b4b1fd9df769136a4b0bb3778393bdb266ccb706b1c289755bded",
+    "checks.py": "sha256:025c96a17a67127db78722b0cfefe382b79c1c22eb88f6cea06c3f6c429c58fd",
+    "reference.py": "sha256:44dd23aa0347c6a21a5bdd5ac6cc405385225bd8af67b44d9c95c93cd66a1333"
+  },
+  "protocol": "metrics-method-check/3",
+  "repairable": true,
+  "source_sha256": "sha256:2235ac3aea50af4e99c77d4b7729621f3190b568e4ce9385a6aa4b498ccbd54b",
+  "verification_level": "reference_verified",
+  "version": 0
+}

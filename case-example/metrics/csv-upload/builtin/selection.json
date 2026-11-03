@@ -1,0 +1,41 @@
+{
+  "task_sha256": "sha256:2083df87f5a983a687905a927387ff8f1f1428459ce19e624b54981fff01bdb5",
+  "bindings": {
+    "manifest_sha256": "sha256:fa1285126d0d20c64f69aacafd732f851b54b704de045560cea5cfc11374e285",
+    "knowledge_snapshot": "sha256:326f233ed3c437ad47d291f9f04e4c78c850350e4b3d7e202d7fca80fdb0cefd",
+    "image_id": "sha256:4ac57c88b37dae806e1542718e900f497dca56f3d8030bd4211d16193108162c",
+    "labels_sha256": "sha256:6a517b2eb58c8139863a5c9439b37bde43e1e4a4b0486a6d1ae94bc395e24be5"
+  },
+  "selected": "fixed",
+  "plan": {
+    "candidate_id": "fixed",
+    "config": {
+      "method_id": "fixed_threshold",
+      "threshold": 85.0,
+      "direction": "upper"
+    },
+    "persistence_points": 2,
+    "parameter_sources": {
+      "threshold": "user_explicit"
+    },
+    "knowledge_ids": [
+      "capability-10ae25e3348a01de76dccd8b39b48b876303cddaa2f2780fd1d270e2dc03c9d1"
+    ],
+    "limitations": [
+      "controlled example"
+    ]
+  },
+  "source_path": "candidate-12aff05139e917c8d6fe0daaa3e2191c2ee3434e51a6a5b5f67e001847ebd5aa/v0.py",
+  "source_sha256": "sha256:8905463c215a83c37c295d265a4c6ef0d1f457911f7cae9320777ddb76c3ce70",
+  "threshold": 0.0,
+  "selection": {
+    "status": "SELECTED",
+    "ranking": [
+      "fixed",
+      "mad"
+    ],
+    "selected": "fixed"
+  },
+  "protocol": "metrics-evaluation/1",
+  "selection_sha256": "sha256:4a955d753c99a50e7387e8f4fa29c0ed6d60de716c40d2f382674ea855503036"
+}

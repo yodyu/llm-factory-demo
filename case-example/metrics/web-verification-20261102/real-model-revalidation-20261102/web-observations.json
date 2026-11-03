@@ -1,0 +1,24 @@
+{
+  "date_range": "2026-11-02 to 2026-11-03 Asia/Shanghai",
+  "normal_web_port": 18503,
+  "repair_web_port": 18504,
+  "real_model": "doubao-seed-2-1-pro-260915",
+  "budget_refresh_observed": {"previous_round": 1, "new_round": 2, "new_limit": 60, "history_preserved": true},
+  "submitted_via_web": {
+    "cpu": "ui-34a756c1b4ac490b",
+    "memory": "ui-15e8770de18747f7",
+    "disk_timeout": "ui-e6121958cd5a44b7",
+    "disk_retry": "ui-da4c1f50a3504008",
+    "repair": "ui-74cc4a21520a4e1b"
+  },
+  "success_pages_observed": ["cpu", "memory", "repair"],
+  "failed_page_observed": ["disk_timeout"],
+  "browser_report_downloads": ["cpu", "memory", "disk_timeout", "repair"],
+  "browser_delivery_downloads": ["cpu"],
+  "screenshot_count": 38,
+  "agent_screenshot_count": 36,
+  "user_supplied_screenshot_count": 2,
+  "user_supplied_success_pages": ["disk_result_overview", "disk_knowledge_basis"],
+  "supplementary_evidence": "user-screenshot-evidence.json",
+  "limitation": "Automated disk success-page observation remains denied by the browser origin permission gate; no bypass was used. On 2026-11-03 the user supplied two unedited PNG screenshots showing the successful disk result overview and knowledge basis. Their visible values match the audited server report. Candidate comparison, full experience IDs and publication receipt remain supported by server artifacts; the supplied images do not show those details."
+}

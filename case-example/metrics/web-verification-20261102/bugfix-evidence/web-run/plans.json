@@ -1,0 +1,127 @@
+{
+  "supported": true,
+  "understanding": "本规划覆盖单主机 gauge 指标 memory_utilization 的上侧异常检测；可信目标为持续升高导致的上侧异常。用户明确给定阈值85%、连续2点触发；采样间隔60秒，训练集约300点且仅有1个缺失。按要求比较允许范围内全部4种已接入方法：EWMA、固定阈值、滚动MAD、阈值探针。当前阶段仅输出检测方案，不生成代码和验证报告；这些应在后续执行/演示阶段完成。",
+  "anomaly_target": "upper",
+  "limitations": [
+    "当前为 plan 阶段，仅返回候选检测配置；代码实现和验证报告不在本阶段输出。",
+    "滚动MAD与EWMA的最终异常判定阈值需由可信侧基于无标签校准分数确定；训练摘要本身不能替代校准结果。",
+    "固定阈值与阈值探针功能等价，主要差异是阈值探针将阈值约束在0到100；两者均使用用户明确给出的85%。",
+    "自适应滚动窗口可能吸收长期持续上升；EWMA使用固定训练基线，更能保留相对训练期的长期上移。"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "ewma_alpha0p3_q99_p2",
+      "config": {
+        "method_id": "ewma",
+        "alpha": 0.3,
+        "min_history": 3,
+        "direction": "upper",
+        "quantile": 0.99
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "alpha": "protocol_default",
+        "min_history": "protocol_default",
+        "direction": "user_explicit",
+        "quantile": "protocol_default",
+        "persistence_points": "user_explicit"
+      },
+      "knowledge_ids": [
+        "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+        "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd",
+        "source-f5e5f8ac42e9fd7f7bb393e7cc89533f14187c96f6d02a17f9fd4374221933b2"
+      ],
+      "limitations": [
+        "固定训练基线可能保留长期偏移；若训练后业务水位整体合理上升，可能增加误报。",
+        "较小alpha会降低对突发尖峰的响应速度；本候选使用默认0.3，未根据模拟数据额外调参。"
+      ],
+      "capability_id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "selection_reason": "EWMA适用于持续变化，并以训练期均值作为固定baseline，对内存利用率逐步升高形成的长期上移较敏感；其upper方向与可信目标完全一致。alpha=0.3、min_history=3和quantile=0.99均来自方法默认配置；连续2点告警来自用户明确约束。假设可信侧会按0.99分位数完成无标签校准，并且默认平滑速度适合本次60秒采样的模拟数据。"
+    },
+    {
+      "candidate_id": "fixed_threshold_85_p2",
+      "config": {
+        "method_id": "fixed_threshold",
+        "threshold": 85.0,
+        "direction": "upper"
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "threshold": "user_explicit",
+        "direction": "user_explicit",
+        "persistence_points": "user_explicit"
+      },
+      "knowledge_ids": [
+        "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+        "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952"
+      ],
+      "limitations": [
+        "只能识别超过85%的水平，不能发现低于85%但相对历史显著升高的趋势。",
+        "等号不触发；值正好为85%时分数为0。",
+        "演示纠正：已移除未提供的知识引用，相关参数不再标记为知识依据。"
+      ],
+      "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "selection_reason": "固定阈值直接表达用户给定的内存利用率85%上侧业务阈值，upper分数为x-85，严格大于0才进入异常候选，再由连续2点规则抑制单点抖动。该方法不需要历史基线，适合与自适应方法进行基准对照。阈值和方向均由用户明确给出，不是候选假设。"
+    },
+    {
+      "candidate_id": "rolling_mad_w30_q99_p2",
+      "config": {
+        "method_id": "rolling_mad",
+        "window": 30,
+        "min_history": 15,
+        "direction": "upper",
+        "quantile": 0.99
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "window": "protocol_default",
+        "min_history": "protocol_default",
+        "direction": "user_explicit",
+        "quantile": "protocol_default",
+        "persistence_points": "user_explicit"
+      },
+      "knowledge_ids": [
+        "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+        "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+        "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a",
+        "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+        "source-b87632b829b20184b15b4a9610c028db947eb04a8672c227b3caa14ff39afcd3",
+        "source-ba12995471501af4d22a092ff63e3420003103c0a364a4769ae2afa939fd5cab"
+      ],
+      "limitations": [
+        "自适应历史窗口可能把持续上升吸收为新基线，因此对“持续升高”场景可能不如固定训练基线敏感。",
+        "周期性模式若未在短窗口中充分表示，可能造成误报。",
+        "至少15个真实观测后才能评分，冷启动阶段为insufficient_history。"
+      ],
+      "capability_id": "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+      "selection_reason": "滚动MAD使用最近30个时间槽的中位数和MAD，检测当前内存利用率相对近期正常水平的上侧偏离；upper方向与任务目标一致。默认窗口和min_history适合60秒采样，并可处理缺失槽及短缺失插补。假设模拟数据中的异常是相对近期基线的显著突增，而不是长达数十分钟的缓慢爬升。"
+    },
+    {
+      "candidate_id": "threshold_probe_85_p2",
+      "config": {
+        "method_id": "threshold_probe",
+        "threshold": 85.0,
+        "direction": "upper"
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "threshold": "user_explicit",
+        "direction": "user_explicit",
+        "persistence_points": "user_explicit"
+      },
+      "knowledge_ids": [
+        "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+        "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+        "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+        "source-c6d85ec31dbd8809fc844451579165bc762b556e94fd925222e0afb96d75a74c",
+        "source-77c556c6553d4192078e1bfdf985a4cd89e45754f491b6ee917b9dcc07769438"
+      ],
+      "limitations": [
+        "与fixed_threshold检测逻辑基本等价，方法层面的差异化信息有限。",
+        "只能捕获超过85%的水平异常，不能单独识别未达85%的趋势性升高。"
+      ],
+      "capability_id": "capability-83a3b18547ffce40c11ca2d018fbc959668cacb379f34c86bde5072744b03919",
+      "selection_reason": "阈值探针与固定阈值同样直接实现用户明确给定的85%上侧阈值，但其参数契约将threshold限制在0到100，和内存利用率百分比的valid_range完全匹配。该候选可作为同一固定阈值规则的契约化对照，并使用连续2点告警。"
+    }
+  ]
+}

@@ -1,0 +1,260 @@
+{
+  "schema_version": "metrics-orchestration/1",
+  "engine": "langgraph",
+  "graph_version": "metrics-graph/1",
+  "langgraph_version": "1.2.18",
+  "source_sha256": "sha256:598893d7172be2ce9df55973255ef0033977922a15e6ce95c2a077081ab81bee",
+  "task_id": "ui-34a756c1b4ac490b",
+  "workflow_status": "COMPLETED",
+  "events": [
+    {
+      "node": "preflight",
+      "event": "started",
+      "at_seconds": 0.02533545345067978
+    },
+    {
+      "node": "preflight",
+      "event": "finished",
+      "at_seconds": 0.02737610414624214
+    },
+    {
+      "node": "freeze_knowledge",
+      "event": "started",
+      "at_seconds": 0.028859026730060577
+    },
+    {
+      "node": "freeze_knowledge",
+      "event": "finished",
+      "at_seconds": 1.1124659553170204
+    },
+    {
+      "node": "initialize_task",
+      "event": "started",
+      "at_seconds": 1.116296160966158
+    },
+    {
+      "node": "initialize_task",
+      "event": "finished",
+      "at_seconds": 1.1642051041126251
+    },
+    {
+      "node": "bind_inputs",
+      "event": "started",
+      "at_seconds": 1.18889319896698
+    },
+    {
+      "node": "bind_inputs",
+      "event": "finished",
+      "at_seconds": 1.239476565271616
+    },
+    {
+      "node": "retrieve_knowledge",
+      "event": "started",
+      "at_seconds": 1.2622683197259903
+    },
+    {
+      "node": "retrieve_knowledge",
+      "event": "finished",
+      "at_seconds": 1.2928307130932808
+    },
+    {
+      "node": "plan_candidates",
+      "event": "started",
+      "at_seconds": 1.318288005888462
+    },
+    {
+      "node": "plan_candidates",
+      "event": "finished",
+      "at_seconds": 29.57667450606823
+    },
+    {
+      "node": "next_candidate",
+      "event": "started",
+      "at_seconds": 29.6034069173038
+    },
+    {
+      "node": "next_candidate",
+      "event": "finished",
+      "at_seconds": 29.60345320403576
+    },
+    {
+      "node": "run_candidate",
+      "event": "started",
+      "at_seconds": 29.628175403922796
+    },
+    {
+      "node": "prepare_candidate",
+      "event": "started",
+      "at_seconds": 29.635989651083946,
+      "candidate_id": "fixed_threshold_cpu_upper_90_p3",
+      "version": 0
+    },
+    {
+      "node": "prepare_candidate",
+      "event": "finished",
+      "at_seconds": 29.64236406236887,
+      "candidate_id": "fixed_threshold_cpu_upper_90_p3",
+      "version": 0
+    },
+    {
+      "node": "generate_version",
+      "event": "started",
+      "at_seconds": 29.643632911145687,
+      "candidate_id": "fixed_threshold_cpu_upper_90_p3",
+      "version": 0
+    },
+    {
+      "node": "generate_version",
+      "event": "finished",
+      "at_seconds": 57.007238786667585,
+      "candidate_id": "fixed_threshold_cpu_upper_90_p3",
+      "version": 0
+    },
+    {
+      "node": "persist_version",
+      "event": "started",
+      "at_seconds": 57.00889889895916,
+      "candidate_id": "fixed_threshold_cpu_upper_90_p3",
+      "version": 0
+    },
+    {
+      "node": "persist_version",
+      "event": "finished",
+      "at_seconds": 57.031356044113636,
+      "candidate_id": "fixed_threshold_cpu_upper_90_p3",
+      "version": 0
+    },
+    {
+      "node": "validate_version",
+      "event": "started",
+      "at_seconds": 57.03279351070523,
+      "candidate_id": "fixed_threshold_cpu_upper_90_p3",
+      "version": 0
+    },
+    {
+      "node": "validate_version",
+      "event": "finished",
+      "at_seconds": 59.68539838120341,
+      "candidate_id": "fixed_threshold_cpu_upper_90_p3",
+      "version": 0
+    },
+    {
+      "node": "calibrate_candidate",
+      "event": "started",
+      "at_seconds": 59.68714564666152,
+      "candidate_id": "fixed_threshold_cpu_upper_90_p3",
+      "version": 0
+    },
+    {
+      "node": "calibrate_candidate",
+      "event": "finished",
+      "at_seconds": 59.69772645831108,
+      "candidate_id": "fixed_threshold_cpu_upper_90_p3",
+      "version": 0
+    },
+    {
+      "node": "evaluate_development",
+      "event": "started",
+      "at_seconds": 59.699044063687325,
+      "candidate_id": "fixed_threshold_cpu_upper_90_p3",
+      "version": 0
+    },
+    {
+      "node": "evaluate_development",
+      "event": "finished",
+      "at_seconds": 62.61489460989833,
+      "candidate_id": "fixed_threshold_cpu_upper_90_p3",
+      "version": 0
+    },
+    {
+      "node": "finish_candidate",
+      "event": "started",
+      "at_seconds": 62.61681164428592,
+      "candidate_id": "fixed_threshold_cpu_upper_90_p3",
+      "version": 0
+    },
+    {
+      "node": "finish_candidate",
+      "event": "finished",
+      "at_seconds": 62.62781624123454,
+      "candidate_id": "fixed_threshold_cpu_upper_90_p3",
+      "version": 0
+    },
+    {
+      "node": "run_candidate",
+      "event": "finished",
+      "at_seconds": 62.629428781569004
+    },
+    {
+      "node": "record_candidate",
+      "event": "started",
+      "at_seconds": 62.66702116653323
+    },
+    {
+      "node": "record_candidate",
+      "event": "finished",
+      "at_seconds": 62.66864771023393
+    },
+    {
+      "node": "next_candidate",
+      "event": "started",
+      "at_seconds": 62.7101360373199
+    },
+    {
+      "node": "next_candidate",
+      "event": "finished",
+      "at_seconds": 62.71020929515362
+    },
+    {
+      "node": "select_candidate",
+      "event": "started",
+      "at_seconds": 62.74943809211254
+    },
+    {
+      "node": "select_candidate",
+      "event": "finished",
+      "at_seconds": 62.74965135753155
+    },
+    {
+      "node": "freeze_selection",
+      "event": "started",
+      "at_seconds": 62.783214282244444
+    },
+    {
+      "node": "freeze_selection",
+      "event": "finished",
+      "at_seconds": 62.799550611525774
+    },
+    {
+      "node": "final_evaluate",
+      "event": "started",
+      "at_seconds": 62.825410053133965
+    },
+    {
+      "node": "final_evaluate",
+      "event": "finished",
+      "at_seconds": 65.62474219501019
+    },
+    {
+      "node": "resolve_outcome",
+      "event": "started",
+      "at_seconds": 65.66373041272163
+    },
+    {
+      "node": "resolve_outcome",
+      "event": "finished",
+      "at_seconds": 65.68534705042839
+    },
+    {
+      "node": "cleanup",
+      "event": "started",
+      "at_seconds": 65.71760531514883
+    },
+    {
+      "node": "cleanup",
+      "event": "finished",
+      "at_seconds": 65.71835081279278
+    }
+  ],
+  "scope": "execution through cleanup; publication and export have separate receipts"
+}

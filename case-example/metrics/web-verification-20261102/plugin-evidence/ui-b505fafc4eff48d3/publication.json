@@ -1,0 +1,18 @@
+{
+  "publication_id": "publication-6e3dc212ce6f985fb0cc01e36eb86ae331bbb3c6493d95bf27a0a34750256322",
+  "node_ids": [
+    "experience-28132cd4f10c9d39648e2959eab7d1fa4625269fd5c7dffd991ff93541c1c27e",
+    "experience-4d92dced192ca9549c742c6025b51fb18ae4316f07990fefa4c5571a085d1f9f",
+    "experience-4e0ea0e6e4c7d13ad3b9143bd052c9681c100971a7661440d1e4e0ccf77d38b6",
+    "experience-5c59300fc69315e5198dd370c2ae4b8083c0df078c8787314e6d31424fa1f225",
+    "implementation-25830e4052ff4b7e32e62245c075cdb32f0c87e9109a6933f8e2df9182ec7187",
+    "implementation-9402ed471596754e0b84e83dbb0fbfb4b89c534e66ed650781d5a1ccec5eefbf",
+    "implementation-f442d68fb8bf4fb4a811917bc830cd1077bfb0c3f79eb5b70d254c87cab5161f",
+    "implementation-faf66ee50c11a251cf3bf8d55179f7c84a421c45fb970453374361672cb5ebb8",
+    "validation-86c16bee6b103e91dd5348dd264282438b3b3b127199fb9f70e4370143f8f5cd",
+    "validation-a2c6eb15a84e833fb1dc235f6371474d7eef6b5f4400925ccd973fd61bc62b7a",
+    "validation-cdae8d6f99f055003c2f7b563141826833792bb86f8f1364a127348d062dde78",
+    "validation-f87ba36426a4e8d8b15e16e0024d1d2deadf548d42d7df8477941381ddd7130a"
+  ],
+  "status": "PUBLISHED"
+}

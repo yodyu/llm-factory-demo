@@ -1,0 +1,17 @@
+{
+  "protocol": "metrics-retrieval-comparison/1",
+  "scenarios": ["cpu_spike", "memory_shift", "memory_drift", "disk_peaks", "network_missing", "periodic"],
+  "conditions": ["none", "structured"],
+  "seed_base": 20261031,
+  "seed_stride": 1009,
+  "prefix_points": 60,
+  "scoring_points": 240,
+  "minimum_coverage": 0.95,
+  "persistence_points": 2,
+  "repair_rounds_per_candidate": 2,
+  "model_calls_per_task": 16,
+  "repeats": 1,
+  "condition_order": "alternate order by scenario index",
+  "thresholds": {"cpu_spike": 85.0, "memory_shift": 85.0, "memory_drift": 85.0, "disk_peaks": 40.0, "network_missing": 2500.0, "periodic": 85.0},
+  "interpretation": "Exploratory synthetic paired runs; raw counts only, no significance or production generalization claim. Thresholds are constructed task parameters, not business acceptance gates."
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "metrics-task/1",
+  "task_id": "builtin",
+  "requirement": "检测内存持续升高，明确业务阈值85，连续两点告警",
+  "dataset_id": "sim-memory_shift-v1",
+  "metric": "memory_utilization",
+  "anomaly_target": "upper",
+  "explicit_constraints": {
+    "threshold": 85.0,
+    "direction": "upper",
+    "persistence_points": 2.0
+  },
+  "ranking_preferences": [],
+  "allowed_methods": [
+    "fixed_threshold",
+    "rolling_mad"
+  ],
+  "knowledge_snapshot": "sha256:326f233ed3c437ad47d291f9f04e4c78c850350e4b3d7e202d7fca80fdb0cefd",
+  "validation_protocol": "metrics-evaluation/1",
+  "budgets": {
+    "model_calls": 16,
+    "repair_rounds": 2,
+    "candidates": 2,
+    "wall_seconds": 900
+  },
+  "model_mode": "mock",
+  "model_profile_id": "metrics-mock-v1"
+}

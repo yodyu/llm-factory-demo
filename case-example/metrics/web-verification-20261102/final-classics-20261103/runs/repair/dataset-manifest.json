@@ -1,0 +1,35 @@
+{
+  "schema_version": "metrics-dataset/1",
+  "dataset_id": "sim-memory_shift-v1",
+  "host_id": "sim-host-a",
+  "metric": "memory_utilization",
+  "unit": "percent",
+  "metric_kind": "gauge",
+  "sampling_seconds": 60,
+  "valid_range": [
+    0.0,
+    100.0
+  ],
+  "roles": {
+    "train": {
+      "path": "train.csv",
+      "sha256": "sha256:40adc27fb19f8208b4efc4456370285a5a06060ad93aa801486dc610c2d05927",
+      "prefix_points": 60
+    },
+    "calibration": {
+      "path": "calibration.csv",
+      "sha256": "sha256:153cf32a2a1632c1740e1ad3c978218618c425caaf408e897ea4058967227345",
+      "prefix_points": 60
+    },
+    "development": {
+      "path": "development.csv",
+      "sha256": "sha256:3f29a345025796c5a35aa8e7a6c016fc8104f184ea20bf0bd70cc0c7cd17862d",
+      "prefix_points": 60
+    },
+    "test": {
+      "path": "test.csv",
+      "sha256": "sha256:827f39ddb84fd990d75543e5506f0838ece47c64fff084ab2c35cfe88893b641",
+      "prefix_points": 60
+    }
+  }
+}

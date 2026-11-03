@@ -1,0 +1,58 @@
+[
+  {
+    "path": "01-fields.txt",
+    "capabilities": 1,
+    "complete_algorithm_specs": 0,
+    "all_origins_llm_api": true,
+    "source_and_citations_rechecked": true
+  },
+  {
+    "path": "02-fixed-threshold.txt",
+    "capabilities": 1,
+    "complete_algorithm_specs": 0,
+    "all_origins_llm_api": true,
+    "source_and_citations_rechecked": true
+  },
+  {
+    "path": "03-rolling-mad.txt",
+    "capabilities": 1,
+    "complete_algorithm_specs": 0,
+    "all_origins_llm_api": true,
+    "source_and_citations_rechecked": true
+  },
+  {
+    "path": "04-evaluation.txt",
+    "capabilities": 4,
+    "complete_algorithm_specs": 0,
+    "all_origins_llm_api": true,
+    "source_and_citations_rechecked": true
+  },
+  {
+    "path": "05-limitations.txt",
+    "capabilities": 3,
+    "complete_algorithm_specs": 0,
+    "all_origins_llm_api": true,
+    "source_and_citations_rechecked": true
+  },
+  {
+    "path": "06-ewma.txt",
+    "capabilities": 1,
+    "complete_algorithm_specs": 0,
+    "all_origins_llm_api": true,
+    "source_and_citations_rechecked": true
+  },
+  {
+    "path": "reference_fixed.py",
+    "capabilities": 2,
+    "complete_algorithm_specs": 0,
+    "all_origins_llm_api": true,
+    "source_and_citations_rechecked": true
+  },
+  {
+    "path": "reference_mad.py",
+    "capabilities": 1,
+    "complete_algorithm_specs": 0,
+    "all_origins_llm_api": true,
+    "source_and_citations_rechecked": true
+  }
+]

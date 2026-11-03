@@ -1,0 +1,136 @@
+{
+  "version": "1.1.0",
+  "task_type": "time_series_anomaly_detection",
+  "inputs": {
+    "type": "object",
+    "required": [
+      "timestamp",
+      "host_id",
+      "value"
+    ],
+    "properties": {
+      "timestamp": {
+        "type": "string"
+      },
+      "host_id": {
+        "type": "string"
+      },
+      "value": {
+        "type": [
+          "number",
+          "null"
+        ]
+      }
+    }
+  },
+  "outputs": {
+    "type": "object",
+    "required": [
+      "timestamp",
+      "host_id",
+      "status",
+      "score",
+      "evidence"
+    ],
+    "properties": {
+      "status": {
+        "enum": [
+          "ok",
+          "insufficient_history",
+          "missing_input",
+          "invalid_input"
+        ]
+      },
+      "evidence": {
+        "type": "object"
+      },
+      "score": {
+        "type": [
+          "number",
+          "null"
+        ]
+      }
+    }
+  },
+  "metric_kinds": [
+    "gauge",
+    "rate"
+  ],
+  "evaluation_metrics": [
+    "event_f1",
+    "point_f1",
+    "normal_false_alarms_per_host_hour",
+    "matched_delay_seconds"
+  ],
+  "dependency_profile": "metrics-py312-stdlib/1",
+  "verification": "reference",
+  "default_candidate": false,
+  "method_id": "ewma",
+  "display_name": "EWMA",
+  "supported_directions": [
+    "upper",
+    "lower",
+    "two_sided"
+  ],
+  "min_history": 3,
+  "calibration": "quantile",
+  "defaults": {
+    "alpha": 0.3,
+    "min_history": 3,
+    "direction": "upper",
+    "quantile": 0.99
+  },
+  "aliases": [
+    "EWMA",
+    "指数加权移动平均",
+    "指数平滑"
+  ],
+  "assumptions": [
+    "适于持续变化；固定训练基线保留长期偏移，较小alpha会降低响应速度。"
+  ],
+  "config_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "alpha",
+      "min_history",
+      "direction",
+      "quantile"
+    ],
+    "properties": {
+      "alpha": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "maximum": 1
+      },
+      "min_history": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 600
+      },
+      "direction": {
+        "enum": [
+          "upper",
+          "lower",
+          "two_sided"
+        ]
+      },
+      "quantile": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "maximum": 1
+      }
+    }
+  },
+  "algorithm_spec": "训练有效值均值为固定baseline，scale=max(1e-9,训练总体标准差)。reset令smooth=baseline,count=0。可用当前值x先更新smooth=alpha*x+(1-alpha)*smooth，只有original_present=True才count+=1。count<min_history时insufficient_history，score=None,evidence={}。否则upper=(smooth-baseline)/scale，lower取反，two_sided取绝对值；evidence含ewma、baseline、scale。value=None时missing_input、score=None、evidence={}，不更新平滑值或计数。fit不得留下角色滚动状态，save/load必须保留全部配置和统计量。",
+  "candidate_name": "ewma",
+  "spec_sources": [
+    {
+      "path": "materials/metrics/06-ewma.txt",
+      "sha256": "sha256:b5f7c12ab2e1ea98e55f6c7d25cbf73ffaa6df42cbbfc42ada8265f23e0092d5",
+      "start_line": 2,
+      "end_line": 8,
+      "quote": "任务类型：time_series_anomaly_detection；输入 gauge 或已换算的 rate，输出 timestamp、host_id、status、score、evidence 字典。\n训练有效值的均值为固定 baseline，scale=max(1e-9,训练有效值的总体标准差)。角色开始 reset 时 smooth=baseline，原始有效点计数 count=0。\n参数 alpha 默认0.3，0<alpha<=1；min_history 默认3，1到600；direction 为 upper/lower/two_sided；quantile 默认0.99，由可信侧在无标签校准集计算。\n当前可用值 x（包括前向插补值）到来，先更新 smooth=alpha*x+(1-alpha)*smooth；只有 original_present=True 时 count 加1。\ncount<min_history 输出 insufficient_history，score=None，evidence={}；足够历史后 upper=(smooth-baseline)/scale，lower 为其相反数，two_sided 为绝对值。\n足够历史时 evidence 包含 ewma、baseline、scale。value=None 输出 missing_input、score=None、evidence={}，不更新计数或平滑值。\nfit 不能保留训练角色的滑动状态；reset 保留训练 baseline/scale，清空计数并恢复 smooth。save_state/load_state 保留配置及全部统计状态。"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "limit": 60,
+  "reserved": 18,
+  "used": 18,
+  "sent": 18,
+  "remaining": 42,
+  "round": 3,
+  "lifetime_reserved": 75,
+  "rounds": [
+    {
+      "轮次": 3,
+      "上限": 60,
+      "已预约": 18,
+      "剩余": 42,
+      "当前轮": true,
+      "开始时间": 1793674425.2551594
+    },
+    {
+      "轮次": 2,
+      "上限": 60,
+      "已预约": 47,
+      "剩余": 13,
+      "当前轮": false,
+      "开始时间": 1793630933.020357
+    },
+    {
+      "轮次": 1,
+      "上限": 60,
+      "已预约": 10,
+      "剩余": 50,
+      "当前轮": false,
+      "开始时间": null
+    }
+  ],
+  "accounting": "reservations include uncertain requests; new rounds require explicit authorization; no history erased"
+}

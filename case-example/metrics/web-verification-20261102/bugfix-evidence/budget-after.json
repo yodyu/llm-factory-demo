@@ -1,0 +1,28 @@
+{
+  "limit": 60,
+  "reserved": 41,
+  "used": 41,
+  "sent": 41,
+  "remaining": 19,
+  "round": 2,
+  "lifetime_reserved": 51,
+  "rounds": [
+    {
+      "\u8f6e\u6b21": 2,
+      "\u4e0a\u9650": 60,
+      "\u5df2\u9884\u7ea6": 41,
+      "\u5269\u4f59": 19,
+      "\u5f53\u524d\u8f6e": true,
+      "\u5f00\u59cb\u65f6\u95f4": 1793630933.020357
+    },
+    {
+      "\u8f6e\u6b21": 1,
+      "\u4e0a\u9650": 60,
+      "\u5df2\u9884\u7ea6": 10,
+      "\u5269\u4f59": 50,
+      "\u5f53\u524d\u8f6e": false,
+      "\u5f00\u59cb\u65f6\u95f4": null
+    }
+  ],
+  "accounting": "reservations include uncertain requests; new rounds require explicit authorization; no history erased"
+}

@@ -1,0 +1,109 @@
+{
+  "acceptance_criteria": {
+    "max_false_alarms_per_hour": null,
+    "min_event_f1": null,
+    "min_event_recall": null
+  },
+  "allowed_methods": [
+    "ewma",
+    "fixed_threshold",
+    "rolling_mad"
+  ],
+  "anomaly_target": "upper",
+  "budgets": {
+    "candidates": 3,
+    "model_calls": 16,
+    "repair_rounds": 2,
+    "wall_seconds": 900
+  },
+  "dataset_id": "sim-memory_shift-v1",
+  "evaluation_objective": "sustained_coverage",
+  "explicit_constraints": {
+    "direction": "upper",
+    "persistence_points": 2.0,
+    "threshold": 85.0
+  },
+  "knowledge_snapshot": "sha256:ca4dc787dfb4ddb2ca0d384de36d6e6ee0b6659171df9950d1fc19fac404078e",
+  "metric": "memory_utilization",
+  "model_mode": "mock",
+  "model_profile_id": "metrics-mock-v1",
+  "ranking_preferences": [],
+  "requirement": "比较固定阈值、滚动MAD和EWMA检测模拟内存持续升高，固定阈值85%，连续两点告警",
+  "requirement_draft": {
+    "binding": "sha256:3bd90956899e2db4cbc0ee8339869d1ea58bc698351c65d2ef1993247f8fe0b6",
+    "defaults": [
+      "选优偏好：balanced",
+      "模拟数据：每 60 秒一点，独立四段；允许最多前向填补 3 点。",
+      "未明确变化形态：CPU默认突增、内存默认阶跃模拟场景；模拟结果不代表生产效果。"
+    ],
+    "evidence": {
+      "data_source": {
+        "origin": "user_explicit",
+        "quote": "模拟",
+        "turn": 1
+      },
+      "direction": {
+        "origin": "user_explicit",
+        "quote": "比较固定阈值、滚动MAD和EWMA检测模拟内存持续升高，固定阈值85%，连续两点告警",
+        "turn": 1
+      },
+      "evaluation_objective": {
+        "origin": "user_explicit",
+        "quote": "比较固定阈值、滚动MAD和EWMA检测模拟内存持续升高，固定阈值85%，连续两点告警",
+        "turn": 1
+      },
+      "methods": {
+        "origin": "user_explicit",
+        "quote": "比较固定阈值、滚动MAD和EWMA检测模拟内存持续升高，固定阈值85%，连续两点告警",
+        "turn": 1
+      },
+      "persistence_points": {
+        "origin": "user_explicit",
+        "quote": "连续两点",
+        "turn": 1
+      },
+      "scenario": {
+        "origin": "user_explicit",
+        "quote": "比较固定阈值、滚动MAD和EWMA检测模拟内存持续升高，固定阈值85%，连续两点告警",
+        "turn": 1
+      },
+      "selection_policy": {
+        "origin": "protocol_default",
+        "quote": "协议默认值",
+        "turn": 0
+      },
+      "threshold": {
+        "origin": "user_explicit",
+        "quote": "阈值85%",
+        "turn": 1
+      }
+    },
+    "issues": [],
+    "model_mode": "mock",
+    "model_usage": {},
+    "parse_task_id": null,
+    "revision": 1,
+    "schema_version": "metrics-requirement-draft/1",
+    "turns": [
+      "比较固定阈值、滚动MAD和EWMA检测模拟内存持续升高，固定阈值85%，连续两点告警"
+    ],
+    "values": {
+      "data_source": "simulation",
+      "direction": "upper",
+      "evaluation_objective": "sustained_coverage",
+      "methods": [
+        "ewma",
+        "fixed_threshold",
+        "rolling_mad"
+      ],
+      "persistence_points": 2,
+      "scenario": "memory_shift",
+      "selection_policy": "balanced",
+      "threshold": 85.0
+    }
+  },
+  "schema_version": "metrics-task/1",
+  "selection_policy": "balanced",
+  "task_id": "ewma-three-candidates",
+  "validation_protocol": "metrics-evaluation/1"
+}

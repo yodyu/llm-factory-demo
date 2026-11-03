@@ -1,0 +1,58 @@
+[
+  {
+    "task_id": "understand-6e91d958fb314898",
+    "status": "SUCCEEDED",
+    "phase": "CREATED",
+    "spec_hash": "sha256:83d7b1bb4585d56e5296040de5b93111fa5c11d8a2c9d1dc439a0f5f3274abc5",
+    "started_at": 1793674458.1684723
+  },
+  {
+    "task_id": "understand-5351dd1f60b04e7d",
+    "status": "SUCCEEDED",
+    "phase": "CREATED",
+    "spec_hash": "sha256:afc16e5ff6493f66a7a890794da528fda22196075c164f0ba9aafbfe1cfd003b",
+    "started_at": 1793674484.2627506
+  },
+  {
+    "task_id": "ui-3dea5cbfa50d4154",
+    "status": "SUCCEEDED",
+    "phase": "COMPLETED",
+    "spec_hash": "sha256:26f45bcef804a43c2ca1466dbe3c7a7b9d90d054708e2a92be23911821da44c8",
+    "started_at": 1793674488.1770756
+  },
+  {
+    "task_id": "ui-5f4299d229da4349",
+    "status": "SUCCEEDED",
+    "phase": "COMPLETED",
+    "spec_hash": "sha256:31c7592c23317b39133b5aea0dde81d40c22d582f437b7a34a420e12915b55cb",
+    "started_at": 1793674506.2793703
+  },
+  {
+    "task_id": "understand-5cded59a1fc9452a",
+    "status": "SUCCEEDED",
+    "phase": "CREATED",
+    "spec_hash": "sha256:c8a2e0d24ee59995276e84df2573b7ece09e5b924c463ec729a2d3b46e2cab90",
+    "started_at": 1793674512.4621077
+  },
+  {
+    "task_id": "ui-1deabf9ab9634a9a",
+    "status": "SUCCEEDED",
+    "phase": "COMPLETED",
+    "spec_hash": "sha256:403ce22d8b73b2cb72d51dc3f9553ce978417513b92dd0c3fcac591002e097db",
+    "started_at": 1793674564.8643148
+  },
+  {
+    "task_id": "understand-4008afee537a4e6d",
+    "status": "SUCCEEDED",
+    "phase": "CREATED",
+    "spec_hash": "sha256:349a01f400ce8f046a5a17ce3d3e3b1a4f4a0789357a75c112638f70245726e4",
+    "started_at": 1793674752.0123522
+  },
+  {
+    "task_id": "ui-1a5c876ccd124f53",
+    "status": "SUCCEEDED",
+    "phase": "COMPLETED",
+    "spec_hash": "sha256:0275f6c36f89d8837bb45d6fd9ce71b99ed9d31b9837f6b6369ccd640747b052",
+    "started_at": 1793674819.2370977
+  }
+]

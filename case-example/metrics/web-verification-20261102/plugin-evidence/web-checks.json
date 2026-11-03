@@ -1,0 +1,39 @@
+{
+  "verification_date": "2026-11-02",
+  "browser": "ChatGPT in-app browser",
+  "url": "http://127.0.0.1:18502/",
+  "mode": "mock",
+  "single_plugin_task": "ui-99ff30ac3e4b45e4",
+  "four_plugin_task": "ui-b505fafc4eff48d3",
+  "observations": {
+    "new_alias_recognized": true,
+    "single_method_not_expanded": true,
+    "invalid_parameter_generation_disabled": true,
+    "four_explicit_methods_recognized": true,
+    "four_candidates_completed": true,
+    "knowledge_publication_visible": true,
+    "graph_implementation_version_and_relationships_visible": true,
+    "reports_downloaded_from_buttons": true,
+    "graph_downloaded_from_button": true,
+    "real_requests_displayed": 0,
+    "tokens_displayed": 0,
+    "two_tasks_visible_after_reload": true
+  },
+  "issue": {
+    "id": "U01",
+    "mode": "mock",
+    "input": "用模拟数据检测单主机内存利用率持续升高，比较全部方法，阈值 85%，连续两点告警，输出代码和验证报告。",
+    "observed_methods": [
+      "fixed_threshold",
+      "rolling_mad"
+    ],
+    "expected_methods": [
+      "ewma",
+      "fixed_threshold",
+      "rolling_mad",
+      "threshold_probe"
+    ],
+    "draft_submitted": false,
+    "status": "unfixed"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "cpu": {
+    "task_id": "ui-3dea5cbfa50d4154",
+    "status": "COMPLETED",
+    "selected": "fixed_upper_cpu_90_p3",
+    "point_f1": 0.6153846153846154,
+    "point_recall": 0.4444444444444444,
+    "event_f1": 0.8,
+    "repairs": 0,
+    "workflow_requests": 2,
+    "workflow_seconds": 58.883552338927984
+  },
+  "memory": {
+    "task_id": "ui-1deabf9ab9634a9a",
+    "status": "COMPLETED",
+    "selected": "ewma_memory_upper_alpha02",
+    "point_f1": 0.9130434782608695,
+    "point_recall": 0.9545454545454546,
+    "event_f1": 1.0,
+    "repairs": 0,
+    "workflow_requests": 4,
+    "workflow_seconds": 209.0492774322629
+  },
+  "disk": {
+    "task_id": "ui-1a5c876ccd124f53",
+    "status": "COMPLETED",
+    "selected": "ewma_alpha0.3_p2_upper",
+    "point_f1": 0.3333333333333333,
+    "point_recall": 0.2,
+    "event_f1": 1.0,
+    "repairs": 0,
+    "workflow_requests": 3,
+    "workflow_seconds": 141.0059504136443
+  },
+  "repair": {
+    "task_id": "ui-5f4299d229da4349",
+    "status": "COMPLETED",
+    "selected": "fixed_threshold_upper_85_p2",
+    "point_f1": 0.9915966386554622,
+    "point_recall": 0.9833333333333333,
+    "event_f1": 1.0,
+    "repairs": 1,
+    "workflow_requests": 3,
+    "workflow_seconds": 115.35369843244553
+  }
+}

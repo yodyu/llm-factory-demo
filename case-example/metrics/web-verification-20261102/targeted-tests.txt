@@ -1,0 +1,3 @@
+Execution: remote deployed .venv, no local project execution
+Command: PYTHONPATH=src:. .venv/bin/python -m pytest tests/metrics/test_selection_regression.py tests/metrics/test_navigation.py -q
+Result: 33 passed in 7.23s

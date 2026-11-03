@@ -1,0 +1,72 @@
+{
+  "task_sha256": "sha256:ed511c3ffd1c1942acdfb4652119cedd1ffe6916f071f5fb2ab852f1c7dcddb2",
+  "bindings": {
+    "image_id": "sha256:ec7e3f613d45080c580bed6c83b6404df77b17a7cb72be69bacc80cce954ed31",
+    "knowledge_snapshot": "sha256:e056a78ec83a7f6dfcd06d3d50d4e6e336d422975cc18551ea0e48ffac0d4f2c",
+    "labels_sha256": "sha256:6a517b2eb58c8139863a5c9439b37bde43e1e4a4b0486a6d1ae94bc395e24be5",
+    "manifest_sha256": "sha256:00b3f7c3aa76ba89a48be6b5d409e069d7b3d50ed42128ad710318ae8db2bfe0"
+  },
+  "selected": "fixed_threshold_memory_upper_85_p2",
+  "plan": {
+    "candidate_id": "fixed_threshold_memory_upper_85_p2",
+    "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+    "config": {
+      "direction": "upper",
+      "method_id": "fixed_threshold",
+      "threshold": 85.0
+    },
+    "knowledge_ids": [
+      "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+      "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+      "chunk-7ac5e3104c65ea345ed16051fd2dfa6aeb1588f1584dc99ac7a53dec3b632191",
+      "chunk-3478558ca578b2421a9eafa4318746e1999211f4102a9c0c15c0327f07b4cdc8",
+      "experience-30c9cf9f0612211c3ae824cb1a5639cdc5948d508a7918ceccb8959fdb3b8c07"
+    ],
+    "limitations": [
+      "不检测“逐步升高”的趋势形态，只检测数值超过85%且持续两点的上位异常。",
+      "固定阈值检测器无历史状态；连续点数计数依赖外部可信告警器或执行框架。",
+      "实现效果需要在新的模拟/真实数据上重新验证，不能由已有经验直接承诺F1、误报率或延迟达标。",
+      "演示纠正：已移除未提供的知识引用，相关参数不再标记为知识依据。"
+    ],
+    "parameter_sources": {
+      "direction": "user_explicit",
+      "method_id": "user_explicit",
+      "persistence_points": "user_explicit",
+      "threshold": "user_explicit"
+    },
+    "persistence_points": 2,
+    "selection_reason": "需求明确限定只使用固定阈值，并给出阈值85%、连续两点告警；该能力支持time_series_anomaly_detection、单主机单指标gauge、upper方向，min_history=0且不需要历史基线。upper分数为x-85，严格score>0才是异常候选；连续两点过滤瞬时越界。假设后续输入字段符合timestamp、host_id、value契约，且85%是用户确认的内存利用率告警阈值而不是从训练分布推断。"
+  },
+  "source_path": "candidate-4083fd02ab0df291a39581c0d2dc24d3c1b64e5bd9b3209d41d74182f83e80ad/v1.py",
+  "source_sha256": "sha256:2a03309ff56fe9b5505a82a1b4a2a58ef9d1c8425de5f7a4f73023d42e4bd527",
+  "threshold": 0.0,
+  "selection": {
+    "basis": "labelled_development",
+    "beta": 1.0,
+    "criteria": [
+      "point_f1_desc",
+      "event_f1_desc",
+      "false_alarm_rate_asc",
+      "matched_delay_asc",
+      "coverage_desc",
+      "candidate_id"
+    ],
+    "objective": "sustained_coverage",
+    "policy": "balanced",
+    "protocol": "metrics-selection/2",
+    "ranking": [
+      "fixed_threshold_memory_upper_85_p2"
+    ],
+    "reason": "按开发集目标及次级 Fβ、正常误报频次、匹配延迟、覆盖率和候选ID排序；最终测试不参与选择。",
+    "requested_policy": "balanced",
+    "selected": "fixed_threshold_memory_upper_85_p2",
+    "status": "SELECTED",
+    "tie_broken_by": "only_eligible_candidate",
+    "warnings": [
+      "LOW_EVENT_COUNT: 真实事件少于5个，事件F1不足以支持统计结论。"
+    ]
+  },
+  "protocol": "metrics-evaluation/1",
+  "selection_sha256": "sha256:13c334ab3a93d87f019b9223d486bc94dc6d2bc49888cbfaf74906f6166b3c87"
+}

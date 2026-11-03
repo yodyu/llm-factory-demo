@@ -1,0 +1,1 @@
+{"requirement": "检测内存持续升高，明确业务阈值85，连续两点告警", "expected_metric": "memory_utilization", "anomaly_target": "upper", "explicit_constraints": {"threshold": 85.0, "direction": "upper", "persistence_points": 2.0}}

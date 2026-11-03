@@ -1,0 +1,6 @@
+{
+  "status": "SUCCEEDED",
+  "output": "/path/to/llm-factory/final-classic-web-20261103/demo/.runtime/final-classic/runs/task-6cc4c14be53053838aa7263d140a4155b0c7fb4eb26a93fe6cc9ac9288009990/delivery.zip",
+  "files": 85,
+  "sha256": "sha256:7ad625ec767dacac1574e219fbb02f24ae92d5d79851004fc04a1fc1578f27cc"
+}

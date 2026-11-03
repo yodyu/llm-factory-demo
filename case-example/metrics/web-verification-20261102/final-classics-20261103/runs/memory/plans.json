@@ -1,0 +1,101 @@
+{
+  "supported": true,
+  "understanding": "任务是在1分钟采样的单主机内存利用率 gauge 指标上，用模拟数据检测缓慢升高且优先覆盖持续异常区间；三种允许方法均按 upper 方向配置，并由共享告警逻辑要求连续2个异常点才报警。固定阈值使用用户明确给出的70%，EWMA使用用户明确给出的alpha=0.2；其余方法参数采用已注册能力的默认值。本阶段输出检测规划，后续代码实现与验证报告应基于该规划开展，并用模拟训练/测试数据复核持续升高场景下的事件覆盖、误报和延迟。",
+  "anomaly_target": "upper",
+  "limitations": [
+    "规划阶段不直接产出代码和验证报告；需在后续实现/验证阶段生成并运行模拟数据。",
+    "rolling_mad的自适应窗口可能吸收长期缓慢抬升，导致持续异常被更新为新基线。",
+    "EWMA固定训练基线可保留长期偏移，但alpha=0.2偏小，可能降低对快速上升的响应速度。",
+    "固定阈值70%仅按用户明确约束用于本次内存利用率检测；阈值是否代表业务合规上限不作额外承诺。",
+    "各能力卡片为专家编写且当前验证级别为contract_only，后续仍需在新模拟数据上重新验证效果。"
+  ],
+  "candidates": [
+    {
+      "candidate_id": "fixed_threshold_memory_upper_70",
+      "config": {
+        "method_id": "fixed_threshold",
+        "threshold": 70.0,
+        "direction": "upper"
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "threshold": "user_explicit",
+        "direction": "user_explicit",
+        "persistence_points": "user_explicit"
+      },
+      "knowledge_ids": [
+        "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+        "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+        "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+        "experience-a8e8e9a87dc1295acaec38b753c50472293b2801394f306dfea6992b210ffadf"
+      ],
+      "limitations": [
+        "无法检测低于70%但相对训练基线异常的缓慢升高。",
+        "阈值附近的瞬时波动会被连续两点规则过滤，可能增加短时事件漏报。",
+        "需要至少一个有效训练值完成fit，但不依赖历史基线。"
+      ],
+      "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "selection_reason": "固定阈值直接对应用户指定的70%内存利用率上限，upper分数为x-70，只有严格超过70才进入异常候选；再由persistence_points=2约束连续两点，适合明确阈值下捕捉持续高位区间。该候选假设模拟值单位为百分比且数值范围与用户给定valid_range一致；不额外宣称70是通用业务达标线。"
+    },
+    {
+      "candidate_id": "rolling_mad_memory_upper_default",
+      "config": {
+        "method_id": "rolling_mad",
+        "window": 30,
+        "min_history": 15,
+        "direction": "upper",
+        "quantile": 0.99
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "window": "protocol_default",
+        "min_history": "protocol_default",
+        "direction": "user_explicit",
+        "quantile": "protocol_default",
+        "persistence_points": "user_explicit"
+      },
+      "knowledge_ids": [
+        "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+        "chunk-540d23ca3e0b80a2dad62cf1c6226169b3fb8c24be12c111857f374835b2e568",
+        "chunk-89dee4a6e8de7c81be4b201100029a46a872709076128ca67b394c6ecd2a4816",
+        "chunk-7dac2ccb0ebc85c7009c621e5b2f788300c84ffc40fb8cac687c24d2a85a217a"
+      ],
+      "limitations": [
+        "缓慢且持续的升高可能在30点窗口内被吸收为新基线，削弱持续异常区间的检测。",
+        "周期性内存使用若未在训练或窗口中充分体现，可能造成误报。",
+        "真实历史不足15个原始观测时返回insufficient_history。"
+      ],
+      "capability_id": "capability-6747a218c8d93e1ea51119c340c872561250a5aff4c107065488b17e1c70419f",
+      "selection_reason": "滚动MAD用最近30个时间槽的中位数和MAD衡量当前点相对局部水平的上偏，适合与固定阈值和EWMA做对照；连续两点报警可减少单点尖峰。默认window=30、min_history=15、quantile=0.99来自能力注册默认值，适用于1分钟采样下约30分钟局部窗口。假设模拟数据的时间槽等间隔且异常点也会更新窗口。"
+    },
+    {
+      "candidate_id": "ewma_memory_upper_alpha02",
+      "config": {
+        "method_id": "ewma",
+        "alpha": 0.2,
+        "min_history": 3,
+        "direction": "upper",
+        "quantile": 0.99
+      },
+      "persistence_points": 2,
+      "parameter_sources": {
+        "alpha": "user_explicit",
+        "min_history": "protocol_default",
+        "direction": "user_explicit",
+        "quantile": "protocol_default",
+        "persistence_points": "user_explicit"
+      },
+      "knowledge_ids": [
+        "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+        "chunk-11ca31cb82ace4c988fd45e3b108a0f0b6956534e4225a49d406aed476b7f8fd"
+      ],
+      "limitations": [
+        "alpha=0.2较小，平滑值响应较慢，可能增加异常开始阶段的检测延迟。",
+        "若训练期标准差接近0，scale会使用1e-9下限，可能放大微小偏移。",
+        "若模拟数据存在强周期或阶跃模式，固定baseline和单一scale可能不适配。"
+      ],
+      "capability_id": "capability-4221130af82542b1e0f26df0f7045cfbf27f62fcd00e47a1478672f2063ccd17",
+      "selection_reason": "EWMA通过平滑值追踪持续变化，并以训练均值baseline和训练标准差scale计算upper分数，较适合内存利用率缓慢升高场景；用户明确alpha=0.2可增强平滑、抑制噪声，配合连续两点规则优先覆盖持续性异常。min_history=3和quantile=0.99采用注册默认值。假设训练有效值能稳定估计baseline/scale，且测试阶段的长期抬升不应被视为新的正常基线。"
+    }
+  ]
+}

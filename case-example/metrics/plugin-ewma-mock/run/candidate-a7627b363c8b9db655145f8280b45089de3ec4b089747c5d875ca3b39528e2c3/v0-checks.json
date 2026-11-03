@@ -1,0 +1,94 @@
+{
+  "protocol": "metrics-method-check/3",
+  "candidate_id": "mad",
+  "version": 0,
+  "origin": "mock",
+  "source_sha256": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+  "config": {
+    "method_id": "rolling_mad",
+    "direction": "upper",
+    "min_history": 15,
+    "quantile": 0.99,
+    "window": 30
+  },
+  "dependency_profile": "metrics-py312-stdlib/1",
+  "checks": [
+    {
+      "check": "static_profile",
+      "passed": true,
+      "layer": "contract"
+    },
+    {
+      "check": "missing_input_contract",
+      "passed": true,
+      "layer": "contract"
+    },
+    {
+      "check": "state_reload",
+      "passed": true,
+      "layer": "contract"
+    },
+    {
+      "check": "reset_repeat_future_invariance",
+      "passed": true,
+      "layer": "contract"
+    },
+    {
+      "check": "mad_past_only",
+      "passed": true,
+      "layer": "property",
+      "points": 17
+    },
+    {
+      "check": "mad_zero_scale",
+      "passed": true,
+      "layer": "property",
+      "points": 33
+    },
+    {
+      "check": "mad_missing_slots",
+      "passed": true,
+      "layer": "property",
+      "points": 50
+    },
+    {
+      "check": "mad_imputed_not_original",
+      "passed": true,
+      "layer": "property",
+      "points": 19
+    },
+    {
+      "check": "mad_past_only",
+      "passed": true,
+      "layer": "reference",
+      "points": 17
+    },
+    {
+      "check": "mad_zero_scale",
+      "passed": true,
+      "layer": "reference",
+      "points": 33
+    },
+    {
+      "check": "mad_missing_slots",
+      "passed": true,
+      "layer": "reference",
+      "points": 50
+    },
+    {
+      "check": "mad_imputed_not_original",
+      "passed": true,
+      "layer": "reference",
+      "points": 19
+    }
+  ],
+  "passed": true,
+  "repairable": true,
+  "verification_level": "reference_verified",
+  "capability_version": "1.0.0",
+  "plugin_hashes": {
+    "reference.py": "sha256:aa1246059df4e8f057f78f274db84d98a52391ad351bd192b654e5ee8cf6c7c7",
+    "capability.json": "sha256:39d8d9a00953b367af3f105a356912956a920f26dcc44796dec0346b3b88fb66",
+    "checks.py": "sha256:2ae8cf000dda9f9f86e3c19c993b76d14af181fba24d81d2a020643fdd9e613c"
+  }
+}

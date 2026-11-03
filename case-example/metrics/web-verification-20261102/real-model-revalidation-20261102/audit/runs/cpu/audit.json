@@ -1,0 +1,644 @@
+{
+  "label": "cpu",
+  "task_id": "ui-34a756c1b4ac490b",
+  "status": "COMPLETED",
+  "origin": "llm_api",
+  "requirement": "用模拟数据生成单主机 CPU 异常检测程序。超过 90% 且连续 3 个采样点才报警，只使用固定阈值，输出代码和验证报告。",
+  "task": {
+    "acceptance_criteria": {
+      "max_false_alarms_per_hour": null,
+      "min_event_f1": null,
+      "min_event_recall": null
+    },
+    "allowed_methods": [
+      "fixed_threshold"
+    ],
+    "anomaly_target": "upper",
+    "budgets": {
+      "candidates": 1,
+      "model_calls": 16,
+      "repair_rounds": 2,
+      "wall_seconds": 900
+    },
+    "dataset_id": "sim-cpu_spike-v1",
+    "evaluation_objective": "event_detection",
+    "explicit_constraints": {
+      "direction": "upper",
+      "persistence_points": 3.0,
+      "threshold": 90.0
+    },
+    "knowledge_snapshot": "sha256:919e8bf13131bfe328ddfb4108fcb9eafc8673b74be9b85b774f428739151dcb",
+    "metric": "cpu_utilization",
+    "model_mode": "api",
+    "model_profile_id": "metrics-c9a0036e73b91ba3",
+    "ranking_preferences": [],
+    "requirement": "用模拟数据生成单主机 CPU 异常检测程序。超过 90% 且连续 3 个采样点才报警，只使用固定阈值，输出代码和验证报告。",
+    "requirement_draft": {
+      "binding": "sha256:b44aa5f27ab7fbb8441ce46aa7337a3cc6b06d994a6c99e2127013aff2fc84cc",
+      "defaults": [
+        "选优偏好：balanced",
+        "评价目标：event_detection",
+        "模拟数据：每 60 秒一点，独立四段；允许最多前向填补 3 点。",
+        "未明确变化形态：CPU默认突增、内存默认阶跃模拟场景；模拟结果不代表生产效果。"
+      ],
+      "evidence": {
+        "data_source": {
+          "origin": "user_explicit",
+          "quote": "模拟",
+          "turn": 1
+        },
+        "direction": {
+          "origin": "user_explicit",
+          "quote": "用模拟数据生成单主机 CPU 异常检测程序。超过 90% 且连续 3 个采样点才报警，只使用固定阈值，输出代码和验证报告。",
+          "turn": 1
+        },
+        "evaluation_objective": {
+          "origin": "protocol_default",
+          "quote": "协议默认值",
+          "turn": 0
+        },
+        "methods": {
+          "origin": "user_explicit",
+          "quote": "用模拟数据生成单主机 CPU 异常检测程序。超过 90% 且连续 3 个采样点才报警，只使用固定阈值，输出代码和验证报告。",
+          "turn": 1
+        },
+        "persistence_points": {
+          "origin": "user_explicit",
+          "quote": "连续 3 个采样点",
+          "turn": 1
+        },
+        "scenario": {
+          "origin": "user_explicit",
+          "quote": "用模拟数据生成单主机 CPU 异常检测程序。超过 90% 且连续 3 个采样点才报警，只使用固定阈值，输出代码和验证报告。",
+          "turn": 1
+        },
+        "selection_policy": {
+          "origin": "protocol_default",
+          "quote": "协议默认值",
+          "turn": 0
+        },
+        "threshold": {
+          "origin": "user_explicit",
+          "quote": "超过 90%",
+          "turn": 1
+        }
+      },
+      "issues": [],
+      "model_mode": "api",
+      "model_usage": {
+        "input_tokens": 975,
+        "kind": "api",
+        "missing_usage_requests": 0,
+        "notice": "Counts include retries and repairs; tokens are provider-reported only; missing usage is not zero.",
+        "output_tokens": 128,
+        "requests": 1,
+        "reservations": 1,
+        "total_tokens": 1103
+      },
+      "parse_task_id": "understand-343cee7162864ae0",
+      "revision": 1,
+      "schema_version": "metrics-requirement-draft/1",
+      "turns": [
+        "用模拟数据生成单主机 CPU 异常检测程序。超过 90% 且连续 3 个采样点才报警，只使用固定阈值，输出代码和验证报告。"
+      ],
+      "values": {
+        "data_source": "simulation",
+        "direction": "upper",
+        "evaluation_objective": "event_detection",
+        "methods": [
+          "fixed_threshold"
+        ],
+        "persistence_points": 3,
+        "scenario": "cpu_spike",
+        "selection_policy": "balanced",
+        "threshold": 90.0
+      }
+    },
+    "schema_version": "metrics-task/1",
+    "selection_policy": "balanced",
+    "task_id": "ui-34a756c1b4ac490b",
+    "validation_protocol": "metrics-evaluation/1"
+  },
+  "usage": {
+    "kind": "api",
+    "requests": 2,
+    "reservations": 2,
+    "input_tokens": 29619,
+    "output_tokens": 2347,
+    "total_tokens": 31966,
+    "missing_usage_requests": 0,
+    "notice": "Counts include retries and repairs; tokens are provider-reported only; missing usage is not zero."
+  },
+  "knowledge_usage": {
+    "supplied": [
+      "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "chunk-2d0ddc000c30e78b533d4f4dda1c0eb1c252a479521febd8fd65f31dbf399938",
+      "chunk-3478558ca578b2421a9eafa4318746e1999211f4102a9c0c15c0327f07b4cdc8",
+      "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+      "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+      "chunk-7ac5e3104c65ea345ed16051fd2dfa6aeb1588f1584dc99ac7a53dec3b632191",
+      "chunk-cc6f404da734a520b42e2665491dfb48ef7799eaa117e5236e7b5370623beebd",
+      "source-77c556c6553d4192078e1bfdf985a4cd89e45754f491b6ee917b9dcc07769438",
+      "source-c6d85ec31dbd8809fc844451579165bc762b556e94fd925222e0afb96d75a74c"
+    ],
+    "cited": [
+      "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+      "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+      "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+      "chunk-7ac5e3104c65ea345ed16051fd2dfa6aeb1588f1584dc99ac7a53dec3b632191"
+    ],
+    "references": [
+      {
+        "候选": "fixed_threshold_cpu_upper_90_p3",
+        "阶段": "方案",
+        "知识ID": [
+          "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+          "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+          "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+          "chunk-7ac5e3104c65ea345ed16051fd2dfa6aeb1588f1584dc99ac7a53dec3b632191"
+        ]
+      },
+      {
+        "候选": "fixed_threshold_cpu_upper_90_p3",
+        "阶段": "代码 v0",
+        "知识ID": [
+          "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+          "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+          "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+          "chunk-7ac5e3104c65ea345ed16051fd2dfa6aeb1588f1584dc99ac7a53dec3b632191"
+        ]
+      }
+    ],
+    "unprovided_citations": [],
+    "supplied_experiences": [],
+    "cited_experiences": []
+  },
+  "prompts": [
+    {
+      "call_id": "ui-34a756c1b4ac490b:plan:format-0",
+      "prompt_sha256": "sha256:59d425e00fb00e447b635dd783cfb53bca7b1f2a96977e15e3f14cdc27cd355b",
+      "provided_experience_ids": [],
+      "has_previous_source": false,
+      "has_development_feedback": false
+    },
+    {
+      "call_id": "ui-34a756c1b4ac490b:code-fixed_threshold_cpu_upper_90_p3-v0:format-0",
+      "prompt_sha256": "sha256:e490b23d42dedf24def39e53001d9ba4da6585d47300b7646429dfc512bdc47e",
+      "provided_experience_ids": [],
+      "has_previous_source": false,
+      "has_development_feedback": false
+    }
+  ],
+  "operations": [
+    {
+      "operation_id": "ui-34a756c1b4ac490b:plan:format-0",
+      "resource": "model",
+      "status": "SUCCEEDED",
+      "metadata": {
+        "actual_model": "doubao-seed-2-1-pro-260915",
+        "elapsed_seconds": 28.168166186660528,
+        "failure_code": null,
+        "input_tokens": 11349,
+        "output_tokens": 873,
+        "profile_id": "metrics-c9a0036e73b91ba3"
+      }
+    },
+    {
+      "operation_id": "ui-34a756c1b4ac490b:code-fixed_threshold_cpu_upper_90_p3-v0:format-0",
+      "resource": "model",
+      "status": "SUCCEEDED",
+      "metadata": {
+        "actual_model": "doubao-seed-2-1-pro-260915",
+        "elapsed_seconds": 27.298818100243807,
+        "failure_code": null,
+        "input_tokens": 18270,
+        "output_tokens": 1474,
+        "profile_id": "metrics-c9a0036e73b91ba3"
+      }
+    },
+    {
+      "operation_id": "ui-34a756c1b4ac490b:check-fixed_threshold_cpu_upper_90_p3-v0",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-34a756c1b4ac490b:development-fixed_threshold_cpu_upper_90_p3",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-34a756c1b4ac490b:final-test",
+      "resource": "metrics-code",
+      "status": "SUCCEEDED",
+      "metadata": {}
+    },
+    {
+      "operation_id": "ui-34a756c1b4ac490b:knowledge:publication-40b62d87bbf0e09aedd1c4e9ea7747e4dbf66eb97d2e208c7d40fceec90049e4",
+      "resource": "knowledge-publication",
+      "status": "SUCCEEDED",
+      "metadata": {
+        "payload_ref": "sha256:26b7b53600944faf0f586033ac485819dccf68b135c76294f6f3496d6efe7ff6",
+        "publication_id": "publication-40b62d87bbf0e09aedd1c4e9ea7747e4dbf66eb97d2e208c7d40fceec90049e4"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "fixed_threshold_cpu_upper_90_p3",
+      "config": {
+        "direction": "upper",
+        "method_id": "fixed_threshold",
+        "threshold": 90.0
+      },
+      "development": {
+        "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+        "coverage": {
+          "denominator": 240,
+          "null_reason": null,
+          "numerator": 240,
+          "value": 1.0
+        },
+        "effect_status": "MEASURED",
+        "engineering_status": "PASSED",
+        "event": {
+          "f1": {
+            "denominator": 5,
+            "null_reason": null,
+            "numerator": 4,
+            "value": 0.8
+          },
+          "fn": 1,
+          "fp": 0,
+          "pairs": [
+            {
+              "delay_seconds": 120.0,
+              "prediction_id": "pred-0000",
+              "truth_id": "truth-0000"
+            },
+            {
+              "delay_seconds": 120.0,
+              "prediction_id": "pred-0001",
+              "truth_id": "truth-0002"
+            }
+          ],
+          "precision": {
+            "denominator": 2,
+            "null_reason": null,
+            "numerator": 2,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 3,
+            "null_reason": null,
+            "numerator": 2,
+            "value": 0.6666666666666666
+          },
+          "tp": 2,
+          "unmatched_prediction_ids": [],
+          "unmatched_truth_ids": [
+            "truth-0001"
+          ]
+        },
+        "execution_status": "SUCCEEDED",
+        "matched_delay_seconds": {
+          "maximum": 120.0,
+          "median": 120.0,
+          "missed_events": 1,
+          "null_reason": null
+        },
+        "normal_false_alarms_per_host_hour": {
+          "denominator": 13860,
+          "null_reason": null,
+          "numerator": 0,
+          "value": 0.0
+        },
+        "peak_memory_bytes": null,
+        "peak_memory_null_reason": "not_measured",
+        "point": {
+          "abstained_normal": 0,
+          "f1": {
+            "denominator": 13,
+            "null_reason": null,
+            "numerator": 8,
+            "value": 0.6153846153846154
+          },
+          "fn": 5,
+          "fp": 0,
+          "precision": {
+            "denominator": 4,
+            "null_reason": null,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 9,
+            "null_reason": null,
+            "numerator": 4,
+            "value": 0.4444444444444444
+          },
+          "tn": 231,
+          "total": 240,
+          "tp": 4
+        },
+        "predicted_events": [
+          {
+            "end_at": "2026-01-03T01:38:00Z",
+            "event_id": "pred-0000",
+            "host_id": "sim-host-a",
+            "metric": "cpu_utilization",
+            "start_at": "2026-01-03T01:37:00Z",
+            "trigger_at": "2026-01-03T01:37:00Z"
+          },
+          {
+            "end_at": "2026-01-03T04:05:00Z",
+            "event_id": "pred-0001",
+            "host_id": "sim-host-a",
+            "metric": "cpu_utilization",
+            "start_at": "2026-01-03T04:02:00Z",
+            "trigger_at": "2026-01-03T04:02:00Z"
+          }
+        ],
+        "protocol": "metrics-evaluation/1",
+        "runtime_seconds": 0.10557932406663895,
+        "truth_events": [
+          {
+            "end_at": "2026-01-03T01:38:00Z",
+            "event_id": "truth-0000",
+            "host_id": "sim-host-a",
+            "metric": "cpu_utilization",
+            "start_at": "2026-01-03T01:35:00Z",
+            "trigger_at": "2026-01-03T01:35:00Z"
+          },
+          {
+            "end_at": "2026-01-03T03:01:00Z",
+            "event_id": "truth-0001",
+            "host_id": "sim-host-a",
+            "metric": "cpu_utilization",
+            "start_at": "2026-01-03T03:00:00Z",
+            "trigger_at": "2026-01-03T03:00:00Z"
+          },
+          {
+            "end_at": "2026-01-03T04:05:00Z",
+            "event_id": "truth-0002",
+            "host_id": "sim-host-a",
+            "metric": "cpu_utilization",
+            "start_at": "2026-01-03T04:00:00Z",
+            "trigger_at": "2026-01-03T04:00:00Z"
+          }
+        ]
+      },
+      "versions": [
+        {
+          "version": 0,
+          "origin": "llm_api",
+          "source_path": "candidate-6e556c02624664f884d552b08ca090710acb4dc9c627b97f2d129c9a226c44d5/v0.py",
+          "source_sha256": "sha256:1cda364b1636b5325c6102212290ec2adca40c058f0369926bb2d53f97a0626a",
+          "parent_source_sha256": null,
+          "capability_id": "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+          "capability_version": "1.1.0",
+          "specification_sha256": "sha256:d78418b686499b015abb691e10e65fad63592d12ad25bcab36e2ced5af7a2060",
+          "knowledge_ids": [
+            "capability-980278873da6192086687b800c048bd4ab9a43d94e9f70b85bbac707a6b8e7c2",
+            "chunk-6e26ee889962cededda5b592fdb65c8638e92974b684d337218eebe3bd42d952",
+            "chunk-4cde96ee5d5f4c785edb11ca42de730e583dec8ac36327aa9388973ab7666a09",
+            "chunk-7ac5e3104c65ea345ed16051fd2dfa6aeb1588f1584dc99ac7a53dec3b632191"
+          ],
+          "passed": true,
+          "verification_level": "reference_verified",
+          "checks": [
+            {
+              "check": "static_profile",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "missing_input_contract",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "state_reload",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "reset_repeat_future_invariance",
+              "layer": "contract",
+              "passed": true
+            },
+            {
+              "check": "fixed_strict_boundary",
+              "layer": "property",
+              "passed": true,
+              "points": 3
+            },
+            {
+              "check": "fixed_missing",
+              "layer": "property",
+              "passed": true,
+              "points": 6
+            },
+            {
+              "check": "fixed_strict_boundary",
+              "layer": "reference",
+              "passed": true,
+              "points": 3
+            },
+            {
+              "check": "fixed_missing",
+              "layer": "reference",
+              "passed": true,
+              "points": 6
+            }
+          ],
+          "implementation_ids": [
+            "implementation-5ef4331fcfee11655a7c23d9e0e51f8b43feaddb271815e13c8fab664dc3faab"
+          ]
+        }
+      ]
+    }
+  ],
+  "selection": {
+    "basis": "labelled_development",
+    "beta": 1.0,
+    "criteria": [
+      "event_f1_desc",
+      "point_f1_desc",
+      "false_alarm_rate_asc",
+      "matched_delay_asc",
+      "coverage_desc",
+      "candidate_id"
+    ],
+    "objective": "event_detection",
+    "policy": "balanced",
+    "protocol": "metrics-selection/2",
+    "ranking": [
+      "fixed_threshold_cpu_upper_90_p3"
+    ],
+    "reason": "按开发集目标及次级 Fβ、正常误报频次、匹配延迟、覆盖率和候选ID排序；最终测试不参与选择。",
+    "requested_policy": "balanced",
+    "selected": "fixed_threshold_cpu_upper_90_p3",
+    "status": "SELECTED",
+    "tie_broken_by": "only_eligible_candidate",
+    "warnings": [
+      "LOW_EVENT_COUNT: 真实事件少于5个，事件F1不足以支持统计结论。"
+    ]
+  },
+  "final": {
+    "acceptance_status": "MEASURED_NO_ACCEPTANCE_THRESHOLD",
+    "coverage": {
+      "denominator": 240,
+      "null_reason": null,
+      "numerator": 240,
+      "value": 1.0
+    },
+    "effect_status": "MEASURED",
+    "engineering_status": "PASSED",
+    "event": {
+      "f1": {
+        "denominator": 5,
+        "null_reason": null,
+        "numerator": 4,
+        "value": 0.8
+      },
+      "fn": 1,
+      "fp": 0,
+      "pairs": [
+        {
+          "delay_seconds": 120.0,
+          "prediction_id": "pred-0000",
+          "truth_id": "truth-0000"
+        },
+        {
+          "delay_seconds": 120.0,
+          "prediction_id": "pred-0001",
+          "truth_id": "truth-0002"
+        }
+      ],
+      "precision": {
+        "denominator": 2,
+        "null_reason": null,
+        "numerator": 2,
+        "value": 1.0
+      },
+      "recall": {
+        "denominator": 3,
+        "null_reason": null,
+        "numerator": 2,
+        "value": 0.6666666666666666
+      },
+      "tp": 2,
+      "unmatched_prediction_ids": [],
+      "unmatched_truth_ids": [
+        "truth-0001"
+      ]
+    },
+    "execution_status": "SUCCEEDED",
+    "matched_delay_seconds": {
+      "maximum": 120.0,
+      "median": 120.0,
+      "missed_events": 1,
+      "null_reason": null
+    },
+    "normal_false_alarms_per_host_hour": {
+      "denominator": 13860,
+      "null_reason": null,
+      "numerator": 0,
+      "value": 0.0
+    },
+    "peak_memory_bytes": null,
+    "peak_memory_null_reason": "not_measured",
+    "phase": "test",
+    "point": {
+      "abstained_normal": 0,
+      "f1": {
+        "denominator": 13,
+        "null_reason": null,
+        "numerator": 8,
+        "value": 0.6153846153846154
+      },
+      "fn": 5,
+      "fp": 0,
+      "precision": {
+        "denominator": 4,
+        "null_reason": null,
+        "numerator": 4,
+        "value": 1.0
+      },
+      "recall": {
+        "denominator": 9,
+        "null_reason": null,
+        "numerator": 4,
+        "value": 0.4444444444444444
+      },
+      "tn": 231,
+      "total": 240,
+      "tp": 4
+    },
+    "predicted_events": [
+      {
+        "end_at": "2026-01-04T01:38:00Z",
+        "event_id": "pred-0000",
+        "host_id": "sim-host-a",
+        "metric": "cpu_utilization",
+        "start_at": "2026-01-04T01:37:00Z",
+        "trigger_at": "2026-01-04T01:37:00Z"
+      },
+      {
+        "end_at": "2026-01-04T04:05:00Z",
+        "event_id": "pred-0001",
+        "host_id": "sim-host-a",
+        "metric": "cpu_utilization",
+        "start_at": "2026-01-04T04:02:00Z",
+        "trigger_at": "2026-01-04T04:02:00Z"
+      }
+    ],
+    "protocol": "metrics-evaluation/1",
+    "runtime_seconds": 0.10367242246866226,
+    "selected": "fixed_threshold_cpu_upper_90_p3",
+    "selection_sha256": "sha256:f0c2ce4539c38f81e036029900468f7f9a755b45d6dea8a5a777239f669bc95d",
+    "test_execution_started": true,
+    "truth_events": [
+      {
+        "end_at": "2026-01-04T01:38:00Z",
+        "event_id": "truth-0000",
+        "host_id": "sim-host-a",
+        "metric": "cpu_utilization",
+        "start_at": "2026-01-04T01:35:00Z",
+        "trigger_at": "2026-01-04T01:35:00Z"
+      },
+      {
+        "end_at": "2026-01-04T03:01:00Z",
+        "event_id": "truth-0001",
+        "host_id": "sim-host-a",
+        "metric": "cpu_utilization",
+        "start_at": "2026-01-04T03:00:00Z",
+        "trigger_at": "2026-01-04T03:00:00Z"
+      },
+      {
+        "end_at": "2026-01-04T04:05:00Z",
+        "event_id": "truth-0002",
+        "host_id": "sim-host-a",
+        "metric": "cpu_utilization",
+        "start_at": "2026-01-04T04:00:00Z",
+        "trigger_at": "2026-01-04T04:00:00Z"
+      }
+    ]
+  },
+  "publication": {
+    "publication_id": "publication-40b62d87bbf0e09aedd1c4e9ea7747e4dbf66eb97d2e208c7d40fceec90049e4",
+    "node_ids": [
+      "experience-30c9cf9f0612211c3ae824cb1a5639cdc5948d508a7918ceccb8959fdb3b8c07",
+      "implementation-5ef4331fcfee11655a7c23d9e0e51f8b43feaddb271815e13c8fab664dc3faab",
+      "validation-3004de5fe96108d475adad2c2fc861a43a52763ccb77c7cf9943f8881a0ebc74"
+    ],
+    "status": "PUBLISHED"
+  },
+  "failure": null,
+  "workflow_runtime_seconds": 65.745360404253,
+  "browser_download_checked": true,
+  "download_matches_server": true,
+  "page_capture_limitation": null
+}
